@@ -1,3 +1,7 @@
+/*
+Given an N*N integer square matrix, rotate it by 90 degrees in clockwise direction.
+Try using it without any extra space.
+*/
 #include<iostream>
 using namespace std;
 

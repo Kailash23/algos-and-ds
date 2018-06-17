@@ -1,4 +1,7 @@
-// Merge two sorted arrays
+/*
+Given two sorted arrays of Size M and N respectively, merge them into a third array such that the third array is also sorted.
+*/
+
 #include<iostream>
 using namespace std;
 

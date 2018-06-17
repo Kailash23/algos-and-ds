@@ -1,3 +1,7 @@
+/*
+Given two strings, check if they are permutations of each other. Return true or false.
+Permutation means - length of both the strings should same and should contain same set of characters. Order of characters doesn't matter.
+*/
 #include<iostream>
 #include<cstring>
 using namespace std;
