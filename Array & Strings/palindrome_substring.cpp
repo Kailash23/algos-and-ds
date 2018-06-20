@@ -57,6 +57,6 @@ int countPalindromeSubstrings(char s[]) {
 }
 
 int main(){
-	char arr[]={"abcdeabcf"};
+	char arr[]={"abaabaaabbcac"};
 	countPalindromeSubstrings(arr);
 }
