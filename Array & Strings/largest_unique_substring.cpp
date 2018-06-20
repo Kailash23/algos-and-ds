@@ -1,3 +1,6 @@
+/*
+Given a string S, find the largest substring with no repetition i.e. largest substring which contain all unique characters.
+*/
 #include<cstring>
 #include<iostream>
 #include<limits.h>
@@ -13,14 +16,11 @@ void findLargestUniqueSubstring(char input[], char output[]){
 		if(flag==0){
 			i=start;
 		}
-		cout<<"i: "<<i<<endl;
 		if(visited[input[i]]==0){
-			cout<<input[i]<<" unique:"<<endl;
 			visited[input[i]]=1;
 			cur_len++;
 			flag=1;
 		} else {
-			cout<<input[i]<<" dublicate:"<<endl;
 			if(cur_len>max_len){
 				max_len=cur_len;
 				beg=start;
@@ -30,7 +30,6 @@ void findLargestUniqueSubstring(char input[], char output[]){
 			memset(visited,0,sizeof(visited));
 			cur_len=0;
 		}
-		cout<<endl;
 		++i;
 	}
 	int s=0;
@@ -39,7 +38,6 @@ void findLargestUniqueSubstring(char input[], char output[]){
 	}
 	output[s]='\0';
 	cout<<output;
-
 }
 
 int main(){
