@@ -6,7 +6,7 @@ int countPalindromeSubstrings(char s[]) {
 
 	int left=0,right=0,mid,count=0,start=0,end=0,flag=1,i=0,n,mid1,mid2;
     n = strlen(s);
-
+	// Counting odd palindrome substring
 	while(s[i]!='\0'){
 		count++;
 		mid = i;
@@ -35,6 +35,8 @@ int countPalindromeSubstrings(char s[]) {
 
 		flag=1;
 		i=0;
+
+		// Counting even palindrome substring
 		while(s[i]!='\0'){
 			mid1 = i;
 			mid2 = i+1;
