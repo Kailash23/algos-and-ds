@@ -7,12 +7,11 @@ void splitword(string str) {
 	short counter = 0;
 
 	for(short i=0;i<str.length();i++){
-		strWords[counter]+= str[i];
-		if(str[i] == '_'){
+		if(str[i] == ' '){
 			counter++;
-			//i++;
+			i++;
 		}
-
+		strWords[counter]+= str[i];
 	}
 
 	for(int k=0;k<=4;k++){
@@ -23,6 +22,6 @@ void splitword(string str) {
 
 
 int main(){
-	string s={"Helloo_world_good_morniing"};
+	string s={"Helloo world good morniing"};
 	splitword(s);
 }
