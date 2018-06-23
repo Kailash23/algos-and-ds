@@ -1,3 +1,7 @@
+/*
+Remove Duplicates from an array
+*/
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
