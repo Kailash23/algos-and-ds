@@ -60,6 +60,12 @@ class ourmap {
 		}
 		return hashCode % numBuckets;
 	}
+
+	public:
+	double getLoadFactor(){
+		return (1.0*count)/numBuckets;
+	}
+
 	//REHASH
 	void rehash(){
 		MapNode<V>** temp = buckets;		//point temp to buckets array
@@ -117,7 +123,7 @@ class ourmap {
 		int bucketIndex = getBucketIndex(key);		//Get bucket index using key
 		MapNode<V>* head = buckets[bucketIndex];		//Get head of LL at bucket index
 		while(head != NULL){
-			if(head->key = key){
+			if(head->key == key){
 				return head->value;
 			}
 			head = head->next;
