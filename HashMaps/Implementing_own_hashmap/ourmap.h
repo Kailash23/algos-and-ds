@@ -21,15 +21,15 @@ public:
 
 template <typename V>
 class ourmap {
-	MapNode<V>** buckets;   //Array to store LL head
-	int count;				// LL head MapNode<V>*
-	int numBuckets;
+	MapNode<V>** buckets;   //Array to store LL head ,LL head MapNode<V>*
+	int count;		//Used to track num of entries in hashmap
+	int numBuckets;		//Size of our hashmap
 
 	public:					//Constructor
 	ourmap(){
-		count=0;
+		count=0;		//Initailly count is 0, cuz no elements
 		numBuckets=5;
-		buckets = new MapNode<V>*[numBuckets];   // we created array of size 5
+		buckets = new MapNode<V>*[numBuckets];   // we created array of size 5 (Dynamic alloc of array)
 		for(int i=0;i<numBuckets;i++){
 			buckets[i] = NULL;		// Initialising with NULL
 		}
@@ -53,10 +53,10 @@ class ourmap {
 		int hashCode=0;
 		int currentCoeff = 1;
 		for(int i= key.length()-1;i>=0;i--){		//It might go out of integer
-			hashCode += key[i]+ currentCoeff;		//range so we used %
-			hashCode = hashCode % numBuckets;
-		    currentCoeff*= 37;
-			currentCoeff = currentCoeff % numBuckets;
+			hashCode += key[i] * currentCoeff;		//range so we used %
+			hashCode %= numBuckets;
+		    currentCoeff*= 37;		//Prime coeff will give equal distribution of entries in array
+			currentCoeff %= numBuckets;
 		}
 		return hashCode % numBuckets;
 	}
