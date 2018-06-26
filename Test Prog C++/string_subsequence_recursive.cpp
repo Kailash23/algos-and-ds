@@ -14,7 +14,7 @@ void print_subs(string input, string output){
 }
 
 int main(){
-	string input = "HELLO";
+	string input = "JUGGERNAUT";
 	string output = "";
 	print_subs(input, output);
 }
