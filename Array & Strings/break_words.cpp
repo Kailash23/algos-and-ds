@@ -1,3 +1,8 @@
+/*
+Break words
+You are given a sentence contained in given string S. Write a function which will replace all the words within the sentence whose length is even and greater than equal to 4, with a space between the two equal halves of the word.
+Space complexity should be O(1).
+*/
 #include<iostream>
 #include<cstring>
 #include<vector>
@@ -38,6 +43,10 @@ void breakWords(char* S) {
 
 	for(int j=0;j<str.length();j++){
 		S[ind++] = str[j];
+	}
+
+	for(int j=0;j<str.length();j++){
+		cout<<S[j];
 	}
 }
 

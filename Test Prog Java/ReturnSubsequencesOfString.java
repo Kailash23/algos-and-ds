@@ -1,5 +1,5 @@
 //return Subsequences in Java
-public class Subsequences {
+public class ReturnSubsequencesOfString {
 
 	public static String[] findSubsequences(String str){
 
