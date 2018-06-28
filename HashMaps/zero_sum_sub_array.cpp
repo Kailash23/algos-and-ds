@@ -1,3 +1,8 @@
+/*
+Zero Sum Sub-Array
+You are given with an array (of size N) consisting of positive and negative integers that contain numbers in random order.
+Write a program to return true if there exists a sub-array whose sum is zero else, return false.
+*/
 #include<iostream>
 #include<unordered_map>
 using namespace std;
