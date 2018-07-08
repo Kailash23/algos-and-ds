@@ -14,19 +14,25 @@ void findLargestUniqueSubstring(char input[], char output[]){
 	i=start;
 	while(i<n){
 		if(flag==0){
-			i=start;
+			i = start;
 		}
 		if(visited[input[i]]==0){
+			if(i == n-1){
+				flag=0;
+			} else {
+				flag=1;
+			}
 			visited[input[i]]=1;
 			cur_len++;
-			flag=1;
 		} else {
+			flag=0;
+		}
+		if(flag == 0){
 			if(cur_len>max_len){
 				max_len=cur_len;
 				beg=start;
 			}
 			start++;
-			flag=0;
 			memset(visited,0,sizeof(visited));
 			cur_len=0;
 		}
@@ -41,7 +47,7 @@ void findLargestUniqueSubstring(char input[], char output[]){
 }
 
 int main(){
-	char input[]= "abcdefghasbedgfhjiknsdmn";
+	char input[]= "abababedkgldjgiangblejdieosdpdma";
 	int n = strlen(input);
 	char output[n];
 	findLargestUniqueSubstring(input,output);
