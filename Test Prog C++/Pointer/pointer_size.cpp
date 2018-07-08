@@ -4,5 +4,8 @@ using namespace std;
 int main(){
 	int a = 0;
 	int *p = &a;
-	cout<<sizeof(p);
+	char c = 'a';
+	char *ch = &c;
+	cout<<sizeof(p)<<endl;
+	cout<<sizeof(ch)<<endl;
 }
