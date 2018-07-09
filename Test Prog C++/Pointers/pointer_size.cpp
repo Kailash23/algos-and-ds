@@ -6,6 +6,6 @@ int main(){
 	int *p = &a;
 	char c = 'a';
 	char *ch = &c;
-	cout<<sizeof(p)<<endl;
-	cout<<sizeof(ch)<<endl;
+	cout<<sizeof(p)<<endl;		//4
+	cout<<sizeof(ch)<<endl;		//4
 }
