@@ -5,17 +5,17 @@ Given two strings string1 and string2 (named large and small), find the smallest
 Note : The characters of string2 need not to be present in same order in string1. That is, we need a substring which contains all characters of string2 irrespective of the order.
 Return null if no substring with all characters is present.
 */
+
 #include<iostream>
 #include<cstring>
 #include<vector>
 #include<unordered_map>
 using namespace std;
 
-void findMinSubstringContainingString(char *large, char *small){
+char* findMinSubstringContainingString(char *large, char *small){
 
 	vector<char> v;
 	vector<char> mv;
-	char str[50];
 
 	unordered_map<char,int> map;
 	for(int i=0;i<strlen(small);i++){
@@ -37,18 +37,19 @@ void findMinSubstringContainingString(char *large, char *small){
 	}
 
 	vector<char>::iterator it1 = mv.begin();
-	int s =0;
+	int s = 0;
 	while(it1 != mv.end()){
-		str[s++] = *it1;
+		large[s++] = *it1;
 		it1++;
 	}
-	str[s] = '\0';
-	cout<<str;
+	large[s] = '\0';
+	return large;
 }
 
 
 int main(){
-	char large[] = "gg prabhee";
-	char small[] = "ash praa";
-	findMinSubstringContainingString(large, small);
+	char large[] = "juggernaut bulls";
+	char small[] = "ggernautbs";
+	char a[50];
+	coutfindMinSubstringContainingString(large, small);
 }
