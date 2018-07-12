@@ -8,7 +8,7 @@ int main()
 
 	std::string str3 ("I love C++");
 	std::string str4 ("C++");
-	std::cout << str3.find(str4) << std::endl;
+	std::cout << str3.find(str4) << std::endl;		//7
 }
 
 
