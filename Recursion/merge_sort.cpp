@@ -1,13 +1,20 @@
+/*
+Merge Sort Code
+
+Sort an array A using Merge Sort.
+Change in the input array itself. So no need to return or print anything
+*/
+
 #include<iostream>
 using namespace std;
 
 void merge(int arr[], int start, int end){
-	int size = end-start+1;
+	int size = end-start+1;		// Size of array
 	int mid = (start + end)/2;
-	int *out = new int[size];
+	int *out = new int[size];		// Dynamic array
 	int i = start;
 	int j = mid+1;
-	int k =0;
+	int k = 0;
 	while(i <= mid && j <= end){
 		if(arr[i]<arr[j]){
 			out[k] = arr[i];

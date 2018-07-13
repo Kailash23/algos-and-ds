@@ -8,7 +8,6 @@ Given a string S, remove consecutive duplicates from it recursively.
 using namespace std;
 
 void removeConsecutiveDuplicates(char *input) {
-	//cout<<input<<endl;
 	if(strlen(input)<=1){
 		return;
 	}
