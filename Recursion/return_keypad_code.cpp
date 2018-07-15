@@ -15,7 +15,7 @@ string code[] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
 
 int keypad(int num, string output[]){
 
-	if(num == 0|| num==1){
+	if(num == 0|| num == 1){
 		output[0] = "";
 		return 1;
 	}
