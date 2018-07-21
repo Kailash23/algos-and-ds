@@ -9,34 +9,19 @@ Note : The order of codes are not important. And input string does not contain 0
 #include<string>
 using namespace std;
 
-int getInteger(string num){
-	int len = num.length();
-	if(len == 1){
-		return num[0]-'0';
-	} else if (len == 2){
-		int n,k;
-	    n = num[0] - '0';
-		k = num[1] - '0';
-		n = n*10;
-		return n+k;
-	}
-}
-
 int helper(string data, int k){
 	if(k == 0){
 		return 1;
 	}
 	int s = data.length()-k;
-
 	int result = helper(data,k-1);
 	if(k>=2){
-		int dig = getInteger(data.substr(s,2));
+		int dig = (data[0]-'0') * 10 + (data[1]-'0');
 		if(dig <= 26){
 			result += helper(data, k-2);
 		}
 	}
 	return result;
-
 }
 
 
@@ -46,6 +31,6 @@ int getCodes(string input) {
 }
 
 int main(){
-	string str = "121";
+	string str = "1123";
 	cout<<getCodes(str);
 }

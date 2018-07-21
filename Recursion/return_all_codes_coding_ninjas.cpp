@@ -1,3 +1,10 @@
+/*
+Return all codes - String
+
+Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.
+Note : The order of codes are not important. And input string does not contain 0s.
+*/
+
 #include<iostream>
 using namespace std;
 
@@ -26,12 +33,10 @@ int getCodes(string input, string output[]){
 	}
 	int k = 0;
 	for(int i = 0; i < size1 ; i++){
-		cout<<smallOutput1[i]<<endl;
 	    output[k] = firstChar + smallOutput1[i];
 		k++;
 	}
 	for(int i = 0; i < size2 ; i++){
-		cout<<smallOutput2[i]<<endl;
 	    output[k] = secondChar + smallOutput2[i];
 		k++;
 	}
@@ -43,6 +48,6 @@ int main(){
 	string output[1000];
 	int outLen = getCodes(str, output);
 	for(int i=0;i<outLen;i++){
-		//cout<<output[i]<<endl;
+		cout<<output[i]<<endl;
 	}
 }
