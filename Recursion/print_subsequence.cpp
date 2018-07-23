@@ -1,8 +1,8 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 void print_subs(string input, string output){
-	if(input.length() == 0){
+	if(input.length() == 0) {
 		cout<<output<<endl;
 		return;
 	}

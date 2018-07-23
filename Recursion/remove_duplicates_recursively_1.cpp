@@ -1,19 +1,19 @@
 /*
-Remove Duplicates Recursively
+   Remove Duplicates Recursively
 
-Given a string S, remove consecutive duplicates from it recursively.
-*/
-#include<iostream>
-#include<cstring>
+   Given a string S, remove consecutive duplicates from it recursively.
+ */
+#include <iostream>
+#include <cstring>
 using namespace std;
 
 void removeConsecutiveDuplicates(char *input) {
-	if(strlen(input)<=1){
+	if(strlen(input)<=1) {
 		return;
 	}
-	if(input[0] == input[1]){
+	if(input[0] == input[1]) {
 		int i = 1;
-		for(;input[i] != '\0';i++){
+		for(; input[i] != '\0'; i++) {
 			input[i-1] = input[i];
 		}
 		input[i-1] = '\0';

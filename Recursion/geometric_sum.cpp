@@ -1,9 +1,9 @@
-#include<iostream>
-#include<math.h>
+#include <iostream>
+#include <math.h>
 using namespace std;
 
 double geometricSum(int k) {
-	if(k == 0){
+	if(k == 0) {
 		return 1;
 	}
 	double sum = 1/(pow(2,k));

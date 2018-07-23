@@ -2,7 +2,7 @@
 using namespace std;
 //1 One way
 bool is_sorted(int a[], int size){
-	if(size == 0|| size == 1){
+	if(size == 0 || size == 1){
 		return true;
 	}
 

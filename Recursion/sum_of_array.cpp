@@ -1,26 +1,26 @@
 /*
-Sum of Array
+   Sum of Array
 
-Given an array of length N, you need to find and return the sum of all elements of the array.
-Do this recursively.
-*/
+   Given an array of length N, you need to find and return the sum of all elements of the array.
+   Do this recursively.
+ */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 //1
 // int sum(int input[], int n) {
 //
-// 	if(n == 0){
-// 		return 0;
-// 	}
-// 	int s = 0;
-// 	s += input[0];
-// 	return s + sum(input+1, n-1);
+//  if(n == 0){
+//      return 0;
+//  }
+//  int s = 0;
+//  s += input[0];
+//  return s + sum(input+1, n-1);
 // }
 
 //2
 int sum(int input[], int n){
-	if(n == 0){
+	if(n == 0) {
 		return 0;
 	}
 	return input[0] + sum(input+1, n-1);

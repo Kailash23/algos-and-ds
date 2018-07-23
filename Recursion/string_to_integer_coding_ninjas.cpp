@@ -1,15 +1,15 @@
 /*
-String to Integer
+   String to Integer
 
-Write a recursive function to convert a given string into the number it represents. That is input will be a numeric string that contains only numbers, you need to convert the string into corresponding integer and return the answer.
-*/
+   Write a recursive function to convert a given string into the number it represents. That is input will be a numeric string that contains only numbers, you need to convert the string into corresponding integer and return the answer.
+ */
 
-#include<iostream>
-#include<cstring>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
-int stringToNumber(char input[], int last){		//Worked on last index
-	if(last == 0){
+int stringToNumber(char input[], int last){     //Worked on last index
+	if(last == 0) {
 		return input[last] - '0';
 	}
 	int smallAns = stringToNumber(input,last - 1);

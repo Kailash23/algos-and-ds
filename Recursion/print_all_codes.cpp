@@ -1,16 +1,16 @@
 /*
-Print all codes - String
+   Print all codes - String
 
-Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to print the list of all possible codes that can be generated from the given string.
-Note : The order of codes are not important. And input string does not contain 0s.
-*/
-#include<iostream>
-#include<string>
+   Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to print the list of all possible codes that can be generated from the given string.
+   Note : The order of codes are not important. And input string does not contain 0s.
+ */
+#include <iostream>
+#include <string>
 
 using namespace std;
 
 void helper(string data, int k, string output){
-	if(k == 0){
+	if(k == 0) {
 		cout<<output<<endl;
 		return;
 	}
@@ -23,16 +23,16 @@ void helper(string data, int k, string output){
 
 	helper(data,k-1,output);
 
-	if(k>=2){
+	if(k>=2) {
 		int second = (first * 10) + (data[1] - '0');
-		if(second <= 26){
+		if(second <= 26) {
 
 			int l = output.length();
 			output = output.substr(0,l-1);
 
 			char secondChar = second + 'a' - 1;
 			output += secondChar;
-		    helper(data, k-2, output);
+			helper(data, k-2, output);
 		}
 	}
 }
@@ -41,7 +41,7 @@ void helper(string data, int k, string output){
 int getCodes(string input) {
 	int len = input.length();
 	string output = "";
-    helper(input, len, output);
+	helper(input, len, output);
 }
 
 int main(){

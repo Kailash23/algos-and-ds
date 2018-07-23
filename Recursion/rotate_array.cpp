@@ -1,8 +1,8 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 void rotate_left(int a[], int n){
-	if(n>1){
+	if(n>1) {
 		int tmp = a[0];
 		a[0] = a[1];
 		a[1] = tmp;
@@ -11,7 +11,7 @@ void rotate_left(int a[], int n){
 }
 
 void rotate_right(int a[], int n){
-	if(n>1){
+	if(n>1) {
 		int tmp = a[n-1];
 		a[n-1] = a[n-2];
 		a[n-2] = tmp;
@@ -20,7 +20,7 @@ void rotate_right(int a[], int n){
 }
 
 void print_array(int arr[], int n){
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		cout<<arr[i]<<" ";
 	}
 }
