@@ -5,7 +5,7 @@ using namespace std;
 void printIncreasingNumbersHelper(int n, string output, int start){
 
 	if(n == 0) {
-		cout<<output<<endl;
+		cout<<output<<" ";
 		return;
 	}
 
