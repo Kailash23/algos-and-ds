@@ -18,6 +18,8 @@ public class PolynomialUse {
         for (int i = 0; i < n; i++) {
             first.setCoefficient(degree1[i], coeff1[i]);
         }
+        first.print();
+        System.out.println();
         n = s.nextInt();
         int degree2[] = new int[n];
         for (int i = 0; i < n; i++) {
@@ -31,6 +33,9 @@ public class PolynomialUse {
         for (int i = 0; i < n; i++) {
             second.setCoefficient(degree2[i], coeff2[i]);
         }
+        second.print();
+        System.out.println();
+        System.out.println("\nchoice: ");
         int choice = s.nextInt();
         Polynomial result;
         switch (choice) {

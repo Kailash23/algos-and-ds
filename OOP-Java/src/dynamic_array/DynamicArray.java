@@ -6,7 +6,7 @@ public class DynamicArray {
     private int nextIndex;
 
     public DynamicArray() {
-        data = new int[5];
+        data = new int[25];
         nextIndex = 0;
     }
 
@@ -36,7 +36,7 @@ public class DynamicArray {
     public int get(int index) {
         if (index > nextIndex) {
             //error out
-            return -1;
+            return data[index];
         }
         return data[index];
     }
