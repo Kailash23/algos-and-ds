@@ -1,14 +1,14 @@
 /*
-C++ code to generate all possible subarrays/subArrays. Complexity- O(n^3)
-*/
+   C++ code to generate all possible subarrays/subArrays. Complexity- O(n^3)
+ */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 void subarray(int arr[], int n){
-	for(int i=0;i<n;i++){
-		for(int j=i;j<n;j++){
-			for(int k=i;k<=j;k++){
+	for(int i=0; i<n; i++) {
+		for(int j=i; j<n; j++) {
+			for(int k=i; k<=j; k++) {
 				cout<<arr[k]<<" ";
 			}
 			cout<<endl;

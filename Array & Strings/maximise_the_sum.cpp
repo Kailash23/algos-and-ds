@@ -1,43 +1,43 @@
 /*
-Given 2 sorted arrays (in increasing order), find a path through the intersections that produces maximum sum and return the maximum sum.
-That is, we can switch from one array to another array only at common elements.
-If no intersection element is present, we need to take sum of all elements from the array with greater sum.
-*/
-#include<iostream>
+   Given 2 sorted arrays (in increasing order), find a path through the intersections that produces maximum sum and return the maximum sum.
+   That is, we can switch from one array to another array only at common elements.
+   If no intersection element is present, we need to take sum of all elements from the array with greater sum.
+ */
+#include <iostream>
 using namespace std;
 
-	long maxPathSum(int ar1[], int ar2[], int m, int n){
-		long maxSum=0, s1=0, s2=0;
-		int i=0, j=0;
+long maxPathSum(int ar1[], int ar2[], int m, int n){
+	long maxSum=0, s1=0, s2=0;
+	int i=0, j=0;
 
-		while(i<m && j<n){
-			if(ar1[i]<ar2[j]){
-				s1+=ar1[i++];
-			} else if(ar1[i]==ar2[j]){
-				s1+=ar1[i++];
-				s2+=ar2[j++];
+	while(i<m && j<n) {
+		if(ar1[i]<ar2[j]) {
+			s1+=ar1[i++];
+		} else if(ar1[i]==ar2[j]) {
+			s1+=ar1[i++];
+			s2+=ar2[j++];
 
-				maxSum+=max(s1,s2);
-				s1=0;
-				s2=0;
-			} else {
-				s2+=ar2[j];
-				j++;
-			}
-		}
-
-		while (i<m) {
-			s1+=ar1[i];
-			i++;
-		}
-
-		while (j<n) {
+			maxSum+=max(s1,s2);
+			s1=0;
+			s2=0;
+		} else {
 			s2+=ar2[j];
 			j++;
 		}
-	  	maxSum+=max(s1,s2);
-		return maxSum;
 	}
+
+	while (i<m) {
+		s1+=ar1[i];
+		i++;
+	}
+
+	while (j<n) {
+		s2+=ar2[j];
+		j++;
+	}
+	maxSum+=max(s1,s2);
+	return maxSum;
+}
 
 int main(){
 	int ar1[] = {1,5,10,15,20,25};

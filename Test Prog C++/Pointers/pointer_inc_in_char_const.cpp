@@ -1,9 +1,9 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main(){
 	char c = 'a';
-	cout<<c++<<endl;		// a
+	cout<<c++<<endl;        // a
 	c+=24;
-	cout<<c<<endl;			// z
+	cout<<c<<endl;          // z
 }

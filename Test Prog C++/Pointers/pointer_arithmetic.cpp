@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main(){
@@ -6,7 +6,7 @@ int main(){
 	int *p = &i;
 
 	cout<<p<<endl;
-	p+=1;		//This will add 4 bytes to address stored at p
+	p+=1;       //This will add 4 bytes to address stored at p
 	cout<<p<<endl;
 }
 

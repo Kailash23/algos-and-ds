@@ -1,7 +1,7 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int a;		//(Global Variable) Alternative pass by reference
+int a;      //(Global Variable) Alternative pass by reference
 
 void g(){
 	a++;
@@ -22,7 +22,7 @@ int main(){
 
 
 /*
-10
-12
-12
-*/
+   10
+   12
+   12
+ */

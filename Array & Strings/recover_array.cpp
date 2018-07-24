@@ -1,12 +1,12 @@
 // Recover Array
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 void RecoverArray(int input[], int output[], int n){
 	int left, right;
 	int mid = n/2;
 	int i=0;
-	if(n % 2 != 0){
+	if(n % 2 != 0) {
 		output[mid] = input[i];
 		left = mid - 1;
 		right = mid + 1;
@@ -16,7 +16,7 @@ void RecoverArray(int input[], int output[], int n){
 		right = mid;
 	}
 
-	while(i < n){
+	while(i < n) {
 		output[left] = input[i];
 		left--;
 		i++;
@@ -27,7 +27,7 @@ void RecoverArray(int input[], int output[], int n){
 }
 
 void PrintArray(int arr[], int n){
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		cout<<arr[i]<<" ";
 	}
 }

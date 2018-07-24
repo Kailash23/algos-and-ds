@@ -1,6 +1,6 @@
-#include<iostream>
-#include<unordered_map>
-#include<string>
+#include <iostream>
+#include <unordered_map>
+#include <string>
 using namespace std;
 
 int main(){
@@ -16,7 +16,7 @@ int main(){
 	ourmap["uvw"]=9;
 
 	unordered_map<string,int>::iterator it = ourmap.begin();
-	while(it != ourmap.end()){
+	while(it != ourmap.end()) {
 		cout<<"Key: "<<it->first<<" Value: "<< it->second<<endl;
 		it++;
 	}
@@ -28,7 +28,7 @@ int main(){
 
 	it = ourmap.begin();
 	cout<<endl;
-	while(it != ourmap.end()){
+	while(it != ourmap.end()) {
 		cout<<"Key: "<<it->first<<" Value: "<< it->second<<endl;
 		it++;
 	}

@@ -16,7 +16,7 @@ int main(){
 	} while (num!=0);
 
 	cout<<"Reverse: "<<rev<<endl;
-	if(n==rev){
+	if(n==rev) {
 		cout<<" Palindrome number ";
 	} else {
 		cout<<" Not Palindrome number ";

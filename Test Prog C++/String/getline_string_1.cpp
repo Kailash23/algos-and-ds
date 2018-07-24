@@ -1,8 +1,8 @@
 /*
-Use of getline function while dealing with string.
-*/
+   Use of getline function while dealing with string.
+ */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main(){

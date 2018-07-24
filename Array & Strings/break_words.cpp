@@ -1,12 +1,12 @@
 /*
-Break words
-You are given a sentence contained in given string S. Write a function which will replace all the words within the sentence whose length is even and greater than equal to 4, with a space between the two equal halves of the word.
-Space complexity should be O(1).
-*/
-#include<iostream>
-#include<cstring>
-#include<vector>
-#include<string>
+   Break words
+   You are given a sentence contained in given string S. Write a function which will replace all the words within the sentence whose length is even and greater than equal to 4, with a space between the two equal halves of the word.
+   Space complexity should be O(1).
+ */
+#include <iostream>
+#include <cstring>
+#include <vector>
+#include <string>
 using namespace std;
 
 void breakWords(char* S) {
@@ -14,8 +14,8 @@ void breakWords(char* S) {
 	int ind=0;
 	vector<string> strWords;
 	string currentWord,str;
-	for(int i=0;i<=n;i++){
-		if((S[i] == ' ' || S[i]=='\0') &&  !currentWord.empty()){
+	for(int i=0; i<=n; i++) {
+		if((S[i] == ' ' || S[i]=='\0') &&  !currentWord.empty()) {
 			strWords.push_back(currentWord+" ");
 			currentWord.clear();
 		} else {
@@ -23,29 +23,29 @@ void breakWords(char* S) {
 		}
 	}
 
-	for(int k=0;k<strWords.size();k++){
+	for(int k=0; k<strWords.size(); k++) {
 		int n = strWords[k].length()-1;
 		int s = n/2;
-		if(n>=4 && n%2==0){
-			for(int i=n+1;i>=s;i--){
+		if(n>=4 && n%2==0) {
+			for(int i=n+1; i>=s; i--) {
 				strWords[k][i+1]=strWords[k][i];
 			}
 			strWords[k][s]=' ';
- 		} else {
+		} else {
 			strWords[k].resize (n,' ');
 		}
 	}
 
-	for(int i=0;i<strWords.size();i++){
+	for(int i=0; i<strWords.size(); i++) {
 		str+=strWords[i];
 		str+=' ';
 	}
 
-	for(int j=0;j<str.length();j++){
+	for(int j=0; j<str.length(); j++) {
 		S[ind++] = str[j];
 	}
 
-	for(int j=0;j<str.length();j++){
+	for(int j=0; j<str.length(); j++) {
 		cout<<S[j];
 	}
 }

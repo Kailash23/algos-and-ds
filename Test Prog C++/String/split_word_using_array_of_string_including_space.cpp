@@ -1,19 +1,19 @@
-#include<iostream>
-#include<cstring>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
 void splitword(string str) {
 	string strWords[4]; //array of string (static array)
 	short counter = 0;
 
-	for(short i=0;i<str.length();i++){
+	for(short i=0; i<str.length(); i++) {
 		strWords[counter]+= str[i];
-		if(str[i] == '_'){
+		if(str[i] == '_') {
 			counter++;
 		}
 	}
 
-	for(int k=0;k<=4;k++){
+	for(int k=0; k<=4; k++) {
 		cout<<strWords[k]<<endl;
 	}
 

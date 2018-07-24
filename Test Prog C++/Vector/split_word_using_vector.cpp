@@ -1,20 +1,20 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 void splitword(string str) {
 	vector<string> strWords; //vector (dynamic array)
 	string currentWord;
 
-	for(short i=0;i<=str.length();i++){
-		if((str[i] == ' '|| str[i]== '\0') && !currentWord.empty()){
+	for(short i=0; i<=str.length(); i++) {
+		if((str[i] == ' '|| str[i]== '\0') && !currentWord.empty()) {
 			strWords.push_back(currentWord);
 			currentWord.clear();
 		} else {
-		currentWord += str[i];
+			currentWord += str[i];
 		}
 	}
-	for(int k=0;k<strWords.size();k++){
+	for(int k=0; k<strWords.size(); k++) {
 		cout<<strWords[k]<<endl;
 	}
 

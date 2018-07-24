@@ -11,8 +11,8 @@ int main()
 
 
 /*
-resize() function resizes our string to a specified length.
-Suppose, the specified length is 5. If the specified length
-(i.e. 5 ) is smaller than the current length ( suppose 7 ),
-then the string will contain only the first 5 characters.
-*/
+   resize() function resizes our string to a specified length.
+   Suppose, the specified length is 5. If the specified length
+   (i.e. 5 ) is smaller than the current length ( suppose 7 ),
+   then the string will contain only the first 5 characters.
+ */

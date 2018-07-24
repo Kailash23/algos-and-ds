@@ -1,6 +1,6 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-#define PI 3.14		//Its gonna declare before compile time
+#define PI 3.14     //Its gonna declare before compile time
 
 int main(){
 	int r;

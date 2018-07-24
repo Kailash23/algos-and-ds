@@ -1,21 +1,21 @@
 /*
-Given two sorted arrays of Size M and N respectively, merge them into a third array such that the third array is also sorted.
-*/
+   Given two sorted arrays of Size M and N respectively, merge them into a third array such that the third array is also sorted.
+ */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 void PrintArray(int arr[], int n){
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		cout<<arr[i]<<" ";
 	}
 }
 
 void merge(int arr1[],int size1, int arr2[], int size2, int ans[]){
 	int i=0, j=0, index=0;
-	while(i<size1 && j<size2){
+	while(i<size1 && j<size2) {
 
-		if((arr1[i]<=arr2[j])){
+		if((arr1[i]<=arr2[j])) {
 			ans[index] = arr1[i];
 			i++;
 		} else {
@@ -25,13 +25,13 @@ void merge(int arr1[],int size1, int arr2[], int size2, int ans[]){
 		index++;
 	}
 
-	if(i<size1){
-		for(int k=i;k<size1;k++){
+	if(i<size1) {
+		for(int k=i; k<size1; k++) {
 			ans[index++] = arr1[k];
 		}
 	}
-	if(j<size2){
-		for(int k=j;k<size2;k++){
+	if(j<size2) {
+		for(int k=j; k<size2; k++) {
 			ans[index++] = arr2[k];
 		}
 	}

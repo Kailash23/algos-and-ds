@@ -1,9 +1,9 @@
 /*
-Use of getline function while dealing with char array.
-*/
+   Use of getline function while dealing with char array.
+ */
 
-#include<iostream>
-#include<cstring>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
 int main(){

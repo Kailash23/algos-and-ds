@@ -1,9 +1,9 @@
 /*
-You are given an integer array containing only 0s, 1s and 2s. Write a solution to sort this array using one scan only.
-You need to change in the given array itself. So no need to return or print anything.
-*/
+   You are given an integer array containing only 0s, 1s and 2s. Write a solution to sort this array using one scan only.
+   You need to change in the given array itself. So no need to return or print anything.
+ */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int swap(int& a, int& b){
@@ -17,8 +17,8 @@ void sort012(int arr[], int n){
 	int nt= n-1;
 	int i=0;
 
-	for(i=0;i<=nt;i++){
-		if(arr[i] == 0){
+	for(i=0; i<=nt; i++) {
+		if(arr[i] == 0) {
 			swap(arr[i],arr[nz]);
 			nz++;
 		} else if(arr[i] == 2) {
@@ -27,7 +27,7 @@ void sort012(int arr[], int n){
 			i--;
 		}
 	}
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		cout<<arr[i]<<" ";
 	}
 }

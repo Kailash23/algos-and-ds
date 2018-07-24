@@ -1,8 +1,8 @@
 /*
-Given an N*N integer square matrix, rotate it by 90 degrees in anti-clockwise direction.
-Try using it without any extra space.
-*/
-#include<iostream>
+   Given an N*N integer square matrix, rotate it by 90 degrees in anti-clockwise direction.
+   Try using it without any extra space.
+ */
+#include <iostream>
 using namespace std;
 
 void Swap(int& i, int& j){
@@ -17,9 +17,9 @@ void rotate(int **input, int n){
 	int last = n-1;
 	int totNumOfLevels = n/2;
 
-	while(level<totNumOfLevels){
+	while(level<totNumOfLevels) {
 
-	for(int i=last;i>level;i--){
+		for(int i=last; i>level; i--) {
 			Swap(input[level][i],input[last-i+level][level]);
 			Swap(input[level][i],input[last][last-i+level]);
 			Swap(input[level][i],input[i][last]);
@@ -27,8 +27,8 @@ void rotate(int **input, int n){
 		++level;
 		--last;
 	}
-	for(int i=0;i<n;i++){
-		for(int j=0;j<n;j++){
+	for(int i=0; i<n; i++) {
+		for(int j=0; j<n; j++) {
 			cout<<input[i][j]<<" ";
 		}
 		cout<<endl;
@@ -42,11 +42,11 @@ int main(){
 	int count=0;
 
 	int **array = (int **) malloc (n*sizeof(int*));
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		array[i] = (int *) malloc(n*sizeof(int));
 	}
-	for(int i=0;i<n;i++){
-		for(int j=0;j<n;j++){
+	for(int i=0; i<n; i++) {
+		for(int j=0; j<n; j++) {
 			array[i][j]=count++;
 		}
 	}

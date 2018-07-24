@@ -1,11 +1,11 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int getValue(int x = 0, int y = 0, int z){
-    return (x + y + z);
+	return (x + y + z);
 }
 
 int main(){
-   cout << getValue(10);      //Compilation error
-   return 0;
+	cout << getValue(10);     //Compilation error
+	return 0;
 }

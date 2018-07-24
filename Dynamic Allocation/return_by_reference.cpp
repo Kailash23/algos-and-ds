@@ -1,13 +1,13 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int& f1(int n){		//Bad practice
-	int a = n;		//reference to local variable 'a' returned
+int& f1(int n){     //Bad practice
+	int a = n;      //reference to local variable 'a' returned
 	return a;
 }
 
-int* f2(){		//Bad practice
-	int i = 10;		//address of local variable 'i' returned 
+int* f2(){      //Bad practice
+	int i = 10;     //address of local variable 'i' returned
 	return &i;
 }
 

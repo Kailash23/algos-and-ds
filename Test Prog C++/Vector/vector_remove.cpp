@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main(){
@@ -10,7 +10,7 @@ int main(){
 	it2--;
 	v1.erase(it1,it2);
 
-	for(auto it = v1.begin(); it!=v1.end();it++){
+	for(auto it = v1.begin(); it!=v1.end(); it++) {
 		cout<<" "<<*it;
 	}
 	return 0;

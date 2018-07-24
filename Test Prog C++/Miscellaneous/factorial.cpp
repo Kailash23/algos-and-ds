@@ -1,9 +1,9 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 //SINGLE-LINER
 int factorial(int n){
-  return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+	return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
 }
 
 // **MULTY-LINER+

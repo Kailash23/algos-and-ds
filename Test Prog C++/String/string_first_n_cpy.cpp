@@ -1,5 +1,5 @@
-#include<iostream>
-#include<cstring>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
 int main(){
@@ -10,9 +10,9 @@ int main(){
 }
 // strncpy(dest, source,n);
 /*
-Append NULL after 'd'
-char s1[] = {"west"};
-char s2[] = {"wd"};
-strncpy(s1,s2,3)
-//Output: wd
-*/
+   Append NULL after 'd'
+   char s1[] = {"west"};
+   char s2[] = {"wd"};
+   strncpy(s1,s2,3)
+   //Output: wd
+ */

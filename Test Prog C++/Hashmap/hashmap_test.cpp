@@ -1,13 +1,13 @@
-#include<iostream>
-#include<unordered_map>
+#include <iostream>
+#include <unordered_map>
 using namespace std;
 
 void freq(int arr[], int n){
 	unordered_map<int,int> map;
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		map[arr[i]]++;
 	}
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		cout<<map[arr[i]]<<" ";
 	}
 	cout<<endl;

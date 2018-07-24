@@ -2,9 +2,8 @@
 using namespace std;
 
 int main(){
-    int p = 5;
-    int const * const q = &p;
+	int p = 5;
+	int const * const q = &p;
 	//q++;     error
-    //(*q)++;       error
-
+	//(*q)++;       error
 }

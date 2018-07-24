@@ -1,6 +1,6 @@
-#include<iostream>
-#include<unordered_map>
-#include<string>
+#include <iostream>
+#include <unordered_map>
+#include <string>
 using namespace std;
 
 int main(){
@@ -17,7 +17,7 @@ int main(){
 	cout<<ourmap["gh"]<<endl; // It will insert 0
 
 	//check presence
-	if(ourmap.count("ghi")>0){  //0,1
+	if(ourmap.count("ghi")>0) {  //0,1
 		cout<<"ghi is present"<<endl;
 	} else {
 		cout<<"not present"<<endl;
