@@ -1,10 +1,10 @@
 /*
-Longest Subset
-Given an array, find and return the length of longest subarray containing equal number of 0s and 1s.
-*/
+   Longest Subset
+   Given an array, find and return the length of longest subarray containing equal number of 0s and 1s.
+ */
 
-#include<iostream>
-#include<unordered_map>
+#include <iostream>
+#include <unordered_map>
 using namespace std;
 
 int max(int arr[], int n) {
@@ -13,10 +13,10 @@ int max(int arr[], int n) {
 	unordered_map<int,int> end;
 	int sum = 0;
 	int maxlen = -1;
-	for(int i=0;i<n;i++){
-		if(arr[i]==0){
+	for(int i=0; i<n; i++) {
+		if(arr[i]==0) {
 			sum--;
-			if(map.count(sum)>0){
+			if(map.count(sum)>0) {
 				map[sum]++;
 				end[sum] = i;
 			} else {
@@ -25,7 +25,7 @@ int max(int arr[], int n) {
 			}
 		} else {
 			sum++;
-			if(map.count(sum)>0){
+			if(map.count(sum)>0) {
 				map[sum]++;
 				end[sum] = i;
 			} else {
@@ -35,13 +35,13 @@ int max(int arr[], int n) {
 		}
 	}
 	unordered_map<int,int>:: iterator it = map.begin();
-	while(it!=map.end()){
+	while(it!=map.end()) {
 		int s= it->first;
 		map[s] = end[s]-start[s];
 		it++;
 	}
 	it =  map.begin();
-	while(it!=map.end()){
+	while(it!=map.end()) {
 		maxlen = max(maxlen,it->second);
 		it++;
 	}

@@ -1,17 +1,17 @@
 /*
-Nearest Repetition
-Given an integer array, find and return the minimum distance between indexes of an element and its repetition.
-*/
-#include<iostream>
-#include<unordered_map>
+   Nearest Repetition
+   Given an integer array, find and return the minimum distance between indexes of an element and its repetition.
+ */
+#include <iostream>
+#include <unordered_map>
 using namespace std;
 
 int minDistance(int arr[], int n){
 	unordered_map<int,int> map;
 	int near = n;
-	for(int i=0;i<n;i++){
-		if(map.find(arr[i])!=map.end()){
-			if(near > i - map[arr[i]]){
+	for(int i=0; i<n; i++) {
+		if(map.find(arr[i])!=map.end()) {
+			if(near > i - map[arr[i]]) {
 				near = i - map[arr[i]];
 			}
 			map[arr[i]] = i;

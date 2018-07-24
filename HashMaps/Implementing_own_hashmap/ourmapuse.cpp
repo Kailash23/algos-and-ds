@@ -1,10 +1,10 @@
-#include<iostream>
+#include <iostream>
 #include "ourmap.h"
 using namespace std;
 
 int main(){
 	ourmap<int> map;
-	for(int i=0;i<10;i++){
+	for(int i=0; i<10; i++) {
 		char c = '0'+ i;
 		string key = "abc";
 		key = key + c;
@@ -17,7 +17,7 @@ int main(){
 	map.remove("abc2");
 	map.remove("abc7");
 
-	for(int i=0;i<=10;i++){
+	for(int i=0; i<=10; i++) {
 		char c = '0'+ i;
 		string key = "abc";
 		key = key + c;

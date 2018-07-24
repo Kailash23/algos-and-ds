@@ -1,23 +1,23 @@
 /*
-Code : Print Intersection
-Given two random integer arrays, print their intersection. That is, print all the elements that are present in both the given arrays.
-Input arrays can contain duplicate elements.
-Note : Order of elements are not important
-Input format :
-*/
+   Code : Print Intersection
+   Given two random integer arrays, print their intersection. That is, print all the elements that are present in both the given arrays.
+   Input arrays can contain duplicate elements.
+   Note : Order of elements are not important
+   Input format :
+ */
 
-#include<iostream>
-#include<vector>
-#include<map>
+#include <iostream>
+#include <vector>
+#include <map>
 using namespace std;
 
 void intersection(int input1[], int input2[], int size1, int size2){
 	map<int,int> map;
-	for(int i=0;i<size1;i++){
+	for(int i=0; i<size1; i++) {
 		map[input1[i]]++;
 	}
-	for(int i=0;i<size2;i++){
-		if(map[input2[i]]>0){
+	for(int i=0; i<size2; i++) {
+		if(map[input2[i]]>0) {
 			map[input2[i]]--;
 			cout<<input2[i]<<endl;
 		}

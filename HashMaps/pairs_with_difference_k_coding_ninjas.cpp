@@ -1,26 +1,26 @@
 /*
-Code : Pairs with difference K
-You are given with an array of integers and an integer K. Write a program to find and print all pairs which have difference K.
-Best solution takes O(n) time. And take difference as absolute.
-*/
+   Code : Pairs with difference K
+   You are given with an array of integers and an integer K. Write a program to find and print all pairs which have difference K.
+   Best solution takes O(n) time. And take difference as absolute.
+ */
 
-#include<unordered_map>
-#include<iostream>
+#include <unordered_map>
+#include <iostream>
 using namespace std;
 
 void printPairs(int *input, int n, int k){
 	unordered_map<int,int> m;
 
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		m[input[i]]++;
 	}
 
-	for(int i=0;i<n;i++){
+	for(int i=0; i<n; i++) {
 		int key = input[i];
-		if(k == 0){
+		if(k == 0) {
 			int a = m[key];
 			int count = ((a-1)*a)/2;
-			for(int j=0;j<count;j++){
+			for(int j=0; j<count; j++) {
 				cout<< key << " " <<key <<endl;
 			}
 		} else {
@@ -29,10 +29,10 @@ void printPairs(int *input, int n, int k){
 			int count = m[key];
 			int count1 = m[a];
 			int count2 = m[b];
-			for(int j=0;j<count*count1;j++){
+			for(int j=0; j<count*count1; j++) {
 				cout<<min(a,key)<<" "<<max(a,key)<<endl;
 			}
-			for(int j=0;j<count*count2;j++){
+			for(int j=0; j<count*count2; j++) {
 				cout<<min(b, key)<<" "<<max(b,key)<<endl;
 			}
 		}
