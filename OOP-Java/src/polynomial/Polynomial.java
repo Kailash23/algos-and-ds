@@ -1,4 +1,5 @@
 package polynomial;
+
 import dynamic_array.DynamicArray;
 
 public class Polynomial {
@@ -70,10 +71,10 @@ public class Polynomial {
 
         for (int i = 0; i < s1; i++) {
             for (int j = 0; j < s2; j++) {
-                int pow = i+j;
+                int pow = i + j;
                 int res = this.arr.get(i) * second.arr.get(j);
                 res = res + result.arr.get(pow);
-                result.arr.set(pow,res);
+                result.arr.set(pow, res);
             }
         }
 

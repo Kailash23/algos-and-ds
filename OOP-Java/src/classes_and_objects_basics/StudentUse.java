@@ -33,3 +33,12 @@ public class StudentUse {
         s.close();
     }
 }
+
+/*
+Enter Roll No: 10
+Enter name of student: Logun
+Odesza 23
+Magnus
+10
+Leonidas 0
+ */

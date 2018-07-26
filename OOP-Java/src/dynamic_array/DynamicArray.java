@@ -62,7 +62,7 @@ public class DynamicArray {
     private void restructure() {
         int[] temp = data;
         data = new int[2 * data.length];
-        for(int i = 0; i < temp.length;i++){
+        for (int i = 0; i < temp.length; i++) {
             data[i] = temp[i];
         }
     }

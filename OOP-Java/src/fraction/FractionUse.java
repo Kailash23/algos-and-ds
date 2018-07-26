@@ -31,9 +31,25 @@ public class FractionUse {
         f3.print();     // 3/5
         f4.print();     // 101/60
 
-        Fraction f5 = new Fraction(2,1);
+        Fraction f5 = new Fraction(2, 1);
         f5.print();     //2
         f5.setDenominator(0);       // Denominator can't be zero
 
     }
 }
+
+/*
+2/3
+1
+4
+1/3
+13/12
+3/4
+3/5
+3/4
+13/12
+3/5
+101/60
+2
+Denominator can't be zero
+ */

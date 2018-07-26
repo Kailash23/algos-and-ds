@@ -51,7 +51,7 @@ public class Teacher {
 //        empId = ei;
 //    }
 
-    public static int getNumTeachers(){        //static function dont depend on object
+    public static int getNumTeachers() {        //static function dont depend on object
         return numTeachers;
     }
 
