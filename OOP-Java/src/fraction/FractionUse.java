@@ -12,8 +12,18 @@ public class FractionUse {
         System.out.println(d);      // 1
         f1.print();     // 4
 
+        //int i = 20;
         f1.setNumerator(10);
-        f1.setDenominator(30);
+        try {
+            //i++;
+            f1.setDenominator(0);
+            //i++;        //This will execute in case of no exception
+        } catch (ZeroDenominatorException e) {
+            System.out.println("Hey don't input 0 as denominator"); //Execute in case of exception
+        }
+        //You can use finally in case of common code like closing file (f.close();)
+        //System.out.println(i);      //21
+
         f1.print();     // 1/3
 
         Fraction f2 = new Fraction(3, 4);
@@ -33,7 +43,11 @@ public class FractionUse {
 
         Fraction f5 = new Fraction(2, 1);
         f5.print();     //2
-        f5.setDenominator(0);       // Denominator can't be zero
+        try {
+            f5.setDenominator(3);
+        } catch (ZeroDenominatorException e) {
+            System.out.println("Hey don't input 0 as denominator");
+        }
 
     }
 }
@@ -42,14 +56,14 @@ public class FractionUse {
 2/3
 1
 4
-1/3
-13/12
+Hey don't input 0 as denominator
+10
+43/4
 3/4
 3/5
 3/4
-13/12
+43/4
 3/5
-101/60
+227/20
 2
-Denominator can't be zero
  */

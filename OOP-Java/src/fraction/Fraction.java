@@ -29,10 +29,10 @@ public class Fraction {
         simplify();
     }
 
-    public void setDenominator(int d) {
+    public void setDenominator(int d) throws ZeroDenominatorException {
         if (d == 0) {
-            System.out.println("Denominator can't be zero");
-            return;
+            ZeroDenominatorException e = new ZeroDenominatorException();
+            throw e;
         }
         this.denominator = d;
         this.simplify();
