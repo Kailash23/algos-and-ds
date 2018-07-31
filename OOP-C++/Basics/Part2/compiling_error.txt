@@ -1,0 +1,7 @@
+C:\Users\Kailash\Desktop\Coding-Ninjas\OOP-C++\Basics\Part2\output6.cpp: In function 'int main()':
+C:\Users\Kailash\Desktop\Coding-Ninjas\OOP-C++\Basics\Part2\output6.cpp:27:30: error: passing 'const Student' as 'this' argument discards qualifiers [-fpermissive]
+     cout << s2.getRollNumber();     //will give error const obj can call only constant funtion
+                              ^
+C:\Users\Kailash\Desktop\Coding-Ninjas\OOP-C++\Basics\Part2\output6.cpp:15:9: note:   in call to 'int Student::getRollNumber()'
+     int getRollNumber() {
+         ^~~~~~~~~~~~~
