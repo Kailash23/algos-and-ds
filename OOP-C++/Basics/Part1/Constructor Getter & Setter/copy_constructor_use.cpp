@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "Teacher.cpp"
+#include "teacher_class.cpp"
 
 int main() {
 

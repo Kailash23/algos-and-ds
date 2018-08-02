@@ -2,13 +2,13 @@
 using namespace std;
 
 class Student {
-public:
-char *name;
-int rollNo;
+	public:
+	char *name;
+	int rollNo;
 
-void print(){
-	cout << name << " "  <<  rollNo << " ";
-}
+	void print(){
+		cout << name << " "  <<  rollNo << " ";
+	}
 };
 
 int main() {

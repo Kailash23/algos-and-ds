@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "vehicle.cpp"
+#include "vehicle_class.cpp"
 
 int main(){
 	Vehicle const v1(100,20);

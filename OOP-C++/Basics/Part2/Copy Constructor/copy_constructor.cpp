@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "student.cpp"
+#include "student_class.cpp"
 
 int main(){
 	char name[] = "abcd";

@@ -4,8 +4,7 @@ class Student {
     const int rollNumber;
     int age;
 
-    int &x;     //Error should be initialized
-
+    int &x;     //Error: should be initialized
 
     Student(int r, int a) : rollNumber(r), age(a) {
     }

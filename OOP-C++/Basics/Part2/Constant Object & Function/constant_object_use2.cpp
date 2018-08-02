@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
-#include "fraction.cpp"
+#include "fraction_class.cpp"
 
 int main() {
 	Fraction const f3;
 
 	cout << f3.getNumerator() << " " << f3.getDenominator() << endl;
 
-	//f3.setNumerator(10);
+	//f3.setNumerator(10);		//Will give error
 }
 
 /*

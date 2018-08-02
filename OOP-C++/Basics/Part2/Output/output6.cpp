@@ -24,5 +24,5 @@ int main() {
     s1.age = 20;
 
     Student const s2 = s1;
-    cout << s2.getRollNumber();     //will give error const obj can call only constant funtion
+    cout << s2.getRollNumber();     //will give error const obj can only call constant function.
 }

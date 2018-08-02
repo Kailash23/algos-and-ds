@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "Student.cpp"
+#include "student_class.cpp"
 
 int main() {
 	// Create objects statically
