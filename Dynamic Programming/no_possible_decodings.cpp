@@ -59,8 +59,9 @@ int num_codes_itr(int *input, int size) {
 	output[1] = 1;      // One length num - one code possible
 
 	for(int i = 2; i <= size; i++) {
+		output[i] = 0;
 		output[i] = output[i-1];        //copy value at output[i-1] to output[i] (output[i-1] represents what is the answer for first i-1 digits)
-		if(output[i-2] * 10 + output[i-1] <= 26) {
+		if((output[i-2] * 10 + output[i-1]) <= 26) {
 			output[i] += output[i-2];       // We will do this only if last 2 digit combo is less than 26.
 		}
 	}
@@ -84,7 +85,7 @@ int main(){
 	*temp = {};     // All elements are initialized with 0.
 
 	//cout<<num_codes_dp(arr, n, temp);
-	cout<<num_codes_itr(arr, n);
+	cout<<num_codes_dp(arr, n, temp);
 }
 
 // Time Complexity of the above solution is O(n) and it requires O(n) auxiliary space.
