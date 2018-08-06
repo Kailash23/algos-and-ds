@@ -6,7 +6,7 @@ void splitword(string str) {
 	vector<string> strWords; //vector (dynamic array)
 	string currentWord;
 
-	for(short i=0; i<=str.length(); i++) {
+	for(int i=0; i<=str.length(); i++) {
 		if((str[i] == ' '|| str[i]== '\0') && !currentWord.empty()) {
 			strWords.push_back(currentWord);
 			currentWord.clear();
@@ -22,6 +22,13 @@ void splitword(string str) {
 
 
 int main(){
-	string s={"Helloo world good morniing"};
+	string s = {"You have summoned Juggernaut!"};
 	splitword(s);
 }
+
+/*
+   You
+   have
+   summoned
+   Juggernaut!
+ */

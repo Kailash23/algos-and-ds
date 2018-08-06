@@ -15,7 +15,7 @@ int convert(char input[],int size){
 	for(int i=0; i<size-1; i++) {
 		depth*=10;
 	}
-	return (firstDigit*depth) + smallOutput;
+	return (firstDigit * depth) + smallOutput;
 }
 
 int stringToNumber(char input[]){

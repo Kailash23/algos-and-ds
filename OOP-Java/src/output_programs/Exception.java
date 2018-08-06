@@ -21,3 +21,6 @@ public class Exception extends Throwable {
 Error: Error:(9, 15) java: incompatible types: output_programs.
 Exception cannot be converted to java.lang.Throwable
 */
+/*
+Arithematic Exception can't be caught after Exception
+*/

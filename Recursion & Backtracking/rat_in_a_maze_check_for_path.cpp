@@ -1,3 +1,10 @@
+/*
+   Code : Rat in a Maze
+
+   Given a maze, NxN matrix. A rat has to find a path from source to destination. maze[0][0] (left top corner) is the source and maze[N-1][N-1](right bottom corner) is destination. There are few cells which are blocked ie 0 in matrix, means rat cannot enter into those cells. Rat can move in any direction ( left, right, up and down).
+
+   You have to check weather rat can reach to destination or not.
+ */
 #include <iostream>
 using namespace std;
 
@@ -28,7 +35,7 @@ bool hasPathHelper(int **input, int n, int** solution, int x, int y) {
 		return true;
 	}
 
-	solution[x][y] = 0;		//Path doesn't lead to end so mark it as 0 before returning false.
+	solution[x][y] = 0;     //Path doesn't lead to end so mark it as 0 before returning false.
 	return false;
 }
 
