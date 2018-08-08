@@ -19,52 +19,64 @@
    For some reason, Alice is still unconvinced by Bob’s argument, so she requires a program that will determine how
    many decodings there can be for a given string using her code.
    Input
-   Input will consist of multiple input sets. Each set will consist of a single line of at most 5000 digits representing
-   a valid encryption (for example, no line will begin with a 0). There will be no spaces between the digits. An input
-   line of ‘0’ will terminate the input and should not be processed.
+   Input will consist of multiple input sets. Each set will consist of a single line of at most 5000 digits
+   representing   a valid encryption (for example, no line will begin with a 0). There will be no spaces
+   between the digits. An input   line of ‘0’ will terminate the input and should not be processed.
    Output
    For each input set, output the number of possible decodings for the input string
  */
+
 
 #include <iostream>
 #include <vector>
 using namespace std;
 
-int num_codes_itr(int *input, int size) {
-	int* output = new int[size + 1];
-	output[0] = 1;      // Zero length num - one code possible
-	output[1] = 1;      // One length num - one code possible
+/*
+	Code is not working properly
+ */
 
-	for(int i = 2; i <= size; i++) {
-		output[i] = output[i-1];        //copy value at output[i-1] to output[i] (output[i-1] represents what is the answer for first i-1 digits)
-		if(output[i-2] * 10 + output[i-1] <= 26) {
-			output[i] += output[i-2];       // We will do this only if last 2 digit combo is less than 26.
-		}
-	}
-	int ans = output[size];     //output[size] contains answer (possible num of codes)
-	delete [] output;       // delete output array
-	return ans;
-}
+// int num_codes_itr(int *input, int size) {
+//  int* count = new int[size + 1];
+//  count[0] = 1;      // Zero length num - one code possible
+//  count[1] = 1;      // One length num - one code possible
+//
+//  for(int i = 2; i <= size; i++) {
+//      count[i] = 0;
+//      if(input[i-1] > 0) {        // If the last digit is not 0, then last digit must add to the number of words.
+//          count[i] = count[i-1];            //(count[i-1] represents what is the count of possible decodings for first i-1 digits)
+//
+//      }
+//      // If second last digit is smaller than 2 and last digit is
+//      // smaller than 7, then last two digits form a valid character
+//      if(input[i - 2] == 1 || (input[i-2] == 2 && input[i-1] < 7)) {
+//          count[i] += count[i-2];       // We will do this only if last 2 digit combo is less than 26.
+//      }
+//  }
+//
+//  int ans = count[size];     //count[size] contains answer (possible num of codes)
+//  delete [] count;       // delete count array
+//  return ans;
+// }
 
 int num_codes_dp(int *input, int size, int *arr) {
 
 	if(size == 1) {     // Size is one, which means only one code is possible (a-i)
 		return 1;
 	}
+
 	if(size == 0) {     // Size is zero, which means only one code is possible ie empty string
 		return 1;
 	}
+
 	if(arr[size] > 0) {     // If work is done already with this size return precomputed value.
 		return arr[size];
 	}
 
 	int count = 0;
 
-	if(input[size-1] > 0) {
+	if(input[size-1] > 0) {     // Element at input[size-1] should be greater than zero
 		count = num_codes_dp(input, size-1, arr);      // Array reduced from back
 	}
-
-
 	// If we reach here this means we are sure that size is greater than or equal to 2.
 
 	if(input[size - 2] == 1 || (input[size-2] == 2 && input[size-1] < 7)) {      // arr[size-2] :- second last digit arr[size-1] :- last digit
@@ -101,5 +113,6 @@ int main(){
 			input[j] = l[j]-'0';
 		}
 		cout<<num_codes_dp(input, size, temp)<<endl;
+		//cout<<num_codes_itr(input, size)<<endl;
 	}
 }
