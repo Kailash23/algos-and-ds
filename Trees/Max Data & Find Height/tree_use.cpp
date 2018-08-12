@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 #include "TreeNode.h"
 
 using namespace std;
@@ -34,41 +35,33 @@ TreeNode<int>* takeInputLevelWise(){
 }
 
 /*
-   Function to count number of nodes in a generic tree
+   Function return the max node in the tree
  */
-int numNodes(TreeNode<int>* root){
-	if(root == NULL) {		//Side case -> if root is NULL return (to avoid this 'root->data')
-		return 0;
-	}
-	int ans = 1;
-	for(int i = 0; i < root->children.size(); i++){
-	    ans += numNodes(root->children[i]);
-	}
-	return ans;
-}
+TreeNode<int>* maxDataNode(TreeNode<int>* root){
 
-/*
-   Function to sum of all nodes of a generic tree
- */
-int sumOfNodes(TreeNode<int>* root){
-
-	if(root == NULL){
-		return 0;
+	if(root == NULL){		//Side case -> if root is NULL return (to avoid this 'root->data')
+		return NULL;		
 	}
 
-	int sum = 0;
-	queue<TreeNode<int>*> pendingNodes;
+	queue<TreeNode<int>*> pendingNodes;		//queue is maintain to vist all nodes in tree level wise
 	pendingNodes.push(root);
 
-	while (pendingNodes.size() != 0) {
-		TreeNode<int>* frontPointer = pendingNodes.front();
-		pendingNodes.pop();
-		sum += frontPointer->data;
-		for(int i=0; i < frontPointer->children.size(); i++) {
-			pendingNodes.push(frontPointer->children[i]);
+	int max = root->data;		// Initailly data in root is set as max
+	TreeNode<int>* maxNode = root;		// root is set as max node initially
+
+	while(pendingNodes.size() != 0){		// while queue is not empty
+		TreeNode<int>* frontPointer = pendingNodes.front();		// extracting front, frontPointer point to it extreacted node
+		pendingNodes.pop();		// pop the front node as we saved its memory refrence
+
+		for(int i=0; i < frontPointer->children.size(); i++ ){		// Traversing all the child nodes
+			if(max < frontPointer->children[i]->data){		// If child node data is greater than max
+				maxNode = frontPointer->children[i];		// update maxNode
+				max = frontPointer->children[i]->data;		// update max
+			}
+			pendingNodes.push(frontPointer->children[i]);	// Pushing all child nodes of root node into queue for checking their child too.
 		}
 	}
-	return sum;
+	return maxNode;		// return max value containing node
 }
 
 /*
@@ -99,16 +92,38 @@ void printTree(TreeNode<int>* root) {
 		}
 		cout<<endl;
 		for(int i = 0; i < frontPointer->children.size(); i++){
-		    pendingNodes.push(frontPointer->children[i]);
+		    pendingNodes.push(frontPointer->children[i]);		// Pushing child node of the root node into the queue for the printing (as we are working level wise).
 		}
 	}
 }
 
+/*
+   Function return the height of tree.
+   root alone is considered as height 1.
+ */
+int height(TreeNode<int>* root){
+	if(root == NULL){
+		return 0;
+	}
+	int ans = 0;
+	for(int i=0; i < root->children.size() ;i++) {
+		int childHeight = height(root-> children[i]);
+		if(childHeight > ans){
+			ans = childHeight;
+		}
+	}
+	return ans + 1;		// added 1 for root (root node alone count as height 1)
+}
+
 int main(){
 	TreeNode<int>* root = takeInputLevelWise();
-	printTree(root);
-	cout<< "\nNumber of nodes : "<< numNodes(root) <<endl;
-	numNodes(root);
-	cout<< "Sum of Nodes : "<< sumOfNodes(root) <<endl;
 
+	printTree(root);
+
+	TreeNode<int>* maxNode;
+	maxNode = maxDataNode(root);
+	cout << "\nMax Node: " <<maxNode->data;
+
+	cout<< "\nHeight of Tree: ";
+	cout<<height(root);
 }

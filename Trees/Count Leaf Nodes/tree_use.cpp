@@ -7,7 +7,7 @@ using namespace std;
 /*
    Function to take input level wise using queue
  */
-TreeNode<int>* takeInputLevelWise(){
+TreeNode<int>* takeInputLevelWise() {
 	int rootData;
 	cout<< "Enter root data: " <<endl;
 	cin >> rootData;
@@ -33,42 +33,8 @@ TreeNode<int>* takeInputLevelWise(){
 	return root;
 }
 
-/*
-   Function to count number of nodes in a generic tree
- */
-int numNodes(TreeNode<int>* root){
-	if(root == NULL) {		//Side case -> if root is NULL return (to avoid this 'root->data')
-		return 0;
-	}
-	int ans = 1;
-	for(int i = 0; i < root->children.size(); i++){
-	    ans += numNodes(root->children[i]);
-	}
-	return ans;
-}
-
-/*
-   Function to sum of all nodes of a generic tree
- */
-int sumOfNodes(TreeNode<int>* root){
-
-	if(root == NULL){
-		return 0;
-	}
-
-	int sum = 0;
-	queue<TreeNode<int>*> pendingNodes;
-	pendingNodes.push(root);
-
-	while (pendingNodes.size() != 0) {
-		TreeNode<int>* frontPointer = pendingNodes.front();
-		pendingNodes.pop();
-		sum += frontPointer->data;
-		for(int i=0; i < frontPointer->children.size(); i++) {
-			pendingNodes.push(frontPointer->children[i]);
-		}
-	}
-	return sum;
+int numLeafNodes(TreeNode<int>* root){
+	//TODO
 }
 
 /*
@@ -79,7 +45,7 @@ int sumOfNodes(TreeNode<int>* root){
  */
 void printTree(TreeNode<int>* root) {
 
-	if(root == NULL) {		//Side case
+	if(root == NULL) {		//Side case -> if root is NULL return (to avoid this 'root->data')
 		return;
 	}
 
@@ -107,8 +73,6 @@ void printTree(TreeNode<int>* root) {
 int main(){
 	TreeNode<int>* root = takeInputLevelWise();
 	printTree(root);
-	cout<< "\nNumber of nodes : "<< numNodes(root) <<endl;
-	numNodes(root);
-	cout<< "Sum of Nodes : "<< sumOfNodes(root) <<endl;
-
+	cout<< "Num of leaf node";
+	cout<< numLeafNodes(root);
 }

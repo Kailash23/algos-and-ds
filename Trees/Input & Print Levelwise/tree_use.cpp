@@ -1,8 +1,12 @@
 #include <iostream>
 #include <queue>
 #include "TreeNode.h"
+
 using namespace std;
 
+/*
+   Function to take input level wise using queue
+ */
 TreeNode<int>* takeInputLevelWise(){
 	int rootData;
 	cout<< "Enter root data: " <<endl;
@@ -37,7 +41,7 @@ TreeNode<int>* takeInputLevelWise(){
  */
 void printTree(TreeNode<int>* root) {
 
-	if(root == NULL) {		//Side case
+	if(root == NULL) {		//Side case -> if root is NULL return (to avoid this 'root->data')
 		return;
 	}
 

@@ -28,7 +28,7 @@ TreeNode<int>* takeInput(){
    child 1.1 : child 1.1.1 , child 1.1.2
  */
 void printTree(TreeNode<int>* root) {
-	if(root == NULL) {		//Side case
+	if(root == NULL) {		//Side case -> if root is NULL return (to avoid this 'root->data')
 		return;
 	}
 	cout<< root->data <<":";
