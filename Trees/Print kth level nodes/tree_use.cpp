@@ -35,7 +35,10 @@ TreeNode<int>* takeInputLevelWise(){
 
 /*
    This function will print kth level node (level ~ depth)
-   root node is considered as level 0
+   root node is considered as level 0.
+   We will call same fucntion on child nodes of theroot by decrementing value
+   of level(k) by 1.
+   And Display node only if value of k is 0.
  */
 void printAtLevelK(TreeNode<int>* root, int k){
 	if(root == NULL){		//Side case -> if root is NULL return (to avoid this 'root->data')
@@ -85,6 +88,10 @@ void printTree(TreeNode<int>* root) {
 	}
 }
 
+/*
+   Tree input shortcut just paste below line
+   1 3 2 3 4 2 5 6 2 7 8 0 0 0 0 1 9 0
+ */
 int main(){
 	TreeNode<int>* root = takeInputLevelWise();
 	printTree(root);

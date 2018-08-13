@@ -33,8 +33,31 @@ TreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
+/* Function will count the number of leaf node in a generic tree.
+   Here we are traversing each node of the tree and and incrementing count only
+   when we got node whose children vector has size 0.
+ */
 int numLeafNodes(TreeNode<int>* root){
-	//TODO
+	if(root == NULL){
+		return 0;
+	}
+	int count = 0;
+	queue<TreeNode<int>*> pendingNodes;
+	pendingNodes.push(root);
+
+	while(pendingNodes.size() != 0){
+		TreeNode<int>* frontPointer = pendingNodes.front();
+		pendingNodes.pop();
+
+		if(frontPointer->children.size() == 0){		// If root has no child then increment count.
+			 ++count;
+		}
+
+		for(int i=0 ; i < frontPointer->children.size() ; i++){
+			pendingNodes.push(frontPointer->children[i]);		// Pushing child nodes into queue for checking there count of children (ie children vector size).
+		}
+	}
+	return count;		// return count after traversing and checking each node of tree.
 }
 
 /*
@@ -69,6 +92,11 @@ void printTree(TreeNode<int>* root) {
 		}
 	}
 }
+
+/*
+   Tree input shortcut just paste below line
+   1 3 2 3 4 2 5 6 2 7 8 0 0 0 0 1 9 0
+ */
 
 int main(){
 	TreeNode<int>* root = takeInputLevelWise();

@@ -40,7 +40,7 @@ TreeNode<int>* takeInputLevelWise(){
 TreeNode<int>* maxDataNode(TreeNode<int>* root){
 
 	if(root == NULL){		//Side case -> if root is NULL return (to avoid this 'root->data')
-		return NULL;		
+		return 0;
 	}
 
 	queue<TreeNode<int>*> pendingNodes;		//queue is maintain to vist all nodes in tree level wise
@@ -115,6 +115,10 @@ int height(TreeNode<int>* root){
 	return ans + 1;		// added 1 for root (root node alone count as height 1)
 }
 
+/*
+   Tree input shortcut just paste below line
+   1 3 2 3 4 2 5 6 2 7 8 0 0 0 0 1 9 0
+ */
 int main(){
 	TreeNode<int>* root = takeInputLevelWise();
 
