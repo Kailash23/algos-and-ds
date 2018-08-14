@@ -60,7 +60,7 @@ using namespace std;
 
 int num_codes_dp(int *input, int size, int *arr) {
 
-	if(size == 1) {     // Size is one, which means only one code is possible (a-i)
+	if(size == 1) {     // Size is one, which means only one code is possible (a-i
 		return 1;
 	}
 

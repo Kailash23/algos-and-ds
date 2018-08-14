@@ -2,6 +2,7 @@
 using namespace std;
 
 template <typename T>
+
 class TreeNode {
 	public:
 	T data;		// Data that node will have

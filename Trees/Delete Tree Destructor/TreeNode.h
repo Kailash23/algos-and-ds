@@ -2,6 +2,7 @@
 using namespace std;
 
 template <typename T>
+
 class TreeNode {
 	public:
 	T data;		// Data that node will have
@@ -10,5 +11,11 @@ class TreeNode {
 
 	TreeNode(T data) {		//Constructor to initialize data to the node created node.
 		this->data = data;		// Data initialization
+	}
+
+	~TreeNode(){
+		for(int i = 0; i < children.size() ; i++){
+			delete children[i];
+		}
 	}
 };
