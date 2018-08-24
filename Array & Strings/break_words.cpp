@@ -11,9 +11,9 @@ using namespace std;
 
 void breakWords(char* S) {
 	int n = strlen(S);
-	int ind=0;
+	int ind = 0;
 	vector<string> strWords;
-	string currentWord,str;
+	string currentWord, str;
 	for(int i=0; i<=n; i++) {
 		if((S[i] == ' ' || S[i]=='\0') &&  !currentWord.empty()) {
 			strWords.push_back(currentWord+" ");
@@ -52,6 +52,10 @@ void breakWords(char* S) {
 
 
 int main(){
-	char s[]={"Call me juggernaut uniyal"};
+	char s[]={"Call me juggernaut"};
 	breakWords(s);
 }
+
+/*
+   Ca ll me jugge rnaut
+ */
