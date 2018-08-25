@@ -13,7 +13,7 @@ Node* takeInput(){
 	Node *head = NULL;
 	while(data != -1) {             // Loop will terminate if data is -1
 		Node *newNode = new Node(data);         // newNode will destroy after new iteration of while
-												// loop, but Node will not distroy as it is created dynamically.
+		// loop, but Node will not distroy as it is created dynamically.
 		if(head == NULL) {               // For making first node as head
 			head = newNode;
 		} else {
@@ -41,14 +41,14 @@ Node* takeInput_Better(){
 	int data;
 	cin>>data;
 	Node *head = NULL;              // Head will point to first node
-	Node *tail = NULL;				// Tail will point to last node
+	Node *tail = NULL;              // Tail will point to last node
 	while(data != -1) {
-		Node *newNode = new Node(data);		// Dynamically allocating newNode
-		if(head == NULL){		// If linked list is empty initially
+		Node *newNode = new Node(data);         // Dynamically allocating newNode
+		if(head == NULL) {               // If linked list is empty initially
 			head = newNode;
 			tail = newNode;
 		} else {
-			tail->next = newNode;		// Pointing tail node (currently last node) to the newly formed node.
+			tail->next = newNode;           // Pointing tail node (currently last node) to the newly formed node.
 			tail = tail->next;
 			// OR
 			// tail = newNode;
@@ -75,6 +75,9 @@ int main(){
 	printLL(head);
 }
 
+/*
+   Linked list elements (separated by space and terminated by -1)
+ */
 
 /*
    4 5 3 2 1 9 7 -1
