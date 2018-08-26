@@ -41,12 +41,12 @@ void printLL(Node* head){
 
 Node* insertNodeRec(Node* head, int i, int data){
 
-	if(head == NULL){		// If head is null initially
+	if(head == NULL){		// If head is null initially (Linked List is empty)
 		if(i == 0){			// If inserting at 0th location
 			Node* newNode = new Node(data);		// Make new node and return it which will act as head.
 			return newNode;
 		} else {
-			return head;	//If not inserting at 0th location then return head.
+			return head;	//If not inserting at 0th location then return head (Which is null already).
 		}
 	}
 

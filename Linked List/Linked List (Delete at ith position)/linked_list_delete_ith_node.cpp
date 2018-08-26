@@ -69,22 +69,22 @@ Node* takeInput_Better(){
         delete(temp2);
         return head;
    }
+*/
+Node* deleteNode(Node* head, int i){
+    Node* temp = head;
+    while(i>1){
+            if(temp == NULL){
+                    return head;
+            }
+            temp = temp->next;
+            i--;
+    }
+    if(temp->next != NULL && temp->next->next != NULL){
+            temp->next = temp->next->next;
+    }
+    return head;
+}
 
-   Node* deleteNode(Node* head, int i){
-        Node* temp = head;
-        while(i>1){
-                if(temp == NULL){
-                        return head;
-                }
-                temp = temp->next;
-                i--;
-        }
-        if(temp->next != NULL && temp->next->next != NULL){
-                temp->next = temp->next->next;
-        }
-        return head;
-   }
- */
 
 /*
    Function to print linked list.
