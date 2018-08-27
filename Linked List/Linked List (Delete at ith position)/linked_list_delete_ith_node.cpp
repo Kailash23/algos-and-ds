@@ -70,6 +70,7 @@ Node* takeInput_Better(){
         return head;
    }
 */
+
 Node* deleteNode(Node* head, int i){
     Node* temp = head;
     while(i>1){

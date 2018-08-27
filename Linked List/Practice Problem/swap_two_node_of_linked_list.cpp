@@ -65,14 +65,46 @@ void printLL(node* head){
 }
 
 node* swap_nodes(node* head, int i, int j){
+	node *temp = head, *prev = NULL;
+	node *node1 = NULL, *node2 = NULL, *node1_prev = NULL, *node2_prev = NULL;
+	int pos = 0;
+	while(temp != NULL){
+		if(pos == i){
+			node1_prev = prev;
+			node1 = temp;
+		} else if(pos == j){
+			node2_prev = prev;
+			node2 = temp;
+		}
+		prev = temp;
+		temp = temp->next;
+		pos++;
+	}
 
+	if(node1_prev != NULL){
+		node1_prev->next = node2;
+	} else {
+		head = node2;
+	}
+
+	if(node2_prev != NULL){
+		node2_prev->next = node1;
+	} else {
+		head = node1;
+	}
+
+	node* temp1 = node2->next;
+	node2->next = node1->next;
+	node1->next = temp1;
+
+	return head;
 }
 
 int main(){
 	node* head = takeInput_Better();
 	printLL(head);
 	cout<<endl;
-	int i = 0;
+	int i = 2;
 	int j = 6;
 	head = swap_nodes(head, i, j);
 	printLL(head);
@@ -80,5 +112,7 @@ int main(){
 
 
 /*
-
+   1 2 3 4 5 6 7 8 9 -1
+   1 2 3 4 5 6 7 8 9
+   1 2 7 4 5 6 3 8 9
  */
