@@ -1,3 +1,20 @@
+/*
+   Second Largest Element In Tree
+
+   Given a generic tree, find and return the node with second largest value in given tree.
+   Return NULL if no node with required value is present.
+   Input format :
+
+   Line 1 : Elements in level order form separated by space (as per done in class). Order is -
+
+   Root_data, n (No_Of_Child_Of_Root), n children, and so on for every element
+
+   Sample Input 1 :
+   10 3 20 30 40 2 40 50 0 0 0 0
+   Sample Output 1 :
+   40
+ */
+
 #include <iostream>
 #include <queue>
 #include "TreeNode.h"
@@ -36,7 +53,7 @@ TreeNode<int>* takeInputLevelWise(){
 /*
    This function will print kth level node (level ~ depth)
    root node is considered as level 0.
-   We will call same fucntion on child nodes of theroot by decrementing value
+   We will call same function on child nodes of theroot by decrementing value
    of level(k) by 1.
    And Display node only if value of k is 0.
  */

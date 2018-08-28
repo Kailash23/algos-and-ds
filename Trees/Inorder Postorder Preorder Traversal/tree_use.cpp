@@ -37,10 +37,10 @@ TreeNode<int>* takeInputLevelWise() {
    Pre-Order Traversal of genric tree using recursion.
  */
 void preOrder(TreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL){		// root is null, simply return!
 		return;
 	}
-	cout<<root->data<<" ";
+	cout<<root->data<<" ";		// Print root first then call recursion on child nodes
 	for(int i=0 ; i < root->children.size() ; i++){
 		preOrder(root->children[i]);
 	}
@@ -50,13 +50,13 @@ void preOrder(TreeNode<int>* root){
    Post-Order Traversal of genric tree using recursion.
  */
 void postOrder(TreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL){		// root is null, simply return!
 		return;
 	}
-	for(int i=0 ; i < root->children.size() ; i++){
+	for(int i=0 ; i < root->children.size() ; i++){		// Recursion on child nodes first
 		postOrder(root->children[i]);
 	}
-	cout<<root->data<<" ";
+	cout<<root->data<<" ";		// Then print data
 }
 
 /*
@@ -66,13 +66,13 @@ void inOrder(TreeNode<int>* root){
 	if(root == NULL){
 		return;
 	}
-	queue<TreeNode<int>*> pendingNodes;
+	queue<TreeNode<int>*> pendingNodes;		// For level order print we will use queue.
 	pendingNodes.push(root);
 
 	while(pendingNodes.size() != 0){
 		TreeNode<int>* frontPointer = pendingNodes.front();
 		pendingNodes.pop();
-		cout<<frontPointer->data<<" ";
+		cout<<frontPointer->data<<" ";		// Print data first then push child nodes into queue for there printing
 		for(int i = 0 ; i < frontPointer->children.size() ; i++){
 			pendingNodes.push(frontPointer->children[i]);
 		}
@@ -93,3 +93,18 @@ int main(){
 	cout<< "\nIn-order:";
 	inOrder(root);
 }
+
+
+/*
+				1
+		   /    |    \
+		 2      3      4
+	   /  \   /   \
+      5    6 7     8
+	                 \
+					  9
+
+   Pre-order:1 2 5 6 3 7 8 9 4      (Root first then leaf node)
+   Post-order:5 6 2 7 9 8 3 4 1		(Leaf node first then root node)
+   In-order:1 2 3 4 5 6 7 8 9		(Level order)
+ */

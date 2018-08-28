@@ -35,14 +35,14 @@ TreeNode<int>* takeInputLevelWise() {
 
 /*
    Function to delete tree recursively.
-   First the child nodes are deleted then root node is deleted.
+   >>>First the child nodes are deleted then root node is deleted.
    Deletion is done in a post order traversal way.
  */
 void deleteTree(TreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL){		// If root is NULL, nothing to delete. Simply return.
 		return;
 	}
-	for(int i=0 ; i < root->children.size() ; i++){
+	for(int i=0 ; i < root->children.size() ; i++){		// Recursive call on root nodes.
 		deleteTree(root->children[i]);
 	}
 	delete root;

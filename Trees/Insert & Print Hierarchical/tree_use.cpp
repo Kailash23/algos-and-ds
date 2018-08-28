@@ -36,12 +36,72 @@ void printTree(TreeNode<int>* root) {
 		cout<< root->children[i]->data <<", ";		// Displaying child nodes
 	}
 	cout<<endl;
-	for(int i = 0; i < root->children.size(); i++){
+	for(int i = 0; i < root->children.size(); i++) {
 	    printTree(root->children[i]);				// Recursive call on child nodes
 	}
 }
 
 int main(){
 	TreeNode<int>* root = takeInput();
+	cout<<endl;
 	printTree(root);
 }
+
+
+/*
+   Enter data
+   1
+   Enter num of children of 1
+   3
+   Enter data
+   2
+   Enter num of children of 2
+   2
+   Enter data
+   5
+   Enter num of children of 5
+   0
+   Enter data
+   6
+   Enter num of children of 6
+   0
+   Enter data
+   3
+   Enter num of children of 3
+   2
+   Enter data
+   7
+   Enter num of children of 7
+   0
+   Enter data
+   8
+   Enter num of children of 8
+   1
+   Enter data
+   9
+   Enter num of children of 9
+   0
+   Enter data
+   4
+   Enter num of children of 4
+   0
+
+   1:2, 3, 4,
+   2:5, 6,
+   5:
+   6:
+   3:7, 8,
+   7:
+   8:9,
+   9:
+   4:
+
+   			1
+	   /    |    \
+     2      3      4
+   /  \   /   \
+  5    6 7     8
+         		\
+		         9
+
+ */

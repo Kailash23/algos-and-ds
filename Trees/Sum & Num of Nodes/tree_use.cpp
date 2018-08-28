@@ -11,16 +11,20 @@ TreeNode<int>* takeInputLevelWise(){
 	int rootData;
 	cout<< "Enter root data: " <<endl;
 	cin >> rootData;
+
 	TreeNode<int>* root = new TreeNode<int>(rootData);		// Creating root node
 	queue<TreeNode<int>*> pendingNodes;		// for taking input level wise we are using queue data structure having element of type TreeNode<int>*
 	pendingNodes.push(root);		// Adding root node into queue for processing
 
 	while (pendingNodes.size() != 0) {		// we can also queue's empty function
+
 		TreeNode<int>* frontPointer = pendingNodes.front();		// Storing node at front of queue to frontPointer pointer of type TreeNode<T>* (frontPointer pointing to node in front of queue)
 		pendingNodes.pop();		// Poping the front element
+
 		cout<< "Enter num of children of " << frontPointer->data <<" : "<<endl;
 		int numChild;
 		cin >> numChild;
+
 		for(int i = 0; i < numChild; i++) {
 			int childData;
 			cout<< "Enter child '"<< i+1 <<"' of "<< frontPointer->data <<" : "<<endl;
@@ -40,19 +44,21 @@ int numNodes(TreeNode<int>* root){
 	if(root == NULL) {		//Side case -> if root is NULL return (to avoid this 'root->data')
 		return 0;
 	}
-	int ans = 1;
-	for(int i = 0; i < root->children.size(); i++){
-	    ans += numNodes(root->children[i]);
+	int ans = 1;	// ans = 1 initially beacause we are counting 1  for root node
+	for(int i = 0; i < root->children.size(); i++){		// Don't use return statements inside for loop.	(Recursion on roots node)
+	    ans += numNodes(root->children[i]);		// Will add 1 to ans for each call on root.
 	}
 	return ans;
 }
 
 /*
    Function to sum of all nodes of a generic tree
+   Traverse each node level order wise using queue and then
+   find sum of all nodes.
  */
 int sumOfNodes(TreeNode<int>* root){
 
-	if(root == NULL){
+	if(root == NULL){		// If root is NULL ie no element then return sum = 0
 		return 0;
 	}
 

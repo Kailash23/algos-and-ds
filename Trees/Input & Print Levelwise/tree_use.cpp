@@ -75,3 +75,62 @@ int main(){
 	cout<<endl;
 	printTree(root);
 }
+
+
+/*
+   Enter root data:
+   1
+   Enter num of children of 1 :
+   3
+   Enter child '1' of 1 :
+   2
+   Enter child '2' of 1 :
+   3
+   Enter child '3' of 1 :
+   4
+   Enter num of children of 2 :
+   2
+   Enter child '1' of 2 :
+   5
+   Enter child '2' of 2 :
+   6
+   Enter num of children of 3 :
+   2
+   Enter child '1' of 3 :
+   7
+   Enter child '2' of 3 :
+   8
+   Enter num of children of 4 :
+   0
+   Enter num of children of 5 :
+   0
+   Enter num of children of 6 :
+   0
+   Enter num of children of 7 :
+   0
+   Enter num of children of 8 :
+   1
+   Enter child '1' of 8 :
+   9
+   Enter num of children of 9 :
+   0
+
+   1:2,3,4
+   2:5,6
+   3:7,8
+   4:
+   5:
+   6:
+   7:
+   8:9
+   9:
+
+             1
+        /    |    \
+      2      3      4
+    /  \   /   \
+   5    6 7     8
+		         \
+		          9
+
+ */

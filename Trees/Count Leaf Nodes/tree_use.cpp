@@ -5,51 +5,52 @@
 using namespace std;
 
 /*
-   Function to take input level wise using queue
+   Function to take input level wise using queue.
  */
 TreeNode<int>* takeInputLevelWise() {
 	int rootData;
 	cout<< "Enter root data: " <<endl;
 	cin >> rootData;
-	TreeNode<int>* root = new TreeNode<int>(rootData);		// Creating root node
-	queue<TreeNode<int>*> pendingNodes;		// for taking input level wise we are using queue data structure having element of type TreeNode<int>*
-	pendingNodes.push(root);		// Adding root node into queue for processing
+	TreeNode<int>* root = new TreeNode<int>(rootData);		// Creating root node having data 'rootData' (Root node creation).
+	queue<TreeNode<int>*> pendingNodes;		// for taking input level wise we are using queue data structure having element of type TreeNode<int>*.
+	pendingNodes.push(root);		// Adding root node into queue for processing.
 
-	while (pendingNodes.size() != 0) {		// we can also queue's empty function
-		TreeNode<int>* frontPointer = pendingNodes.front();		// Storing node at front of queue to frontPointer pointer of type TreeNode<T>* (frontPointer pointing to node in front of queue)
+	while (pendingNodes.size() != 0) {		// we can also queue's empty function.
+		TreeNode<int>* frontPointer = pendingNodes.front();		// Storing node at front of queue to frontPointer pointer of type TreeNode<T>* (frontPointer pointing to node in front of queue).
 		pendingNodes.pop();		// Poping the front element
-		cout<< "Enter num of children of " << frontPointer->data <<" : "<<endl;
+		cout<< "Enter num of children of " << frontPointer->data <<" : "<<endl;		//Extracting node from queue to frontPointer and work on it.
 		int numChild;
 		cin >> numChild;
 		for(int i = 0; i < numChild; i++) {
 			int childData;
 			cout<< "Enter child '"<< i+1 <<"' of "<< frontPointer->data <<" : "<<endl;
 			cin >> childData;
-			TreeNode<int>* child = new TreeNode<int>(childData);		// Creating child node
-			frontPointer->children.push_back(child);		// Creating link between root and child
-			pendingNodes.push(child);		//Pushing child nodes created into queue for there processing
+			TreeNode<int>* child = new TreeNode<int>(childData);		// Creating child node with data 'childData' (Child node creation).
+			frontPointer->children.push_back(child);		// Creating link between root and child.
+			pendingNodes.push(child);		// Pushing child nodes created into queue for there processing.
 		}
 	}
 	return root;
 }
 
-/* Function will count the number of leaf node in a generic tree.
-   Here we are traversing each node of the tree and and incrementing count only
+/*
+   Function will count the number of leaf node in a generic tree.
+   Here we are traversing each node of the tree and incrementing count only
    when we got node whose children vector has size 0.
  */
 int numLeafNodes(TreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL){		// If there is no node (no root) then no of leaf node is zero. (side case) (segfault - root->next)
 		return 0;
 	}
 	int count = 0;
-	queue<TreeNode<int>*> pendingNodes;
+	queue<TreeNode<int>*> pendingNodes;		// We are maintaining queue as we are going to traverse whole tree.
 	pendingNodes.push(root);
 
 	while(pendingNodes.size() != 0){
 		TreeNode<int>* frontPointer = pendingNodes.front();
 		pendingNodes.pop();
 
-		if(frontPointer->children.size() == 0){		// If root has no child then increment count.
+		if(frontPointer->children.size() == 0){		// If root has no child then increment count. (Leaf node found)
 			 ++count;
 		}
 
@@ -72,7 +73,7 @@ void printTree(TreeNode<int>* root) {
 		return;
 	}
 
-	queue<TreeNode<int>*> pendingNodes;		// We are maintaining nodes whose child is to be printed (in order to print level wise)
+	queue<TreeNode<int>*> pendingNodes;		// We are maintaining queue of nodes whose child is to be printed (in order to print level wise)
 	pendingNodes.push(root);		// Pushing root node to queue
 
 	while(pendingNodes.size() != 0){
@@ -88,7 +89,7 @@ void printTree(TreeNode<int>* root) {
 		}
 		cout<<endl;
 		for(int i = 0; i < frontPointer->children.size(); i++){
-		    pendingNodes.push(frontPointer->children[i]);
+		    pendingNodes.push(frontPointer->children[i]);		// Pushing child nodes into queue for printing there child nodes too.
 		}
 	}
 }

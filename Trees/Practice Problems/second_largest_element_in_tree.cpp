@@ -31,13 +31,13 @@ TreeNode<int>* takeInputLevelWise(){
 	queue<TreeNode<int>*> pendingNodes;
 	pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0){
+	while(pendingNodes.size() != 0) {
 		TreeNode<int>* frontPointer = pendingNodes.front();
 		pendingNodes.pop();
 		int numChild;
 		cout<<"Enter number of child of root "<< frontPointer->data <<":"<<endl;
 		cin>>numChild;
-		for(int i = 0; i < numChild ; i++){
+		for(int i = 0; i < numChild; i++) {
 			int childValue;
 			cout<<"Enter value for child " << i + 1 << " : "<<endl;
 			cin>>childValue;
@@ -50,19 +50,21 @@ TreeNode<int>* takeInputLevelWise(){
 }
 
 TreeNode<int>* secondLargest(TreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL){		// If root is NULL, simply return NULL!
 		return NULL;
 	}
+	// Value
 	int first = INT_MIN;
 	int second = INT_MIN;
 
+	// Node
 	TreeNode<int>* max;
 	TreeNode<int>* secondMax;
 
 	queue<TreeNode<int>*> pendingNodes;
 	pendingNodes.push(root);
 
-	first = root->data;
+	first = root->data;		// Currently first will have root's data as we are considering only root as of now.
 	max = root;
 
 	while(pendingNodes.size() != 0){
@@ -72,19 +74,19 @@ TreeNode<int>* secondLargest(TreeNode<int>* root){
 
 		for(int i = 0; i < frontPointer->children.size() ; i++){
 
-			if(frontPointer->children[i]->data > first && frontPointer->children[i]->data > second){
-				second = first;
+			if(frontPointer->children[i]->data > first && frontPointer->children[i]->data > second){	// node having data greater than both first and second
+				second = first;			// first will become second
 				secondMax = frontPointer;
-				first = frontPointer->children[i]->data;
+				first = frontPointer->children[i]->data;	// new node will become first as it is greater than both
 				max = frontPointer->children[i];
-			} else if (frontPointer->children[i]->data < first && frontPointer->children[i]->data > second){
-					secondMax = frontPointer->children[i];
+			} else if (frontPointer->children[i]->data < first && frontPointer->children[i]->data > second){	//node having data smaller than first but greater then scond
+					secondMax = frontPointer->children[i];		// Changes will be done to only second
 					second = frontPointer->children[i]->data;
 			}
-			pendingNodes.push(frontPointer->children[i]);
+			pendingNodes.push(frontPointer->children[i]);		// psuhing nodes to queue for there for traversing and comparing them them.
 		}
 	}
-	return secondMax;
+	return secondMax; 	// return second max value
 }
 
 /*
