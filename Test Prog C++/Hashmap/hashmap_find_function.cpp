@@ -7,7 +7,7 @@ int main(){
 	int n = sizeof(arr)/sizeof(arr[0]);
 	unordered_map<int,int> map;
 	for(int i=0; i<n; i++) {
-		map[arr[i]]= i+1;
+		map[arr[i]] = i+1;
 	}
 	unordered_map<int,int>::iterator it;
 	it = map.find(2);
