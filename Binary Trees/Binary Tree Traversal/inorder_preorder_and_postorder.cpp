@@ -40,33 +40,6 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-void inOrder(BinaryTreeNode<int>* root){
-	if(root == NULL){
-		return;
-	}
-	inOrder(root->left);
-	cout<<root->data<<" ";
-	inOrder(root->right);
-}
-
-void preOrder(BinaryTreeNode<int>* root){
-	if(root == NULL){
-		return;
-	}
-	cout<<root->data<<" ";
-	preOrder(root->left);
-	preOrder(root->right);
-}
-
-void postOrder(BinaryTreeNode<int>* root){
-	if(root == NULL){
-		return;
-	}
-	postOrder(root->left);
-	postOrder(root->right);
-	cout<<root->data<<" ";
-}
-
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	cout<<"\nInorder: ";
@@ -97,7 +70,7 @@ int main(){
 
 /*
    Inorder: 4 2 5 1 8 6 9 3 7
-   Preorder: 1 2 4 5 3 6 8 9 7
+   Preorder: 1 2 4 5 3 6 8 9 7  (Root will be the first element in preorder)
    Postorder: 4 5 2 8 9 6 7 3 1
  */
 
