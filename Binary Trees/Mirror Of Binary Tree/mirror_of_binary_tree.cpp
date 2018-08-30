@@ -1,18 +1,16 @@
 /*
-   Print Level Wise
+   Code : Mirror
 
-   Given a binary tree, print the tree in level wise order.
-   For printing a node with data N, you need to follow the exact format -
-   N:L:x,R:y
+   Mirror the given binary tree. That is, right child of every nodes should become
+   left and left should become right.
 
-   wherer, N is data of any node present in the binary tree. x and y are the values
-   of left and right child of node N. Print -1. if any child is null.
-   There is no space in between.
-   You need to print all nodes in the level order form in different lines.
+   Note : You don't need to print or return the tree, just mirror it.
 
    Input format :
-   Elements in level order form (separated by space)
+   Line 1 : Elements in level order form (separated by space)
    (If any node does not have left or right child, take -1 in its place)
+
+   Output format : Elements in level order form (Every level in new line)
  */
 
 #include <iostream>
@@ -57,41 +55,20 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-void printLevelWise(BinaryTreeNode<int>* root) {
-	if(root == NULL) {
+void mirrorBinaryTree(BinaryTreeNode<int>* root) {
+	if(root == NULL){
 		return;
 	}
-
-	queue<BinaryTreeNode<int>*> pendingNodes;
-	pendingNodes.push(root);
-
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
-
-		cout<<front->data<<":";
-		if(front->left != NULL) {
-			cout<<"L:"<<front->left->data;
-			pendingNodes.push(front->left);
-		} else {
-			cout<<"L:-1";
-		}
-		if(front->right != NULL) {
-			cout<<",R:"<<front->right->data;
-			pendingNodes.push(front->right);
-		} else {
-			cout<<",R:-1";
-		}
-		cout<<endl;
-	}
+	BinaryTreeNode<int>* temp = root->left;
+	root->left = root->right;
+	root->right = temp;
+	mirrorBinaryTree(root->left);
+	mirrorBinaryTree(root->right);
 }
-
-
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout<<endl;
-	printLevelWise(root);
+	cout<<"\nHeight of Binary Tree : "<<height(root);
 	delete root;
 }
 
@@ -109,53 +86,30 @@ int main(){
                                 /   \
                                8	 9
 
-	Enter root data
-	1
-	Enter left child of 1
-	2
-	Enter right child of 1
-	3
-	Enter left child of 2
-	4
-	Enter right child of 2
-	5
-	Enter left child of 3
-	6
-	Enter right child of 3
-	7
-	Enter left child of 4
-	-1
-	Enter right child of 4
-	-1
-	Enter left child of 5
-	-1
-	Enter right child of 5
-	-1
-	Enter left child of 6
-	8
-	Enter right child of 6
-	9
-	Enter left child of 7
-	-1
-	Enter right child of 7
-	-1
-	Enter left child of 8
-	-1
-	Enter right child of 8
-	-1
-	Enter left child of 9
-	-1
-	Enter right child of 9
-	-1
+							   |
 
-	1:L:2,R:3
-	2:L:4,R:5
-	3:L:6,R:7
-	4:L:-1,R:-1
-	5:L:-1,R:-1
-	6:L:8,R:9
-	7:L:-1,R:-1
-	8:L:-1,R:-1
-	9:L:-1,R:-1
+							    1
+						   /		\
+						 3			  2
+					   /	\		/	\
+					  5	     4	  7      6
+							   /   \
+							  9	    8
 
+	Height of Binary Tree :4
  */
+
+
+//Alternate Solution (Mirror Tree)
+
+// void mirrorBinaryTree(BinaryTreeNode<int>* root) {
+//     if (root == NULL)
+//         return;
+//     if (root->left == NULL && root->right == NULL)
+//         return;
+//     mirrorBinaryTree(root->left);
+//     mirrorBinaryTree(root->right);
+//     BinaryTreeNode<int>* templeft = root->left;
+//     root->left = root->right;
+//     root->right = templeft;
+// }
