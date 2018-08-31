@@ -65,7 +65,7 @@ BinaryTreeNode<int>* buildTreeHelper(int* in, int* pre, int inS, int inE, int pr
 		return NULL;
 	}
 
-	int rootData = pre[preS];
+	int rootData = pre[preS];		// Root of the tree is the first element of preorder traversal array.(don't use 0 (index))
 	int rootIndex = -1;
 	for(int i = inS; i <= inE; i++){
 		if(in[i] == rootData){

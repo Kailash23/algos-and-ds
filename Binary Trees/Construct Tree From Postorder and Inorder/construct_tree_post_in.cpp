@@ -63,7 +63,7 @@ BinaryTreeNode<int>* buildTreeHelper(int* in, int* pos, int inS, int inE, int po
 		return NULL;
 	}
 
-	int rootData = pos[posE];
+	int rootData = pos[posE];		// Root of the tree is the last element of postorder traversal array.
 	int rootIndex = -1;
 	for(int i = inS; i <= inE; i++){
 		if(in[i] == rootData){

@@ -1,6 +1,9 @@
 /*
    Code : Diameter of Binary Tree
 
+   The diameter of a tree (sometimes called the width) is the number of nodes on
+   the longest path between two end nodes.
+
    				   O
 				 /   \
 				O      O   Diameter - 6
@@ -66,15 +69,16 @@ int height(BinaryTreeNode<int>* root){
 	if(root == NULL){
 		return 0;
 	}
-	return 1 + max(height(root->left) , height(root->right));
+	return 1 + max(height(root->left) , height(root->right));	// Height will be the 1 + max among (height of left subtree) and (height right subtree).
 }
 
 /*
    Function to calculate diameter of binary tree.
-   Time Complexity -
+   Time Complexity - O(n * h)
    We are calling 2 height fucntion for finding diameter and then 2 diameter
    calls on n/2 elements (if balanced tree)
-   We are working on n-1 nodes for calculating height as we are not taking root in it so (-1 from n). So we are doing (kn + k) work for calc height.(+k for base case and max func work)
+   We are working on n-1 nodes for calculating height as we are not taking root in it so (-1 from n).
+   So we are doing (kn + k) work for calc height.(+k for base case and max func work)
 
    				O							 O
 			/		\						  \
@@ -96,24 +100,23 @@ int height(BinaryTreeNode<int>* root){
 													Height = n
 													Work = n * n
 
-					So, Time Complexity = n * h
+					So, Time Complexity = O (n * h)
 					n -> no of nodes in tree
 					h -> height of tree
 
 		Generally, we can acheive O(n) time complexity in tree problems.
 
-
-
  */
+
 int diameter(BinaryTreeNode<int>* root){
 	if(root == NULL){
 		return 0;
 	}
 
-	int option1 = height(root->left) + height(root->right);
-	int option2 = diameter(root->left);
+	int option1 = height(root->left) + height(root->right);		// Sum of height of left and right subtree.
+	int option2 = diameter(root->left);		// This recursive call will call height function 2 times again. Which leads to inc time complexity.
 	int option3 = diameter(root->right);
-	return max(option1, max(option2, option3));
+	return max(option1, max(option2, option3));		// diameter will be the max of option1, option2 & option3.
 }
 
 int main(){
