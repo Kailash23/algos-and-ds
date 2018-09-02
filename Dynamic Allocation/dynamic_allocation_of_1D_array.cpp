@@ -2,11 +2,11 @@
 using namespace std;
 
 int main(){
-	int *p = new int;       //Dyanamic allocation (int variable)
+	int *p = new int;       // Dyanamic allocation (int variable)
 	*p = 10;
 	cout<<*p<<endl;
 
-	int* arr = new int[50];     //Dyanamic allocaation of 1D aaarray
+	int* arr = new int[50];     //Dyanamic allocation of 1D array
 	// 200 bytes on heap(for array) and 4 or 8 bytes on stack (for pointer).
 	// Dynamic memory allocated doesn't deallocate when scope is over.
 	int n;
