@@ -23,10 +23,10 @@
 #include <iostream>
 #include "BinaryTreeNode.h"
 #include <queue>
-#include<algorithm>
+#include <algorithm>
 using namespace std;
 
-vector<vector<int>> ans;
+vector<vector<int> > ans;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
@@ -66,17 +66,17 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 }
 
 void printPath(vector<int> vec){
-	for(int i = 0; i < vec.size(); i++){
-	    cout<< vec[i] <<endl;
+	for(int i = 0; i < vec.size(); i++) {
+		cout<< vec[i] <<endl;
 	}
 }
 
 vector<int>* findMaxPathVector(){
 	int maxSize = -1;
 	vector<int>* maxVec;
-	for(int i= 0; i < ans.size(); i++){
+	for(int i= 0; i < ans.size(); i++) {
 		int size = ans[i].size();
-		if(maxSize < size){
+		if(maxSize < size) {
 			maxSize = ans[i].size();
 			maxVec = &ans[i];
 		}
@@ -100,7 +100,7 @@ void longestPathHelper(BinaryTreeNode<int>* root, vector<int> path){
 
 vector<int>* longestPath(BinaryTreeNode<int>* root) {
 	vector<int> path;
-    longestPathHelper(root, path);
+	longestPathHelper(root, path);
 	return findMaxPathVector();
 }
 
@@ -127,10 +127,48 @@ int main(){
                                 /   \
                                8	 9
 
-	 8
-	 6
-	 3
-	 1
+         8
+         6
+         3
+         1
 
 
  */
+
+/*
+Alternate Solution
+
+	vector<int>* longestPath(BinaryTreeNode<int>* root){
+		if (root == NULL) {
+			return NULL;
+		}
+		if (!root->left && !root->right) {
+			vector<int>* output = new vector<int>();
+			output->push_back(root->data);
+			return output;
+		}
+		vector<int>* leftAns = longestPath(root->left);
+		vector<int>* rightAns = longestPath(root->right);
+		if (!leftAns) {
+			rightAns->push_back(root->data);
+			return rightAns;
+		}
+		else if (!rightAns) {
+			leftAns->push_back(root->data);
+			return leftAns;
+		}
+		else {
+			if (leftAns->size() < rightAns->size()) {
+				rightAns->push_back(root->data);
+				delete leftAns;
+				return rightAns;
+			}
+			else {
+				leftAns->push_back(root->data);
+				delete rightAns;
+				return leftAns;
+			}
+		}
+	}
+
+*/

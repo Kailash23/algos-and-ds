@@ -122,7 +122,7 @@ int diameter(BinaryTreeNode<int>* root){
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	cout<<endl;
-	cout<<"Diameter : "<<diameter(root);
+	cout<<"Diameter : "<< diameter(root);
 	delete root;
 }
 
