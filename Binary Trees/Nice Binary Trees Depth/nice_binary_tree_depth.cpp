@@ -25,16 +25,16 @@
  */
 
 #include <iostream>
-#include<cstring>
+#include <cstring>
 using namespace std;
 
 int i = 0;
 
 int depthHelper(char str[]){
-	if(strlen(str) <= i){
+	if(strlen(str) <= i) {
 		return 0;
 	}
-	if(str[i] == 'l'){
+	if(str[i] == 'l') {
 		return 1;
 	}
 	i++;

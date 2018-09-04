@@ -56,7 +56,7 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 }
 
 void mirrorBinaryTree(BinaryTreeNode<int>* root) {
-	if(root == NULL){
+	if(root == NULL) {
 		return;
 	}
 	BinaryTreeNode<int>* temp = root->left;

@@ -67,8 +67,6 @@ void postOrder(BinaryTreeNode<int>* root){
 	cout<<root->data<<" ";
 }
 
-
-
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	cout<<"\nInorder: ";

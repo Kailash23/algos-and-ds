@@ -50,22 +50,22 @@ BinaryTreeNode<int>* takeInputLevelWise() {
    Time Complexity : O(n)
  */
 void printLevelOrder(BinaryTreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL) {
 		return;
 	}
 	queue<BinaryTreeNode<int>*> pendingNodes;
 	pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0){
+	while(pendingNodes.size() != 0) {
 		int nodeCount = pendingNodes.size();
 		while(nodeCount > 0) {
 			BinaryTreeNode<int>* front = pendingNodes.front();
 			cout<<front->data<<" ";
 			pendingNodes.pop();
-			if(front->left != NULL){
+			if(front->left != NULL) {
 				pendingNodes.push(front->left);
 			}
-			if(front->right != NULL){
+			if(front->right != NULL) {
 				pendingNodes.push(front->right);
 			}
 			nodeCount--;

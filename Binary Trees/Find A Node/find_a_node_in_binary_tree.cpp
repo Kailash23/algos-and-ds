@@ -48,10 +48,10 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 }
 
 bool isNodePresent(BinaryTreeNode<int>* root, int x) {
-	if(root == NULL){
+	if(root == NULL) {
 		return false;
 	}
-	if(root->data == x){
+	if(root->data == x) {
 		return true;
 	}
 	return isNodePresent(root->left,x) || isNodePresent(root->right,x);
@@ -62,7 +62,7 @@ int main(){
 	cout<<endl;
 	int x;
 	cin>>x;
-	if(isNodePresent(root, x)){
+	if(isNodePresent(root, x)) {
 		cout<< "Present!" <<endl;
 	} else {
 		cout<< "Not Present!" <<endl;

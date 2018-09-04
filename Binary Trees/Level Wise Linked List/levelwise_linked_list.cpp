@@ -61,14 +61,12 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-
 void printLinkedList(node<int>* head){
 	while (head != NULL) {            // This will traverse to the last node
 		cout<<head->data<<" ";
 		head = head->next;
 	}
 }
-
 
 vector<node<int>*> createLLForEachLevel(BinaryTreeNode<int> *root) {
 	if(root == NULL) {              // If root is NULL return empty vector.
@@ -82,54 +80,52 @@ vector<node<int>*> createLLForEachLevel(BinaryTreeNode<int> *root) {
 	queue<int> mainQueue;           // mainQueue to store data levelwise, where each level is separated by -1.
 
 	while(pendingNodes.size() != 0) {
-		int nodeCount = pendingNodes.size();		// nodeCount keeps track of count of nodes at each level eg nodeCount's
-													// value for below tree diag are :1 2 4 2 for respective levels 1 2 3 4.
+		int nodeCount = pendingNodes.size();        // nodeCount keeps track of count of nodes at each level eg nodeCount's
+		                                            // value for below tree diag are :1 2 4 2 for respective levels 1 2 3 4.
 		while(nodeCount > 0) {
 			BinaryTreeNode<int>* front = pendingNodes.front();
-			mainQueue.push(front->data);		// Storing front's data to the mainQueue
+			mainQueue.push(front->data);        // Storing front's data to the mainQueue
 			pendingNodes.pop();
 			if(front->left != NULL) {
-				pendingNodes.push(front->left);		// Pushing front's left child to pendingNodes for next level execution.
+				pendingNodes.push(front->left);     // Pushing front's left child to pendingNodes for next level execution.
 			}
 			if(front->right != NULL) {
-				pendingNodes.push(front->right);	// Pushing front's right child to pendingNodes for next level execution.
+				pendingNodes.push(front->right);    // Pushing front's right child to pendingNodes for next level execution.
 			}
-			nodeCount--;		// As we dequeue after extracting front we need to decrement nodeCount;
+			nodeCount--;        // As we dequeue after extracting front we need to decrement nodeCount;
 		}
-		mainQueue.push(-1);		// When nodeCount == 0, which means that level is over we can insert -1 to mainQueue which acts as separater.
+		mainQueue.push(-1);     // When nodeCount == 0, which means that level is over we can insert -1 to mainQueue which acts as separater.
 	}
 
 	vector<node<int>*> listHeads;           // Vector for storing head of linked list formed at each level.
 
-	while (mainQueue.size() != 0) {		// loop will end when mainQueue become empty
+	while (mainQueue.size() != 0) {     // loop will end when mainQueue become empty
 		node<int>* head = NULL;
 		node<int>* tail = NULL;
 		while (mainQueue.front() != -1) {
 			int frontData = mainQueue.front();
 			mainQueue.pop();
 			node<int>* newNode = new node<int>(frontData);
-			if(head == NULL) {		// for inserting for the first time head and tail point to same node.
+			if(head == NULL) {      // for inserting for the first time head and tail point to same node.
 				head = newNode;
 				tail = newNode;
 			} else {
-				tail->next = newNode;	// Insertion at the end (tail) is acheived.
+				tail->next = newNode;   // Insertion at the end (tail) is acheived.
 				tail = tail->next;
 			}
 		}
-		mainQueue.pop();		// this dequeue is for poping -1, which terminates the above while loop.
-		listHeads.push_back(head);		// head of linked list is pushed to vector of type node<int>
+		mainQueue.pop();        // this dequeue is for poping -1, which terminates the above while loop.
+		listHeads.push_back(head);      // head of linked list is pushed to vector of type node<int>
 	}
 	return listHeads;
 }
-
-
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	cout<<endl;
 	vector<node<int>*> solution;
 	solution = createLLForEachLevel(root);
-	for(int i = 0 ; i < solution.size(); i++){
+	for(int i = 0; i < solution.size(); i++) {
 		printLinkedList(solution[i]);
 		cout<<endl;
 	}
@@ -157,7 +153,7 @@ int main(){
 
  */
 
-//Alternate Solution 
+//Alternate Solution
 
 // vector<node<int>*> createLLForEachLevel(BinaryTreeNode<int>* root){
 //     queue<BinaryTreeNode<int>*> q;

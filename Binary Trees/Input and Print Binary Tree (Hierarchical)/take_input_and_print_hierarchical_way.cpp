@@ -22,15 +22,15 @@ BinaryTreeNode<int>* takeInput() {
 	int rootData;
 	cout<<"Enter data"<<endl;
 	cin>>rootData;
-	if(rootData == -1){		// If user input -1 that means no child (return NULL)
+	if(rootData == -1) {     // If user input -1 that means no child (return NULL)
 		return NULL;
 	}
 	// ie. user didn't enter -1
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);		// Make new node having rootData.
-	BinaryTreeNode<int>* leftChild = takeInput();		// Calling to input left sub-tree.
-	BinaryTreeNode<int>* rightChild = takeInput();		// Calling to input right sub-tree.
-	root->left = leftChild;		// Linking root node with leftChild.
-	root->right = rightChild;	// Linking root node with rightChild.
+	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);      // Make new node having rootData.
+	BinaryTreeNode<int>* leftChild = takeInput();       // Calling to input left sub-tree.
+	BinaryTreeNode<int>* rightChild = takeInput();      // Calling to input right sub-tree.
+	root->left = leftChild;     // Linking root node with leftChild.
+	root->right = rightChild;   // Linking root node with rightChild.
 	return root;
 }
 

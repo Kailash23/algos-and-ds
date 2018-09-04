@@ -66,10 +66,10 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 
  */
 int height(BinaryTreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL) {
 		return 0;
 	}
-	return 1 + max(height(root->left) , height(root->right));	// Height will be the 1 + max among (height of left subtree) and (height right subtree).
+	return 1 + max(height(root->left), height(root->right));    // Height will be the 1 + max among (height of left subtree) and (height right subtree).
 }
 
 /*
@@ -109,14 +109,14 @@ int height(BinaryTreeNode<int>* root){
  */
 
 int diameter(BinaryTreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL) {
 		return 0;
 	}
 
-	int option1 = height(root->left) + height(root->right);		// Sum of height of left and right subtree.
-	int option2 = diameter(root->left);		// This recursive call will call height function 2 times again. Which leads to inc time complexity.
+	int option1 = height(root->left) + height(root->right);     // Sum of height of left and right subtree.
+	int option2 = diameter(root->left);     // This recursive call will call height function 2 times again. Which leads to inc time complexity.
 	int option3 = diameter(root->right);
-	return max(option1, max(option2, option3));		// diameter will be the max of option1, option2 & option3.
+	return max(option1, max(option2, option3));     // diameter will be the max of option1, option2 & option3.
 }
 
 int main(){

@@ -55,15 +55,15 @@ BinaryTreeNode<int>* takeInputLevelWise() {
    So we printing root's data first BEFORE recursive calls on left and right.
  */
 void printLeft(BinaryTreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL) {
 		return;
 	}
-	if(root->left != NULL || root->right != NULL){		// Print data only if either left and right subtree is present.(ie root is not leaf node in order to avoid duplicacy of node data)
+	if(root->left != NULL || root->right != NULL) {      // Print data only if either left and right subtree is present.(ie root is not leaf node in order to avoid duplicacy of node data)
 		cout<<root->data<<" ";
 	}
-	if(root->left != NULL){		// recursive call to left node if it is present.
+	if(root->left != NULL) {     // recursive call to left node if it is present.
 		printLeft(root->left);
-	} else if(root->left == NULL && root->right != NULL){		// Recursive call on right node only when left node is absent.
+	} else if(root->left == NULL && root->right != NULL) {       // Recursive call on right node only when left node is absent.
 		printLeft(root->right);
 	}
 	// else -> nodes having neither left nor right child ie leaf nodes we dont want to traverse them and print them (avoiding dublicates)
@@ -71,14 +71,14 @@ void printLeft(BinaryTreeNode<int>* root){
 
 
 void printLeaf(BinaryTreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL) {
 		return;
 	}
-	if(root->left == NULL && root->right == NULL){		// Print data only when root has no child (ie. root is leaf node)
-	   cout<<root->data<<" ";
+	if(root->left == NULL && root->right == NULL) {      // Print data only when root has no child (ie. root is leaf node)
+		cout<<root->data<<" ";
 	}
-	printLeaf(root->left);		// Traverse left subtree for the search of leaf node
-	printLeaf(root->right);		// Traverse left subtree for the search of leaf node
+	printLeaf(root->left);      // Traverse left subtree for the search of leaf node
+	printLeaf(root->right);     // Traverse left subtree for the search of leaf node
 }
 
 /*
@@ -88,22 +88,22 @@ void printLeaf(BinaryTreeNode<int>* root){
    So we printing root's data AFTER recursive calls on left and right.
  */
 void printRight(BinaryTreeNode<int>* root){
-	if(root == NULL){
+	if(root == NULL) {
 		return;
 	}
-	if(root->right != NULL){
+	if(root->right != NULL) {
 		printRight(root->right);
-	} else if(root->right == NULL && root->left != NULL){
+	} else if(root->right == NULL && root->left != NULL) {
 		printRight(root->left);
 	}
-	if(root->left != NULL || root->right != NULL){
+	if(root->left != NULL || root->right != NULL) {
 		cout<<root->data<<" ";
 	}
 	// else -> nodes having neither left nor right child ie leaf nodes we dont want to traverse them and print them (avoiding dublicates)
 }
 
 void solve(BinaryTreeNode<int>* root){
-    cout<<root->data<<" ";
+	cout<<root->data<<" ";
 	printLeft(root->left);
 	printLeaf(root);
 	printRight(root->right);

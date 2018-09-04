@@ -51,7 +51,7 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 }
 
 int height(BinaryTreeNode<int> *root) {
-	if(root == NULL){
+	if(root == NULL) {
 		return 0;
 	}
 	int smallHeightLeft = 1 + height(root->left);

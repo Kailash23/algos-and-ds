@@ -48,14 +48,14 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 }
 
 int sum(BinaryTreeNode<int>* root) {
-	if(root == NULL){
+	if(root == NULL) {
 		return 0;
 	}
 	return root->data + max(sum(root->left),sum(root->right));
 }
 
 long long int maximumSumLeafpath(BinaryTreeNode<int> *root){
-	if(root == NULL){
+	if(root == NULL) {
 		return 0;
 	}
 	int option1 = sum(root->left) + sum(root->right);

@@ -46,7 +46,7 @@ BinaryTreeNode<int>* takeInputLevelWise() {
    cause we loop acc to to no of child nodes, so we used side case there.
  */
 int numNodes(BinaryTreeNode<int>* root){
-	if(root == NULL){		// Base case is needed in case of binary Tree.
+	if(root == NULL) {       // Base case is needed in case of binary Tree.
 		return 0;
 	}
 	return 1 + numNodes(root->left) + numNodes(root->right);

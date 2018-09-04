@@ -44,10 +44,10 @@ BinaryTreeNode<int>* takeInputLevelWise() {
    Program to count number of leaf nodes in a binary tree
  */
 int numLeafNodes(BinaryTreeNode<int>* root){
-	if(root == NULL){		// Base case is needed in case of binary Tree.
+	if(root == NULL) {       // Base case is needed in case of binary Tree.
 		return 0;
 	}
-	if(root->left == NULL && root->right == NULL){
+	if(root->left == NULL && root->right == NULL) {
 		return 1;
 	}
 	return numLeafNodes(root->left) + numLeafNodes(root->right);

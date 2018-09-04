@@ -86,8 +86,6 @@ void printLevelWise(BinaryTreeNode<int>* root) {
 	}
 }
 
-
-
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	cout<<endl;

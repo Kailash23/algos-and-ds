@@ -68,15 +68,15 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 }
 
 PairAns minMax(BinaryTreeNode<int>* root) {
-    if(root == NULL){
-        PairAns pair;
-        pair.min = INT_MAX;
-        pair.max = INT_MIN;
-        return pair;
-    }
+	if(root == NULL) {
+		PairAns pair;
+		pair.min = INT_MAX;
+		pair.max = INT_MIN;
+		return pair;
+	}
 
-    PairAns leftAns = minMax(root->left);
-    PairAns rightAns = minMax(root->right);
+	PairAns leftAns = minMax(root->left);
+	PairAns rightAns = minMax(root->right);
 
 	int lm = leftAns.min;
 	int rm = rightAns.min;

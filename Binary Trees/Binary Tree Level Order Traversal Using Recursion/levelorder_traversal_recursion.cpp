@@ -3,7 +3,7 @@
 
    Given a binary tree, print level order traversal in a way that nodes of all levels are printed in separate lines.
  */
- 
+
 #include <iostream>
 #include "BinaryTreeNode.h"
 #include <queue>
@@ -67,7 +67,6 @@ void printLevelOrderHelper(BinaryTreeNode<int>* root, int level){
 		printLevelOrderHelper(root->left, level-1);
 		printLevelOrderHelper(root->right, level-1);
 	}
-
 }
 
 void printLevelOrder(BinaryTreeNode<int>* root){

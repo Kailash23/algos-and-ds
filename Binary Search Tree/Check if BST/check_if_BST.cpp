@@ -1,11 +1,12 @@
 /*
-Given a binary tree, print out all of its root-to-leaf paths one per line.
+   Kth smallest node in BST
+
+   Given a BST and an integer K, you need to find the Kth smallest element present in the BST. Return INT_MIN if that is not present in the BST.
  */
 
 #include <iostream>
 #include "BinaryTreeNode.h"
 #include <queue>
-#include <vector>
 using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
@@ -45,55 +46,40 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-void printPath(vector<int> vec){
-	for(int i = 0; i < vec.size(); i++) {
-		cout<< vec[i] << " ";
-	}
-}
-
-void printAllRootToLeafPathsHelper(BinaryTreeNode<int>* root, vector<int> path){
+void inorderTraversal(BinaryTreeNode<int>* root, vector<int> &v){
 	if(root == NULL) {
 		return;
 	}
-	path.push_back(root->data);
-	if(root->left == NULL && root->right == NULL) {
-		printPath(path);
-		cout<<endl;
-	} else {
-		printAllRootToLeafPathsHelper(root->left, path);
-		printAllRootToLeafPathsHelper(root->right, path);
-	}
+	inorderTraversal(root->left, v);
+	v.push_back(root->data);
+	inorderTraversal(root->right, v);
 }
 
-void printAllRootToLeafPaths(BinaryTreeNode<int>* root){
-	vector<int> path;
-	printAllRootToLeafPathsHelper(root,path);
+int findNode(BinaryTreeNode<int>* root, int k) {
+	vector<int> v;
+	inorderTraversal(root,v);
+	return v[k-1];
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	printAllRootToLeafPaths(root);
+	cout<<endl;
+	int k = 3;
+	cout<<findNode(root,k);
 	delete root;
 }
 
 /*
    Quick Input:
-   1 2 3 4 5 6 7 -1 -1 -1 -1 8 9 -1 -1 -1 -1 -1 -1
+   8 5 10 2 6 -1 -1 -1 -1 -1 7 -1 -1
+   k = 3
+
+   6
  */
 
 /*
-                                1
-                            /		\
-                          2			  3
-                        /	\		/	\
-                       4	 5	  6      7
-                                /   \
-                               8	 9
-
-   1 2 4
-   1 2 5
-   1 3 6 8
-   1 3 6 9
-   1 3 7
-
+Solution:
+   Do inorder traversal of the BST and store the elments one by one in an array.
+   The array will now contain sorted elements of tree in ascending order.
+   return the (k-1)th index of the array.
  */

@@ -59,14 +59,14 @@ void printLevelWise(BinaryTreeNode<int>* root) {
 }
 
 BinaryTreeNode<int>* buildTreeHelper(int* in, int* pos, int inS, int inE, int posS, int posE){
-	if(inS > inE){		// Means array is empty.
+	if(inS > inE) {      // Means array is empty.
 		return NULL;
 	}
 
-	int rootData = pos[posE];		// Root of the tree is the last element of postorder traversal array.
+	int rootData = pos[posE];       // Root of the tree is the last element of postorder traversal array.
 	int rootIndex = -1;
-	for(int i = inS; i <= inE; i++){
-		if(in[i] == rootData){
+	for(int i = inS; i <= inE; i++) {
+		if(in[i] == rootData) {
 			rootIndex = i;
 			break;
 		}
@@ -105,7 +105,6 @@ BinaryTreeNode<int>* buildTreeHelper(int* in, int* pos, int inS, int inE, int po
 BinaryTreeNode<int>* getTreeFromPostorderAndInorder(int *postorder, int postLength, int *inorder, int inLength) {
 	return buildTreeHelper(inorder, postorder, 0, inLength-1, 0, postLength-1);
 }
-
 
 int main(){
 	int in[] = {4,2,5,1,8,6,9,3,7};
