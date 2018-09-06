@@ -106,36 +106,37 @@ int main() {
 	This method is applicatble for both binary and binary search tree as it
 	traversing all the node of tree and doing comparision.
 
-    void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1,int k2){
-     if(root == NULL){
-         return;
-     }
-     elementsInRangeK1K2(root->left,k1,k2);
-     if(k1 <= root->data && root->data<=k2){
-         cout<< root->data <<" ";
-     }
-     elementsInRangeK1K2(root->right,k1,k2);
-    }
+	void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1,int k2){
+		if(root == NULL) {
+			return;
+		}
+		elementsInRangeK1K2(root->left,k1,k2);
+		if(k1 <= root->data && root->data<=k2) {
+			cout<< root->data <<" ";
+		}
+		elementsInRangeK1K2(root->right,k1,k2);
+	}
   */
 
 /*
+
    void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1, int k2){
-    if(root == NULL){
-        return;
-    }
-    if(root->data >= k1 && root->data<=k2){
-        elementsInRangeK1K2(root->left,k1,k2);
-        cout<<root->data<<" ";
-        elementsInRangeK1K2(root->right,k1,k2);
-        return;
-    }
-    if(root->data < k1){
-        elementsInRangeK1K2(root->right,k1,k2);
-        return;
-    }
-    if(root->data >= k2){
-        elementsInRangeK1K2(root->left,k1,k2);
-        return;
-    }
+	    if(root == NULL){
+	        return;
+	    }
+	    if(root->data >= k1 && root->data<=k2){
+	        elementsInRangeK1K2(root->left,k1,k2);
+	        cout<<root->data<<" ";
+	        elementsInRangeK1K2(root->right,k1,k2);
+	        return;
+	    }
+	    if(root->data < k1){
+	        elementsInRangeK1K2(root->right,k1,k2);
+	        return;
+	    }
+	    if(root->data >= k2){
+	        elementsInRangeK1K2(root->left,k1,k2);
+	        return;
+	    }
    }
  */

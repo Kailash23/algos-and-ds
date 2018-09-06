@@ -1,12 +1,15 @@
 /*
-   Kth smallest node in BST
+   Check if a Binary Tree is BST
 
-   Given a BST and an integer K, you need to find the Kth smallest element present in the BST. Return INT_MIN if that is not present in the BST.
+   Given a binary tree with N number of nodes, check if that input tree is BST (Binary Search Tree) or not. If yes, return true, return false otherwise.
+
+   Duplicate elements should be in right subtree.
  */
 
 #include <iostream>
 #include "BinaryTreeNode.h"
 #include <queue>
+#include <climits>
 using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
@@ -46,40 +49,45 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-void inorderTraversal(BinaryTreeNode<int>* root, vector<int> &v){
-	if(root == NULL) {
-		return;
+/*
+   Function to check whether tree is BST or not.
+   Time Complexity - O(n)
+   We are doing only constant work like comparision, making and assigning class object.
+   And we are calling recursion on both left and right - 2T(n/2)
+
+		T(n) = 2T(n/2) + k
+		=>	O(n)
+ */
+
+bool isBST(BinaryTreeNode<int>* root, int min = INT_MIN, int max = INT_MAX){
+	if(root == NULL){
+		return true;
 	}
-	inorderTraversal(root->left, v);
-	v.push_back(root->data);
-	inorderTraversal(root->right, v);
+	if(root->data < min || root->data >= max){
+		return false;
+	}
+	bool isLeftOk = isBST(root->left, min, root->data);
+	bool isRightOk = isBST(root->right,root->data, max);
+	return isLeftOk && isRightOk;
 }
 
-int findNode(BinaryTreeNode<int>* root, int k) {
-	vector<int> v;
-	inorderTraversal(root,v);
-	return v[k-1];
-}
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout<<endl;
-	int k = 3;
-	cout<<findNode(root,k);
-	delete root;
+	bool res;
+	res = isBST(root);
+	if(res){
+		cout<<"It's BST";
+	} else {
+		cout<<"It's not BST";
+	}
 }
 
 /*
    Quick Input:
    8 5 10 2 6 -1 -1 -1 -1 -1 7 -1 -1
-   k = 3
+   It's BST
 
-   6
- */
-
-/*
-Solution:
-   Do inorder traversal of the BST and store the elments one by one in an array.
-   The array will now contain sorted elements of tree in ascending order.
-   return the (k-1)th index of the array.
+   8 5 10 2 1 -1 -1 -1 -1 -1 7 -1 -1
+   It's
  */
