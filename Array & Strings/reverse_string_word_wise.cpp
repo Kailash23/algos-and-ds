@@ -28,7 +28,7 @@ void reverseStringWordWise(char input[]) {
 
 	while(input[k]!='\0') {
 		if(input[k]==' ') {
-			cout<<"k: "<<k<<endl;
+			// cout<<"k: "<<k<<endl;
 			reverse(input,j,k-1);
 			j=k+1;
 		}

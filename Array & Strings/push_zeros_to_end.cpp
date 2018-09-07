@@ -17,13 +17,13 @@ void PushZeroesEnd(int arr[], int n){
 	int index=0;
 	for(int i=0; i<n; i++) {
 		if(arr[i]!=0) {
-			arr[index++]= arr[i];
+			arr[index++] = arr[i];
 		} else {
 			zeroCount++;
 		}
 	}
-	for(int i=0; i<zeroCount; i++) {
-		arr[index++]=0;
+	for(int i=0; i < zeroCount; i++) {
+		arr[index++] = 0;
 	}
 	PrintArray(arr,n);
 }

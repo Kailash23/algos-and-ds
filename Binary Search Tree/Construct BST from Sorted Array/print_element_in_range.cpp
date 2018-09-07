@@ -10,57 +10,45 @@
 #include "BinaryTreeNode.h"
 using namespace std;
 
-BinaryTreeNode<int>* getInput() {
-	int rootData;
-	cout<<"Enter root data : "<<endl;
-	cin>>rootData;
-	if(rootData == -1) {
+BinaryTreeNode<int>* constructTreeHelper(int input[], int start, int end){
+	if(end<start){
 		return NULL;
 	}
 
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;
-	pendingNodes.push(root);
+	int rootIndex = (start+end)/2;
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
-
-		cout<<"Enter left child of "<<front->data<<endl;
-		int leftChildData;
-		cin>>leftChildData;
-		if(leftChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
-			front->left = child;
-			pendingNodes.push(child);
-		}
-
-		cout<<"Enter right child of "<<root->data<<endl;
-		int rightChildData;
-		cin>>rightChildData;
-		if(rightChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
-			front->right = child;
-			pendingNodes.push(child);
-		}
-	}
+	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(input[rootIndex]);
+	root->left = constructTreeHelper(input, start, rootIndex-1);
+	root->right = constructTreeHelper(input,rootIndex+1, end);
 	return root;
 }
 
 BinaryTreeNode<int>* constructTree(int *input, int n) {
-
+	return constructTreeHelper(input,0,n-1);
 }
 
-
-
+void preOrderTraversal(BinaryTreeNode<int>* root){
+	if(root == NULL){
+		return;
+	}
+	cout<< root->data<<" ";
+	preOrderTraversal(root->left);
+	preOrderTraversal(root->right);
+}
 
 int main() {
-	BinaryTreeNode<int>* root = getInput();
+	int input[] = {1,2,3,4,5,6,7};
+	int size = sizeof(input)/sizeof(input[0]);
+	BinaryTreeNode<int>* root = constructTree(input, size);
+	preOrderTraversal(root);
 }
 
 
 /*
    Quick Input:
    8 5 10 2 6 -1 -1 -1 -1 -1 7 -1 -1
+ */
 
+/*
+   4 2 1 3 6 5 7
  */
