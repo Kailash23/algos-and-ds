@@ -1,8 +1,9 @@
 /*
-Find Path in BST
+   Find Path in BST
 
-Given a BST and an integer k. Find and return the path from the node with data k and root (if a node with data k is present in given BST). Return null otherwise.
-Assume that BST contains all unique elements.
+   Given a BST and an integer k. Find and return the path from the node with data k and root
+   (if a node with data k is present in given BST). Return null otherwise.
+   Assume that BST contains all unique elements.
  */
 
 #include <iostream>

@@ -1,5 +1,6 @@
 /*
-   Given two sorted arrays of Size M and N respectively, merge them into a third array such that the third array is also sorted.
+   Given two sorted arrays of Size M and N respectively, merge them into a third
+   array such that the third array is also sorted.
  */
 
 #include <iostream>

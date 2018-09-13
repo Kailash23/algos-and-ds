@@ -1,5 +1,6 @@
 /*
-   Given a string S, reverse each word of a string individually. For eg. if a string is "abc def", reversed string should be "cba fed".
+   Given a string S, reverse each word of a string individually.
+   For eg. if a string is "abc def", reversed string should be "cba fed".
  */
 #include <iostream>
 #include <cstring>

@@ -1,5 +1,7 @@
 /*
-   Given two arrays (both of size n), one containing arrival time of trains and other containing the corresponding trains departure time (in the form of an integer) respectively. Return the minimum number of platform required, such that no train waits.
+   Given two arrays (both of size n), one containing arrival time of trains and
+   other containing the corresponding trains departure time (in the form of an integer)
+   respectively. Return the minimum number of platform required, such that no train waits.
    Arrival and departure time of a train can't be same.
  */
 

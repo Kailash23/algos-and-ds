@@ -1,6 +1,7 @@
 /*
-   You are given an integer array containing only 0s, 1s and 2s. Write a solution to sort this array using one scan only.
-   You need to change in the given array itself. So no need to return or print anything.
+   You are given an integer array containing only 0s, 1s and 2s. Write a solution
+   to sort this array using one scan only. You need to change in the given array itself.
+   So no need to return or print anything.
  */
 
 #include <iostream>

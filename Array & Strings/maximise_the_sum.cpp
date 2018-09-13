@@ -1,7 +1,8 @@
 /*
-   Given 2 sorted arrays (in increasing order), find a path through the intersections that produces maximum sum and return the maximum sum.
-   That is, we can switch from one array to another array only at common elements.
-   If no intersection element is present, we need to take sum of all elements from the array with greater sum.
+   Given 2 sorted arrays (in increasing order), find a path through the intersections
+   that produces maximum sum and return the maximum sum. That is, we can switch from
+   one array to another array only at common elements.If no intersection element is
+   present, we need to take sum of all elements from the array with greater sum.
  */
 #include <iostream>
 using namespace std;

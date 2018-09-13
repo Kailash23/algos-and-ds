@@ -1,5 +1,7 @@
 /*
-   Print Spiral : Given an N*M 2D array, print it in spiral form. That is, first you need to print the 1st row, then last column, then last row and then first column and so on.
+   Print Spiral : Given an N*M 2D array, print it in spiral form. That is, first
+   you need to print the 1st row, then last column, then last row and then first
+   column and so on.
  */
 
 #include <iostream>

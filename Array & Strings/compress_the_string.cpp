@@ -24,6 +24,7 @@ void stringCompression(char input[]) {
 			input[index++]= count;
 	}
 	input[index]= '\0';
+	cout<< input <<endl;
 }
 
 
@@ -31,3 +32,7 @@ int main(){
 	char str[] = {"aaabbbccccdddddddeeeegggggk"};
 	stringCompression(str);
 }
+
+/*
+   a3b3c4d7e4g5k
+ */

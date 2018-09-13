@@ -1,6 +1,7 @@
 /*
-   Given a random integer array, push all the zeros that are present to end of the array. The respective order of other elements should remain same.
-   Change in the input array itself. You don't need to return or print elements. Don't use extra array.
+   Given a random integer array, push all the zeros that are present to end of the array.
+   The respective order of other elements should remain same. Change in the input array
+   itself. You don't need to return or print elements. Don't use extra array.
  */
 
 #include <iostream>
