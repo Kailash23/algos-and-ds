@@ -14,12 +14,17 @@ void PrintArray(int arr[], int n){
 }
 
 void PushZeroesEnd(int arr[], int n){
-	int ptr = 0;
-	for(int i = 0; i < n; i++) {
-		if(arr[i]){
-			swap(arr[ptr], arr[i]);
-			ptr++;
+	int count = 0;
+	int index = 0;
+	for(int i = 0; i < n; i++){
+	    if(arr[i] == 0){
+			count++;
+		} else {
+			arr[index++] = arr[i];
 		}
+	}
+	for(int i = 0; i < count; i++){
+	    arr[index++] = 0;
 	}
 	PrintArray(arr, n);
 }
