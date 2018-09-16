@@ -8,29 +8,29 @@
 using namespace std;
 
 void PrintArray(int arr[], int n){
-	for(int i=0; i<n; i++) {
-		cout<<arr[i]<<" ";
+	for(int i = 0; i < n; i++) {
+		cout << arr[i] << " ";
 	}
 }
 
 void PushZeroesEnd(int arr[], int n){
-	int zeroCount=0;
-	int index=0;
-	for(int i=0; i<n; i++) {
-		if(arr[i]!=0) {
+	int zeroCount = 0;
+	int index = 0;
+	for(int i = 0; i < n; i++) {
+		if(arr[i] != 0) {
 			arr[index++] = arr[i];
 		} else {
 			zeroCount++;
 		}
 	}
-	for(int i=0; i < zeroCount; i++) {
+	for(int i = 0; i < zeroCount; i++) {
 		arr[index++] = 0;
 	}
-	PrintArray(arr,n);
+	PrintArray(arr, n);
 }
 
 int main(){
-	int arr[] = {1,2,0,0,2,0,3,4,0};
-	int n = sizeof(arr)/sizeof(arr[0]);
-	PushZeroesEnd(arr,n);
+	int arr[] = {1, 2, 0, 0, 2, 0, 3, 4, 0};
+	int n = sizeof(arr) / sizeof(arr[0]);
+	PushZeroesEnd(arr, n);
 }

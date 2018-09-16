@@ -11,29 +11,29 @@ using namespace std;
 void printPairs(int *input, int n, int k){
 	unordered_map<int,int> m;
 
-	for(int i=0; i<n; i++) {
+	for(int i = 0; i < n; i++) {
 		m[input[i]]++;
 	}
 
-	for(int i=0; i<n; i++) {
+	for(int i = 0; i < n; i++) {
 		int key = input[i];
 		if(k == 0) {
 			int a = m[key];
-			int count = ((a-1)*a)/2;
-			for(int j=0; j<count; j++) {
-				cout<< key << " " <<key <<endl;
+			int count = ((a - 1) * a) / 2;
+			for(int j = 0; j < count; j++) {
+				cout<< key << " " << key << endl;
 			}
 		} else {
-			int a = key+k;
-			int b = key-k;
+			int a = key + k;
+			int b = key - k;
 			int count = m[key];
 			int count1 = m[a];
 			int count2 = m[b];
-			for(int j=0; j<count*count1; j++) {
-				cout<<min(a,key)<<" "<<max(a,key)<<endl;
+			for(int j = 0; j < count * count1; j++) {
+				cout << min(a, key) << " " <<max(a, key) << endl;
 			}
-			for(int j=0; j<count*count2; j++) {
-				cout<<min(b, key)<<" "<<max(b,key)<<endl;
+			for(int j = 0; j < count * count2; j++) {
+				cout << min(b, key) << " " <<max(b, key) << endl;
 			}
 		}
 		m.erase(key);
@@ -43,6 +43,6 @@ void printPairs(int *input, int n, int k){
 int main(){
 	int arr[] = {4,4,4,4,5,5,5,5,6,-6,4};
 	int k = 0;
-	int n = sizeof(arr)/sizeof(arr[0]);
-	printPairs(arr,n,k);
+	int n = sizeof(arr) / sizeof(arr[0]);
+	printPairs(arr, n, k);
 }

@@ -19,22 +19,22 @@ int fib(int n, int * arr) {
 	if(n == 0 || n == 1) {
 		return 1;
 	}
-	if(arr[n]>0) {
+	if(arr[n] > 0) {
 		return arr[n];	//If number is already pre calculated and present in array then use it.
 	}
 
-	int output = fib(n-1, arr) + fib(n-2, arr);
-	arr[n] = output;	// Saving inpu to array before returning it.
+	int output = fib(n - 1, arr) + fib(n - 2, arr);
+	arr[n] = output;	// Saving input to array before returning it.
 	return output;
 }
 
 /* Iterative Method */
 int fibi(int n) {
-	int * arr = new int[n+1];
+	int * arr = new int[n + 1];
 	arr[0] = 1;
 	arr[1] = 1;
 	for(int i = 2; i <= n; i++) {
-		arr[i] = arr[i-1] + arr[i-2];
+		arr[i] = arr[i - 1] + arr[i - 2];
 	}
 	int output = arr[n];
 	delete [] arr;
@@ -45,6 +45,5 @@ int main(){
 	int n;
 	cin >> n;
 	int *arr = new int[n+1];
-	cout<<fib(n,arr)<<endl;
-	//cout<<fibi(n)<<endl;
+	cout << fib(n, arr) << endl;
 }

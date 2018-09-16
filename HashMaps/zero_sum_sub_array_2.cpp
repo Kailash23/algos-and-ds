@@ -8,11 +8,11 @@
 using namespace std;
 
 bool subArrayZeroSum(int input[], int n){
-	unordered_map<int, bool> m;
+	unordered_map<int,bool> m;
 	int sum = 0;
-	for(int i=0; i<n; i++) {
+	for(int i = 0; i < n; i++) {
 		sum += input[i];
-		if(sum == 0 || m.count(sum)!=0) {
+		if(sum == 0 || m.count(sum) != 0) {
 			return true;
 		}
 		m[sum] = 1;
@@ -22,7 +22,7 @@ bool subArrayZeroSum(int input[], int n){
 
 int main(){
 	int arr[] = {7,1,3,-4,5,1};
-	int n = sizeof(arr)/sizeof(arr[0]);
-	cout<<subArrayZeroSum(arr, n);
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << subArrayZeroSum(arr, n);
 
 }
