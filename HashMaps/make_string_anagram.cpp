@@ -29,11 +29,11 @@ int makeAnagram(char str1[], char str2[]){
 	unordered_map<char,int> map1;
 	unordered_map<char,int> map2;
 
-	for(int i=0; i<strlen(str1); i++) {
+	for(int i = 0; i < strlen(str1); i++) {
 		map1[str1[i]]++;
 	}
 
-	for(int i=0; i<strlen(str2); i++) {
+	for(int i = 0; i < strlen(str2); i++) {
 		map2[str2[i]]++;
 	}
 

@@ -8,9 +8,8 @@
 #include <unordered_map>
 using namespace std;
 
-void findLargestUniqueSubstring(char input[], char output[])
-{
-    unordered_map<char, bool> map;
+void findLargestUniqueSubstring(char input[], char output[]){
+    unordered_map<char,bool> map;
     int li = 0, max_li = 0;
     int max_len = 0;
     for (int i = 0; i < strlen(input); i++) {

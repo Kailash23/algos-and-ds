@@ -61,7 +61,6 @@ int max(int arr[], int n) {
 		maxlen = max(maxlen,it->second);
 		it++;
 	}
-
 	return maxlen;
 }
 

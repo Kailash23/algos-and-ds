@@ -24,13 +24,13 @@ using namespace std;
 
 int minDistance(int arr[], int n){
 	unordered_map<int,int> map;
-	int near = n;
+	int near = n;		// Initially setting near = n cause max possible distance is equal to size of array.
 	for(int i = 0; i < n; i++) {
 		if(map.count(arr[i])) {
 			if(near > i - map[arr[i]]) {
 				near = i - map[arr[i]];
 			}
-			map[arr[i]] = i;
+			map[arr[i]] = i;		// updating new position of arr[i] in map after calc nearest dist.
 		} else {
 			map[arr[i]] = i;
 		}

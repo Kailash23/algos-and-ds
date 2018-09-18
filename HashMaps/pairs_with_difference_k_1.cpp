@@ -40,10 +40,8 @@ void printPairs(int *input, int n, int k) {
 	for(int i = 0; i < n; i++) {
 		map[input[i]]++;
 	}
-
 	unordered_map<int,int> :: iterator it1 = map.begin();
 	unordered_map<int,int> :: iterator it2 = map.begin();
-
 	while(it1 != map.end()) {
 		it2 = map.begin();
 		while(it2 != map.end()) {

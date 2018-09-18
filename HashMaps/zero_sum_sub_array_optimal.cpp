@@ -15,7 +15,7 @@ bool subArrayZeroSum(int input[], int n){
 		if(sum == 0 || m.count(sum) != 0) {
 			return true;
 		}
-		m[sum] = 1;
+		m[sum] = true;
 	}
 	return false;
 }
@@ -23,6 +23,13 @@ bool subArrayZeroSum(int input[], int n){
 int main(){
 	int arr[] = {7,1,3,-4,5,1};
 	int n = sizeof(arr) / sizeof(arr[0]);
-	cout << subArrayZeroSum(arr, n);
-
+	if(subArrayZeroSum(arr, n)) {
+		cout << "true" << endl;
+	} else {
+		cout << "false" << endl;
+	}
 }
+
+/*
+   true
+ */
