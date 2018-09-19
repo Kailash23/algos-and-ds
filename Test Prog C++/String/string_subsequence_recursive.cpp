@@ -1,12 +1,13 @@
 /*
    Program to find all subsequence of a given string.
  */
+
 #include <iostream>
 using namespace std;
 
 void print_subs(string input, string output){
-	if(input.length()==0) {
-		cout<<output<<endl;
+	if(input.length() == 0) {
+		cout << output << endl;
 		return;
 	}
 	print_subs(input.substr(1), output);
@@ -14,7 +15,25 @@ void print_subs(string input, string output){
 }
 
 int main(){
-	string input = "JUGGERNAUT";
+	string input = "HOPE";
 	string output = "";
 	print_subs(input, output);
 }
+
+/*
+   E
+   P
+   PE
+   O
+   OE
+   OP
+   OPE
+   H
+   HE
+   HP
+   HPE
+   HO
+   HOE
+   HOP
+   HOPE
+ */

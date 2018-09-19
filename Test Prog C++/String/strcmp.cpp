@@ -4,8 +4,8 @@
 using namespace std;
 
 int main(){
-	char s1[]= "Hello";    //500
-	char s2[]= "World";
+	char s1[] = "Hello";    //500
+	char s2[] = "World";
 	int i, j;
 	i = strcmp(s1, "Hello");
 	j = strcmp(s1, s2);

@@ -1,9 +1,14 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main(){
-	std::string name;
+	string name;
 	name = "I have 4 chocolates";       //19
-	std::cout << name.size() << std::endl;
+	cout << name.size() << endl;
 	return 0;
 }
+
+/*
+   19
+ */

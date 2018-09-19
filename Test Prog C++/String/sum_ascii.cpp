@@ -3,11 +3,14 @@
 using namespace std;
 
 int main(){
-	string str = "Hello";
+	string str = "dd";
 	int sum = 0;
-	int st = 0;
-	for(int i=0; str[i]!= '\0'; i++) {
-		sum = sum + (str[i]+0);
+	for(int i = 0; str[i] != '\0'; i++) {
+		sum = sum + (str[i] + 0);
 	}
-	cout<<sum;
+	cout << sum;
 }
+
+/*
+   200
+ */

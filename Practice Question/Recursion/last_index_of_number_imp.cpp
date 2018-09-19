@@ -17,26 +17,36 @@ int lastIndex(int input[], int size, int x) {
 	if(size == 0) {
 		return -1;
 	}
-	int p = lastIndex(input + 1, size - 1, x);
-	if(input[0] == x) {
-		return p + 1;
+	if(input[size - 1] == x) {
+		return size - 1;
 	}
-	if(p == -1) {
-		return -1;
-	} else {
-		return p + 1;
-	}
+	 return lastIndex(input, size - 1, x);
 }
 
-
 int main(){
-	int arr[] = {1,5,4,3,5,5,5,6,6,6,6};
+	int arr[] = {1,2,3,2,5,7};
 	int n = sizeof(arr) / sizeof(arr[0]);
-	int x = 6;
-	int ans = lastIndex(arr, n, x);
-	cout << ans;
+	int x = 2;
+	cout << lastIndex(arr, n, x);
 }
 
 /*
-   10
+   3
+ */
+
+/*
+    int lastIndex(int input[], int size, int x){
+        if(size == 0){
+            return -1;
+        }
+        int smallAns = lastIndex(input + 1, size - 1, x);
+        if(input[0] == x){
+            return smallAns + 1;
+        }
+        if(smallAns != -1){
+            return smallAns + 1;
+        } else {
+            return -1;
+        }
+    }
  */
