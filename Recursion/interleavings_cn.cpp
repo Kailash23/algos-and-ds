@@ -19,42 +19,39 @@
 #include <cstring>
 using namespace std;
 
-void interleavingHelper(char* first, char* second, char* output, int len1, int len2, int i, int j, int k) {
-	if((i + j) == (len1 + len2)) {
+void interleavingHelper(char* first, char* second, char*output, int outputIndex = 0){
+	if(first[0] == '\0' && second[0] == '\0') {
+		output[outputIndex] = '\0';
 		cout << output << endl;
 		return;
 	}
-	if(i < len1) {
-		output[k] = first[i];
-		interleavingHelper(first, second, output, len1, len2, i + 1, j, k + 1);
+	if(first[0] != '\0') {
+		output[outputIndex] = first[0];
+		interleavingHelper(first + 1, second, output, outputIndex + 1);
 	}
-	if(j < len2) {
-		output[k] = second[j];
-		interleavingHelper(first, second, output, len1, len2, i, j + 1, k + 1);
+	if(second[0] != '\0') {
+		output[outputIndex] = second[0];
+		interleavingHelper(first, second + 1, output, outputIndex + 1);
 	}
 }
 
 
-void interleaving(char* first, char* second) {
-	int len1 = strlen(first);
-	int len2 = strlen(second);
-	char *output = new char[len1 + len2 + 1];
-	output[len1 + len2] = '\0';
-	interleavingHelper(first, second, output, len1, len2, 0, 0, 0);
+void interleavings(char* first, char* second){
+	int m = strlen(first);
+	int n = strlen(second);
+	char* output = new char[m + n + 1];
+	interleavingHelper(first, second, output);
 	delete [] output;
 }
 
 int main(){
-	char s1[] = "ab";
+	char s1[] = "a";
 	char s2[] = "cd";
-	interleaving(s1, s2);
+	interleavings(s1, s2);
 }
 
 /*
-   abcd
-   acbd
-   acdb
-   cabd
-   cadb
-   cdab
+   acd
+   cad
+   cda
  */

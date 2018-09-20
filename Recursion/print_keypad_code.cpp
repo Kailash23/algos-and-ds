@@ -1,14 +1,15 @@
 /*
    Print Keypad Combinations Code
 
-   Given an integer n, using phone keypad find out and print all the possible strings that can be made using digits of input n.
-   Note : The order of strings are not important. Just print different strings in new lines.
+   Given an integer n, using phone keypad find out and print all the possible
+   strings that can be made using digits of input n.
+   Note : The order of strings are not important. Just print different strings
+   in new lines.
  */
 
 #include <iostream>
 #include <string>
 using namespace std;
-
 
 string getString(int d){
 	if(d == 2) {
@@ -40,22 +41,22 @@ string getString(int d){
 
 void keypad(int num, string output){
 	if(num == 0) {
-		cout<<output<<endl;
+		cout << output << endl;
 		return;
 	}
 
-	int lastDigit = num%10;
-	int smallOutput = num/10;
+	int lastDigit = num % 10;
+	int smallOutput = num / 10;
 	string option = getString(lastDigit);
 
-	for(int i=0; i<option.size(); i++) {
-		keypad(smallOutput,option[i]+output);
+	for(int i = 0; i < option.size(); i++) {
+		keypad(smallOutput, option[i] + output);
 	}
 }
 
 void printKeypad(int num){
 	string output = "";
-	keypad(num,output);
+	keypad(num, output);
 }
 
 int main(){

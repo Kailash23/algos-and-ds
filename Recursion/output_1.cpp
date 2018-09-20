@@ -2,7 +2,7 @@
 using namespace std;
 
 int func(int num){
-	return func(num- 1);
+	return func(num - 1);
 }
 
 int main() {

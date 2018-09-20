@@ -6,11 +6,11 @@ void print(int n){
 		return;
 	}
 	if(n == 0) {
-		cout<<n<<"";
+		cout << n << "";
 		return;
 	}
-	print(n--);     //post decrement operator
-	cout<<n<<"";
+	print(n--);     // post decrement operator
+	cout << n << "";
 }
 
 int main() {
@@ -18,5 +18,6 @@ int main() {
 	print(num);
 }
 
-
-//Runtime error (infinite recursion)
+/*
+   Runtime error (infinite recursion)
+ */

@@ -9,7 +9,7 @@ using namespace std;
 
 bool checkPalindrome(char input[]) {
 	int start = 0;
-	int last = strlen(input)-1;
+	int last = strlen(input) - 1;
 	if(strlen(input) == 0) {
 		return true;
 	}
@@ -21,7 +21,7 @@ bool checkPalindrome(char input[]) {
 	}
 	char *temp = new char[100];
 	int s = 0;
-	for(int i = start+1; i<last; i++) {
+	for(int i = start + 1; i < last; i++) {
 		temp[s++] = input[i];
 	}
 	temp[s] = '\0';
@@ -35,8 +35,8 @@ int main(){
 	char str[] = "juggerregguj";
 	bool answer = checkPalindrome(str);
 	if(answer) {
-		cout<<"Palindrome";
+		cout << "Palindrome";
 	} else {
-		cout<<"Not Palindrome";
+		cout << "Not Palindrome";
 	}
 }

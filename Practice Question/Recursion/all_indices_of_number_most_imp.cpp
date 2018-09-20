@@ -10,11 +10,11 @@
 using namespace std;
 
 int allIndexes(int input[], int size, int x, int output[]) {
-	if(size == 0){
+	if(size == 0) {
 		return 0;
 	}
 	int ans = allIndexes(input, size - 1, x, output);
-	if(input[size - 1] == x){
+	if(input[size - 1] == x) {
 		output[ans++] = size - 1;
 	}
 	return ans;
@@ -22,11 +22,15 @@ int allIndexes(int input[], int size, int x, int output[]) {
 
 int main(){
 	int input[] = {1,2,3,2,5,2,7};
-	int n = sizeof(arr) / sizeof(arr[0]);
+	int n = sizeof(input) / sizeof(input[0]);
 	int *output = new int[n];
 	int x = 2;
-	allIndexes(input, n, x, output);
-	for(int i = 0; i < n; i++){
-	    cout << output[i] << " ";
+	int size = allIndexes(input, n, x, output);
+	for(int i = 0; i < size; i++) {
+		cout << output[i] << " ";
 	}
 }
+
+/*
+   1 3 5
+ */

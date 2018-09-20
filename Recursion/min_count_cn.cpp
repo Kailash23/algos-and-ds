@@ -9,20 +9,22 @@
  */
 
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 int minCount(int n){
-	if(n == 1) {
-		return 1;
+	if(n <= 1) {
+		return n;
 	}
-	if(n <= 0) {
-		return 0;
-	}
-	for(int i = n - 1; i >= 1; i--) {
-		if(n >= (i * i)) {
-			return 1 + minCount(n - (i * i));
+	int ans = n;
+	for(int i = 1; i <= n; i++) {
+		int square = i * i;
+		if(square > n) {
+			break;
 		}
+		ans = min(ans, minCount(n - square) + 1);
 	}
+	return ans;
 }
 
 
@@ -30,13 +32,17 @@ int main(){
 	int n;
 	cin >> n;
 	while(n != -1) {
-		cout << minCount(n) << endl;
+		cout << minCount(n) << endl << endl;
 		cin >> n;
 	}
 	cout << "exit!";
 }
 
 /*
-   5
+   10
    2
+ */
+
+/*
+   3^3 & 1^1
  */

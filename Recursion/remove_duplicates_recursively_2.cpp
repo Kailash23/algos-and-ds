@@ -22,5 +22,5 @@ string removeConsecutiveDuplicates(string input) {
 
 int main(){
 	string str = "abbcccdef";
-	cout<<removeConsecutiveDuplicates(str);
+	cout << removeConsecutiveDuplicates(str);
 }

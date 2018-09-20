@@ -8,25 +8,22 @@
 using namespace std;
 
 bool checkPalindrome(string str) {
-
 	if(str.length() <= 1) {
 		return true;
 	}
-
-	if(str[0] == str[str.length()-1]) {
-		return checkPalindrome(str.substr(1,str.length()-2));
+	if(str[0] == str[str.length() - 1]) {
+		return checkPalindrome(str.substr(1, str.length() - 2));
 	} else {
 		return false;
 	}
-
 }
 
 int main(){
 	string input = "qwerrewq";
 	bool answer = checkPalindrome(input);
 	if(answer) {
-		cout<<"Palindrome";
+		cout << "Palindrome";
 	} else {
-		cout<<"Not Palindrome";
+		cout << "Not Palindrome";
 	}
 }

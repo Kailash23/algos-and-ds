@@ -3,7 +3,7 @@ using namespace std;
 
 void print_subs(string input, string output){
 	if(input.length() == 0) {
-		cout<<output<<endl;
+		cout << output << endl;
 		return;
 	}
 	print_subs(input.substr(1), output);
@@ -12,7 +12,27 @@ void print_subs(string input, string output){
 
 int main(){
 	string input;
-	cin>>input;
+	cin >> input;
 	string output = "";
-	print_subs(input,output);
+	print_subs(input, output);
 }
+
+/*
+   abcd
+
+   d
+   c
+   cd
+   b
+   bd
+   bc
+   bcd
+   a
+   ad
+   ac
+   acd
+   ab
+   abd
+   abc
+   abcd
+ */
