@@ -33,3 +33,11 @@ int main(){
 /*
    4
  */
+
+/*
+    int countZeros(int n) {
+        if (n == 0)
+            return 0;
+        return (n % 10 == 0) ? 1 + countZeros(n / 10) : countZeros(n / 10);
+    }
+ */

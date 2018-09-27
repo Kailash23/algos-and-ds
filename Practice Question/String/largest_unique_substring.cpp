@@ -10,13 +10,13 @@ using namespace std;
 
 void findLargestUniqueSubstring(char input[], char output[]){
     unordered_map<char,bool> map;
-    int li = 0, max_li = 0;
+    int li = 0, temp_li = 0;
     int max_len = 0;
     for (int i = 0; i < strlen(input); i++) {
         if (map.count(input[i]) > 0) {
             if ((i - li) > max_len) {
                 max_len = i - li;
-                max_li = li;
+                temp_li = li;
             }
             while (map.count(input[i]) > 0)
                 map.erase(input[li++]);
@@ -24,7 +24,7 @@ void findLargestUniqueSubstring(char input[], char output[]){
         map[input[i]] = true;
     }
     int ind = 0;
-    for (int i = max_li; i < max_li + max_len; i++) {
+    for (int i = temp_li; i < temp_li + max_len; i++) {
         output[ind++] = input[i];
     }
     output[ind] = '\0';

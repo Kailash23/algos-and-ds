@@ -10,25 +10,46 @@
 using namespace std;
 
 bool checkPalindrome(char input[]) {
-	if(strlen(input) <= 1){
+	if (strlen(input) == 0){
 		return true;
 	}
-	bool smallAns;
-	if(input[0] == input[strlen(input) - 1]){
-		smallAns = true;
-	} else {
-		smallAns = false;
+	if (input[0] != input[strlen(input) - 1]){
+		return false;
 	}
-	char *temp = new char[100];
-	int ind = 0;
-	for(int i = 1; i < strlen(input) - 1; i++){
-	    temp[ind++] = input[i];
-	}
-	temp[ind] = '\0';
-	return smallAns && checkPalindrome(temp);
+	input[strlen(input) - 1] = '\0';
+	return checkPalindrome(input + 1);
 }
 
 int main(){
 	char str[] = "abccba";
-	cout << checkPalindrome(str);
+	if(checkPalindrome(str)){
+		cout << "Palindrome" << endl;
+	} else {
+		cout << "Not Palindrome" << endl;
+	}
 }
+
+/*
+	Palindrome
+ */
+
+ /*
+ bool checkPalindrome(char input[]) {
+ 	if(strlen(input) <= 1){
+ 		return true;
+ 	}
+ 	bool smallAns;
+ 	if(input[0] == input[strlen(input) - 1]){
+ 		smallAns = true;
+ 	} else {
+ 		smallAns = false;
+ 	}
+ 	char *temp = new char[100];
+ 	int ind = 0;
+ 	for(int i = 1; i < strlen(input) - 1; i++){
+ 	    temp[ind++] = input[i];
+ 	}
+ 	temp[ind] = '\0';
+ 	return smallAns && checkPalindrome(temp);
+ }
+ */
