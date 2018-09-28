@@ -63,3 +63,9 @@ public class Teacher {
         System.out.println(name + " " + empId + " " + numTeachers);
     }
 }
+
+/*
+   default (firendly) - within package
+   private - only within class
+   public - anywhere
+ */

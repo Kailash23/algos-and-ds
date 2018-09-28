@@ -1,4 +1,4 @@
-package com.output15;
+package com.output16;
 
 public class VehicleUse {
 
@@ -19,8 +19,8 @@ public class VehicleUse {
 /*
    Vehicle color : Black
    Vehicle Speed : 10
-   Car color : Black
-   Car Speed : 100
+   Vehicle color : Black
+   Vehicle Speed : 100
    Car numGears : 10
    Car isConvertible : false
  */
