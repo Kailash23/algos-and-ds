@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class VehicleUse {
 
 	public static void main(String[] args) {
-		Vehicle v = new Car(5,7);		// Polymorphism
+		Vehicle v = new Car(5,7);		// Polymorphism - object formed is of car type
 		v.print();		// Which print function to be called is decided at runtime.
 	}
 }
