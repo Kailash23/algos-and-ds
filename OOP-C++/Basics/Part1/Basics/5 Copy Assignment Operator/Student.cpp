@@ -1,27 +1,27 @@
-class Teacher {
+class Student {
 
-	public:
+public:
 	int empId;
 
-	private:
+private:
 	int age;
 
-	public:
-	~Teacher() {
+public:
+	~Student() {
 		cout << "Destructor called ! " << endl;
 	}
 
-	Teacher() {
+	Student() {
 		cout << "Constructor 1 called ! "<< endl;
 	}
 
 	// Parameterized constructor
-	Teacher(int empId) {
+	Student(int empId) {
 		cout << "Constructor 2 called !" << endl;
 		this->empId = empId;
 	}
 
-	Teacher(int a, int e) {
+	Student(int a, int e) {
 		cout << "Constructor 3 called ! " << endl;
 		this->age = a;
 		this->empId = e;

@@ -1,12 +1,17 @@
 #include <iostream>
 using namespace std;
-#include "student_class.cpp"
+
+#include "Student.cpp"
+
+/*
+   Default Constructor
+ */
 
 int main() {
 	// Create objects statically
 	Student s1;
 
-	s1.setAge(24,123);      //setter
+	s1.setAge(24, 123);      //setter
 	s1.rollNumber = 101;
 
 	cout << "Fetching age : " << s1.getAge() << endl;     //getter
@@ -14,7 +19,7 @@ int main() {
 
 	s1.display();
 
-	cout<<"**************************************"<<endl;
+	cout << endl;
 
 	// Create objects dynamically
 	Student *s2 = new Student;
@@ -25,7 +30,6 @@ int main() {
 	cout << "Fetching roll no : " << s2->rollNumber << endl;
 
 	(*s2).display();
-
 }
 
 /*
@@ -34,7 +38,7 @@ int main() {
    Fetching roll no : 101
    Age of student: 24
    Roll no: 101
-   **************************************
+
    Constructor called !
    Fetching age : 23
    Fetching roll no : 104

@@ -3,11 +3,11 @@ using namespace std;
 
 class ComplexNumbers {
 
-	public:
+public:
 	int real;
 	int imaginary;
 
-	ComplexNumbers(int real,int imaginary){
+	ComplexNumbers(int real, int imaginary){
 		this->real = real;
 		this->imaginary = imaginary;
 	}
@@ -23,8 +23,9 @@ class ComplexNumbers {
 		this->real = real;
 		this->imaginary = imaginary;
 	}
+
 	void print(){
-		cout<<this->real<<" + i"<<this->imaginary;
+		cout << this->real << " + i" << this->imaginary;
 	}
 
 };
@@ -53,3 +54,10 @@ int main() {
 		return 0;
 	}
 }
+
+/*
+   3 4
+   2 5
+   1
+   5 + i9
+ */

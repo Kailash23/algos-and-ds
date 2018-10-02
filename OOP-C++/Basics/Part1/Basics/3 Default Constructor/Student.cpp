@@ -1,19 +1,19 @@
 class Student {
 
-	public:
+public:
 	int rollNumber;
 
-	private:
+private:
 	int age;
 
-	public:
+public:
 	// Default constructor
 	Student() {
 		cout << "Constructor called ! "<< endl;
 	}
 
 	void display() {
-		cout <<"Age of student: " <<age << endl <<"Roll no: " <<rollNumber << endl;
+		cout << "Age of student: " << age << endl <<"Roll no: " << rollNumber << endl;
 		// cout << this.age << " " << this.rollNumber << endl;
 	}
 
@@ -31,3 +31,7 @@ class Student {
 		age = a;
 	}
 };
+
+/*
+   By default - access specifier is private
+ */
