@@ -15,7 +15,7 @@ int main() {
  */
 
 /*
-   Vehicle's parameterized constructor :5
+   Vehicle's parameterized constructor : 5
    Car's default constructor
    Truck's constructor
    Bus's constructor
@@ -23,4 +23,11 @@ int main() {
    Truck's destructor
    Car's distructor
    Vehicle's destructor
+ */
+
+/*
+   This,
+   Vehicle's parameterized constructor : 5
+   Shows that Bus had called Vehicle's parameterized constructor. As we explicitly
+   passed 5 in Bus class.
  */

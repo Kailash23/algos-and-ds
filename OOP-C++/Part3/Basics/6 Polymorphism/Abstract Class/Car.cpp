@@ -1,4 +1,5 @@
 class Car : public Vehicle {
+	
 	public :
 		int numGears;
 

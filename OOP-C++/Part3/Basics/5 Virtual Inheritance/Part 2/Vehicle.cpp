@@ -13,7 +13,7 @@ class Vehicle {
 		}
 
 		Vehicle(int z) {
-			cout << "Vehicle's parameterized constructor :" << z << endl;
+			cout << "Vehicle's parameterized constructor : " << z << endl;
 		}
 
 		void print() {
