@@ -26,7 +26,7 @@
 using namespace std;
 
 #include <vector>
-#include<queue>
+#include <queue>
 #include <unordered_map>
 
 
@@ -43,18 +43,18 @@ vector<int>* getPath(int** edges, int V, int sv, int ev){
 	vector<int>* output = new vector<int>();
 	bool done = false;
 
-	while(bfsQ.size() != 0 && !done){
+	while(bfsQ.size() != 0 && !done) {
 		int front = bfsQ.front();
 		bfsQ.pop();
-		for(int i = 0; i < V; i++){
-			if(i == front){
+		for(int i = 0; i < V; i++) {
+			if(i == front) {
 				continue;
 			}
-		    if(edges[front][i] == 1 && !visited[i]){
+			if(edges[front][i] == 1 && !visited[i]) {
 				bfsQ.push(i);
-				parent[i] = front;		// front is reponsible for inserting this i into queue
+				parent[i] = front;      // front is reponsible for inserting this i into queue
 				visited[i] = true;
-				if(ev == i){
+				if(ev == i) {
 					done = true;
 					break;
 				}
@@ -62,13 +62,13 @@ vector<int>* getPath(int** edges, int V, int sv, int ev){
 		}
 	}
 	delete [] visited;
-	if(!done){		// Means never went to end vertex
+	if(!done) {      // Means never went to end vertex
 		return NULL;
 	} else {
 		int current = ev;
 		output->push_back(ev);
-		while(current != sv){
-			current = parent[current];		// next current is the parent of current
+		while(current != sv) {
+			current = parent[current];      // next current is the parent of current
 			output->push_back(current);
 		}
 		return output;
@@ -99,7 +99,7 @@ int main(){
 	cin >> sv >> ev;
 
 	vector<int>* output = getPath(edges, V, sv, ev);
-	if(output != NULL){
+	if(output != NULL) {
 		cout << "Path (bfs) :" << endl;
 		for(int i = 0; i < output->size(); i++) {
 			cout << output->at(i) << " ";
@@ -109,8 +109,8 @@ int main(){
 		cout << "No path found !" << endl;
 	}
 
-	for(int i = 0; i < V; i++){
-	    delete [] edges[i];
+	for(int i = 0; i < V; i++) {
+		delete [] edges[i];
 	}
 	delete [] edges;
 }
