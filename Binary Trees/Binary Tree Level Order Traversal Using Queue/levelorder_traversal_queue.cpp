@@ -11,13 +11,13 @@ using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
+	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);		// Root node creation
 
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
 	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
 	pendingNodes.push(root);
 
@@ -25,18 +25,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -60,8 +60,8 @@ void printLevelOrder(BinaryTreeNode<int>* root){
 		int nodeCount = pendingNodes.size();
 		while(nodeCount > 0) {
 			BinaryTreeNode<int>* front = pendingNodes.front();
-			cout<<front->data<<" ";
 			pendingNodes.pop();
+			cout << front->data << " ";
 			if(front->left != NULL) {
 				pendingNodes.push(front->left);
 			}
@@ -70,7 +70,7 @@ void printLevelOrder(BinaryTreeNode<int>* root){
 			}
 			nodeCount--;
 		}
-		cout<<endl;
+		cout << endl;
 	}
 }
 

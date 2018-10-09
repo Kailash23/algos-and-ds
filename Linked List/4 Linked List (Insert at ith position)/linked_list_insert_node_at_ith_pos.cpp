@@ -7,9 +7,9 @@ using namespace std;
    Time Complexity : O(n)
  */
 
-Node* takeInput_Better(){
+Node* takeInputBetter(){
 	int data;
-	cin>>data;
+	cin >> data;
 	Node *head = NULL;              // Head will point to first node
 	Node *tail = NULL;              // Tail will point to last node
 	while(data != -1) {
@@ -23,36 +23,36 @@ Node* takeInput_Better(){
 			// OR
 			// tail = newNode;
 		}
-		cin>>data;
+		cin >> data;
 	}
 	return head;
 }
 
 Node* insertNode(Node *head, int i, int data) {
-	Node *newNode = new Node(data);		// Creating Node to be inserted
+	Node *newNode = new Node(data);     // Creating Node to be inserted
 	int count = 0;
 	Node *temp = head;
 
-	if(i == 0) {		// Special case for inserting at 0th location
-		newNode -> next = head;		// Making new node as first node
-		head = newNode;		// Changing head Node
-		return head;		// Returning head in order to make changes to the main's head
+	if(i == 0) {        // Special case for inserting at 0th location
+		newNode->next = head;       // Making new node as first node
+		head = newNode;     // Changing head Node
+		return head;        // Returning head in order to make changes to the main's head
 	}
 
-	while(temp != NULL && count < i - 1) {		// This will move temp to (i-1)th node.
-		temp = temp -> next;
+	while(temp != NULL && count < i - 1) {      // This will move temp to (i-1)th node.
+		temp = temp->next;
 		count++;
 	}
 
-	if(temp != NULL) {		// temp != NULL is imp to avoid segmentation fault. (NULL->next)
+	if(temp != NULL) {      // temp != NULL is imp to avoid segmentation fault. (NULL->next)
 		// Node *a = temp -> next;		// a act as temp pointer variable
 		// temp -> next = newNode;
 		// newNode -> next = a;
 		// OR
-		newNode->next = temp->next;		// Storing ith node address into newNode's next
-		temp->next = newNode;		// (i-1)th node point to newNode
+		newNode->next = temp->next;     // Storing ith node address into newNode's next
+		temp->next = newNode;       // (i-1)th node point to newNode
 	}
-	return head; 
+	return head;
 }
 
 /*
@@ -68,12 +68,12 @@ void printLL(Node* head){
 
 int main(){
 	//Node *head = takeInput();
-	Node *head = takeInput_Better();
+	Node *head = takeInputBetter();
 	printLL(head);
-	cout<<"\n";
+	cout << "\n";
 	int data, pos;
-	cin>>data>>pos;
-	head = insertNode(head,pos,data);	// Returning updated value of head in main
+	cin >> data >> pos;
+	head = insertNode(head, pos, data);   // Returning updated value of head in main
 	printLL(head);
 }
 

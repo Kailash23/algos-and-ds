@@ -7,9 +7,9 @@ using namespace std;
    Time Complexity : O(n)
  */
 
-Node* takeInput_Better(){
+Node* takeInputBetter(){
 	int data;
-	cin>>data;
+	cin >> data;
 	Node *head = NULL;              // Head will point to first node
 	Node *tail = NULL;              // Tail will point to last node
 	while(data != -1) {
@@ -23,7 +23,7 @@ Node* takeInput_Better(){
 			// OR
 			// tail = newNode;
 		}
-		cin>>data;
+		cin >> data;
 	}
 	return head;
 }
@@ -72,39 +72,60 @@ Node* takeInput_Better(){
 */
 
 Node* deleteNode(Node* head, int i){
-    Node* temp = head;
-    while(i>1){
-            if(temp == NULL){
-                    return head;
-            }
-            temp = temp->next;
-            i--;
-    }
-    if(temp->next != NULL && temp->next->next != NULL){
-            temp->next = temp->next->next;
-    }
-    return head;
+	Node* temp = head;
+	while(i > 1) {
+		if(temp == NULL) {
+			return head;
+		}
+		temp = temp->next;
+		i--;
+	}
+	if(temp->next != NULL && temp->next->next != NULL) {
+		temp->next = temp->next->next;
+	}
+	return head;
 }
 
-
 /*
-   Function to print linked list.
- */
+	Node* deleteNode(Node* head, int i){
+		if(head == NULL){
+			return head;
+		}
+		if(i == 0){
+			Node* temp = head->next;
+			delete head;
+			return temp;
+		}
+		Node* temp = head;
+		int count = 0;
+		while(temp != NULL && count < i - 1){
+			temp = temp->next;
+			count++;
+		}
+		if(temp == NULL){
+			return head;
+		}
+		if(temp->next != NULL){
+			temp->next = temp->next->next;
+		}
+		return head;
+	}
+*/
 
 void printLL(Node* head){
 	while (head!=NULL) {            //This will traverse to the last node
-		cout<<head->data<<" ";
+		cout << head->data << " ";
 		head = head->next;
 	}
 }
 
 int main(){
-	Node *head = takeInput_Better();
+	Node *head = takeInputBetter();
 	printLL(head);
-	cout<<"\n";
+	cout << endl;
 	int pos;
-	cin>>pos;
-	head = deleteNode(head,pos);    // Returning updated value of head in main
+	cin >> pos;
+	head = deleteNode(head, pos);    // Returning updated value of head in main
 	printLL(head);
 }
 

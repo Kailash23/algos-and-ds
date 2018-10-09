@@ -1,11 +1,12 @@
 #include <iostream>
 using namespace std;
+
 #include "Node.cpp"
 
 printLL(Node* head){
 	Node *temp = head;		// We don't want to loose track of head so using temp pointer
 	while(temp != NULL) {            // Dont use head->next != NULL (It will not print last value)
-		cout<< temp->data <<" ";
+		cout << temp->data << " ";
 		temp = temp->next;
 	}
 }
@@ -27,13 +28,12 @@ int main(){
 	n2.next = &n3;
 	n3.next = &n4;
 	n4.next = &n5;
-
 	/*
 	   // Printing data
-	   cout<< n1.data <<" " << n2.data <<endl;
+	   cout << n1.data << " " << n2.data << endl;
 
 	   // Using head
-	   cout<< head->data <<endl;
+	   cout << head->data << endl;
 	 */
 	printLL(head);
 }

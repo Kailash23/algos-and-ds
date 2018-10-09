@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 #include "Node.cpp"
 
 /*
@@ -9,21 +10,21 @@ using namespace std;
 
 Node* takeInput(){
 	int data;
-	cin>>data;
-	Node *head = NULL;
+	cin >> data;
+	Node *head = NULL;				// head declaration
 	while(data != -1) {             // Loop will terminate if data is -1
-		Node *newNode = new Node(data);         // newNode will destroy after new iteration of while
-		// loop, but Node will not distroy as it is created dynamically.
-		if(head == NULL) {               // For making first node as head
+		Node *newNode = new Node(data);  // newNode will destroy after this iteration of while loop,
+										 // but Node will not distroy as it is created dynamically.
+		if(head == NULL) {               // For making first node as head.
 			head = newNode;
 		} else {
-			Node *temp = head;              // Using temp to get to the second last node and linking it to the last node
-			while(temp->next != NULL) {              // Will go to second last node
+			Node *temp = head;              // Using temp to get to the last node and linking it to the newly node created.
+			while(temp->next != NULL) {              // Will go to last node.
 				temp = temp->next;
 			}
 			temp->next = newNode;           // Linking
 		}
-		cin>>data;
+		cin >> data;
 	}
 	return head;            // return head of linked list
 }
@@ -37,23 +38,23 @@ Node* takeInput(){
    This will bring down our time complexity to O(1)
  */
 
-Node* takeInput_Better(){
+Node* takeInputBetter(){
 	int data;
-	cin>>data;
-	Node *head = NULL;              // Head will point to first node
-	Node *tail = NULL;              // Tail will point to last node
+	cin >> data;
+	Node *head = NULL;              // Head for pointing first node of linked list
+	Node *tail = NULL;              // Tail for pointing last node of linked list
 	while(data != -1) {
 		Node *newNode = new Node(data);         // Dynamically allocating newNode
 		if(head == NULL) {               // If linked list is empty initially
 			head = newNode;
 			tail = newNode;
 		} else {
-			tail->next = newNode;           // Pointing tail node (currently last node) to the newly formed node.
-			tail = tail->next;
+			tail->next = newNode;           // Pointing tail node (currently last node) to the newly created node.
+			tail = tail->next;				// Point newly added node as tail.
 			// OR
 			// tail = newNode;
 		}
-		cin>>data;
+		cin >> data;
 	}
 	return head;
 }
@@ -63,15 +64,15 @@ Node* takeInput_Better(){
  */
 
 void printLL(Node* head){
-	while (head!=NULL) {            //This will traverse to the last node
-		cout<<head->data<<" ";
+	while (head != NULL) {            //This will traverse to the last node
+		cout << head->data << " ";
 		head = head->next;
 	}
 }
 
 int main(){
 	//Node *head = takeInput();
-	Node *head = takeInput_Better();
+	Node *head = takeInputBetter();
 	printLL(head);
 }
 

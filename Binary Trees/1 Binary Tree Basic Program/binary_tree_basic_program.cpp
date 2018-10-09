@@ -1,19 +1,20 @@
 #include <iostream>
-#include "BinaryTreeNode.h"
 using namespace std;
+
+#include "BinaryTreeNode.h"
 
 void printTree(BinaryTreeNode<int>* root) {
 	if(root == NULL) {               // Base Case
 		return;
 	}
-	cout<< root->data <<":";
+	cout << root->data << ":";
 	if(root->left != NULL) {         // Check if left exists or not
-		cout<< "L" <<root->left->data;
+		cout << "L" << root->left->data;
 	}
 	if( root->right != NULL) {       // Check if left exists or not
-		cout<< "R" <<root->right->data;
+		cout << "R" << root->right->data;
 	}
-	cout<<endl;
+	cout << endl;
 	printTree(root->left);
 	printTree(root->right);
 }

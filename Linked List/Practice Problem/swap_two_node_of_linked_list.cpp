@@ -1,8 +1,10 @@
 /*
    Swap two Node of LL
 
-   Given a linked list, i & j, swap the nodes that are present at i & j position in the LL. You need to swap the entire nodes, not just the data.
-   Indexing starts from 0. You don't need to print the elements, just swap and return the head of updated LL.
+   Given a linked list, i & j, swap the nodes that are present at i & j position
+   in the LL. You need to swap the entire nodes, not just the data.
+   Indexing starts from 0. You don't need to print the elements, just swap and
+   return the head of updated LL.
    Assume i & j given will be within limits. And i can be greater than j also.
 
    Input format :
@@ -15,12 +17,13 @@ using namespace std;
 
 class node {
 	public:
-	int data;
-	node *next;
-	node(int data){
-		this->data = data;
-		this->next = NULL;
-	}
+		int data;
+		node *next;
+
+		node(int data){
+			this->data = data;
+			this->next = NULL;
+		}
 };
 
 /*
@@ -32,9 +35,9 @@ class node {
    This will bring down our time complexity to O(1).
  */
 
-node* takeInput_Better(){
+node* takeInputBetter(){
 	int data;
-	cin>>data;
+	cin >> data;
 	node *head = NULL;              // Head will point to first node
 	node *tail = NULL;              // Tail will point to last node
 	while(data != -1) {
@@ -48,7 +51,7 @@ node* takeInput_Better(){
 			// OR
 			// tail = newNode;
 		}
-		cin>>data;
+		cin >> data;
 	}
 	return head;
 }
@@ -59,14 +62,15 @@ node* takeInput_Better(){
 
 void printLL(node* head){
 	while (head != NULL) {            // This will traverse to the last node
-		cout<<head->data<<" ";
+		cout << head->data << " ";
 		head = head->next;
 	}
 }
 
-node* swap_nodes(node* head, int i, int j){
+node* swapNodes(node* head, int i, int j){
 	node *temp = head, *prev = NULL;
 	node *node1 = NULL, *node2 = NULL, *node1_prev = NULL, *node2_prev = NULL;
+
 	int pos = 0;
 	while(temp != NULL){
 		if(pos == i){
@@ -101,12 +105,12 @@ node* swap_nodes(node* head, int i, int j){
 }
 
 int main(){
-	node* head = takeInput_Better();
+	node* head = takeInputBetter();
 	printLL(head);
-	cout<<endl;
+	cout << endl;
 	int i = 2;
 	int j = 6;
-	head = swap_nodes(head, i, j);
+	head = swapNodes(head, i, j);
 	printLL(head);
 }
 
