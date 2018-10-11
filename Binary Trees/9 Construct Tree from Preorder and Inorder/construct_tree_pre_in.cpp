@@ -1,33 +1,37 @@
 /*
-   Construct Tree from Postorder and Inorder
+   Code: Construct Tree from Preorder and Inorder
 
-   Given Postorder and Inorder traversal of a binary tree, create the binary tree associated with the traversals.You just need to construct the tree and return the root.
+   Given Preorder and Inorder traversal of a binary tree, create the binary tree
+   associated with the traversals.You just need to construct the tree and return
+   the root.
    Note: Assume binary tree contains only unique elements.
-
    Input format :
+
    Line 1 : n (Total number of nodes in binary tree)
-   Line 2 : Post order traversal
+   Line 2 : Pre order traversal
    Line 3 : Inorder Traversal
 
    Output Format :
    Elements are printed level wise, each level in new line (separated by space).
 
    Sample Input :
-   8
-   8 4 5 2 6 7 3 1
-   4 8 2 5 1 6 3 7
+   12
+   1 2 3 4 15 5 6 7 8 10 9 12
+   4 15 3 2 5 1 6 10 8 7 9 12
 
    Sample Output :
    1
-   2 3
-   4 5 6 7
-   8
+   2 6
+   3 5 7
+   4 8 9
+   15 10 12
  */
 
 #include <iostream>
 #include "BinaryTreeNode.h"
-#include <queue>
 using namespace std;
+
+#include <queue>
 
 void printLevelWise(BinaryTreeNode<int>* root) {
 	if(root == NULL) {
@@ -41,29 +45,30 @@ void printLevelWise(BinaryTreeNode<int>* root) {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<<front->data<<":";
+		cout << front->data << ":";
+
 		if(front->left != NULL) {
-			cout<<"L:"<<front->left->data;
+			cout << "L:" << front->left->data;
 			pendingNodes.push(front->left);
 		} else {
-			cout<<"L:-1";
+			cout << "L:-1";
 		}
 		if(front->right != NULL) {
-			cout<<",R:"<<front->right->data;
+			cout << ",R:" << front->right->data;
 			pendingNodes.push(front->right);
 		} else {
-			cout<<",R:-1";
+			cout << ",R:-1";
 		}
-		cout<<endl;
+		cout << endl;
 	}
 }
 
-BinaryTreeNode<int>* buildTreeHelper(int* in, int* pos, int inS, int inE, int posS, int posE){
+BinaryTreeNode<int>* buildTreeHelper(int* in, int* pre, int inS, int inE, int preS, int preE){
 	if(inS > inE) {      // Means array is empty.
 		return NULL;
 	}
 
-	int rootData = pos[posE];       // Root of the tree is the last element of postorder traversal array.
+	int rootData = pre[preS];       // Root of the tree is the first element of preorder traversal array.(don't use 0 (index))
 	int rootIndex = -1;
 	for(int i = inS; i <= inE; i++) {
 		if(in[i] == rootData) {
@@ -71,19 +76,19 @@ BinaryTreeNode<int>* buildTreeHelper(int* in, int* pos, int inS, int inE, int po
 			break;
 		}
 	}
-	// If rootData is -1 at this point then invalid inputs in array.
-
+	// If rootData is -1 at this point then invalid inputs in array, we are not handling that case here.
 	int LinS = inS;
 	int LinE = rootIndex - 1;
 	int RinS = rootIndex + 1;
 	int RinE = inE;
-	int LposS = posS;
-	int LposE = LposS + (LinE - LinS);
-	int RposS = LposE + 1;
-	int RposE = posE - 1;
+	int LpreS = preS + 1;
+	int LpreE = LpreS + (LinE - LinS);
+	int RpreS = LpreE + 1;
+	int RpreE = preE;
+
 	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	root->left = buildTreeHelper(in, pos, LinS, LinE, LposS, LposE);
-	root->right = buildTreeHelper(in, pos, RinS, RinE, RposS, RposE);
+	root->left = buildTreeHelper(in, pre, LinS, LinE, LpreS, LpreE);
+	root->right = buildTreeHelper(in, pre, RinS, RinE, RpreS, RpreE);
 	return root;
 }
 
@@ -92,25 +97,21 @@ BinaryTreeNode<int>* buildTreeHelper(int* in, int* pos, int inS, int inE, int po
 			(inS)				 R				      (inE)
    Inorder: (LinS) 4 2 5 (LinE) (1) (RinS) 8 6 9 3 7 (RinE)
 
-   			 (posS)										 (posE)
+   			 (preS)										 (preE)
+   Preorder: (1) (LpreS) 2 4 5 (LpreE) (RpreS) 3 6 8 9 7 (RpreE)
+  			  R
 
-			   (posS)		             					 (posE)
-   Postorder:  (LposS) 4 5 2 (LposE) (RposS) 8 9 6 7 3 (RposE) (1)
-  			  					 R
-
-			  Inorder: 4 2 5 1 8 6 9 3 7
-		      Postorder: 4 5 2 8 9 6 7 3 1
  */
 
-BinaryTreeNode<int>* getTreeFromPostorderAndInorder(int *postorder, int postLength, int *inorder, int inLength) {
-	return buildTreeHelper(inorder, postorder, 0, inLength-1, 0, postLength-1);
+BinaryTreeNode<int>* buildTree(int *preorder, int preLenght, int *inorder, int inLength) {
+	return buildTreeHelper(inorder, preorder, 0, inLength - 1, 0, preLenght - 1);	// Sending start and end index of preorder and inorder array.
 }
 
 int main(){
 	int in[] = {4,2,5,1,8,6,9,3,7};
-	int post[] = {1,2,4,5,3,6,8,9,7};
-	int size = sizeof(post)/sizeof(post[0]);
-	BinaryTreeNode<int>* root = getTreeFromPostorderAndInorder(post, size, in, size);
+	int pre[] = {1,2,4,5,3,6,8,9,7};
+	int size = sizeof(pre) / sizeof(pre[0]);
+	BinaryTreeNode<int>* root = buildTree(pre, size, in, size);
 	printLevelWise(root);
 	delete root;
 }

@@ -1,19 +1,35 @@
 /*
-   Code : Find a node
+   Code : Height of Binary Tree
 
-   Given a Binary Tree and an integer x, check if node with data x is present in
-   the input binary tree or not. Return true or false.
+   Given a binary tree, find and return the height of given tree.
+
+   Input format :
+   Nodes in the level order form (separated by space). If any node does not have
+   left or right child, take -1 in its place
+
+   Output format :
+   Height
+
+   Constraints :
+   1 <= N <= 10^5
+
+   Sample Input :
+   10 9 4 -1 -1 5 8 -1 6 -1 -1 3 -1 -1 -1
+
+   Sample Output :
+   5
  */
 
 #include <iostream>
 #include "BinaryTreeNode.h"
-#include <queue>
 using namespace std;
+
+#include <queue>
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
@@ -26,18 +42,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -47,26 +63,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-bool isNodePresent(BinaryTreeNode<int>* root, int x) {
+int height(BinaryTreeNode<int> *root) {
 	if(root == NULL) {
-		return false;
+		return 0;
 	}
-	if(root->data == x) {
-		return true;
-	}
-	return isNodePresent(root->left,x) || isNodePresent(root->right,x);
+	int smallHeightLeft = 1 + height(root->left);
+	int smallHeightRight = 1 + height(root->right);
+	return max(smallHeightLeft, smallHeightRight);		// taking max of height from left and right sub-tree
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout<<endl;
-	int x;
-	cin>>x;
-	if(isNodePresent(root, x)) {
-		cout<< "Present!" <<endl;
-	} else {
-		cout<< "Not Present!" <<endl;
-	}
+	cout << "\nHeight of Binary Tree : " << height(root);
 	delete root;
 }
 
@@ -84,6 +92,16 @@ int main(){
                                 /   \
                                8	 9
 
-	5
-	Present!
+	Height of Binary Tree :4
  */
+
+/*
+	Alternative
+
+	int height(BinaryTreeNode<int>* root){
+		if(root == NULL) {
+			return 0;
+		}
+		return 1 + max(height(root->left), height(root->right));    // Height will be the 1 + max among (height of left subtree) and (height right subtree).
+	}
+*/

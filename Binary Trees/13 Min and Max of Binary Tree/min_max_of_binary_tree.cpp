@@ -20,20 +20,22 @@
 
 #include <iostream>
 #include "BinaryTreeNode.h"
-#include <queue>
-#include <limits.h>
+
 using namespace std;
 
+#include <limits.h>
+#include <queue>
+
 class PairAns {
-  public:
-	int min;
-	int max;
+	public:
+		int min;
+		int max;
 };
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
@@ -46,18 +48,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -94,10 +96,10 @@ PairAns minMax(BinaryTreeNode<int>* root) {
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout<<endl;
+	cout << endl;
 	PairAns p = minMax(root);
-	cout<< "Min: "<< p.min <<endl;
-	cout<< "Max: "<< p.max <<endl;
+	cout << "Min: "<< p.min << endl;
+	cout << "Max: "<< p.max << endl;
 	delete root;
 }
 
@@ -118,18 +120,20 @@ int main(){
 	Max: 9
  */
 
-// Alternate Solution
+/*
+	Alternate Solution
 
-// #include <climits>
-//
-// PairAns minMax(BinaryTreeNode < int > * root) {
-//   PairAns p;
-//   p.min = INT_MAX;
-//   p.max = INT_MIN;
-//   if (root == NULL) return p;
-//   PairAns leftPair = minMax(root->left);
-//   PairAns rightPair = minMax(root->right);
-//   p.max = max(max(leftPair.max, rightPair.max), root->data);
-//   p.min = min(min(leftPair.min, rightPair.min), root->data);
-//   return p;
-// }
+	#include <climits>
+
+	PairAns minMax(BinaryTreeNode <int> * root) {
+		PairAns p;
+		p.min = INT_MAX;
+		p.max = INT_MIN;
+		if (root == NULL) return p;
+		PairAns leftPair = minMax(root->left);
+		PairAns rightPair = minMax(root->right);
+		p.max = max(max(leftPair.max, rightPair.max), root->data);
+		p.min = min(min(leftPair.min, rightPair.min), root->data);
+		return p;
+	}
+*/

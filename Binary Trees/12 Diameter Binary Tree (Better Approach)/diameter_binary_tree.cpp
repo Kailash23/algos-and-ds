@@ -17,13 +17,14 @@
 
 #include <iostream>
 #include "BinaryTreeNode.h"
-#include <queue>
 using namespace std;
+
+#include <queue>
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
@@ -36,18 +37,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -89,10 +90,10 @@ pair<int, int> heightDiameter(BinaryTreeNode<int>* root){
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout<<endl;
+	cout << endl;
 	pair<int, int> p = heightDiameter(root);
-	cout<< "Height: "<< p.first <<endl;
-	cout<< "Diameter: "<< p.second <<endl;
+	cout << "Height: " << p.first <<endl;
+	cout << "Diameter: " << p.second <<endl;
 	delete root;
 }
 
@@ -126,6 +127,6 @@ int main(){
 
    3.
    	  h = 1 + max (lh,rh)
-	  d = max(lh+rh, ld, rd)
+	  d = max(lh + rh, ld, rd)
 
  */

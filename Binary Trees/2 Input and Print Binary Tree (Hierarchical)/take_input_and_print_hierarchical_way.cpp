@@ -42,57 +42,55 @@ int main(){
 }
 
 /*
-		1
-	/      \
-   2	    3
- /   \	  /
-4     5  8
-	/   \
-  6      7
+		   1
+		/      \
+	   2	    3
+	 /   \	  /
+	4     5  8
+		/   \
+	  6      7
 
-Enter data
-1
-Enter data
-2
-Enter data
-4
-Enter data
--1
-Enter data
--1
-Enter data
-5
-Enter data
-6
-Enter data
--1
-Enter data
--1
-Enter data
-7
-Enter data
--1
-Enter data
--1
-Enter data
-3
-Enter data
-8
-Enter data
--1
-Enter data
--1
-Enter data
--1
+	Enter data
+	1
+	Enter data
+	2
+	Enter data
+	4
+	Enter data
+	-1
+	Enter data
+	-1
+	Enter data
+	5
+	Enter data
+	6
+	Enter data
+	-1
+	Enter data
+	-1
+	Enter data
+	7
+	Enter data
+	-1
+	Enter data
+	-1
+	Enter data
+	3
+	Enter data
+	8
+	Enter data
+	-1
+	Enter data
+	-1
+	Enter data
+	-1
 
-1:L2R3
-2:L4R5
-4:
-5:L6R7
-6:
-7:
-3:L8
-8:
-
-
+	1:L2R3
+	2:L4R5
+	4:
+	5:L6R7
+	6:
+	7:
+	3:L8
+	8:
  */

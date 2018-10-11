@@ -1,13 +1,3 @@
-/*
-   Code : Height of Binary Tree
-
-   Given a binary tree, find and return the height of given tree.
-
-   Input format :
-   Nodes in the level order form (separated by space). If any node does not have
-   left or right child, take -1 in its place
- */
-
 #include <iostream>
 #include "BinaryTreeNode.h"
 #include <queue>
@@ -15,8 +5,8 @@ using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
@@ -29,18 +19,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -50,18 +40,41 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-int height(BinaryTreeNode<int> *root) {
+void inOrder(BinaryTreeNode<int>* root){
 	if(root == NULL) {
-		return 0;
+		return;
 	}
-	int smallHeightLeft = 1 + height(root->left);
-	int smallHeightRight = 1 + height(root->right);
-	return max(smallHeightLeft,smallHeightRight);
+	inOrder(root->left);
+	cout << root->data << " ";
+	inOrder(root->right);
+}
+
+void preOrder(BinaryTreeNode<int>* root){
+	if(root == NULL) {
+		return;
+	}
+	cout << root->data << " ";
+	preOrder(root->left);
+	preOrder(root->right);
+}
+
+void postOrder(BinaryTreeNode<int>* root){
+	if(root == NULL) {
+		return;
+	}
+	postOrder(root->left);
+	postOrder(root->right);
+	cout << root->data << " ";
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout<<"\nHeight of Binary Tree : "<<height(root);
+	cout << "\nInorder: ";
+	inOrder(root);
+	cout << "\nPreorder: ";
+	preOrder(root);
+	cout << "\nPostorder: ";
+	postOrder(root);
 	delete root;
 }
 
@@ -71,6 +84,7 @@ int main(){
  */
 
 /*
+   Input:
                                 1
                             /		\
                           2			  3
@@ -79,5 +93,17 @@ int main(){
                                 /   \
                                8	 9
 
-	Height of Binary Tree :4
+ */
+
+/*
+   Inorder: 4 2 5 1 8 6 9 3 7
+   Preorder: 1 2 4 5 3 6 8 9 7  (Root will be the first element in preorder)
+   Postorder: 4 5 2 8 9 6 7 3 1 (Root will be the first element in postorder)
+ */
+
+/*
+   Level order:- level1 nodes -> level2 nodes -> and so on
+   Pre order  :- root -> left -> right
+   Post order :- left -> right -> root
+   In Order   :- left -> root -> right
  */
