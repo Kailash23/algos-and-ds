@@ -16,4 +16,4 @@ class BinaryTreeNode {
 			delete left;
 			delete right;
 		}
-	};
+s};

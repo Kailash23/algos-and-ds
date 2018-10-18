@@ -1,3 +1,8 @@
+/*
+   Inputing Binary Tree levelwise using queue.
+   Printing Binary Tree hierarchically using recursion.
+ */
+
 #include <iostream>
 #include "BinaryTreeNode.h"
 using namespace std;
@@ -13,7 +18,7 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	}
 
 	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
+	queue<BinaryTreeNode<int>*> pendingNodes;               // queue of type BinaryTreeNode<int>* - to input levelwise
 	pendingNodes.push(root);
 
 	while(pendingNodes.size() != 0) {

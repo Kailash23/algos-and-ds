@@ -1,8 +1,7 @@
 /*
-   Code : Find a node
+   Print Level Order Traversal line by line
 
-   Given a Binary Tree and an integer x, check if node with data x is present in
-   the input binary tree or not. Return true or false.
+   Given a binary tree, print level order traversal in a way that nodes of all levels are printed in separate lines.
  */
 
 #include <iostream>
@@ -18,8 +17,8 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
+	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);		// Root node creation
 
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
 	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
 	pendingNodes.push(root);
 
@@ -48,26 +47,37 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-bool isNodePresent(BinaryTreeNode<int>* root, int x) {
+/*
+   Time Complexity : O(n)
+ */
+void printLevelOrder(BinaryTreeNode<int>* root){
 	if(root == NULL) {
-		return false;
+		return;
 	}
-	if(root->data == x) {
-		return true;
+	queue<BinaryTreeNode<int>*> pendingNodes;
+	pendingNodes.push(root);
+
+	while(pendingNodes.size() != 0) {
+		int nodeCount = pendingNodes.size();
+		while(nodeCount > 0) {
+			BinaryTreeNode<int>* front = pendingNodes.front();
+			pendingNodes.pop();
+			cout << front->data << " ";
+			if(front->left != NULL) {
+				pendingNodes.push(front->left);
+			}
+			if(front->right != NULL) {
+				pendingNodes.push(front->right);
+			}
+			nodeCount--;
+		}
+		cout << endl;
 	}
-	return isNodePresent(root->left, x) || isNodePresent(root->right, x);
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	int x;
-	cin >> x;
-	if(isNodePresent(root, x)) {
-		cout << "Present!" << endl;
-	} else {
-		cout << "Not Present!" << endl;
-	}
+	printLevelOrder(root);
 	delete root;
 }
 
@@ -77,6 +87,7 @@ int main(){
  */
 
 /*
+   Input:
                                 1
                             /		\
                           2			  3
@@ -85,6 +96,11 @@ int main(){
                                 /   \
                                8	 9
 
-	5
-	Present!
+ */
+
+/*
+   1
+   2 3
+   4 5 6 7
+   8 9
  */

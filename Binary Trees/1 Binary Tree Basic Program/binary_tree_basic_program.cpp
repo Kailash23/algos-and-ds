@@ -1,3 +1,7 @@
+/*
+   Basic Tree Program consisting of 3 dynamically created nodes.
+ */
+
 #include <iostream>
 using namespace std;
 
@@ -20,7 +24,7 @@ void printTree(BinaryTreeNode<int>* root) {
 }
 
 int main(){
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(1);
+	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(1);		// Created Dynamically
 	BinaryTreeNode<int>* node1 = new BinaryTreeNode<int>(2);
 	BinaryTreeNode<int>* node2 = new BinaryTreeNode<int>(3);
 	root->left = node1;

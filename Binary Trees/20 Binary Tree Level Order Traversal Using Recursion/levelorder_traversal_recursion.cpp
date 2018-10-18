@@ -1,8 +1,8 @@
 /*
-   Code : Find a node
+   Print Level Order Traversal line by line
 
-   Given a Binary Tree and an integer x, check if node with data x is present in
-   the input binary tree or not. Return true or false.
+   Given a binary tree, print level order traversal in a way that nodes of all
+   levels are printed in separate lines.
  */
 
 #include <iostream>
@@ -13,7 +13,7 @@ using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout << "Enter root data" << endl;
+	cout << "Enter root data"<<endl;
 	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
@@ -48,26 +48,40 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-bool isNodePresent(BinaryTreeNode<int>* root, int x) {
+int height(BinaryTreeNode<int>* root){
 	if(root == NULL) {
-		return false;
+		return 0;
 	}
-	if(root->data == x) {
-		return true;
+	return 1 + max(height(root->left), height(root->right));
+}
+
+void printLevelOrderHelper(BinaryTreeNode<int>* root, int level){
+	if(root == NULL) {
+		return;
 	}
-	return isNodePresent(root->left, x) || isNodePresent(root->right, x);
+	if(level == 1) {
+		cout << root->data << " ";
+	} else if(level > 1) {
+		printLevelOrderHelper(root->left, level - 1);
+		printLevelOrderHelper(root->right, level - 1);
+	}
+}
+
+
+/*
+	Time Complexity of this solution is O(n^2)
+*/
+void printLevelOrder(BinaryTreeNode<int>* root){
+	int h = height(root);
+	for(int i = 1; i <= h; i++) {
+		printLevelOrderHelper(root, i);
+		cout << endl;
+	}
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	int x;
-	cin >> x;
-	if(isNodePresent(root, x)) {
-		cout << "Present!" << endl;
-	} else {
-		cout << "Not Present!" << endl;
-	}
+	printLevelOrder(root);
 	delete root;
 }
 
@@ -77,6 +91,7 @@ int main(){
  */
 
 /*
+   Input:
                                 1
                             /		\
                           2			  3
@@ -85,6 +100,11 @@ int main(){
                                 /   \
                                8	 9
 
-	5
-	Present!
+ */
+
+/*
+   1
+   2 3
+   4 5 6 7
+   8 9
  */

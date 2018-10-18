@@ -1,8 +1,9 @@
 /*
-   Code : Find a node
+   Maximum Leave Path
 
-   Given a Binary Tree and an integer x, check if node with data x is present in
-   the input binary tree or not. Return true or false.
+   Given a binary tree of N nodes, find and return the maximum sum path between
+   wo leaves of the given tree.
+   Given binary tree contains positive values only.
  */
 
 #include <iostream>
@@ -48,26 +49,27 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-bool isNodePresent(BinaryTreeNode<int>* root, int x) {
+int sum(BinaryTreeNode<int>* root) {
 	if(root == NULL) {
-		return false;
+		return 0;
 	}
-	if(root->data == x) {
-		return true;
+	return root->data + max(sum(root->left), sum(root->right));
+}
+
+long long int maximumSumLeafpath(BinaryTreeNode<int> *root){
+	if(root == NULL) {
+		return 0;
 	}
-	return isNodePresent(root->left, x) || isNodePresent(root->right, x);
+	int option1 = sum(root->left) + sum(root->right);
+	int option2 = maximumSumLeafpath(root->left);
+	int option3 = maximumSumLeafpath(root->right);
+	return max(root->data + option1, max(option2, option3));
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	cout << endl;
-	int x;
-	cin >> x;
-	if(isNodePresent(root, x)) {
-		cout << "Present!" << endl;
-	} else {
-		cout << "Not Present!" << endl;
-	}
+	cout << maximumSumLeafpath(root);
 	delete root;
 }
 
@@ -85,6 +87,5 @@ int main(){
                                 /   \
                                8	 9
 
-	5
-	Present!
+     26
  */

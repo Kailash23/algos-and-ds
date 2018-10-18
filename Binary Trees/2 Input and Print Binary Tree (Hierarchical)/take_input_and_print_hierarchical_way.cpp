@@ -1,6 +1,11 @@
+/*
+   Input and Print Binary tree using recursion.
+ */
+
 #include <iostream>
-#include "BinaryTreeNode.h"
 using namespace std;
+
+#include "BinaryTreeNode.h"
 
 void printTree(BinaryTreeNode<int>* root) {
 	if(root == NULL) {               // Base Case
@@ -43,12 +48,12 @@ int main(){
 
 /*
 		   1
-		/      \
-	   2	    3
-	 /   \	  /
-	4     5  8
-		/   \
-	  6      7
+		/    \
+	   2	   3
+	 /   \	   /
+	4     5   8
+		 / \
+	    6   7
 
 	Enter data
 	1

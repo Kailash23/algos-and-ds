@@ -1,8 +1,5 @@
 /*
-   Code : Find a node
-
-   Given a Binary Tree and an integer x, check if node with data x is present in
-   the input binary tree or not. Return true or false.
+   No of leaf node in a binary tree.
  */
 
 #include <iostream>
@@ -13,7 +10,7 @@ using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout << "Enter root data" << endl;
+	cout << "Enter root data"<<endl;
 	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
@@ -48,26 +45,22 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-bool isNodePresent(BinaryTreeNode<int>* root, int x) {
-	if(root == NULL) {
-		return false;
+/*
+   Function to count number of leaf nodes in a binary tree
+ */
+int numLeafNodes(BinaryTreeNode<int>* root){
+	if(root == NULL) {       // Base case is needed in case of binary Tree.
+		return 0;
 	}
-	if(root->data == x) {
-		return true;
+	if(root->left == NULL && root->right == NULL) {
+		return 1;
 	}
-	return isNodePresent(root->left, x) || isNodePresent(root->right, x);
+	return numLeafNodes(root->left) + numLeafNodes(root->right);
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	int x;
-	cin >> x;
-	if(isNodePresent(root, x)) {
-		cout << "Present!" << endl;
-	} else {
-		cout << "Not Present!" << endl;
-	}
+	cout << "\nNo of Leaf Nodes: " << numLeafNodes(root);
 	delete root;
 }
 
@@ -85,6 +78,5 @@ int main(){
                                 /   \
                                8	 9
 
-	5
-	Present!
+   No of Leaf Nodes: 5
  */

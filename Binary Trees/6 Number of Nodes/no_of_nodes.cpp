@@ -1,10 +1,3 @@
-/*
-   Code : Find a node
-
-   Given a Binary Tree and an integer x, check if node with data x is present in
-   the input binary tree or not. Return true or false.
- */
-
 #include <iostream>
 #include "BinaryTreeNode.h"
 using namespace std;
@@ -13,7 +6,7 @@ using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout << "Enter root data" << endl;
+	cout << "Enter root data"<<endl;
 	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
@@ -48,26 +41,21 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-bool isNodePresent(BinaryTreeNode<int>* root, int x) {
-	if(root == NULL) {
-		return false;
+/*
+   Program to count number of nodes in a binary tree
+   While working with generic tree we actually not required base case
+   cause we loop acc to to no of child nodes, so we used side case there.
+ */
+int numNodes(BinaryTreeNode<int>* root){
+	if(root == NULL) {       // Base case is needed in case of binary Tree.
+		return 0;
 	}
-	if(root->data == x) {
-		return true;
-	}
-	return isNodePresent(root->left, x) || isNodePresent(root->right, x);
+	return 1 + numNodes(root->left) + numNodes(root->right);	// 1 added for root node and recursion on left right.
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	int x;
-	cin >> x;
-	if(isNodePresent(root, x)) {
-		cout << "Present!" << endl;
-	} else {
-		cout << "Not Present!" << endl;
-	}
+	cout << "\nNo of Nodes: " << numNodes(root);
 	delete root;
 }
 
@@ -85,6 +73,6 @@ int main(){
                                 /   \
                                8	 9
 
-	5
-	Present!
+
+   No of Nodes: 9
  */

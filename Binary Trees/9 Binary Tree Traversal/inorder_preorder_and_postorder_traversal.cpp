@@ -1,10 +1,6 @@
 /*
-   Code : Find a node
-
-   Given a Binary Tree and an integer x, check if node with data x is present in
-   the input binary tree or not. Return true or false.
+   Tree Traversal
  */
-
 #include <iostream>
 #include "BinaryTreeNode.h"
 using namespace std;
@@ -48,26 +44,41 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	return root;
 }
 
-bool isNodePresent(BinaryTreeNode<int>* root, int x) {
+void inOrder(BinaryTreeNode<int>* root){
 	if(root == NULL) {
-		return false;
+		return;
 	}
-	if(root->data == x) {
-		return true;
+	inOrder(root->left);
+	cout << root->data << " ";
+	inOrder(root->right);
+}
+
+void preOrder(BinaryTreeNode<int>* root){
+	if(root == NULL) {
+		return;
 	}
-	return isNodePresent(root->left, x) || isNodePresent(root->right, x);
+	cout << root->data << " ";
+	preOrder(root->left);
+	preOrder(root->right);
+}
+
+void postOrder(BinaryTreeNode<int>* root){
+	if(root == NULL) {
+		return;
+	}
+	postOrder(root->left);
+	postOrder(root->right);
+	cout << root->data << " ";
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	int x;
-	cin >> x;
-	if(isNodePresent(root, x)) {
-		cout << "Present!" << endl;
-	} else {
-		cout << "Not Present!" << endl;
-	}
+	cout << "\nInorder: ";
+	inOrder(root);
+	cout << "\nPreorder: ";
+	preOrder(root);
+	cout << "\nPostorder: ";
+	postOrder(root);
 	delete root;
 }
 
@@ -77,6 +88,7 @@ int main(){
  */
 
 /*
+   Input:
                                 1
                             /		\
                           2			  3
@@ -85,6 +97,17 @@ int main(){
                                 /   \
                                8	 9
 
-	5
-	Present!
+ */
+
+/*
+   Inorder: 4 2 5 1 8 6 9 3 7
+   Preorder: 1 2 4 5 3 6 8 9 7  (Root will be the first element in preorder)
+   Postorder: 4 5 2 8 9 6 7 3 1 (Root will be the first element in postorder)
+ */
+
+/*
+   Level order:- level1 nodes -> level2 nodes -> and so on
+   Pre order  :- root -> left -> right
+   Post order :- left -> right -> root
+   In Order   :- left -> root -> right
  */
