@@ -3,17 +3,17 @@
 using namespace std;
 
 /*
-   This function will take input in heirrarical order (not level wise)
+   This function will take input in heirrarical order (recursion used)
  */
 TreeNode<int>* takeInput(){
 	int rootData;
-	cout<<"Enter data"<<endl;
-	cin>>rootData;
+	cout << "Enter data" << endl;
+	cin >> rootData;
 	TreeNode<int>* root = new TreeNode<int>(rootData);		// Creating root node with rootData
 
 	int numChild;
-	cout<<"Enter num of children of " << rootData <<endl;
-	cin>>numChild;
+	cout << "Enter num of children of " << rootData << endl;
+	cin >> numChild;
 	for(int i = 0; i < numChild; i++) {
 		TreeNode<int>* child = takeInput();		// Creating child node (recursion)
 		root->children.push_back(child);		// Creating link (root->child)
@@ -31,11 +31,11 @@ void printTree(TreeNode<int>* root) {
 	if(root == NULL) {		//Side case -> if root is NULL return (to avoid this 'root->data')
 		return;
 	}
-	cout<< root->data <<":";
+	cout << root->data << ":";
 	for(int i = 0; i < root->children.size(); i++) {
-		cout<< root->children[i]->data <<", ";		// Displaying child nodes
+		cout << root->children[i]->data << ", ";		// Displaying child nodes
 	}
-	cout<<endl;
+	cout << endl;
 	for(int i = 0; i < root->children.size(); i++) {
 	    printTree(root->children[i]);				// Recursive call on child nodes
 	}
@@ -43,7 +43,7 @@ void printTree(TreeNode<int>* root) {
 
 int main(){
 	TreeNode<int>* root = takeInput();
-	cout<<endl;
+	cout << endl;
 	printTree(root);
 }
 

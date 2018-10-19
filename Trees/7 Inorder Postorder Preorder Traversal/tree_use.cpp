@@ -1,15 +1,15 @@
 #include <iostream>
-#include <queue>
 #include "TreeNode.h"
-
 using namespace std;
+
+#include <queue>
 
 /*
    Function to take input level wise using queue
  */
 TreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<< "Enter root data: " <<endl;
+	cout << "Enter root data: " << endl;
 	cin >> rootData;
 	TreeNode<int>* root = new TreeNode<int>(rootData);		// Creating root node
 	queue<TreeNode<int>*> pendingNodes;		// for taking input level wise we are using queue data structure having element of type TreeNode<int>*
@@ -18,12 +18,12 @@ TreeNode<int>* takeInputLevelWise() {
 	while (pendingNodes.size() != 0) {		// we can also queue's empty function
 		TreeNode<int>* frontPointer = pendingNodes.front();		// Storing node at front of queue to frontPointer pointer of type TreeNode<T>* (frontPointer pointing to node in front of queue)
 		pendingNodes.pop();		// Poping the front element
-		cout<< "Enter num of children of " << frontPointer->data <<" : "<<endl;
+		cout << "Enter num of children of " << frontPointer->data << " : " << endl;
 		int numChild;
 		cin >> numChild;
 		for(int i = 0; i < numChild; i++) {
 			int childData;
-			cout<< "Enter child '"<< i+1 <<"' of "<< frontPointer->data <<" : "<<endl;
+			cout << "Enter child '" << i + 1 << "' of " << frontPointer->data << " : " << endl;
 			cin >> childData;
 			TreeNode<int>* child = new TreeNode<int>(childData);		// Creating child node
 			frontPointer->children.push_back(child);		// Creating link between root and child
@@ -40,8 +40,8 @@ void preOrder(TreeNode<int>* root){
 	if(root == NULL){		// root is null, simply return!
 		return;
 	}
-	cout<<root->data<<" ";		// Print root first then call recursion on child nodes
-	for(int i=0 ; i < root->children.size() ; i++){
+	cout << root->data << " ";		// Print root first then call recursion on child nodes
+	for(int i = 0 ; i < root->children.size() ; i++){
 		preOrder(root->children[i]);
 	}
 }
@@ -53,10 +53,10 @@ void postOrder(TreeNode<int>* root){
 	if(root == NULL){		// root is null, simply return!
 		return;
 	}
-	for(int i=0 ; i < root->children.size() ; i++){		// Recursion on child nodes first
+	for(int i = 0 ; i < root->children.size() ; i++){		// Recursion on child nodes first
 		postOrder(root->children[i]);
 	}
-	cout<<root->data<<" ";		// Then print data
+	cout << root->data << " ";		// Then print data
 }
 
 /*
@@ -68,11 +68,10 @@ void inOrder(TreeNode<int>* root){
 	}
 	queue<TreeNode<int>*> pendingNodes;		// For level order print we will use queue.
 	pendingNodes.push(root);
-
 	while(pendingNodes.size() != 0){
 		TreeNode<int>* frontPointer = pendingNodes.front();
 		pendingNodes.pop();
-		cout<<frontPointer->data<<" ";		// Print data first then push child nodes into queue for there printing
+		cout << frontPointer->data << " ";		// Print data first then push child nodes into queue for there printing
 		for(int i = 0 ; i < frontPointer->children.size() ; i++){
 			pendingNodes.push(frontPointer->children[i]);
 		}
@@ -86,11 +85,11 @@ void inOrder(TreeNode<int>* root){
 
 int main(){
 	TreeNode<int>* root = takeInputLevelWise();
-	cout<< "Pre-order:";
+	cout << "Pre-order:";
 	preOrder(root);
-	cout<<"\nPost-order:";
+	cout << "\nPost-order:";
 	postOrder(root);
-	cout<< "\nIn-order:";
+	cout << "\nIn-order:";
 	inOrder(root);
 }
 
