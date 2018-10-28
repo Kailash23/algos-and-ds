@@ -30,7 +30,6 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	while(pendingNodes.size() != 0) {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
-
 		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
 		cin >> leftChildData;
@@ -39,7 +38,6 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
-
 		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
 		cin >> rightChildData;
