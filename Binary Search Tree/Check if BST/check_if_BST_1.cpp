@@ -1,27 +1,28 @@
 /*
    Check if a Binary Tree is BST
 
-   Given a binary tree with N number of nodes, check if that input tree is BST (Binary Search Tree) or not. If yes, return true, return false otherwise.
+   Given a binary tree with N number of nodes, check if that input tree is BST
+   (Binary Search Tree) or not. If yes, return true, return false otherwise.
 
    Duplicate elements should be in right subtree.
  */
 
 #include <iostream>
 #include "BinaryTreeNode.h"
-#include <queue>
-#include <chrono>
 using namespace std;
 using namespace std::chrono;
+
 #include<climits>
+#include <queue>
+#include <chrono>
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
-
 	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
 	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
 	pendingNodes.push(root);
@@ -30,18 +31,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -55,7 +56,7 @@ vector<int> bst;
 
 bool checkVector(vector<int> vec){
 	for(int i = 1; i < vec.size(); i++){
-	    if(!(vec[i-1] < vec[i])){
+	    if(!(vec[i - 1] < vec[i])){
 			return false;
 		}
 	}
@@ -82,12 +83,11 @@ int main(){
 	bool ans = isBST(root);
 	auto stop = high_resolution_clock::now();
  	auto duration = duration_cast<microseconds>(stop - start);
-	cout << "Time taken by function: "<< duration.count() << " microseconds" << endl;
-
+	cout << "Time taken by function: " << duration.count() << " microseconds" << endl;
 	if(ans){
-		cout<<"It's BST!";
+		cout << "It's BST!";
 	} else {
-		cout<<"It's not BST!";
+		cout << "It's not BST!";
 	}
 }
 
@@ -98,7 +98,7 @@ int main(){
  */
 
 /*
-Solution:
+   Solution:
    Do inorder traversal of the BST and store the elments one by one in an array.
    The array will now contain sorted elements of tree in ascending order if its a BST.
    If not in acending order its not BST.

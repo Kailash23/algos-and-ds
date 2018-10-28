@@ -11,12 +11,11 @@ using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
-
 	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
 	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
 	pendingNodes.push(root);
@@ -25,18 +24,18 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
 
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -58,14 +57,14 @@ void inorderTraversal(BinaryTreeNode<int>* root, vector<int> &v){
 int findNode(BinaryTreeNode<int>* root, int k) {
 	vector<int> v;
 	inorderTraversal(root,v);
-	return v[k-1];
+	return v[k - 1];
 }
 
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout<<endl;
+	cout << endl;
 	int k = 3;
-	cout<<findNode(root,k);
+	cout << findNode(root,k);
 	delete root;
 }
 

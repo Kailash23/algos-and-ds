@@ -6,45 +6,39 @@
 #include <iostream>
 #include "BinaryTreeNode.h"
 #include "Node.h"
-#include <queue>
 using namespace std;
 
-BinaryTreeNode<int>* takeInputLevelWise(){
-	int rootData;
-	cout<<"Enter root's data"<<endl;
-	cin>>rootData;
+#include <queue>
 
-	if(rootData == -1){
+BinaryTreeNode<int>* takeInputLevelWise() {
+	int rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
+	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
-
 	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-
-	queue<BinaryTreeNode<int>*> pendingNodes;
+	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
 	pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0){
+	while(pendingNodes.size() != 0) {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
-
-		int leftData;
-		cout<<"Enter left child's data"<<endl;
-		cin>>leftData;
-
-		if(leftData != -1){
-			BinaryTreeNode<int>* leftChildNode = new BinaryTreeNode<int>(leftData);
-			front->left = leftChildNode;
-			pendingNodes.push(leftChildNode);
+		cout << "Enter left child of " << front->data << endl;
+		int leftChildData;
+		cin >> leftChildData;
+		if(leftChildData != -1) {
+			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
+			front->left = child;
+			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
-
-		int rightData;
-		cout<<"Enter right child's data"<<endl;
-		cin>>rightData;
-
-		if(rightData != -1){
-			BinaryTreeNode<int>* rightChildNode = new BinaryTreeNode<int>(rightData);
-			front->right = rightChildNode;
-			pendingNodes.push(rightChildNode);
+		cout << "Enter right child of " << front->data << endl;
+		int rightChildData;
+		cin >> rightChildData;
+		if(rightChildData != -1) {
+			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
+			front->right = child;
+			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
 	}
 	return root;
@@ -54,9 +48,7 @@ Node<int> *head = NULL;
 Node<int> *tail = NULL;
 
 void createLinkedList(int data){		// Time Complexity - O(n)
-
 	Node<int>* newNode = new Node<int>(data);
-
 	if(head == NULL && tail == NULL){
 		head = newNode;
 		tail = newNode;
@@ -85,14 +77,15 @@ void printLL(Node<int>* head){
 		return;
 	}
 	while (head!=NULL) {
-		cout<<head->data<<" ";
+		cout << head->data << " ";
 		head = head->next;
 	}
 }
+
 int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	Node<int>* list = constructBST(root);
-	cout<<endl;
+	cout << endl;
 	printLL(list);
 }
 
@@ -102,5 +95,5 @@ int main(){
  */
 
 /*
-2 5 6 7 8 10
-*/
+   2 5 6 7 8 10
+ */

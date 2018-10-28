@@ -1,25 +1,26 @@
 /*
    Check if a Binary Tree is BST
 
-   Given a binary tree with N number of nodes, check if that input tree is BST (Binary Search Tree) or not. If yes, return true, return false otherwise.
+   Given a binary tree with N number of nodes, check if that input tree is BST
+   (Binary Search Tree) or not. If yes, return true, return false otherwise.
 
    Duplicate elements should be in right subtree.
  */
 
 #include <iostream>
 #include "BinaryTreeNode.h"
+using namespace std;
+
 #include <queue>
 #include <climits>
-using namespace std;
 
 BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data"<<endl;
-	cin>>rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
 	if(rootData == -1) {             // if data is -1 consider it as no child node.
 		return NULL;
 	}
-
 	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
 	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
 	pendingNodes.push(root);
@@ -27,19 +28,17 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 	while(pendingNodes.size() != 0) {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
-
-		cout<< "Enter left child of "<<front->data <<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);               // Push child node for inputing there child nodes.
 		}
-
-		cout<< "Enter right child of "<< front->data <<endl;
+		cout << "Enter right child of " << front->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -59,12 +58,12 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 		=>	O(n)
  */
 
- class IsBSTReturn {
-   public:
- 	bool isBST;
- 	int minimum;
- 	int maximum;
- };
+class IsBSTReturn {
+  public:
+	bool isBST;
+	int maximum;
+	int minimum;
+};
 
 IsBSTReturn isBST(BinaryTreeNode<int>* root) {
 	if(root == NULL) {     // Constant Work
@@ -92,7 +91,7 @@ int main(){
 	BinaryTreeNode<int>* root = takeInputLevelWise();
 	IsBSTReturn output;
 	output = isBST(root);
-	cout<<output.isBST;
+	cout << output.isBST;
 }
 
 /*

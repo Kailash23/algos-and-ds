@@ -1,7 +1,8 @@
 /*
    Code: Print Elements in Range
 
-   Given a Binary Search Tree and two integers k1 and k2, find and print the elements which are in range k1 and k2 (both inclusive).
+   Given a Binary Search Tree and two integers k1 and k2, find and print the
+   elements which are in range k1 and k2 (both inclusive).
    Print the elements in increasing order.
 
    Input format :
@@ -19,18 +20,18 @@
  */
 
 #include <iostream>
-#include <queue>
 #include "BinaryTreeNode.h"
 using namespace std;
 
-BinaryTreeNode<int>* getInput() {
+#include <queue>
+
+BinaryTreeNode<int>* takeInputLevelWise() {
 	int rootData;
-	cout<<"Enter root data : "<<endl;
-	cin>>rootData;
+	cout << "Enter root data : " << endl;
+	cin >> rootData;
 	if(rootData == -1) {
 		return NULL;
 	}
-
 	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
 	queue<BinaryTreeNode<int>*> pendingNodes;
 	pendingNodes.push(root);
@@ -38,19 +39,17 @@ BinaryTreeNode<int>* getInput() {
 	while(pendingNodes.size() != 0) {
 		BinaryTreeNode<int>* front = pendingNodes.front();
 		pendingNodes.pop();
-
-		cout<<"Enter left child of "<<front->data<<endl;
+		cout << "Enter left child of " << front->data << endl;
 		int leftChildData;
-		cin>>leftChildData;
+		cin >> leftChildData;
 		if(leftChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
 			front->left = child;
 			pendingNodes.push(child);
 		}
-
-		cout<<"Enter right child of "<<root->data<<endl;
+		cout << "Enter right child of " << root->data << endl;
 		int rightChildData;
-		cin>>rightChildData;
+		cin >> rightChildData;
 		if(rightChildData != -1) {
 			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
 			front->right = child;
@@ -69,24 +68,19 @@ void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1, int k2) {
 	if(root == NULL){
 		return;
 	}
-
 	if(root->data >= k1 && root->data <= k2){
-		cout<<root->data<<" ";
+		cout << root->data << " ";
 	}
-
 	if(root->data > k1){
-		elementsInRangeK1K2(root->left,k1,k2);
+		elementsInRangeK1K2(root->left, k1, k2);
 	}
-
 	if(root->data <= k2){
-		elementsInRangeK1K2(root->right,k1,k2);
+		elementsInRangeK1K2(root->right, k1, k2);
 	}
 }
 
-
-
 int main() {
-	BinaryTreeNode<int>* root = getInput();
+	BinaryTreeNode<int>* root = takeInputLevelWise();
 	int k1 = 6;
 	int k2 = 10;
 	elementsInRangeK1K2(root, k1, k2);
@@ -110,11 +104,11 @@ int main() {
 		if(root == NULL) {
 			return;
 		}
-		elementsInRangeK1K2(root->left,k1,k2);
-		if(k1 <= root->data && root->data<=k2) {
-			cout<< root->data <<" ";
+		elementsInRangeK1K2(root->left, k1, k2);
+		if(k1 <= root->data && root->data <= k2) {
+			cout << root->data << " ";
 		}
-		elementsInRangeK1K2(root->right,k1,k2);
+		elementsInRangeK1K2(root->right, k1, k2);
 	}
   */
 
@@ -125,17 +119,17 @@ int main() {
 	        return;
 	    }
 	    if(root->data >= k1 && root->data<=k2){
-	        elementsInRangeK1K2(root->left,k1,k2);
-	        cout<<root->data<<" ";
-	        elementsInRangeK1K2(root->right,k1,k2);
+	        elementsInRangeK1K2(root->left, k1, k2);
+	        cout << root->data << " ";
+	        elementsInRangeK1K2(root->right, k1, k2);
 	        return;
 	    }
 	    if(root->data < k1){
-	        elementsInRangeK1K2(root->right,k1,k2);
+	        elementsInRangeK1K2(root->right, k1, k2);
 	        return;
 	    }
 	    if(root->data >= k2){
-	        elementsInRangeK1K2(root->left,k1,k2);
+	        elementsInRangeK1K2(root->left, k1, k2);
 	        return;
 	    }
    }

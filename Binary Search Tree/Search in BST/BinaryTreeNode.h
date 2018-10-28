@@ -1,6 +1,7 @@
 template <typename T>
+
 class BinaryTreeNode {
-public:
+  public:
 	T data;
 	BinaryTreeNode<int>* left;
 	BinaryTreeNode<int>* right;
@@ -9,5 +10,10 @@ public:
 		this->data = data;
 		left = NULL;
 		right = NULL;
+	}
+
+	~BinaryTreeNode(){
+		delete left;
+		delete right;
 	}
 };

@@ -1,7 +1,7 @@
 template <typename T>
 
 class BinaryTreeNode {
-public:		// Making these fields public so that we don't need to make getter and setter
+  public:		// Making these fields public so that we don't need to make getter and setter
 	T data;
 	BinaryTreeNode* left;	// Pointer of type BinaryTreeNode to store left node's address.
 	BinaryTreeNode* right;	// Pointer of type BinaryTreeNode to store right node's address.
