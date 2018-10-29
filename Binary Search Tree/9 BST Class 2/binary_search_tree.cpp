@@ -362,11 +362,12 @@ int main(){
 
 	tree->printTree();
 	cout << endl;
+
 	tree->deleteData(10);
 
 	tree->printTree();
-
 	cout << endl;
+
 	tree->search(5);
 	cout << endl << endl;
 
@@ -407,3 +408,75 @@ int main(){
 	tree->takeInputLevelWise();
 	tree->printTree();
 }
+
+/*
+   5: L:3,R:6
+   3: L:1,
+   1:
+   6: R:9
+   9: L:8,R:10
+   8:
+   10:
+
+   5: L:3,R:6
+   3: L:1,
+   1:
+   6: R:9
+   9: L:8,
+   8:
+
+   Found!
+
+
+   1 3 5 6 8 9
+
+   5 3 1 6 9 8
+
+   1 3 8 9 6 5
+
+   Is BST : Yes
+
+   Height : 4
+   Number of nodes : 6
+   Minimum element : 1
+   Maximum element : 9
+   5: L:2,R:8
+   2: L:1,R:3
+   1:
+   3: R:4
+   4:
+   8: L:6,R:9
+   6: R:7
+   7:
+   9: R:10
+   10:
+   Enter root data
+   1 2 3 4 5 6 7 -1 -1 -1 -1 8 9 -1 -1 -1 -1 -1 -1
+   Enter left child of 1
+   Enter right child of 1
+   Enter left child of 2
+   Enter right child of 2
+   Enter left child of 3
+   Enter right child of 3
+   Enter left child of 4
+   Enter right child of 4
+   Enter left child of 5
+   Enter right child of 5
+   Enter left child of 6
+   Enter right child of 6
+   Enter left child of 7
+   Enter right child of 7
+   Enter left child of 8
+   Enter right child of 8
+   Enter left child of 9
+   Enter right child of 9
+   1: L:2,R:3
+   2: L:4,R:5
+   4:
+   5:
+   3: L:6,R:7
+   6: L:8,R:9
+   8:
+   9:
+   7:
+ */
