@@ -6,7 +6,6 @@
  */
 
 #include <iostream>
-#include <cstring>
 using namespace std;
 
 bool checkPalindrome(string input) {

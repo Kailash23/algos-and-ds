@@ -1,22 +1,21 @@
-#include <string>
 using namespace std;
 
 template <typename V>
 class MapNode {
-  public:
-	string key;
-	V value;
-	MapNode* next;
+   public:
+	   string key;
+	   V value;
+	   MapNode* next;		// Address of next map node is stored here (Singly LL)
 
-	MapNode(string key, V value){           //Constructor
-		this->key = key;
-		this->value= value;
-		next = NULL;
-	}
+	   MapNode(string key, V value){           // Constructor
+		   this->key = key;
+		   this->value= value;
+		   next = NULL;
+	   }
 
-	~MapNode(){         //Recursive destructor
-		delete next;
-	}
+	   ~MapNode(){         //Recursive Destructor
+		   delete next;
+	   }
 };
 
 template <typename V>
@@ -105,8 +104,8 @@ class ourmap {
 	 */
   public:
 	void insert(string key, V value){
-		int bucketIndex = getBucketIndex(key);
-		MapNode<V>* head = buckets[bucketIndex];      //Get the head at bucket index
+		int bucketIndex = getBucketIndex(key);		// Get the index using key
+		MapNode<V>* head = buckets[bucketIndex];      // Using index get the head of the linked list from bucket array as it store the head of linked lists.
 		while(head != NULL) {
 			if(head->key == key) {          //If key already present update value
 				head->value = value;         //Update value & dont increase count
@@ -117,9 +116,9 @@ class ourmap {
 
 		head = buckets[bucketIndex];            //If key not found get head again
 		MapNode<V>* node = new MapNode<V>(key, value);          //and make new node with given key and value
-		node->next = head;
-		buckets[bucketIndex] = node;            //Adjust links (next) to place new node at bucketIndex
-		count++;            //To count how many entries in our map
+		node->next = head;					//newly inserted node point to head ie (insertion at beginning)
+		buckets[bucketIndex] = node;        // We have to update head in bucket as now first node is newly inserted node
+		count++;            // as new entry is added (not updated) we must incremnt the count
 		double loadFactor = (1.0 * count) / numBuckets;         //1.0 is multiplied for casting to double
 		if(loadFactor > 0.7) {
 			rehash();
@@ -145,25 +144,25 @@ class ourmap {
 	   Delete and then return deleted value
 	 */
 	V remove(string key){
-		int bucketIndex = getBucketIndex(key);          //Find bucket index
-		MapNode<V>* head = buckets[bucketIndex];            //Get head node at bucket index
-		MapNode<V>* prev = NULL;            //prev will be null initailly
+		int bucketIndex = getBucketIndex(key);          // Find bucket index
+		MapNode<V>* head = buckets[bucketIndex];            // Get head node at bucket index from buckets
+		MapNode<V>* prev = NULL;            // prev will be null initailly
 		while(head != NULL) {
 			if(head->key == key) {
-				if(prev == NULL) {          //If prev is NULL and and we are using prev->next we will get error
-					buckets[bucketIndex] = head->next;          //prev is NULL only if we find element at head (ie first node)
+				if(prev == NULL) {          // If prev is NULL and and we are using prev->next we will get error
+					buckets[bucketIndex] = head->next;          // prev is NULL only, if we find element at head (ie first node)
 				} else {
-					prev->next = head->next;
+					prev->next = head->next;	// This will point prev to node next to head.
 				}
-				V value = head->value;          //Store deleted value in order to return before deleting head
-				head->next = NULL;          //Have to do this to avoid recursive deletion of whole LL
+				V value = head->value;          // Store deleted value in order to return before deleting head
+				head->next = NULL;          // Have to do this to avoid recursive deletion of whole LL
 				delete head;
-				count--;            //Decrement count as we deleted that entry
+				count--;            // Decrement count as we deleted that entry
 				return value;
 			}
-			prev = head;            //prev is always before head and moving togther
+			prev = head;            // prev is always before head and moving togther
 			head = head->next;
 		}
-		return 0;           //Signify invaid value ie we can't find value to be deleted.
+		return 0;           // Signify invaid value ie we can't find value to be deleted.
 	}
 };
