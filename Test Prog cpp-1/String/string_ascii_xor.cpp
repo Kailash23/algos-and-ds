@@ -5,7 +5,7 @@ int main(){
 	char str[] = {"abc"};
 	char chr[] = {"acb"};
 	int k;
-	int sum=0;
+	int sum = 0;
 	for(int i = 0; str[i] != '\0'; i++) {
 		k = str[i];
 		sum ^= str[i];

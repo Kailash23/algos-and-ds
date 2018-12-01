@@ -38,5 +38,5 @@ int main(){
 	cout << str1.substr(5, 2) << endl;
 
 	//8
-	cout<< str1.find("push");
+	cout << str1.find("push");
 }
