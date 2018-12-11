@@ -19,12 +19,12 @@ void RecoverArray(int input[], int output[], int n){
 	int left, right;
 	int mid = n / 2;
 	int i = 0;
-	if(n % 2 != 0) {
-		output[mid] = input[i];
+	if(n % 2 != 0) {	// Array size is odd.
+		output[mid] = input[i];		// First element should be placed in mid (odd case)
 		left = mid - 1;
 		right = mid + 1;
 		i++;
-	} else {
+	} else {		// Array size is even
 		left = mid - 1;
 		right = mid;
 	}
@@ -53,3 +53,7 @@ int main(){
 	RecoverArray(input, output, n);
 	PrintArray(output, n);
 }
+
+/*
+   1 2 3 4 5
+*/

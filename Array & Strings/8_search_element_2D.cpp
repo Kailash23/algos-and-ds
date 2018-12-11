@@ -6,8 +6,8 @@
 #include <iostream>
 using namespace std;
 
-void findElement(int (*arr)[30], int row, int col, int x){
-	int i = 0, j = col - 1;
+void findElement(int (*arr)[30], int row, int col, int x){		// Or int arr[][30]
+	int i = 0, j = col - 1;		// Top-Right
 	while (i < row && j >= 0) {
 		if(arr[i][j] == x) {
 			cout << "Found at location: (" << i << ", " << j << ")" << endl;

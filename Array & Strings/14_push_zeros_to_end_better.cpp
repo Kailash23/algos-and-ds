@@ -16,7 +16,7 @@ void PrintArray(int arr[], int n){
 void PushZeroesEnd(int arr[], int n){
 	int ptr = 0;
 	for(int i = 0; i < n; i++) {
-		if(arr[i]){
+		if(arr[i]) {
 			swap(arr[ptr], arr[i]);
 			ptr++;
 		}
@@ -29,3 +29,7 @@ int main(){
 	int n = sizeof(arr) / sizeof(arr[0]);
 	PushZeroesEnd(arr, n);
 }
+
+/*
+   1 2 2 3 4 0 0 0 0
+ */

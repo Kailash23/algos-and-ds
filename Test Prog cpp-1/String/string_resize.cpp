@@ -13,6 +13,14 @@ int main (){
 
 	str.resize (14);
 	cout << str << '\n';
+
+	string str2 = "Hello";
+	str2.resize(4, ' ');
+	cout << str2 << endl;
+
+	string str3 = "Hello";
+	str3.resize(6, '+');
+	cout << str3 << endl;
 }
 
 /*

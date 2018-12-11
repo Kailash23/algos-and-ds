@@ -7,19 +7,15 @@
 using namespace std;
 
 void wavePrint(int input[][500], int row, int col){
-
 	for(int i = 0; i < col; i++) {
+
 		if(i % 2 == 0) {
-			int j = 0;
-			while(j < row) {
+			for(int j = 0; j < row; j++) {
 				cout << input[j][i] << " ";
-				j++;
 			}
 		} else {
-			int j = row - 1;
-			while(j >= 0) {
+			for(int j = row - 1; j >= 0; j--) {
 				cout << input[j][i] << " ";
-				j--;
 			}
 		}
 	}
@@ -38,3 +34,8 @@ int main(){
 	}
 	wavePrint(arr, m, n);
 }
+
+/*
+   3 4
+   1 5 9 10 6 2 3 7 11 12 8 4
+ */

@@ -13,7 +13,7 @@ void Leaders(int* arr, int len){
 	int j = 0;
 	int save[len]; //   int *save = new int[len]; or we can declare this way
 	int largest = INT_MIN;
-	for(int i = len-1; i >= 0; i--) {
+	for(int i = len - 1; i >= 0; i--) {
 		if(arr[i] >= largest) {
 			save[j] = arr[i];
 			j++;

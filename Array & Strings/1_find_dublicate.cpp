@@ -25,3 +25,7 @@ int main(){
 /*
    7
  */
+
+/*
+   1 + 2 + ... + n = n(n + 1) / 2, for n a natural number.
+*/

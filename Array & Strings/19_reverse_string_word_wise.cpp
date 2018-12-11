@@ -5,7 +5,7 @@
    come at 1st place, last second word at 2nd place and so on. Individual words should
    remain as it is.
  */
- 
+
 #include <iostream>
 #include <cstring>
 
@@ -21,7 +21,7 @@ void reverse(char arr[], int start, int end){
 
 void reverseStringWordWise(char input[]) {
 	int len = strlen(input);
-	reverse(input, 0, len-1);		// reversing the whole string
+	reverse(input, 0, len - 1);		// reversing the whole string
 
 	int start = 0;
 	int end = 0;
@@ -33,10 +33,10 @@ void reverseStringWordWise(char input[]) {
 			start = i + 1;		// start for the next word will be next char after space
 		}
 	}
-	cout<< input <<endl;
+	cout << input << endl;
 }
 
 int main(){
-	char arr[]={"Call me Juggernaut. This is Sparta!"};
+	char arr[] = {"Reverse String Word Wise!"};
 	reverseStringWordWise(arr);
 }

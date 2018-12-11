@@ -51,7 +51,7 @@ int countPalindromeSubstrings(char s[]) {
 	while(i < n) {
 		j = i;
 		while(j < n) {
-			char temp[j - i + 1];
+			char temp[j - i + 1];	// +1 for storing '\0'
 			int ind = 0;
 			for(int k = i; k <= j; k++) {
 				temp[ind++] = s[k];

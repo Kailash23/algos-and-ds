@@ -10,7 +10,7 @@ int main(){
 	const int & k = j;      //path constant not actual storage
 	j++;
 	//k++;		error: increment of read-only reference 'k'
-	cout<<k<<endl;
+	cout << k << endl;
 
 	//constant reference from const int
 	int const j2 = 12;

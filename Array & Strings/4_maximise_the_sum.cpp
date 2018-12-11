@@ -33,6 +33,7 @@ long maxPathSum(int ar1[], int ar2[], int m, int n){
 		} else {
 			s2 += ar2[j++];
 		}
+		cout << s1 << ":" << s2 << endl;
 	}
 
 	while (i < m) {
@@ -49,13 +50,13 @@ long maxPathSum(int ar1[], int ar2[], int m, int n){
 }
 
 int main(){
-	int ar1[] = {1,5,10,15,20,25};
+	int ar1[] = {2,2,5,4,6,7};
 	int m = sizeof(ar1) / sizeof(ar1[0]);
 
-	int ar2[] = {2,4,5,9,15};
+	int ar2[] = {1,9,5,3,3,0};
 	int n = sizeof(ar2) / sizeof(ar2[0]);
 
-	cout<< maxPathSum(ar1, ar2, m, n);
+	cout << maxPathSum(ar1, ar2, m, n);
 }
 
 /*

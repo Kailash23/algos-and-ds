@@ -9,9 +9,9 @@ int main(){
 
 	int s = 12;
 	int const *p2 = &s;
-	cout<<*p2<<endl;        //12
+	cout << *p2 << endl;        //12
 	s++;
-	cout<<*p2<<endl;        //13
+	cout << *p2 << endl;        //13
 
 	//(*p2)++;		error: increment of read only.
 }

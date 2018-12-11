@@ -61,3 +61,13 @@ int main(){
    0 3 6
 
  */
+
+/*
+	Dynamic allocation of 2D array
+
+	int** arr = new int*[rows];
+	for(int i = 0; i < rows; i++) {
+		arr[i] = new int[n];
+	}
+	delete [] arr;		// Array deletion 2D
+*/

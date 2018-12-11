@@ -25,6 +25,7 @@ int countPalindromeSubstrings(char s[]) {
 		left = mid - 1;
 		right = mid + 1;
 		flag = 1;
+
 		while(left >= 0 && right < n && flag != 0) {		// We will not loop again if we get any sequence  that isn't pallindrome. ie flag = 0
 			start = left;
 			end = right;
@@ -42,6 +43,7 @@ int countPalindromeSubstrings(char s[]) {
 			left--;
 			right++;
 		}
+
 		i++;
 	}
 

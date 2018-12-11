@@ -4,7 +4,7 @@
  */
 
 #include <iostream>
-#include <cstring>
+#include <cstring>	// for strlen
 using namespace std;
 
 void reverseEachWord(char input[]) {
@@ -14,14 +14,14 @@ void reverseEachWord(char input[]) {
 		if(input[i] == ' ' || input[i] == '\0') {
 			end = i - 1;
 			while(start < end) {
-				swap(input[start], input[end]);
+				swap(input[start], input[end]);		// Inbuild swap function (iostream)
 				start++;
 				end--;
 			}
 			start = i + 1;
 		}
 	}
-	cout<< input <<endl;
+	cout << input << endl;
 }
 
 int main(){

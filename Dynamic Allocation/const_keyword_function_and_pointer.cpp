@@ -22,19 +22,19 @@ int main(){
 //1
 	int i = 0;
 	f(&i);
-	cout<<i<<endl;      //1
+	cout << i << endl;      //1
 
 	int s = 4;
 	g(&s);
-	cout<<s<<endl;
+	cout << s << endl;
 
 	int k = 6;
 	h(k);       //passed by reference
-	cout<<k<<endl;
+	cout << k << endl;
 
 	int l = 9;
 	z(l);
-	cout<<k<<endl;
+	cout << k << endl;
 
 //2
 	int m = 12;
@@ -42,7 +42,7 @@ int main(){
 	int const * p1 = &m;        //p1 is pointer to constant integer
 	p1 = &n;        //We can do this but we can't do *(p)++.
 	//(*p1)++;		//This will give error
-	cout<<*p1;      //Should give 2 as output
+	cout << *p1;      //Should give 2 as output
 
 	int * const p2 = &m;        //p2 is constant pointer to integer (readeability: right to left)
 	//p2 = &n;		//This will give error

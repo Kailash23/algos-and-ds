@@ -8,7 +8,7 @@ void increment(int& n){     //Value passed by reference instead of passed by val
 int main(){
 	int i = 10;
 	increment(i);       //i and n now share same memory
-	cout<<i<<endl;
+	cout << i << endl;
 }
 
 

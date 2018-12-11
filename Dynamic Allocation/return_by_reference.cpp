@@ -16,5 +16,5 @@ int main(){
 	int& k = f1(i);
 
 	int *p = f2();
-	cout<<p;
+	cout << p;
 }
