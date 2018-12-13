@@ -31,7 +31,7 @@ public class Teacher {
 //        empId = 10;
 //    }
 
-//    public Teacher(String n, int ei) {        //Without this keyword
+//    public Teacher(String n, int ei) {        // Without this keyword
 //        name = n;
 //        empId = ei;
 //    }

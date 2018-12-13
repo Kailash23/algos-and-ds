@@ -16,3 +16,8 @@ public class VehicleUse {
 
    public class Car extends Vehicle{
  */
+
+/*
+   Function - Any subclass cant override this function.
+   Class - No other class can inherit this class.
+ */

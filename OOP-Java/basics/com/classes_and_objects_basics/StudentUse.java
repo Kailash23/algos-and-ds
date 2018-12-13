@@ -14,7 +14,7 @@ public class StudentUse {
         System.out.print("Enter name of student: ");
         String sname = s.next();
 
-        Student s1 = new Student("Odesza", 23);     //costum constructor
+        Student s1 = new Student("Odesza", 23);     // custom constructor
 
 //        Student s1 = new Student();
 //        System.out.println(s1.name);        //null

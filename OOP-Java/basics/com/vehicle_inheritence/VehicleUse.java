@@ -78,3 +78,23 @@ public class VehicleUse {
    called constructor chaining.
 
  */
+
+ /*
+    Compile Time And Runtime Polymorphism
+
+    Vehicle v; -> reference created (v will point to Vehicle)
+    v can point to any class which is subclass of Vehicle.
+    eg - Vehicle v = new Car();
+
+    If car has isConvertible function
+    v can't access that it can only access Vehicle specific methods
+    we can use v.print() cause Vehicle and Car both have print function.
+    v.print() will print Car's print function  because it is decided in runtime
+
+    If we use v.isConvertible it will not compile because Vehicle have no function named as isConvertible
+
+    If the function parent in both super and subclass. whome to execute will
+    be decided at runtime.
+
+    Method overridden is another type of Polymorphism
+ */

@@ -15,3 +15,9 @@ public class VehicleUse {
    Car's Default Constructor
    BMW
  */
+
+/*
+   We can't create object of a abstract class.
+   We can't do this Vehicle v = new Vehicle(); because Vehicle is abstract class
+   But we can do this Vehicle v = new Car(); because Car is not abstract
+ */

@@ -16,6 +16,10 @@ public class VehicleUse {
  */
 
 /*
+   Interface is basically a class with all abstract function.
+ */
+
+/*
    Interfaces can contain only constants and method signatures, but no implementation.
 
    Interfaces cannot be instantiated. They can only be implemented by an implementing class or extended by another interface.
@@ -36,6 +40,6 @@ public class VehicleUse {
 
 	An interface is a solution for multiple inheritance in java.
 
-	An interface can extend another interface. 
+	An interface can extend another interface.
 
 */
