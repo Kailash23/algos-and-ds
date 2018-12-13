@@ -3,8 +3,23 @@
 
    Given an integer n, using phone keypad find out and print all the possible
    strings that can be made using digits of input n.
+   Print empty string for numbers 0 and 1.
+
    Note : The order of strings are not important. Just print different strings
    in new lines.
+
+   Sample Input:
+   23
+   Sample Output:
+   ad
+   ae
+   af
+   bd
+   be
+   bf
+   cd
+   ce
+   cf
  */
 
 #include <iostream>
@@ -33,7 +48,7 @@ string getString(int d){
 	if(d == 8) {
 		return "tuv";
 	}
-	if(d ==9) {
+	if(d == 9) {
 		return "wxyz";
 	}
 	return " ";

@@ -3,6 +3,11 @@
 
    Given a string S, remove consecutive duplicates from it recursively.
 
+   Sample Input :
+   aabccba
+   Sample Output :
+   abcba
+
  */
 #include <iostream>
 #include <string.h>
@@ -15,8 +20,7 @@ string removeConsecutiveDuplicates(string input) {
 	if(input[0] == input[1]) {
 		return removeConsecutiveDuplicates(input.substr(1));
 	} else {
-		string small = removeConsecutiveDuplicates(input.substr(1));
-		return input[0] + small;
+		return input[0] + removeConsecutiveDuplicates(input.substr(1));
 	}
 }
 

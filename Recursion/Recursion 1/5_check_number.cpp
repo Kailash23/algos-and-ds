@@ -36,7 +36,7 @@ int main(){
 		if(size == 1) {
 			return input[0] == x;
 		}
-		bool c = checkNumber(input+1, size-1, x);
+		bool c = checkNumber(input + 1, size - 1, x);
 		return input[0] == x || c;
 	}
 */

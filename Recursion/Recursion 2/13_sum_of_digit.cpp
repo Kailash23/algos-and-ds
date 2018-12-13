@@ -8,12 +8,10 @@
 using namespace std;
 
 int sumOfDigits(int n){
-	int sum = 0;
 	if(n <= 9) {
-		return sum += n;
+		return n;
 	}
-	sum = sum + (n % 10);
-	return sum + sumOfDigits(n / 10);
+	return n % 10 + sumOfDigits(n / 10);
 }
 
 int main(){
@@ -23,13 +21,4 @@ int main(){
 
 /*
    15
- */
-
-/*
-    int sumOfDigits(int n){
-        if(n <= 9) {
-            return n;
-        }
-        return n % 10 + sumOfDigits(n / 10);
-    }
  */

@@ -18,7 +18,7 @@ int minCount(int n){
 	if(n <= 0) {
 		return 0;
 	}
-	for(int i = n - 1; i >= 1; i--) {
+	for(int i =  n/2; i >= 1; i--) {
 		if(n >= (i * i)) {
 			return 1 + minCount(n - (i * i));
 		}

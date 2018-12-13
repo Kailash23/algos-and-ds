@@ -10,13 +10,13 @@
 #include <cstring>
 using namespace std;
 
-int stringToNumber(char input[], int last){     //Worked on last index
-	if(last == 0) {
+int stringToNumber(char input[], int last){     // Worked on last index
+	if(last == 0) {		// If last index is 0 ie only one element
 		return input[last] - '0';
 	}
 	int smallAns = stringToNumber(input, last - 1);
-	int a = input[last] - '0';
-	return smallAns * 10 + a;
+	int last = input[last] - '0';
+	return smallAns * 10 + last;
 }
 
 int convert(char input[]){

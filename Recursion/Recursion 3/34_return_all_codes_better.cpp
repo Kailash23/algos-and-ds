@@ -16,29 +16,29 @@ int getCodes(string input, string output[]){
 		output[0] = "";
 		return 1;
 	}
-	int first = input[0] - 48;
-	char firstChar = first + 'a' - 1;
-	char secondChar = '\0';
+	int first = input[0] - '0';		  // input[0] - 48;	coverting char to int '1'==>1
+	char firstChar =  'a' + (first - 1);	// converting 1 (int) to its code ie 'a'
+	char secondChar = '\0';		// (as 0 for int) for char we can initial as '\0' ie empty
 
-	string smallOutput1[500];
+	string smallOutput1[500];	// empty output arrays
 	string smallOutput2[500];
 
-	int size1 = getCodes(input.substr(1), smallOutput1);
-	int size2 = 0;
+	int smallOutputSize1 = getCodes(input.substr(1), smallOutput1);
+	int smallOutputSize2 = 0;
 
 	if(input[1] != '\0') {
-		int second = (first * 10) + (input[1] - 48);
-		if(second >= 10 && second <= 26) {
-			secondChar = second + 'a' - 1;
-			size2 = getCodes(input.substr(2), smallOutput2);
+		int second = (first * 10) + (input[1] - '0');
+		if(second >= 10 && second <= 26) {		// If True thus we can deduce int to char code
+			secondChar = (second - 1) + 'a';
+			smallOutputSize2 = getCodes(input.substr(2), smallOutput2);
 		}
 	}
 	int k = 0;
-	for(int i = 0; i < size1; i++) {
+	for(int i = 0; i < smallOutputSize1; i++) {
 		output[k] = firstChar + smallOutput1[i];
 		k++;
 	}
-	for(int i = 0; i < size2; i++) {
+	for(int i = 0; i < smallOutputSize2; i++) {
 		output[k] = secondChar + smallOutput2[i];
 		k++;
 	}

@@ -9,9 +9,9 @@
 using namespace std;
 
 int subs(string input, string output[]){        //Output array of string
-	if(input.empty()) {
-		output[0] = "";
-		return 1;
+	if(input.empty()) {		//input.size()
+		output[0] = "";     // empty string
+		return 1;       // 1 subsequence
 	}
 	string smallString = input.substr(1);
 	int smallOutputSize = subs(smallString, output);
@@ -50,4 +50,9 @@ int main(){
    abd
    abc
    abcd
+ */
+
+/*
+   string size is n then it will have 2^n substring.
+   Beacause for every letter we have 2 decision to take wheather to take it or not.
  */

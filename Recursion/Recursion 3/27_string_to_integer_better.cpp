@@ -11,11 +11,11 @@
 #include <cstring>
 using namespace std;
 
-int convert(char input[],int size){
+int convert(char input[], int size){
 	if(strlen(input) == 1) {
 		return input[0] - '0';
 	}
-	int smallOutput = convert(input + 1,size - 1);
+	int smallOutput = convert(input + 1, size - 1);	// operating from front of array
 	int firstDigit = input[0] - '0';
 	int depth = 1;
 	for(int i = 0; i < size - 1; i++) {
