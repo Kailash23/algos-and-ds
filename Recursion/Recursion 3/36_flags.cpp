@@ -31,7 +31,7 @@ void find_Ways_Helper(int n, char prev, char prevprev, long long &ans){
 	} else if(prev == 'B' && prevprev == 'W') {
 		find_Ways_Helper(n - 1, 'R', 'B',  ans);
 	} else if(prev == 'B' && prevprev == 'R') {
-		find_Ways_Helper(n-1, 'W', 'B', ans);
+		find_Ways_Helper(n - 1, 'W', 'B', ans);
 	} else if(prev == 'W') {
 		find_Ways_Helper(n - 1, 'R', 'W', ans);
 		find_Ways_Helper(n - 1, 'B', 'W', ans);

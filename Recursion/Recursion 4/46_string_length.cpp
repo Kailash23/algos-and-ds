@@ -8,8 +8,7 @@ int length(char s[]){
 	if(s[0] == '\0') {
 		return 0;
 	}
-	int smallStringLength = length(s + 1);
-	return 1 + smallStringLength;
+	return 1 + length(s + 1);
 }
 
 int main(){
@@ -18,3 +17,8 @@ int main(){
 	int l = length(str);
 	cout << "Length: " << l << endl;
 }
+
+/*
+   vikings
+   Length: 7
+ */

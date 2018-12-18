@@ -1,0 +1,22 @@
+
+> Hash Function -
+	>> hash code
+	>> compression function
+
+> Collision Handling -
+	>> Close Hashing - Every array entry is going to be a linked list.
+					   Also called separate chaining.
+	>> Open Addressing - If the default initial box is not available to us
+					   then we have to find alternate empty box.
+					   hi(a) = hf(a) + f(i)
+			>>> Linear Probing - Prob linearly one by one. f(i) -> i
+			>>> Quadratic Probing - f(i) = i^2
+			>>> Double Hashing - f(i) -> i * some other hash func ie h'(a)
+
+			Separate Chaining easier to implement
+
+>
+Modulus Property
+	(n1 * n2 * n3) % r
+		is equivalent to
+	((n1 % r)*(n2 % r)*(n3 % r)) % r

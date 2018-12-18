@@ -14,7 +14,7 @@ int helper(string data, int k){
 		return 1;
 	}
 	int s = data.length() - k;
-	int result = helper(data, k-1);
+	int result = helper(data, k - 1);
 	if(k >= 2) {
 		int dig = (data[0] - '0') * 10 + (data[1] - '0');
 		if(dig <= 26) {
