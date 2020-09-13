@@ -5,35 +5,35 @@
    or false.
  */
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
 
 bool checkPalindrome(char input[]) {
-	if (strlen(input) == 0){
-		return true;
-	}
-	if (input[0] != input[strlen(input) - 1]){
-		return false;
-	}
-	input[strlen(input) - 1] = '\0';
-	return checkPalindrome(input + 1);
+    if (strlen(input) == 0) {
+        return true;
+    }
+    if (input[0] != input[strlen(input) - 1]) {
+        return false;
+    }
+    input[strlen(input) - 1] = '\0';
+    return checkPalindrome(input + 1);
 }
 
-int main(){
-	char str[] = "abccba";
-	if(checkPalindrome(str)){
-		cout << "Palindrome" << endl;
-	} else {
-		cout << "Not Palindrome" << endl;
-	}
+int main() {
+    char str[] = "abccba";
+    if (checkPalindrome(str)) {
+        cout << "Palindrome" << endl;
+    } else {
+        cout << "Not Palindrome" << endl;
+    }
 }
 
 /*
 	Palindrome
  */
 
- /*
+/*
  bool checkPalindrome(char input[]) {
  	if(strlen(input) <= 1){
  		return true;

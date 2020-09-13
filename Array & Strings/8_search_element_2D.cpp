@@ -6,34 +6,34 @@
 #include <iostream>
 using namespace std;
 
-void findElement(int (*arr)[30], int row, int col, int x){		// Or int arr[][30]
-	int i = 0, j = col - 1;		// Top-Right
-	while (i < row && j >= 0) {
-		if(arr[i][j] == x) {
-			cout << "Found at location: (" << i << ", " << j << ")" << endl;
-			return;
-		} else if(x > arr[i][j]) {
-			i++;
-		} else {
-			j--;
-		}
-	}
-	cout << "Not found!";
+void findElement(int (*arr)[30], int row, int col, int x) { // Or int arr[][30]
+    int i = 0, j = col - 1;                                 // Top-Right
+    while (i < row && j >= 0) {
+        if (arr[i][j] == x) {
+            cout << "Found at location: (" << i << ", " << j << ")" << endl;
+            return;
+        } else if (x > arr[i][j]) {
+            i++;
+        } else {
+            j--;
+        }
+    }
+    cout << "Not found!";
 }
 
-int main(){
-	int m,n,k;
-	int a[30][30];
-	cin >> m;
-	cin >> n;
-	for(int i = 0; i < m; i++) {
-		for(int j = 0; j < n; j++) {
-			cin >> a[i][j];
-		}
-	}
-	cout << "Element to search: ";
-	cin >> k;
-	findElement(a, m, n, k);
+int main() {
+    int m, n, k;
+    int a[30][30];
+    cin >> m;
+    cin >> n;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> a[i][j];
+        }
+    }
+    cout << "Element to search: ";
+    cin >> k;
+    findElement(a, m, n, k);
 }
 
 /*

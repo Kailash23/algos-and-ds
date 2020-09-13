@@ -1,19 +1,19 @@
 class Car : public Vehicle {
 
-	public :
-		int numGears;
+  public:
+    int numGears;
 
-	Car() : Vehicle(5) {
-		cout << "Car's default constructor " << endl;
-	}
+    Car() : Vehicle(5) {
+        cout << "Car's default constructor " << endl;
+    }
 
-	~Car() {
-		cout << "Car's Destructor " << endl;
-	}
+    ~Car() {
+        cout << "Car's Destructor " << endl;
+    }
 
-	void print() {
-		cout << "NumTyres : " << numTyres << endl;
-		cout << "Color : " << color << endl;
-		cout << "Num gears :" << numGears << endl;
-	}
+    void print() {
+        cout << "NumTyres : " << numTyres << endl;
+        cout << "Color : " << color << endl;
+        cout << "Num gears :" << numGears << endl;
+    }
 };

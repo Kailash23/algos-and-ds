@@ -24,34 +24,33 @@
 #include <iostream>
 using namespace std;
 
-void Leaders(int* arr, int len){
-	int i = 0;
-	int flag = 0;
-	while(i < len) {
-		if(flag == 0) {
-			flag = 1;
-			while(arr[i] < arr[i+1] && i < len) {
-				i++;
-			}
-		}
-		int j = i + 1;
+void Leaders(int *arr, int len) {
+    int i = 0;
+    int flag = 0;
+    while (i < len) {
+        if (flag == 0) {
+            flag = 1;
+            while (arr[i] < arr[i + 1] && i < len) {
+                i++;
+            }
+        }
+        int j = i + 1;
 
-		while(arr[i] >= arr[j] && j < len) {
-			j++;
-		}
+        while (arr[i] >= arr[j] && j < len) {
+            j++;
+        }
 
-		if(j == len) {
-			cout << arr[i] << " ";
-		}
-		i++;
-	}
+        if (j == len) {
+            cout << arr[i] << " ";
+        }
+        i++;
+    }
 }
 
-
-int main(){
-	int arr[] = {3, 12, 34, 2, 34, -1};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	Leaders(arr,n);
+int main() {
+    int arr[] = {3, 12, 34, 2, 34, -1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    Leaders(arr, n);
 }
 
 /*

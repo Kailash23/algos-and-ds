@@ -14,56 +14,56 @@
 #include <iostream>
 using namespace std;
 
-void printPattern(int n){
-	int li = 1, ri = (n * n) - n + 1;
-	int i = 0;
-	if(n % 2 == 0) {
-		while(i < n / 2) {
-			for(int j = li; j < li + n; j++) {
-				cout << j << " ";
-			}
-			cout << endl;
-			li += (2 * n);
-			i++;
-		}
-		while(i < n) {
-			for(int j = ri; j < ri + n; j++) {
-				cout << j << " ";
-			}
-			cout << endl;
-			ri -= (2 * n);
-			i++;
-		}
-	} else {
-		while(i < n / 2) {
-			for(int j = li; j < li + n; j++) {
-				cout << j << " ";
-			}
-			cout << endl;
-			li += (2 * n);
-			i++;
-		}
-		for(int j = ri; j < ri + n; j++) {
-			cout << j << " ";
-		}
-		cout << endl;
-		ri -= n;
-		i++;
-		while(i < n) {
-			for(int j = ri; j < ri + n; j++) {
-				cout << j << " ";
-			}
-			cout << endl;
-			ri -= (2 * n);
-			i++;
-		}
-	}
+void printPattern(int n) {
+    int li = 1, ri = (n * n) - n + 1;
+    int i = 0;
+    if (n % 2 == 0) {
+        while (i < n / 2) {
+            for (int j = li; j < li + n; j++) {
+                cout << j << " ";
+            }
+            cout << endl;
+            li += (2 * n);
+            i++;
+        }
+        while (i < n) {
+            for (int j = ri; j < ri + n; j++) {
+                cout << j << " ";
+            }
+            cout << endl;
+            ri -= (2 * n);
+            i++;
+        }
+    } else {
+        while (i < n / 2) {
+            for (int j = li; j < li + n; j++) {
+                cout << j << " ";
+            }
+            cout << endl;
+            li += (2 * n);
+            i++;
+        }
+        for (int j = ri; j < ri + n; j++) {
+            cout << j << " ";
+        }
+        cout << endl;
+        ri -= n;
+        i++;
+        while (i < n) {
+            for (int j = ri; j < ri + n; j++) {
+                cout << j << " ";
+            }
+            cout << endl;
+            ri -= (2 * n);
+            i++;
+        }
+    }
 }
 
-int main(){
-	int n;
-	cin >> n;
-	printPattern(n);
+int main() {
+    int n;
+    cin >> n;
+    printPattern(n);
 }
 
 /*

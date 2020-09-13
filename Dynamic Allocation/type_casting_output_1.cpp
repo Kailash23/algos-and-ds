@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 
-void updateValue(int *p){
-	*p = 610 % 255;
+void updateValue(int *p) {
+    *p = 610 % 255;
 }
 
-int main(){
-	char ch = 'A';
-	updateValue((int*)&ch);
-	cout << ch;     //d
+int main() {
+    char ch = 'A';
+    updateValue((int *)&ch);
+    cout << ch; //d
 }

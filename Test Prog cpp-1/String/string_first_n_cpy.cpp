@@ -1,12 +1,12 @@
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
 
-int main(){
-	char s1[] = {"west"};
-	char s2[] = {"world"};
-	strncpy(s1, s2, 3);
-	cout << s1;
+int main() {
+    char s1[] = {"west"};
+    char s2[] = {"world"};
+    strncpy(s1, s2, 3);
+    cout << s1;
 }
 
 /*

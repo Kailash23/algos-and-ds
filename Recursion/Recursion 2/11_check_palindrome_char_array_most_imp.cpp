@@ -3,30 +3,30 @@
    Check if a given String S is palindrome or not (using recursion). Return true or false.
  */
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
 
 bool checkPalindrome(char input[]) {
-	if (strlen(input) == 0) {    // size 0 taken as palindrome
-		return true;
-	}
-	if (input[0] != input[strlen(input) - 1]) {    	// comparing first and last element
-		return false;
-	}
-	input[strlen(input) - 1] = '\0';	// Placing null character in place of last character.
-										// This will decrease the length of string by 1
-	return checkPalindrome(input + 1);	// Passing string without first and last character
+    if (strlen(input) == 0) { // size 0 taken as palindrome
+        return true;
+    }
+    if (input[0] != input[strlen(input) - 1]) { // comparing first and last element
+        return false;
+    }
+    input[strlen(input) - 1] = '\0';   // Placing null character in place of last character.
+                                       // This will decrease the length of string by 1
+    return checkPalindrome(input + 1); // Passing string without first and last character
 }
 
-int main(){
-	char str[] = "juggerregguj";
-	bool answer = checkPalindrome(str);
-	if(answer) {
-		cout << "Palindrome";
-	} else {
-		cout << "Not Palindrome";
-	}
+int main() {
+    char str[] = "juggerregguj";
+    bool answer = checkPalindrome(str);
+    if (answer) {
+        cout << "Palindrome";
+    } else {
+        cout << "Not Palindrome";
+    }
 }
 
 /*

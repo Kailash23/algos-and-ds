@@ -11,34 +11,34 @@
 using namespace std;
 
 int firstIndex(int input[], int size, int x) {
-	if(size == 0) {
-		return -1;
-	}
-	if(input[0] == x) {
-		return 0;
-	}
-	int smallAns = firstIndex(input + 1, size - 1, x);
-	if(smallAns == -1) {
-		return -1;
-	} else {
-		return 1 + smallAns;
-	}
+    if (size == 0) {
+        return -1;
+    }
+    if (input[0] == x) {
+        return 0;
+    }
+    int smallAns = firstIndex(input + 1, size - 1, x);
+    if (smallAns == -1) {
+        return -1;
+    } else {
+        return 1 + smallAns;
+    }
 }
 
-int main(){
-	int arr[] = {1,2,3,4,2,3};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	int x = 3;
-	cout << firstIndex(arr, n, x);
+int main() {
+    int arr[] = {1, 2, 3, 4, 2, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 3;
+    cout << firstIndex(arr, n, x);
 }
 
 /*
    3
  */
 
-int firstIndex(int input[], int size, int x, int passes = 0){
-	if(size == 0){
-		return -1;
-	}
-	return (input[0] == x) ? passes : firstIndex(input + 1, size -1, x, ++passes);
+int firstIndex(int input[], int size, int x, int passes = 0) {
+    if (size == 0) {
+        return -1;
+    }
+    return (input[0] == x) ? passes : firstIndex(input + 1, size - 1, x, ++passes);
 }

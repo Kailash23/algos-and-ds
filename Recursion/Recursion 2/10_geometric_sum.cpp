@@ -11,15 +11,15 @@
 using namespace std;
 
 double geometricSum(int k) {
-	if(k == 0) {
-		return 1;
-	}
-	return 1 / (pow(2, k)) + geometricSum(k - 1);
+    if (k == 0) {
+        return 1;
+    }
+    return 1 / (pow(2, k)) + geometricSum(k - 1);
 }
 
-int main(){
-	int k = 5;
-	cout << geometricSum(5);
+int main() {
+    int k = 5;
+    cout << geometricSum(5);
 }
 
 /*

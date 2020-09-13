@@ -11,24 +11,24 @@
 #include <iostream>
 using namespace std;
 
-int minCount(int n){
-	if(n == 1) {
-		return 1;
-	}
-	if(n <= 0) {
-		return 0;
-	}
-	for(int i = n / 2; i > 0; i--) {
-		if(n >= (i * i)) {
-			return 1 + minCount(n - (i * i));
-		}
-	}
+int minCount(int n) {
+    if (n == 1) {
+        return 1;
+    }
+    if (n <= 0) {
+        return 0;
+    }
+    for (int i = n / 2; i > 0; i--) {
+        if (n >= (i * i)) {
+            return 1 + minCount(n - (i * i));
+        }
+    }
 }
 
-int main(){
-	int n;
-	cin >> n;
-	cout << minCount(n);
+int main() {
+    int n;
+    cin >> n;
+    cout << minCount(n);
 }
 
 /*

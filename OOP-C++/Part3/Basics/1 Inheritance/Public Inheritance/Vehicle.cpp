@@ -1,11 +1,11 @@
 class Vehicle {
 
-	private :
-		int maxSpeed;
+  private:
+    int maxSpeed;
 
-	protected :
-		int numTyres;
+  protected:
+    int numTyres;
 
-	public :
-		string color;
+  public:
+    string color;
 };

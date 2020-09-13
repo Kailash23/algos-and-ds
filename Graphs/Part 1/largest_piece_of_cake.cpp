@@ -16,52 +16,51 @@ using namespace std;
 int visited[NMAX][NMAX];
 char A[NMAX][NMAX];
 
-int cx[] = {0, 0, -1, 1};   // Change in x while taking four move
-int cy[] = {1, -1, 0, 0};   // Change in y while taking four move
+int cx[] = {0, 0, -1, 1}; // Change in x while taking four move
+int cy[] = {1, -1, 0, 0}; // Change in y while taking four move
 // top -> bottom -> left -> right
 
-int dfs(int x, int y, int n, char **cake){
-	if(visited[x][y]) {
-		return 0;
-	}
-	visited[x][y] = 1;
-	int count = 1;
-	for(int i = 0; i < 4; i++) {     // 4 for 4 directions
-		int dx = x + cx[i];
-		int dy = y + cy[i];
-		if(dx >= 0 && dx < n && dy >= 0 && dy < n && cake[dx][dy] == '1') {
-			count = count + dfs(dx, dy, n, cake);
-		}
-	}
-	return count;
+int dfs(int x, int y, int n, char **cake) {
+    if (visited[x][y]) {
+        return 0;
+    }
+    visited[x][y] = 1;
+    int count = 1;
+    for (int i = 0; i < 4; i++) { // 4 for 4 directions
+        int dx = x + cx[i];
+        int dy = y + cy[i];
+        if (dx >= 0 && dx < n && dy >= 0 && dy < n && cake[dx][dy] == '1') {
+            count = count + dfs(dx, dy, n, cake);
+        }
+    }
+    return count;
 }
 
-int solve(int n, char **cake){
-	int maxsize = 0;
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < n; j++) {
-			if(cake[i][j] == '1' && visited[i][j] == 0) {
-				maxsize = max(maxsize, dfs(i, j, n, cake));
-			}
-		}
-	}
-	return maxsize;
+int solve(int n, char **cake) {
+    int maxsize = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (cake[i][j] == '1' && visited[i][j] == 0) {
+                maxsize = max(maxsize, dfs(i, j, n, cake));
+            }
+        }
+    }
+    return maxsize;
 }
 
-
-int main(){
-	int n;
-	cin >> n;
-	char** cake = new char*[n];
-	for(int i = 0; i < n; i++) {
-		cake[i] = new char[n];
-	}
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < n; j++) {
-			cin >> cake[i][j];
-		}
-	}
-	cout << solve(n, cake);
+int main() {
+    int n;
+    cin >> n;
+    char **cake = new char *[n];
+    for (int i = 0; i < n; i++) {
+        cake[i] = new char[n];
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> cake[i][j];
+        }
+    }
+    cout << solve(n, cake);
 }
 
 /*

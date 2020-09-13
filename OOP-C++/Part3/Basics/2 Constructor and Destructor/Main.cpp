@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-#include "Vehicle.cpp"
 #include "Car.cpp"
 #include "HondaCity.cpp"
+#include "Vehicle.cpp"
 
 /*
    Order of Constructor / Destructor
  */
 
-int main(){
-	HondaCity h(4,5);
+int main() {
+    HondaCity h(4, 5);
 }
 
 /*

@@ -2,21 +2,20 @@
 using namespace std;
 
 class Student {
-    public:
-
+  public:
     int rollNumber;
     static int totalStudents;
 
     Student() {
-    	totalStudents++;
+        totalStudents++;
     }
 };
 
 int Student::totalStudents = 20;
 
 int main() {
-	Student s1, s2, s3, s4;
-	cout << Student :: totalStudents;
+    Student s1, s2, s3, s4;
+    cout << Student ::totalStudents;
 }
 
 /*

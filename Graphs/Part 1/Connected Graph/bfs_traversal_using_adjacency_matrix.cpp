@@ -20,59 +20,59 @@ using namespace std;
 
 #include <queue>
 
-void print(int** edges, int V, int sv){
-	bool* visited = new bool[V];
-	for(int i = 0; i < V; i++) {
-		visited[i] = false;
-	}
+void print(int **edges, int V, int sv) {
+    bool *visited = new bool[V];
+    for (int i = 0; i < V; i++) {
+        visited[i] = false;
+    }
 
-	queue<int> pendingVertices;
-	pendingVertices.push(sv);
-	visited[sv] = true;
+    queue<int> pendingVertices;
+    pendingVertices.push(sv);
+    visited[sv] = true;
 
-	while(pendingVertices.size() != 0) {
-		int currentVertex = pendingVertices.front();
-		pendingVertices.pop();
-		cout << currentVertex << " ";
-		for(int i = 0; i < V; i++) {
-			if(i == currentVertex) {
-				continue;
-			}
-			if(edges[currentVertex][i] == 1 && !visited[i]) {
-				pendingVertices.push(i);
-				visited[i] = true;
-			}
-		}
-	}
-	delete [] visited;
+    while (pendingVertices.size() != 0) {
+        int currentVertex = pendingVertices.front();
+        pendingVertices.pop();
+        cout << currentVertex << " ";
+        for (int i = 0; i < V; i++) {
+            if (i == currentVertex) {
+                continue;
+            }
+            if (edges[currentVertex][i] == 1 && !visited[i]) {
+                pendingVertices.push(i);
+                visited[i] = true;
+            }
+        }
+    }
+    delete[] visited;
 }
 
-int main(){
-	int V, E;
-	cin >> V >> E;
-	int** edges = new int*[V];
-	for(int i = 0; i < V; i++) {
-		edges[i] = new int[V];
-		for(int j = 0; j < V; j++) {
-			edges[i][j] = 0;
-		}
-	}
+int main() {
+    int V, E;
+    cin >> V >> E;
+    int **edges = new int *[V];
+    for (int i = 0; i < V; i++) {
+        edges[i] = new int[V];
+        for (int j = 0; j < V; j++) {
+            edges[i][j] = 0;
+        }
+    }
 
-	for(int i = 0; i < E; i++) {
-		int f, s;
-		cin >> f >> s;
-		edges[f][s] = 1;
-		edges[s][f] = 1;
-	}
+    for (int i = 0; i < E; i++) {
+        int f, s;
+        cin >> f >> s;
+        edges[f][s] = 1;
+        edges[s][f] = 1;
+    }
 
-	int startVertex = 0;
-	cout << endl;
-	print(edges, V, startVertex);
+    int startVertex = 0;
+    cout << endl;
+    print(edges, V, startVertex);
 
-	for(int i = 0; i < V; i++) {
-		delete [] edges[i];
-	}
-	delete [] edges;
+    for (int i = 0; i < V; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
 
 /*

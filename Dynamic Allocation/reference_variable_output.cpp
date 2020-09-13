@@ -1,16 +1,15 @@
 #include <iostream>
 using namespace std;
 
-void func(int p){
-	cout << p << " ";
+void func(int p) {
+    cout << p << " ";
 }
 
-int main(){
-	int i = 10;
-	int &p = i;
-	func(p++);
-	cout << i;
+int main() {
+    int i = 10;
+    int &p = i;
+    func(p++);
+    cout << i;
 }
-
 
 //Output: 10 11

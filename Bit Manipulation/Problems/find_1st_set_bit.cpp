@@ -8,24 +8,22 @@
 #include <iostream>
 using namespace std;
 
-int returnFirstSetBit(int n){
-	int count;
-	int s = n & (n - 1);
-	return n - s;
+int returnFirstSetBit(int n) {
+    int count;
+    int s = n & (n - 1);
+    return n - s;
 }
 
-int main(){
-	int n;
-	cin >> n;
-	cout << returnFirstSetBit(n);
+int main() {
+    int n;
+    cin >> n;
+    cout << returnFirstSetBit(n);
 }
 
 /*
    12
    4
  */
-
-
 
 /*
    Alternate Solution

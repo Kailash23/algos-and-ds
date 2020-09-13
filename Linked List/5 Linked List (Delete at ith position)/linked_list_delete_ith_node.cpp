@@ -7,25 +7,25 @@ using namespace std;
    Time Complexity : O(n)
  */
 
-Node* takeInputBetter(){
-	int data;
-	cin >> data;
-	Node *head = NULL;              // Head will point to first node
-	Node *tail = NULL;              // Tail will point to last node
-	while(data != -1) {
-		Node *newNode = new Node(data);         // Dynamically allocating newNode
-		if(head == NULL) {               // If linked list is empty initially
-			head = newNode;
-			tail = newNode;
-		} else {
-			tail->next = newNode;           // Pointing tail node (currently last node) to the newly formed node.
-			tail = tail->next;
-			// OR
-			// tail = newNode;
-		}
-		cin >> data;
-	}
-	return head;
+Node *takeInputBetter() {
+    int data;
+    cin >> data;
+    Node *head = NULL; // Head will point to first node
+    Node *tail = NULL; // Tail will point to last node
+    while (data != -1) {
+        Node *newNode = new Node(data); // Dynamically allocating newNode
+        if (head == NULL) {             // If linked list is empty initially
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail->next = newNode; // Pointing tail node (currently last node) to the newly formed node.
+            tail = tail->next;
+            // OR
+            // tail = newNode;
+        }
+        cin >> data;
+    }
+    return head;
 }
 
 /*
@@ -71,19 +71,19 @@ Node* takeInputBetter(){
    }
 */
 
-Node* deleteNode(Node* head, int i){
-	Node* temp = head;
-	while(i > 1) {
-		if(temp == NULL) {
-			return head;
-		}
-		temp = temp->next;
-		i--;
-	}
-	if(temp->next != NULL && temp->next->next != NULL) {
-		temp->next = temp->next->next;
-	}
-	return head;
+Node *deleteNode(Node *head, int i) {
+    Node *temp = head;
+    while (i > 1) {
+        if (temp == NULL) {
+            return head;
+        }
+        temp = temp->next;
+        i--;
+    }
+    if (temp->next != NULL && temp->next->next != NULL) {
+        temp->next = temp->next->next;
+    }
+    return head;
 }
 
 /*
@@ -112,21 +112,21 @@ Node* deleteNode(Node* head, int i){
 	}
 */
 
-void printLL(Node* head){
-	while (head!=NULL) {            //This will traverse to the last node
-		cout << head->data << " ";
-		head = head->next;
-	}
+void printLL(Node *head) {
+    while (head != NULL) { //This will traverse to the last node
+        cout << head->data << " ";
+        head = head->next;
+    }
 }
 
-int main(){
-	Node *head = takeInputBetter();
-	printLL(head);
-	cout << endl;
-	int pos;
-	cin >> pos;
-	head = deleteNode(head, pos);    // Returning updated value of head in main
-	printLL(head);
+int main() {
+    Node *head = takeInputBetter();
+    printLL(head);
+    cout << endl;
+    int pos;
+    cin >> pos;
+    head = deleteNode(head, pos); // Returning updated value of head in main
+    printLL(head);
 }
 
 /*

@@ -7,16 +7,16 @@
 
 #include <climits>
 
-int max_gain(int arr[], int sz){
-	int maxGain = 0;
-	int minSoFar = INT_MAX;
-	for(int i = 0; i < sz; i++) {
-		if(arr[i] < minSoFar) {
-			minSoFar = arr[i];
-		}
-		if(maxGain < arr[i] - minSoFar) {
-			maxGain = arr[i] - minSoFar;
-		}
-	}
-	return maxGain;
+int max_gain(int arr[], int sz) {
+    int maxGain = 0;
+    int minSoFar = INT_MAX;
+    for (int i = 0; i < sz; i++) {
+        if (arr[i] < minSoFar) {
+            minSoFar = arr[i];
+        }
+        if (maxGain < arr[i] - minSoFar) {
+            maxGain = arr[i] - minSoFar;
+        }
+    }
+    return maxGain;
 }

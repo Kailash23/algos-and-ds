@@ -14,18 +14,18 @@ using namespace std;
 
 template <typename T>
 class Node {
-	public:
-	T data;
-	Node *next;
-	Node(T data){
-		this->data = data;
-		next = NULL;
-	}
-	~Node(){
-		if(next != NULL){
-			delete next;
-		}
-	}
+  public:
+    T data;
+    Node *next;
+    Node(T data) {
+        this->data = data;
+        next = NULL;
+    }
+    ~Node() {
+        if (next != NULL) {
+            delete next;
+        }
+    }
 };
 
 /*
@@ -37,56 +37,56 @@ class Node {
    This will bring down our time complexity to O(1).
  */
 
-Node<int>* takeInput_Better(){
-	int data;
-	cin>>data;
-	Node<int> *head = NULL;              // Head will point to first node
-	Node<int> *tail = NULL;              // Tail will point to last node
-	while(data != -1) {
-		Node<int> *newNode = new Node<int>(data);         // Dynamically allocating newNode
-		if(head == NULL) {               // If linked list is empty initially
-			head = newNode;
-			tail = newNode;
-		} else {
-			tail->next = newNode;           // Pointing tail node (currently last node) to the newly formed node.
-			tail = tail->next;
-			// OR
-			// tail = newNode;
-		}
-		cin>>data;
-	}
-	return head;
+Node<int> *takeInput_Better() {
+    int data;
+    cin >> data;
+    Node<int> *head = NULL; // Head will point to first node
+    Node<int> *tail = NULL; // Tail will point to last node
+    while (data != -1) {
+        Node<int> *newNode = new Node<int>(data); // Dynamically allocating newNode
+        if (head == NULL) {                       // If linked list is empty initially
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail->next = newNode; // Pointing tail node (currently last node) to the newly formed node.
+            tail = tail->next;
+            // OR
+            // tail = newNode;
+        }
+        cin >> data;
+    }
+    return head;
 }
 
 /*
    Function to print linked list.
  */
 
-void printLL(Node<int>* head){
-	while (head != NULL) {            // This will traverse to the last node
-		cout<<head->data<<" ";
-		head = head->next;
-	}
+void printLL(Node<int> *head) {
+    while (head != NULL) { // This will traverse to the last node
+        cout << head->data << " ";
+        head = head->next;
+    }
 }
 
-Node<int>* moveToFront(Node<int>* head){
-	Node<int>* temp = head;
-	while(temp->next->next != NULL){
-		temp = temp->next;
-	}
-	Node<int>* a = temp->next;
-	temp->next = NULL;
-	a->next = head;
-	head = a;
-	return head;
+Node<int> *moveToFront(Node<int> *head) {
+    Node<int> *temp = head;
+    while (temp->next->next != NULL) {
+        temp = temp->next;
+    }
+    Node<int> *a = temp->next;
+    temp->next = NULL;
+    a->next = head;
+    head = a;
+    return head;
 }
 
-int main(){
-	Node<int>* head = takeInput_Better();
-	printLL(head);
-	cout<<endl;
-	head = moveToFront(head);
-	printLL(head);
+int main() {
+    Node<int> *head = takeInput_Better();
+    printLL(head);
+    cout << endl;
+    head = moveToFront(head);
+    printLL(head);
 }
 
 /*
@@ -94,7 +94,6 @@ int main(){
    1 2 3 4 5 6 7 8 9
    9 1 2 3 4 5 6 7 8
  */
-
 
 /* Alternative Solution
 

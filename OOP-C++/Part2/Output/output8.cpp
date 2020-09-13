@@ -2,7 +2,7 @@
 using namespace std;
 
 class Student {
-public :
+  public:
     char name;
     int rollNo;
 
@@ -11,15 +11,15 @@ public :
     }
 
     void print() {
-        cout << name << " "  <<  rollNo;
+        cout << name << " " << rollNo;
     }
 };
 
 int main() {
     Student *s = new Student();
-    s -> name = 'A';
-    s -> rollNo = 15;
-    s -> print();
+    s->name = 'A';
+    s->rollNo = 15;
+    s->print();
 }
 
 /*

@@ -6,39 +6,39 @@
    of constructed BST.
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 using namespace std;
 
-BinaryTreeNode<int>* constructTreeHelper(int input[], int start, int end){
-	if(end < start){
-		return NULL;
-	}
-	int rootIndex = (start + end) / 2;
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(input[rootIndex]);
-	root->left = constructTreeHelper(input, start, rootIndex - 1);
-	root->right = constructTreeHelper(input, rootIndex + 1, end);
-	return root;
+BinaryTreeNode<int> *constructTreeHelper(int input[], int start, int end) {
+    if (end < start) {
+        return NULL;
+    }
+    int rootIndex = (start + end) / 2;
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(input[rootIndex]);
+    root->left = constructTreeHelper(input, start, rootIndex - 1);
+    root->right = constructTreeHelper(input, rootIndex + 1, end);
+    return root;
 }
 
-BinaryTreeNode<int>* constructTree(int *input, int n) {
-	return constructTreeHelper(input, 0, n - 1);
+BinaryTreeNode<int> *constructTree(int *input, int n) {
+    return constructTreeHelper(input, 0, n - 1);
 }
 
-void preOrderTraversal(BinaryTreeNode<int>* root){
-	if(root == NULL){
-		return;
-	}
-	cout << root->data << " ";
-	preOrderTraversal(root->left);
-	preOrderTraversal(root->right);
+void preOrderTraversal(BinaryTreeNode<int> *root) {
+    if (root == NULL) {
+        return;
+    }
+    cout << root->data << " ";
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
 }
 
 int main() {
-	int input[] = {1,2,3,4,5,6,7};
-	int size = sizeof(input) / sizeof(input[0]);
-	BinaryTreeNode<int>* root = constructTree(input, size);
-	preOrderTraversal(root);
+    int input[] = {1, 2, 3, 4, 5, 6, 7};
+    int size = sizeof(input) / sizeof(input[0]);
+    BinaryTreeNode<int> *root = constructTree(input, size);
+    preOrderTraversal(root);
 }
 
 /*

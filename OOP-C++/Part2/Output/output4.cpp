@@ -2,17 +2,15 @@
 using namespace std;
 
 class Student {
-public:
-    const int rollNumber;       // Or - int const rollNumber;
+  public:
+    const int rollNumber; // Or - int const rollNumber;
     int age;
 
-    int &x;     //Error: should be initialized
+    int &x; //Error: should be initialized
 
     Student(int r, int a) : rollNumber(r), age(a) {
-
     }
 };
-
 
 int main() {
     Student s1(100, 23);

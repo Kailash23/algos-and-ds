@@ -8,46 +8,46 @@
 #include <iostream>
 using namespace std;
 
-#include <stack>
 #include <cstring>
+#include <stack>
 
-bool checkBalanced(char* expn){
-	stack<char> s;
-	int len = strlen(expn);
-	for(int i = 0; i < len; i++) {
-		if(expn[i] == '(' || expn[i] == '{' || expn[i] == '[') {
-			s.push(expn[i]);
-		} else if(expn[i] == ')' || expn[i] == '}' || expn[i] == ']') {
-			if(s.empty()) {
-				return false;
-			}
-			char ch = s.top();
-			s.pop();
-			if(expn[i] == ')' && ch == '(') {
-				continue;
-			} else if(expn[i] == '}' && ch == '{') {
-				continue;
-			} else if(expn[i] == ']' && ch == '[') {
-				continue;
-			} else {
-				return false;
-			}
-		}
-	}
-	if(s.empty()) {
-		return true;
-	} else {
-		return false;
-	}
+bool checkBalanced(char *expn) {
+    stack<char> s;
+    int len = strlen(expn);
+    for (int i = 0; i < len; i++) {
+        if (expn[i] == '(' || expn[i] == '{' || expn[i] == '[') {
+            s.push(expn[i]);
+        } else if (expn[i] == ')' || expn[i] == '}' || expn[i] == ']') {
+            if (s.empty()) {
+                return false;
+            }
+            char ch = s.top();
+            s.pop();
+            if (expn[i] == ')' && ch == '(') {
+                continue;
+            } else if (expn[i] == '}' && ch == '{') {
+                continue;
+            } else if (expn[i] == ']' && ch == '[') {
+                continue;
+            } else {
+                return false;
+            }
+        }
+    }
+    if (s.empty()) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-int main(){
-	char expn[] = "{a+[b+(c+d)]+(e+f)}";
-	if(checkBalanced(expn)) {
-		cout << "True" << endl;
-	} else {
-		cout << "False" << endl;
-	}
+int main() {
+    char expn[] = "{a+[b+(c+d)]+(e+f)}";
+    if (checkBalanced(expn)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
 }
 
 /*

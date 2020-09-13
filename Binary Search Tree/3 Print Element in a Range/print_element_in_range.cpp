@@ -19,44 +19,44 @@
    6 7 8 10
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 using namespace std;
 
 #include <queue>
 
-BinaryTreeNode<int>* takeInputLevelWise() {
-	int rootData;
-	cout << "Enter root data : " << endl;
-	cin >> rootData;
-	if(rootData == -1) {
-		return NULL;
-	}
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;
-	pendingNodes.push(root);
+BinaryTreeNode<int> *takeInputLevelWise() {
+    int rootData;
+    cout << "Enter root data : " << endl;
+    cin >> rootData;
+    if (rootData == -1) {
+        return NULL;
+    }
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rootData);
+    queue<BinaryTreeNode<int> *> pendingNodes;
+    pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
-		cout << "Enter left child of " << front->data << endl;
-		int leftChildData;
-		cin >> leftChildData;
-		if(leftChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
-			front->left = child;
-			pendingNodes.push(child);
-		}
-		cout << "Enter right child of " << root->data << endl;
-		int rightChildData;
-		cin >> rightChildData;
-		if(rightChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
-			front->right = child;
-			pendingNodes.push(child);
-		}
-	}
-	return root;
+    while (pendingNodes.size() != 0) {
+        BinaryTreeNode<int> *front = pendingNodes.front();
+        pendingNodes.pop();
+        cout << "Enter left child of " << front->data << endl;
+        int leftChildData;
+        cin >> leftChildData;
+        if (leftChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(leftChildData);
+            front->left = child;
+            pendingNodes.push(child);
+        }
+        cout << "Enter right child of " << root->data << endl;
+        int rightChildData;
+        cin >> rightChildData;
+        if (rightChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(rightChildData);
+            front->right = child;
+            pendingNodes.push(child);
+        }
+    }
+    return root;
 }
 
 /*
@@ -64,28 +64,27 @@ BinaryTreeNode<int>* takeInputLevelWise() {
    Optimized solution- as we dont need to traverse all nodes.
    But this will not give output in acending order.
  */
-void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1, int k2) {
-	if(root == NULL){
-		return;
-	}
-	if(root->data >= k1 && root->data <= k2){
-		cout << root->data << " ";
-	}
-	if(root->data > k1){
-		elementsInRangeK1K2(root->left, k1, k2);
-	}
-	if(root->data <= k2){
-		elementsInRangeK1K2(root->right, k1, k2);
-	}
+void elementsInRangeK1K2(BinaryTreeNode<int> *root, int k1, int k2) {
+    if (root == NULL) {
+        return;
+    }
+    if (root->data >= k1 && root->data <= k2) {
+        cout << root->data << " ";
+    }
+    if (root->data > k1) {
+        elementsInRangeK1K2(root->left, k1, k2);
+    }
+    if (root->data <= k2) {
+        elementsInRangeK1K2(root->right, k1, k2);
+    }
 }
 
 int main() {
-	BinaryTreeNode<int>* root = takeInputLevelWise();
-	int k1 = 6;
-	int k2 = 10;
-	elementsInRangeK1K2(root, k1, k2);
+    BinaryTreeNode<int> *root = takeInputLevelWise();
+    int k1 = 6;
+    int k2 = 10;
+    elementsInRangeK1K2(root, k1, k2);
 }
-
 
 /*
    Quick Input:
@@ -96,7 +95,7 @@ int main() {
    6 7 8 10
  */
 
- /*
+/*
 	This method is applicatble for both binary and binary search tree as it
 	traversing all the node of tree and doing comparision.
 

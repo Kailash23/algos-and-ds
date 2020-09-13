@@ -3,30 +3,30 @@
    For eg. if a string is "abc def", reversed string should be "cba fed".
  */
 
+#include <cstring> // for strlen
 #include <iostream>
-#include <cstring>	// for strlen
 using namespace std;
 
 void reverseEachWord(char input[]) {
-	int start = 0, end = 0;
-	int len = strlen(input);
-	for(int i = 0; i <= len; i++) {
-		if(input[i] == ' ' || input[i] == '\0') {
-			end = i - 1;
-			while(start < end) {
-				swap(input[start], input[end]);		// Inbuild swap function (iostream)
-				start++;
-				end--;
-			}
-			start = i + 1;
-		}
-	}
-	cout << input << endl;
+    int start = 0, end = 0;
+    int len = strlen(input);
+    for (int i = 0; i <= len; i++) {
+        if (input[i] == ' ' || input[i] == '\0') {
+            end = i - 1;
+            while (start < end) {
+                swap(input[start], input[end]); // Inbuild swap function (iostream)
+                start++;
+                end--;
+            }
+            start = i + 1;
+        }
+    }
+    cout << input << endl;
 }
 
-int main(){
-	char str[] = {"Welcome to Coding Ninjas"};
-	reverseEachWord(str);
+int main() {
+    char str[] = {"Welcome to Coding Ninjas"};
+    reverseEachWord(str);
 }
 
 /*

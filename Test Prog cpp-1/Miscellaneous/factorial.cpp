@@ -2,8 +2,8 @@
 using namespace std;
 
 //SINGLE-LINER
-int factorial(int n){
-	return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+int factorial(int n) {
+    return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
 }
 
 // **MULTY-LINER+
@@ -15,6 +15,6 @@ int factorial(int n){
 //   }
 // }
 
-int main(){
-	cout<<factorial(5);
+int main() {
+    cout << factorial(5);
 }

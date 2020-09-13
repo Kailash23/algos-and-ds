@@ -27,72 +27,72 @@ using namespace std;
 
 #include <vector>
 
-vector<int>* getPathHelper(int** edges, int V, int sv, int ev, bool* visited){
-	if(sv == ev) {
-		vector<int>* output = new vector<int>();
-		output->push_back(ev);
-		return output;
-	}
-	visited[sv] = true;
-	for(int i = 0; i < V; i++) {
-		if(edges[sv][i] == 1 && !visited[i]) {
-			vector<int>* smallOutput = getPathHelper(edges, V, i, ev, visited);
-			if(smallOutput != NULL) {
-				smallOutput->push_back(sv);
-				return smallOutput;
-			}
-		}
-	}
-	return NULL;
+vector<int> *getPathHelper(int **edges, int V, int sv, int ev, bool *visited) {
+    if (sv == ev) {
+        vector<int> *output = new vector<int>();
+        output->push_back(ev);
+        return output;
+    }
+    visited[sv] = true;
+    for (int i = 0; i < V; i++) {
+        if (edges[sv][i] == 1 && !visited[i]) {
+            vector<int> *smallOutput = getPathHelper(edges, V, i, ev, visited);
+            if (smallOutput != NULL) {
+                smallOutput->push_back(sv);
+                return smallOutput;
+            }
+        }
+    }
+    return NULL;
 }
 
-vector<int>* getPath(int** edges, int V, int sv, int ev){
-	bool* visited = new bool[V];
-	for(int i = 0; i < V; i++) {
-		visited[i] = false;
-	}
-	vector<int>* output = getPathHelper(edges, V, sv, ev, visited);
-	delete [] visited;
-	return output;
+vector<int> *getPath(int **edges, int V, int sv, int ev) {
+    bool *visited = new bool[V];
+    for (int i = 0; i < V; i++) {
+        visited[i] = false;
+    }
+    vector<int> *output = getPathHelper(edges, V, sv, ev, visited);
+    delete[] visited;
+    return output;
 }
 
-int main(){
-	int V, E;
-	cin >> V >> E;
+int main() {
+    int V, E;
+    cin >> V >> E;
 
-	int** edges = new int*[V];
-	for(int i = 0; i < V; i++) {
-		edges[i] = new int[V];
-		for(int j = 0; j < V; j++) {
-			edges[i][j] = 0;
-		}
-	}
+    int **edges = new int *[V];
+    for (int i = 0; i < V; i++) {
+        edges[i] = new int[V];
+        for (int j = 0; j < V; j++) {
+            edges[i][j] = 0;
+        }
+    }
 
-	for(int i = 0; i < E; i++) {
-		int f, s;
-		cin >> f >> s;
-		edges[f][s] = 1;
-		edges[s][f] = 1;
-	}
+    for (int i = 0; i < E; i++) {
+        int f, s;
+        cin >> f >> s;
+        edges[f][s] = 1;
+        edges[s][f] = 1;
+    }
 
-	int sv, ev;
-	cin >> sv >> ev;
+    int sv, ev;
+    cin >> sv >> ev;
 
-	vector<int>* output = getPath(edges, V, sv, ev);
-	if(output != NULL) {
-		cout << "Path (dfs)" << endl;
-		for(int i = 0; i < output->size(); i++) {
-			cout << output->at(i) << " ";
-		}
-		delete output;
-	} else {
-		cout << "Path not found!" << endl;
-	}
+    vector<int> *output = getPath(edges, V, sv, ev);
+    if (output != NULL) {
+        cout << "Path (dfs)" << endl;
+        for (int i = 0; i < output->size(); i++) {
+            cout << output->at(i) << " ";
+        }
+        delete output;
+    } else {
+        cout << "Path not found!" << endl;
+    }
 
-	for(int i = 0; i < V; i++) {
-		delete [] edges[i];
-	}
-	delete [] edges;
+    for (int i = 0; i < V; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
 
 /*
@@ -109,7 +109,6 @@ int main(){
    Path (dfs)
    1 0 4
  */
-
 
 /*
    For any possible path, DFS would be enough. But, BFS gives you the shortest

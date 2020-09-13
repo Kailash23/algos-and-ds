@@ -8,36 +8,34 @@
    where m is total number of buyers whose budget is greater than or equal to x.
  */
 
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
-void Print(int arr[], int n){
-	for(int i=0; i<n; i++) {
-		cout<<arr[i]<<" ";
-	}
+void Print(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
 }
 
 int maximumProfit(int budget[], int n) {
-	sort(budget,budget+n);
-	//Print(budget,n);
-	int max = 0;
-	int num = n;
-	int s = 0;
-	for(int i=0; i<n; i++) {
-		s = budget[i] * num;
-		num--;
-		if(s > max) {
-			max = s;
-		}
-	}
-	return max;
+    sort(budget, budget + n);
+    //Print(budget,n);
+    int max = 0;
+    int num = n;
+    int s = 0;
+    for (int i = 0; i < n; i++) {
+        s = budget[i] * num;
+        num--;
+        if (s > max) {
+            max = s;
+        }
+    }
+    return max;
 }
 
-
-
-int main(){
-	int bud[] = {34,78,90,15,67};
-	int n = sizeof(bud)/sizeof(bud[0]);
-	cout<<maximumProfit(bud,n);
+int main() {
+    int bud[] = {34, 78, 90, 15, 67};
+    int n = sizeof(bud) / sizeof(bud[0]);
+    cout << maximumProfit(bud, n);
 }

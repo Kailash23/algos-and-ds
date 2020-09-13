@@ -1,9 +1,9 @@
 class Student {
 
-	public:
-		string name;
+  public:
+    string name;
 
-		void print() {
-			cout << "Student " << endl;
-		}
+    void print() {
+        cout << "Student " << endl;
+    }
 };

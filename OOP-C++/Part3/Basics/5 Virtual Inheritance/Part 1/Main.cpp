@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-#include "Vehicle.cpp"
+#include "Bus.cpp"
 #include "Car.cpp"
 #include "Truck.cpp"
-#include "Bus.cpp"
+#include "Vehicle.cpp"
 
 int main() {
-	Bus b;
+    Bus b;
 }
 
 /*
@@ -24,7 +24,6 @@ int main() {
    Car's distructor
    Vehicle's destructor
  */
-
 
 /*
    Normal Inheritance

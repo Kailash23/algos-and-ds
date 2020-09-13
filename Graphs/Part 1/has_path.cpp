@@ -17,64 +17,64 @@
 #include <iostream>
 using namespace std;
 
-void hasPathHelper(int** edges, int V, int v1, int v2, bool* visited){
-	visited[v1] = true;
-	if(v1 == v2) {
-		return;
-	}
-	for(int i = 0; i < V; i++) {
-		if(i == v1) {
-			continue;
-		}
-		if(edges[v1][i] == 1 && !visited[i]) {
-			hasPathHelper(edges, V, i, v2, visited);
-		}
-	}
+void hasPathHelper(int **edges, int V, int v1, int v2, bool *visited) {
+    visited[v1] = true;
+    if (v1 == v2) {
+        return;
+    }
+    for (int i = 0; i < V; i++) {
+        if (i == v1) {
+            continue;
+        }
+        if (edges[v1][i] == 1 && !visited[i]) {
+            hasPathHelper(edges, V, i, v2, visited);
+        }
+    }
 }
 
-void hasPath(int** edges, int V, int v1, int v2){
-	bool* visited = new bool[V];
-	for(int i = 0; i < V; i++) {
-		visited[i] = false;
-	}
+void hasPath(int **edges, int V, int v1, int v2) {
+    bool *visited = new bool[V];
+    for (int i = 0; i < V; i++) {
+        visited[i] = false;
+    }
 
-	hasPathHelper(edges, V, v1, v2, visited);
+    hasPathHelper(edges, V, v1, v2, visited);
 
-	if(visited[v2]) {
-		cout << "true" << endl;
-	} else {
-		cout << "false" << endl;
-	}
-	delete [] visited;
+    if (visited[v2]) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
+    delete[] visited;
 }
 
 int main() {
-	int V, E;
-	cin >> V >> E;
+    int V, E;
+    cin >> V >> E;
 
-	int** edges = new int*[V];
-	for(int i = 0; i < V; i++) {
-		edges[i] = new int[V];
-		for(int j = 0; j < V; j++) {
-			edges[i][j] = 0;
-		}
-	}
+    int **edges = new int *[V];
+    for (int i = 0; i < V; i++) {
+        edges[i] = new int[V];
+        for (int j = 0; j < V; j++) {
+            edges[i][j] = 0;
+        }
+    }
 
-	for(int i = 0; i < E; i++) {
-		int f, s;
-		cin >> f >> s;
-		edges[f][s] = 1;
-		edges[s][f] = 1;
-	}
+    for (int i = 0; i < E; i++) {
+        int f, s;
+        cin >> f >> s;
+        edges[f][s] = 1;
+        edges[s][f] = 1;
+    }
 
-	int v1, v2;
-	cin >> v1 >> v2;
-	hasPath(edges, V, v1, v2);
+    int v1, v2;
+    cin >> v1 >> v2;
+    hasPath(edges, V, v1, v2);
 
-	for(int i = 0; i < V; i++) {
-		delete [] edges[i];
-	}
-	delete [] edges;
+    for (int i = 0; i < V; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
 
 /*

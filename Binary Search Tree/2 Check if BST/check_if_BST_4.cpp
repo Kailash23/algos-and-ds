@@ -6,72 +6,72 @@
    Duplicate elements should be in right subtree.
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 using namespace std;
 
-#include <queue>
 #include <climits>
+#include <queue>
 
-BinaryTreeNode<int>* takeInputLevelWise() {
-	int rootData;
-	cout << "Enter root data" << endl;
-	cin >> rootData;
-	if(rootData == -1) {             // if data is -1 consider it as no child node.
-		return NULL;
-	}
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
-	pendingNodes.push(root);
+BinaryTreeNode<int> *takeInputLevelWise() {
+    int rootData;
+    cout << "Enter root data" << endl;
+    cin >> rootData;
+    if (rootData == -1) { // if data is -1 consider it as no child node.
+        return NULL;
+    }
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rootData);
+    queue<BinaryTreeNode<int> *> pendingNodes; // queue used to input levelwise
+    pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
-		cout << "Enter left child of " << front->data << endl;
-		int leftChildData;
-		cin >> leftChildData;
-		if(leftChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
-			front->left = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
-		cout << "Enter right child of " << front->data << endl;
-		int rightChildData;
-		cin >> rightChildData;
-		if(rightChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
-			front->right = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
-	}
-	return root;
+    while (pendingNodes.size() != 0) {
+        BinaryTreeNode<int> *front = pendingNodes.front();
+        pendingNodes.pop();
+        cout << "Enter left child of " << front->data << endl;
+        int leftChildData;
+        cin >> leftChildData;
+        if (leftChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(leftChildData);
+            front->left = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
+        cout << "Enter right child of " << front->data << endl;
+        int rightChildData;
+        cin >> rightChildData;
+        if (rightChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(rightChildData);
+            front->right = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
+    }
+    return root;
 }
 
 /*
    Function to check whether tree is BST or not.
  */
 
-bool isBST(BinaryTreeNode<int>* root, int min = INT_MIN, int max = INT_MAX){
-	if(root == NULL){
-		return true;
-	}
-	if(root->data < min || root->data >= max){
-		return false;
-	}
-	bool isLeftOk = isBST(root->left, min, root->data);
-	bool isRightOk = isBST(root->right, root->data, max);
-	return isLeftOk && isRightOk;
+bool isBST(BinaryTreeNode<int> *root, int min = INT_MIN, int max = INT_MAX) {
+    if (root == NULL) {
+        return true;
+    }
+    if (root->data < min || root->data >= max) {
+        return false;
+    }
+    bool isLeftOk = isBST(root->left, min, root->data);
+    bool isRightOk = isBST(root->right, root->data, max);
+    return isLeftOk && isRightOk;
 }
 
-int main(){
-	BinaryTreeNode<int>* root = takeInputLevelWise();
-	bool res;
-	res = isBST(root);
-	if(res){
-		cout << "It's BST";
-	} else {
-		cout << "It's not BST";
-	}
+int main() {
+    BinaryTreeNode<int> *root = takeInputLevelWise();
+    bool res;
+    res = isBST(root);
+    if (res) {
+        cout << "It's BST";
+    } else {
+        cout << "It's not BST";
+    }
 }
 
 /*

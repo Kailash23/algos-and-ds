@@ -10,17 +10,17 @@
 using namespace std;
 
 int power(int x, int n) {
-	if(n == 0) {        // Anything raise to power 0 is 1
-		return 1;
-	}
-	return x * power(x, n - 1);
+    if (n == 0) { // Anything raise to power 0 is 1
+        return 1;
+    }
+    return x * power(x, n - 1);
 }
 
-int main(){
-	int x, n;
-	cin >> x >> n;
-	int output = power(x, n);
-	cout << output;
+int main() {
+    int x, n;
+    cin >> x >> n;
+    int output = power(x, n);
+    cout << output;
 }
 
 /*

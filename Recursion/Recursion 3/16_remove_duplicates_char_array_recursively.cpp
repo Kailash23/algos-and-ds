@@ -9,28 +9,28 @@
    abcba
  */
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
 
 void removeConsecutiveDuplicates(char *input) {
-	if(strlen(input) <= 1) {	// If string is 0 and 1 length we will simply return without any change.
-		return;
-	}
-	if(input[0] == input[1]) {
-		for(int i = 1; i <= strlen(input); i++) {
-			input[i - 1] = input[i];
-		}
-		removeConsecutiveDuplicates(input);
-	} else {
-		removeConsecutiveDuplicates(input + 1);
-	}
+    if (strlen(input) <= 1) { // If string is 0 and 1 length we will simply return without any change.
+        return;
+    }
+    if (input[0] == input[1]) {
+        for (int i = 1; i <= strlen(input); i++) {
+            input[i - 1] = input[i];
+        }
+        removeConsecutiveDuplicates(input);
+    } else {
+        removeConsecutiveDuplicates(input + 1);
+    }
 }
 
-int main(){
-	char str[] = "aaaabbbddd";
-	removeConsecutiveDuplicates(str);
-	cout << str;
+int main() {
+    char str[] = "aaaabbbddd";
+    removeConsecutiveDuplicates(str);
+    cout << str;
 }
 
 /*

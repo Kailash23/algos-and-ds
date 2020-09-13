@@ -2,7 +2,7 @@
 using namespace std;
 
 class Student {
-public :
+  public:
     int age;
     const int rollNumber;
 };

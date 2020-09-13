@@ -8,15 +8,15 @@
 #include <iostream>
 using namespace std;
 
-int flipIthBit(int n, int i){
-	n = n ^ (1 << i);
-	return n;
+int flipIthBit(int n, int i) {
+    n = n ^ (1 << i);
+    return n;
 }
 
-int main(){
-	int n, i;
-	cin >> n >> i;
-	cout << flipIthBit(n, i);
+int main() {
+    int n, i;
+    cin >> n >> i;
+    cout << flipIthBit(n, i);
 }
 
 /*

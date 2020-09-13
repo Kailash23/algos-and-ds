@@ -1,29 +1,29 @@
-#include<climits>
+#include <climits>
 
 class StackUsingArray {
-	int *data;
-	int nextIndex;
-	int capacity;
+    int *data;
+    int nextIndex;
+    int capacity;
 
-	public:
-		StackUsingArray(int totalSize){
-			data = new int[totalSize];		// dynamic allocation
-			nextIndex = 0;
-			capacity = totalSize;	// Initializing with totalSize given by the user
-		}
+  public:
+    StackUsingArray(int totalSize) {
+        data = new int[totalSize]; // dynamic allocation
+        nextIndex = 0;
+        capacity = totalSize; // Initializing with totalSize given by the user
+    }
 
-		/*
+    /*
 		   Retrun the number of elements present in my StackUsingArray
 		 */
-		int size(){
-			return nextIndex;
-		}
+    int size() {
+        return nextIndex;
+    }
 
-		/*
+    /*
 		   Stack is empty or not
 		 */
-		bool isEmpty(){
-			/*
+    bool isEmpty() {
+        /*
 			if(nextIndex == 0){
 				return true;
 			} else {
@@ -31,43 +31,43 @@ class StackUsingArray {
 			}
 			OR
 			*/
-			return nextIndex == 0;
-		}
+        return nextIndex == 0;
+    }
 
-		/*
+    /*
 		   Insert element
 		 */
-		void push(int element){
-			if(nextIndex == capacity){
-				cout << "Stack is Full !" << endl;
-				return;
-			}
-			data[nextIndex] = element;
-			nextIndex++;
-		}
+    void push(int element) {
+        if (nextIndex == capacity) {
+            cout << "Stack is Full !" << endl;
+            return;
+        }
+        data[nextIndex] = element;
+        nextIndex++;
+    }
 
-		/*
+    /*
 		   Delete the element
 		 */
-		int pop(){
-			if(isEmpty()){
-				cout << "Stack is empty!" << endl;
-				return INT_MIN;
-			}
-			nextIndex--;
-			return data[nextIndex];
-		}
+    int pop() {
+        if (isEmpty()) {
+            cout << "Stack is empty!" << endl;
+            return INT_MIN;
+        }
+        nextIndex--;
+        return data[nextIndex];
+    }
 
-		/*
+    /*
 		   Return the topmost element of the stack
 		 */
-		int top(){
-			if(isEmpty()){
-				cout << "Stack is empty!" << endl;
-				return INT_MIN;
-			}
-			return data[nextIndex - 1];
-		}
+    int top() {
+        if (isEmpty()) {
+            cout << "Stack is empty!" << endl;
+            return INT_MIN;
+        }
+        return data[nextIndex - 1];
+    }
 };
 
 /*

@@ -5,31 +5,30 @@
    order they are present in the input array.
  */
 
-#include <iostream>
 #include <climits>
+#include <iostream>
 using namespace std;
 
-void Leaders(int* arr, int len){
-	int j = 0;
-	int save[len]; //   int *save = new int[len]; or we can declare this way
-	int largest = INT_MIN;
-	for(int i = len - 1; i >= 0; i--) {
-		if(arr[i] >= largest) {
-			save[j] = arr[i];
-			j++;
-			largest = arr[i];
-		}
-	}
-	for(int i = j - 1; i >= 0; i--) {
-		cout << save[i] << " ";
-	}
+void Leaders(int *arr, int len) {
+    int j = 0;
+    int save[len]; //   int *save = new int[len]; or we can declare this way
+    int largest = INT_MIN;
+    for (int i = len - 1; i >= 0; i--) {
+        if (arr[i] >= largest) {
+            save[j] = arr[i];
+            j++;
+            largest = arr[i];
+        }
+    }
+    for (int i = j - 1; i >= 0; i--) {
+        cout << save[i] << " ";
+    }
 }
 
-
-int main(){
-	int arr[] = {3, 12, 34, 2,34,-1};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	Leaders(arr, n);
+int main() {
+    int arr[] = {3, 12, 34, 2, 34, -1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    Leaders(arr, n);
 }
 
 /*

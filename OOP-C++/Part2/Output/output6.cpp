@@ -4,7 +4,7 @@ using namespace std;
 class Student {
     int rollNumber;
 
-public :
+  public:
     int age;
 
     Student(int r) {
@@ -16,11 +16,10 @@ public :
     }
 };
 
-
 int main() {
     Student s1(101);
     s1.age = 20;
 
     Student const s2 = s1;
-    cout << s2.getRollNumber();     // will give error const obj can only call constant function.
+    cout << s2.getRollNumber(); // will give error const obj can only call constant function.
 }

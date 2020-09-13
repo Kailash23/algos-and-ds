@@ -1,8 +1,8 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 class Pair {
-public :
+  public:
     int first;
     int second;
 };

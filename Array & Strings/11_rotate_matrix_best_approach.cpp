@@ -6,49 +6,49 @@
 #include <iostream>
 using namespace std;
 
-void transpose(int **input, int n){
-	for(int i = 0; i < n; i++) {
-		for(int j = i; j < n; j++) {
-			swap(input[i][j], input[j][i]);
-		}
-	}
+void transpose(int **input, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            swap(input[i][j], input[j][i]);
+        }
+    }
 }
 
-void printMatrix(int **input, int n){
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < n; j++) {
-			cout << input[i][j] << " ";
-		}
-		cout << endl;
-	}
+void printMatrix(int **input, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << input[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
 
-void rotate(int **input, int n){
-	transpose(input, n);
-	for(int i = 0; i < n; i++) {
-		for(int j = 0, k = n - 1; j < k; j++, k--) {
-			swap(input[j][i], input[k][i]);
-		}
-	}
-	printMatrix(input, n);
+void rotate(int **input, int n) {
+    transpose(input, n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0, k = n - 1; j < k; j++, k--) {
+            swap(input[j][i], input[k][i]);
+        }
+    }
+    printMatrix(input, n);
 }
 
-int main(){
-	int n;
-	cin >> n;
-	int count = 1;
+int main() {
+    int n;
+    cin >> n;
+    int count = 1;
 
-	int **array = new int*[n];      // Declaring 2D array
-	for(int i = 0; i < n; i++) {
-		array[i] = new int[n];
-	}
+    int **array = new int *[n]; // Declaring 2D array
+    for (int i = 0; i < n; i++) {
+        array[i] = new int[n];
+    }
 
-	for(int i = 0; i < n; i++) {        // Taking input using count
-		for(int j = 0; j < n; j++) {
-			array[i][j] = count++;
-		}
-	}
-	rotate(array, n);
+    for (int i = 0; i < n; i++) { // Taking input using count
+        for (int j = 0; j < n; j++) {
+            array[i][j] = count++;
+        }
+    }
+    rotate(array, n);
 }
 
 /*

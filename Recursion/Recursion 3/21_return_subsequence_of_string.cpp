@@ -4,32 +4,32 @@
    some character of a given string without changing its order.
  */
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
-int subs(string input, string output[]){        //Output array of string
-	if(input.empty()) {		//input.size()
-		output[0] = "";     // empty string
-		return 1;       // 1 subsequence
-	}
-	string smallString = input.substr(1);
-	int smallOutputSize = subs(smallString, output);
-	for(int i = 0; i < smallOutputSize; i++) {
-		output[i + smallOutputSize] = input[0] + output[i];
-	}
-	return 2 * smallOutputSize;
+int subs(string input, string output[]) { //Output array of string
+    if (input.empty()) {                  //input.size()
+        output[0] = "";                   // empty string
+        return 1;                         // 1 subsequence
+    }
+    string smallString = input.substr(1);
+    int smallOutputSize = subs(smallString, output);
+    for (int i = 0; i < smallOutputSize; i++) {
+        output[i + smallOutputSize] = input[0] + output[i];
+    }
+    return 2 * smallOutputSize;
 }
 
-int main(){
-	string input;
-	cin >> input;
-	int size = pow(2, input.length());
-	string* output = new string[size];
-	int count = subs(input, output);
-	for(int i = 0; i < count; i++ ) {
-		cout << output[i] << endl;
-	}
+int main() {
+    string input;
+    cin >> input;
+    int size = pow(2, input.length());
+    string *output = new string[size];
+    int count = subs(input, output);
+    for (int i = 0; i < count; i++) {
+        cout << output[i] << endl;
+    }
 }
 
 /*

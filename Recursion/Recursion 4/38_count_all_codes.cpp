@@ -9,28 +9,27 @@
 #include <string>
 using namespace std;
 
-int helper(string data, int k){
-	if(k == 0) {
-		return 1;
-	}
-	int s = data.length() - k;
-	int result = helper(data, k - 1);
-	if(k >= 2) {
-		int dig = (data[0] - '0') * 10 + (data[1] - '0');
-		if(dig <= 26) {
-			result += helper(data, k - 2);
-		}
-	}
-	return result;
+int helper(string data, int k) {
+    if (k == 0) {
+        return 1;
+    }
+    int s = data.length() - k;
+    int result = helper(data, k - 1);
+    if (k >= 2) {
+        int dig = (data[0] - '0') * 10 + (data[1] - '0');
+        if (dig <= 26) {
+            result += helper(data, k - 2);
+        }
+    }
+    return result;
 }
-
 
 int getCodes(string input) {
-	int len = input.length();
-	return helper(input, len);
+    int len = input.length();
+    return helper(input, len);
 }
 
-int main(){
-	string str = "1123";
-	cout << getCodes(str);
+int main() {
+    string str = "1123";
+    cout << getCodes(str);
 }

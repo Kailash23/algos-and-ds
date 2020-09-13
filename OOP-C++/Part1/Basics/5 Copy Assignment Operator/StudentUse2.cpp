@@ -7,13 +7,13 @@ using namespace std;
    Copy Constructor
  */
 
-int main(){
-	Student t1;		// Constructor 1 called
-	Student t2(110);		// Constructor 2 called
-	Student t3(30, 40);		// Constructor 3 called
-	Student t4(t3);		// Copy constructor
-	t1 = t2;		// Copy assignment operator
-	Student t5 = t4;		// Copy constructor (not copy assignment operator)
+int main() {
+    Student t1;         // Constructor 1 called
+    Student t2(110);    // Constructor 2 called
+    Student t3(30, 40); // Constructor 3 called
+    Student t4(t3);     // Copy constructor
+    t1 = t2;            // Copy assignment operator
+    Student t5 = t4;    // Copy constructor (not copy assignment operator)
 }
 
 /*

@@ -11,29 +11,28 @@
 #include <iostream>
 using namespace std;
 
-int minCount(int n){
-	if(n == 1) {
-		return 1;
-	}
-	if(n <= 0) {
-		return 0;
-	}
-	for(int i =  n/2; i >= 1; i--) {
-		if(n >= (i * i)) {
-			return 1 + minCount(n - (i * i));
-		}
-	}
+int minCount(int n) {
+    if (n == 1) {
+        return 1;
+    }
+    if (n <= 0) {
+        return 0;
+    }
+    for (int i = n / 2; i >= 1; i--) {
+        if (n >= (i * i)) {
+            return 1 + minCount(n - (i * i));
+        }
+    }
 }
 
-
-int main(){
-	int n;
-	cin >> n;
-	while(n != -1) {
-		cout << minCount(n) << endl;
-		cin >> n;
-	}
-	cout << "exit!";
+int main() {
+    int n;
+    cin >> n;
+    while (n != -1) {
+        cout << minCount(n) << endl;
+        cin >> n;
+    }
+    cout << "exit!";
 }
 
 /*

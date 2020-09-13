@@ -41,78 +41,78 @@ using namespace std;
 
 #include <climits>
 
-int findMinVertex(int* weights, bool* visited, int v){              // O(v)
-	int minVertexIndex = -1;
-	for(int i = 0; i < v; i++) {
-		if(!visited[i] && (minVertexIndex == -1 || weights[i] < weights[minVertexIndex])) {     // Initially minVertexIndex is -1 and will check minVertexIndex == -1, since || is used
-			minVertexIndex = i;                                                             // it will not execute rest statement. It will simply return true. This will avoid weights[-1].
-		}
-	}
-	return minVertexIndex;
+int findMinVertex(int *weights, bool *visited, int v) { // O(v)
+    int minVertexIndex = -1;
+    for (int i = 0; i < v; i++) {
+        if (!visited[i] && (minVertexIndex == -1 || weights[i] < weights[minVertexIndex])) { // Initially minVertexIndex is -1 and will check minVertexIndex == -1, since || is used
+            minVertexIndex = i;                                                              // it will not execute rest statement. It will simply return true. This will avoid weights[-1].
+        }
+    }
+    return minVertexIndex;
 }
 
-void prims(int** edges, int v){
-	bool* visited = new bool[v];
-	int* parent = new int[v];
-	int* weights = new int[v];
+void prims(int **edges, int v) {
+    bool *visited = new bool[v];
+    int *parent = new int[v];
+    int *weights = new int[v];
 
-	for(int i = 0; i < v; i++) {
-		visited[i] = false;		// Initially all vertices are unvisited
-		weights[i] = INT_MAX;
-	}
-	parent[0] = -1;		// 0 has no parent (source) (-1 to indicate no parent)
-	weights[0] = 0;		// 0 has minimum weight initially
+    for (int i = 0; i < v; i++) {
+        visited[i] = false; // Initially all vertices are unvisited
+        weights[i] = INT_MAX;
+    }
+    parent[0] = -1; // 0 has no parent (source) (-1 to indicate no parent)
+    weights[0] = 0; // 0 has minimum weight initially
 
-	for(int i = 0; i < v - 1; i++) {        // n - 1
-		// Find min vertex
-		int minVertexIndex = findMinVertex(weights, visited, v);        // n * (n - 1)
-		visited[minVertexIndex] = true;
-		// Explore un-visited neighbours
-		for(int j = 0; j < v; j++) {                   // n * (n - 1) - Can be optimized using adjacency list in place of adjacency matrix.
-			if(edges[minVertexIndex][j] && !visited[j]) {      // adjacency list is better cause its sparse graph (vertex has few no of neighbours)
-				if(edges[minVertexIndex][j] < weights[j]) {
-					weights[j] = edges[minVertexIndex][j];
-					parent[j] = minVertexIndex;
-				}
-			}
-		}
-	}
+    for (int i = 0; i < v - 1; i++) { // n - 1
+        // Find min vertex
+        int minVertexIndex = findMinVertex(weights, visited, v); // n * (n - 1)
+        visited[minVertexIndex] = true;
+        // Explore un-visited neighbours
+        for (int j = 0; j < v; j++) {                      // n * (n - 1) - Can be optimized using adjacency list in place of adjacency matrix.
+            if (edges[minVertexIndex][j] && !visited[j]) { // adjacency list is better cause its sparse graph (vertex has few no of neighbours)
+                if (edges[minVertexIndex][j] < weights[j]) {
+                    weights[j] = edges[minVertexIndex][j];
+                    parent[j] = minVertexIndex;
+                }
+            }
+        }
+    }
 
-	for(int i = 1; i < v; i++) {
-		if(parent[i] < i) {
-			cout << parent[i] << " " << i << " " << weights[i] << endl;
-		} else {
-			cout << i << " " << parent[i] << " " << weights[i] << endl;
-		}
-	}
+    for (int i = 1; i < v; i++) {
+        if (parent[i] < i) {
+            cout << parent[i] << " " << i << " " << weights[i] << endl;
+        } else {
+            cout << i << " " << parent[i] << " " << weights[i] << endl;
+        }
+    }
 }
 
-int main(){
-	int v, e;
-	cin >> v >> e;
+int main() {
+    int v, e;
+    cin >> v >> e;
 
-	int** edges = new int*[v];
-	for(int i = 0; i < v; i++) {
-		edges[i] = new int[v];
-		for(int j = 0; j < v; j++) {
-			edges[i][j] = 0;
-		}
-	}
+    int **edges = new int *[v];
+    for (int i = 0; i < v; i++) {
+        edges[i] = new int[v];
+        for (int j = 0; j < v; j++) {
+            edges[i][j] = 0;
+        }
+    }
 
-	for(int i = 0; i < e; i++) {
-		int s, d, w;
-		cin >> s >> d >> w;
-		edges[s][d] = w;
-		edges[d][s] = w;
-	}
+    for (int i = 0; i < e; i++) {
+        int s, d, w;
+        cin >> s >> d >> w;
+        edges[s][d] = w;
+        edges[d][s] = w;
+    }
 
-	cout << endl;
-	prims(edges, v);
+    cout << endl;
+    prims(edges, v);
 
-	for(int i = 0; i < v; i++) {
-		delete [] edges[i];
-	}
-	delete [] edges;
+    for (int i = 0; i < v; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
 
 /*

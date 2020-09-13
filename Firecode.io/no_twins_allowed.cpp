@@ -12,19 +12,18 @@
    are_all_characters_unique("") -> true
  */
 
-
 #include <unordered_map>
 
-bool are_all_characters_unique(string str){
-    if(str == ""){
+bool are_all_characters_unique(string str) {
+    if (str == "") {
         return true;
     }
     unordered_map<char, int> map;
-    for(int i = 0; i < str.size(); i++){
-        if(str[i] >= 'A' && str[i] <= 'Z'){
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') {
             str[i] = str[i] + ('a' - 'A');
         }
-        if(map[str[i]] >= 1){
+        if (map[str[i]] >= 1) {
             return false;
         }
         map[str[i]]++;

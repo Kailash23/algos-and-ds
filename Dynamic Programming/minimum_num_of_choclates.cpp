@@ -13,55 +13,55 @@
 #include <iostream>
 using namespace std;
 
-int getMin(int *arr, int n){
-	int *choclates = new int[n];
+int getMin(int *arr, int n) {
+    int *choclates = new int[n];
 
-	if(arr[0] < arr[1]) {
-		choclates[0] = 1;
-		choclates[1] = 2;
-	} else if(arr[0] > arr[1]) {
-		choclates[0] = 2;
-		choclates[1] = 1;
-	} else {
-		choclates[0] = 1;
-		choclates[1] = 1;
-	}
+    if (arr[0] < arr[1]) {
+        choclates[0] = 1;
+        choclates[1] = 2;
+    } else if (arr[0] > arr[1]) {
+        choclates[0] = 2;
+        choclates[1] = 1;
+    } else {
+        choclates[0] = 1;
+        choclates[1] = 1;
+    }
 
-	for(int i = 2; i < n; i++) {
-		if(arr[i] < arr[i-1]) {
-			choclates[i] = 1;
-		} else if(arr[i] > arr[i-1]) {
-			int s = choclates[i-1];
-			s++;
-			choclates[i] = s;
-		} else {
-			int count = 0;
-			int j = i;
-			while (arr[j+1]<arr[j]) {
-				count++;
-				j++;
-			}
-			if(count == 0) {
-				choclates[i] = 1;
-			} else {
-				int s = count;
-				while (s>=0) {
-					choclates[i++] = s + 1;
-					s--;
-				}
-				i--;
-			}
-		}
-	}
-	int sum = 0;
-	for(int j = 0; j < n; j++) {
-		sum+=choclates[j];
-	}
-	return sum;
+    for (int i = 2; i < n; i++) {
+        if (arr[i] < arr[i - 1]) {
+            choclates[i] = 1;
+        } else if (arr[i] > arr[i - 1]) {
+            int s = choclates[i - 1];
+            s++;
+            choclates[i] = s;
+        } else {
+            int count = 0;
+            int j = i;
+            while (arr[j + 1] < arr[j]) {
+                count++;
+                j++;
+            }
+            if (count == 0) {
+                choclates[i] = 1;
+            } else {
+                int s = count;
+                while (s >= 0) {
+                    choclates[i++] = s + 1;
+                    s--;
+                }
+                i--;
+            }
+        }
+    }
+    int sum = 0;
+    for (int j = 0; j < n; j++) {
+        sum += choclates[j];
+    }
+    return sum;
 }
 
-int main(){
-	int arr[] = {3,3,3,3,3,2,1,1};
-	int n = sizeof(arr)/sizeof(arr[0]);
-	cout<<getMin(arr,n);
+int main() {
+    int arr[] = {3, 3, 3, 3, 3, 2, 1, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << getMin(arr, n);
 }

@@ -21,33 +21,33 @@
 #include <unordered_map>
 using namespace std;
 
-int max(int arr[], int n){
-	int ans = 0;
-	int sum = 0;
-	unordered_map<int,int> map;
+int max(int arr[], int n) {
+    int ans = 0;
+    int sum = 0;
+    unordered_map<int, int> map;
 
-	for(int i = 0; i < n; i++) {        //Replacing all zeros with -1
-		if(arr[i] == 0) {
-			arr[i] = -1;
-		}
-	}
-	for(int i = 0; i < n; i++) {
-		sum = sum + arr[i];
-		if(map.count(sum) > 0) {                            //Or map.find(sum) != map.end()
-			if(ans < i - map[sum]) {
-				ans = i - map[sum];
-			}
-		} else {
-			map[sum] = i;				//Saving sum as key to hashmap having value array index
-		}
-	}
-	return ans;
+    for (int i = 0; i < n; i++) { //Replacing all zeros with -1
+        if (arr[i] == 0) {
+            arr[i] = -1;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        sum = sum + arr[i];
+        if (map.count(sum) > 0) { //Or map.find(sum) != map.end()
+            if (ans < i - map[sum]) {
+                ans = i - map[sum];
+            }
+        } else {
+            map[sum] = i; //Saving sum as key to hashmap having value array index
+        }
+    }
+    return ans;
 }
 
-int main(){
-	int arr[] = {0,1,1,0,1,1,0,0,1};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	cout << max(arr, n);
+int main() {
+    int arr[] = {0, 1, 1, 0, 1, 1, 0, 0, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << max(arr, n);
 }
 
 /*

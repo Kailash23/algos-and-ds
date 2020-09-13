@@ -2,7 +2,7 @@
 using namespace std;
 
 class Shape {
-    public :
+  public:
     int height;
     int width;
 };

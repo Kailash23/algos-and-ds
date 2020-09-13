@@ -9,17 +9,17 @@
 
 #include <unordered_map>
 
-char first_non_repeating(string str){
-	unordered_map<char, int> map;
-	for(int i = 0; i < str.size(); i++) {
-		map[str[i]]++;
-	}
-	char c = '0';
-	for(int i = 0; i < str.size(); i++) {
-		if(!(map[str[i]] > 1)) {
-			c = str[i];
-			break;
-		}
-	}
-	return c;
+char first_non_repeating(string str) {
+    unordered_map<char, int> map;
+    for (int i = 0; i < str.size(); i++) {
+        map[str[i]]++;
+    }
+    char c = '0';
+    for (int i = 0; i < str.size(); i++) {
+        if (!(map[str[i]] > 1)) {
+            c = str[i];
+            break;
+        }
+    }
+    return c;
 }

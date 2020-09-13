@@ -25,31 +25,30 @@
 #include <unordered_map>
 using namespace std;
 
-void PairSum(int *input, int n){
-	unordered_map<int,int> m;
-	for(int i = 0; i < n; i++) {
-		m[input[i]]++;
-	}
-	for(int i = 0; i < n; i++) {
-		int key = input[i];
-		if(m.count(-key) != 0 && m[key] != 0) {
-			int times = m[key] * m[-key];
-			while(times != 0) {
-				cout << min(key, (-key));
-				cout << " " << max(key, (-key)) << "\n";
-				times--;
-			}
-			m[key] = 0;
-			m[-key] = 0;
-		}
-	}
+void PairSum(int *input, int n) {
+    unordered_map<int, int> m;
+    for (int i = 0; i < n; i++) {
+        m[input[i]]++;
+    }
+    for (int i = 0; i < n; i++) {
+        int key = input[i];
+        if (m.count(-key) != 0 && m[key] != 0) {
+            int times = m[key] * m[-key];
+            while (times != 0) {
+                cout << min(key, (-key));
+                cout << " " << max(key, (-key)) << "\n";
+                times--;
+            }
+            m[key] = 0;
+            m[-key] = 0;
+        }
+    }
 }
 
-
-int main(){
-	int arr[] = {1,2,-1,-2,3,5,4,-6,6,6,-2};		// Should be non zero
-	int n = sizeof(arr) / sizeof(arr[0]);
-	PairSum(arr, n);
+int main() {
+    int arr[] = {1, 2, -1, -2, 3, 5, 4, -6, 6, 6, -2}; // Should be non zero
+    int n = sizeof(arr) / sizeof(arr[0]);
+    PairSum(arr, n);
 }
 
 /*

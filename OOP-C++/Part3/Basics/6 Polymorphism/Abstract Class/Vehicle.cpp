@@ -1,9 +1,9 @@
 class Vehicle {
 
-	public:
-		string color;
+  public:
+    string color;
 
-		virtual void print() = 0;	// Pure Virtual Function
+    virtual void print() = 0; // Pure Virtual Function
 };
 
 /*

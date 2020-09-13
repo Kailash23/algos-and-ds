@@ -8,12 +8,12 @@ using namespace std;
  */
 
 int main() {
-	Student s1(10, 1001);
-	cout << "Address of s1 : " << &s1 << endl;
+    Student s1(10, 1001);
+    cout << "Address of s1 : " << &s1 << endl;
 
-	Student s2(1002);
-	s2.setAge(23, 123);
-	s2.display();
+    Student s2(1002);
+    s2.setAge(23, 123);
+    s2.display();
 }
 
 /*

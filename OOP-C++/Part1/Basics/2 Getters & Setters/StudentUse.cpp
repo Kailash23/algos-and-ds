@@ -16,10 +16,10 @@ int main() {
     s2->rollNumber = 13;
 
     s1.setAge(20, 123);
-    s2 -> setAge(24, 123);
+    s2->setAge(24, 123);
 
     s1.display();
-    s2 -> display();
+    s2->display();
 }
 
 /*

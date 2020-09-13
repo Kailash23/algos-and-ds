@@ -12,22 +12,22 @@
 #include <unordered_map>
 using namespace std;
 
-int highestFrequency(int *input, int n){
-	unordered_map<int,int> freq;
+int highestFrequency(int *input, int n) {
+    unordered_map<int, int> freq;
 
-	for(int i = 0; i < n; i++) {
-		freq[input[i]]++;
-	}
+    for (int i = 0; i < n; i++) {
+        freq[input[i]]++;
+    }
 
-	int max = INT_MIN;
-	int num = 0;
-	for(int j = 0; j < n; j++) {
-		if(freq[input[j]] > max) {
-			max = freq[input[j]];
-			num = input[j];
-		}
-	}
-	/*
+    int max = INT_MIN;
+    int num = 0;
+    for (int j = 0; j < n; j++) {
+        if (freq[input[j]] > max) {
+            max = freq[input[j]];
+            num = input[j];
+        }
+    }
+    /*
 		Can't do this cause its unordered map
 
 		unordered_map<int,int> :: iterator it = freq.begin();
@@ -39,13 +39,13 @@ int highestFrequency(int *input, int n){
 			it++;
 		}
 	*/
-	return num;
+    return num;
 }
 
-int main(){
-	int a[] = {1,2,3,4,5,6,3,2,4,3,5,3,5,5,5,5};
-	int n = sizeof(a) / sizeof(a[0]);
-	cout << highestFrequency(a,n);
+int main() {
+    int a[] = {1, 2, 3, 4, 5, 6, 3, 2, 4, 3, 5, 3, 5, 5, 5, 5};
+    int n = sizeof(a) / sizeof(a[0]);
+    cout << highestFrequency(a, n);
 }
 
 /*

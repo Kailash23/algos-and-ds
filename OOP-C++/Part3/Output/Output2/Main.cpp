@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-#include "Vehicle.cpp"
+#include "Bus.cpp"
 #include "Car.cpp"
 #include "Truck.cpp"
-#include "Bus.cpp"
+#include "Vehicle.cpp"
 
 int main() {
-	Bus b;
-	b.print();
+    Bus b;
+    b.print();
 }
 
 /*

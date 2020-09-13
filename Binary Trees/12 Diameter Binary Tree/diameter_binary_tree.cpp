@@ -15,47 +15,47 @@
 		 O	 		   O
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 using namespace std;
 
 #include <queue>
 
-BinaryTreeNode<int>* takeInputLevelWise() {
-	int rootData;
-	cout << "Enter root data" << endl;
-	cin >> rootData;
-	if(rootData == -1) {             // if data is -1 consider it as no child node.
-		return NULL;
-	}
+BinaryTreeNode<int> *takeInputLevelWise() {
+    int rootData;
+    cout << "Enter root data" << endl;
+    cin >> rootData;
+    if (rootData == -1) { // if data is -1 consider it as no child node.
+        return NULL;
+    }
 
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
-	pendingNodes.push(root);
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rootData);
+    queue<BinaryTreeNode<int> *> pendingNodes; // queue used to input levelwise
+    pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
+    while (pendingNodes.size() != 0) {
+        BinaryTreeNode<int> *front = pendingNodes.front();
+        pendingNodes.pop();
 
-		cout << "Enter left child of " << front->data << endl;
-		int leftChildData;
-		cin >> leftChildData;
-		if(leftChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
-			front->left = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
+        cout << "Enter left child of " << front->data << endl;
+        int leftChildData;
+        cin >> leftChildData;
+        if (leftChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(leftChildData);
+            front->left = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
 
-		cout << "Enter right child of " << front->data << endl;
-		int rightChildData;
-		cin >> rightChildData;
-		if(rightChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
-			front->right = child;
-			pendingNodes.push(child);            // Push child node for inputing there child nodes.
-		}
-	}
-	return root;
+        cout << "Enter right child of " << front->data << endl;
+        int rightChildData;
+        cin >> rightChildData;
+        if (rightChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(rightChildData);
+            front->right = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
+    }
+    return root;
 }
 
 /*
@@ -66,11 +66,11 @@ BinaryTreeNode<int>* takeInputLevelWise() {
    Constant work is done. (nk)
  */
 
-int height(BinaryTreeNode<int>* root){
-	if(root == NULL) {
-		return 0;
-	}
-	return 1 + max(height(root->left), height(root->right));    // Height will be the 1 + max among (height of left subtree) and (height right subtree).
+int height(BinaryTreeNode<int> *root) {
+    if (root == NULL) {
+        return 0;
+    }
+    return 1 + max(height(root->left), height(root->right)); // Height will be the 1 + max among (height of left subtree) and (height right subtree).
 }
 
 /*
@@ -120,22 +120,22 @@ int height(BinaryTreeNode<int>* root){
    Best solution will be if we ask for both height and diameter to left and right at the
    same time.
  */
-int diameter(BinaryTreeNode<int>* root){
-	if(root == NULL) {
-		return 0;
-	}
+int diameter(BinaryTreeNode<int> *root) {
+    if (root == NULL) {
+        return 0;
+    }
 
-	int option1 = height(root->left) + height(root->right);     // Sum of height of left and right subtree.
-	int option2 = diameter(root->left);     // This recursive call will call height function 2 times again. Which leads to inc time complexity.
-	int option3 = diameter(root->right);
-	return max(option1, max(option2, option3));     // diameter will be the max of option1, option2 & option3.
+    int option1 = height(root->left) + height(root->right); // Sum of height of left and right subtree.
+    int option2 = diameter(root->left);                     // This recursive call will call height function 2 times again. Which leads to inc time complexity.
+    int option3 = diameter(root->right);
+    return max(option1, max(option2, option3)); // diameter will be the max of option1, option2 & option3.
 }
 
-int main(){
-	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	cout << "Diameter : " << diameter(root);
-	delete root;
+int main() {
+    BinaryTreeNode<int> *root = takeInputLevelWise();
+    cout << endl;
+    cout << "Diameter : " << diameter(root);
+    delete root;
 }
 
 /*

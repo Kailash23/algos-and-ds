@@ -9,15 +9,15 @@
 #include <iostream>
 using namespace std;
 
-int turnOffFirstSetBit(int n){
-	int count;
-	return n & (n - 1);
+int turnOffFirstSetBit(int n) {
+    int count;
+    return n & (n - 1);
 }
 
-int main(){
-	int n;
-	cin >> n;
-	cout << turnOffFirstSetBit(n);
+int main() {
+    int n;
+    cin >> n;
+    cout << turnOffFirstSetBit(n);
 }
 
 /*

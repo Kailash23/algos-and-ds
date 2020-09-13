@@ -8,28 +8,28 @@ using namespace std;
  */
 
 int main() {
-	// Create objects statically
-	Student s1;
+    // Create objects statically
+    Student s1;
 
-	s1.setAge(24, 123);      //setter
-	s1.rollNumber = 101;
+    s1.setAge(24, 123); //setter
+    s1.rollNumber = 101;
 
-	cout << "Fetching age : " << s1.getAge() << endl;     //getter
-	cout << "Fetching roll no : " << s1.rollNumber << endl;
+    cout << "Fetching age : " << s1.getAge() << endl; //getter
+    cout << "Fetching roll no : " << s1.rollNumber << endl;
 
-	s1.display();
+    s1.display();
 
-	cout << endl;
+    cout << endl;
 
-	// Create objects dynamically
-	Student *s2 = new Student;
-	(*s2).setAge(23, 123);
-	(*s2).rollNumber = 104;
+    // Create objects dynamically
+    Student *s2 = new Student;
+    (*s2).setAge(23, 123);
+    (*s2).rollNumber = 104;
 
-	cout << "Fetching age : " << s2->getAge() << endl;
-	cout << "Fetching roll no : " << s2->rollNumber << endl;
+    cout << "Fetching age : " << s2->getAge() << endl;
+    cout << "Fetching roll no : " << s2->rollNumber << endl;
 
-	(*s2).display();
+    (*s2).display();
 }
 
 /*

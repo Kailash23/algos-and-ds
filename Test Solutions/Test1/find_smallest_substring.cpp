@@ -9,70 +9,69 @@
    of the order. Return null if no substring with all characters is present.
  */
 
-#include <iostream>
 #include <climits>
+#include <iostream>
 using namespace std;
-int count =0;
-string _findMinSubstringContainingString(string large, string small){
-	if(large.size() == 0 || small.size() == 0) {
-		return "";
-	}
+int count = 0;
+string _findMinSubstringContainingString(string large, string small) {
+    if (large.size() == 0 || small.size() == 0) {
+        return "";
+    }
 
-	int map[256]  = {0};
+    int map[256] = {0};
 
-	for(int i = 0; i < small.size(); i++) {
-		map[small[i]]+=1;
-	}
+    for (int i = 0; i < small.size(); i++) {
+        map[small[i]] += 1;
+    }
 
-	int len=0, x, max_len = INT_MAX, present = 0, j=0;
-	string str = "";
+    int len = 0, x, max_len = INT_MAX, present = 0, j = 0;
+    string str = "";
 
-	for(int i = 0; i < large.size(); i++) {
-		if(map[large[i]] > 0) {
-			present++;
-		}
-		map[large[i]]--;
-		len++;
-		while(map[large[j]] < 0) {
-			cout<<++count<<" j "<<j<<endl;
-			map[large[j]]++;
-			len--;
-			j++;
-		}
-		if(present == small.size() && len < max_len) {
-			max_len = i-j+1;
-			x=j;
-		}
-	}
+    for (int i = 0; i < large.size(); i++) {
+        if (map[large[i]] > 0) {
+            present++;
+        }
+        map[large[i]]--;
+        len++;
+        while (map[large[j]] < 0) {
+            cout << ++count << " j " << j << endl;
+            map[large[j]]++;
+            len--;
+            j++;
+        }
+        if (present == small.size() && len < max_len) {
+            max_len = i - j + 1;
+            x = j;
+        }
+    }
 
-	if(max_len == INT_MAX) {
-		return "";
-	}
+    if (max_len == INT_MAX) {
+        return "";
+    }
 
-	str = large.substr(x,max_len);
-	return str;
+    str = large.substr(x, max_len);
+    return str;
 }
 
-char* findMinSubstringContainingString(char *large, char *small){
-	string str1 = large;
-	string str2 = small;
-	string result;
-	result = _findMinSubstringContainingString(str1,str2);
-	int resLength = result.length();
-	char *output = new char[resLength + 1];
-	int i;
-	for(i = 0; i < resLength; i++) {
-		output[i] = result[i];
-	}
-	output[i] = '\0';
-	return output;
+char *findMinSubstringContainingString(char *large, char *small) {
+    string str1 = large;
+    string str2 = small;
+    string result;
+    result = _findMinSubstringContainingString(str1, str2);
+    int resLength = result.length();
+    char *output = new char[resLength + 1];
+    int i;
+    for (i = 0; i < resLength; i++) {
+        output[i] = result[i];
+    }
+    output[i] = '\0';
+    return output;
 }
 
-
-int main(){
-	char large[] = "Looks for minimum string";
-	char small[] = "mum s";
-	findMinSubstringContainingString(large,small);
+int main() {
+    char large[] = "Looks for minimum string";
+    char small[] = "mum s";
+    findMinSubstringContainingString(large, small);
 }
 
 /*

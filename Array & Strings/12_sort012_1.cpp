@@ -7,34 +7,34 @@
 #include <iostream>
 using namespace std;
 
-void PrintArray(int arr[], int n){
-	for(int i = 0; i < n; i++) {
-		cout << arr[i] << " ";
-	}
+void PrintArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
 }
 
-void sort012(int arr[], int n){     // 1 scan
-	int nz = 0;
-	int nt = n - 1;
-	int i = 0;
+void sort012(int arr[], int n) { // 1 scan
+    int nz = 0;
+    int nt = n - 1;
+    int i = 0;
 
-	for(i = 0; i <= nt; i++) {
-		if(arr[i] == 0) {
-			swap(arr[i], arr[nz]);
-			nz++;
-		} else if(arr[i] == 2) {
-			swap(arr[i], arr[nt]);
-			nt--;
-			i--;	// We will check again for new replaced value of i (i  - unchanged because value got exchanged)
-		}
-	}
-	PrintArray(arr, n);
+    for (i = 0; i <= nt; i++) {
+        if (arr[i] == 0) {
+            swap(arr[i], arr[nz]);
+            nz++;
+        } else if (arr[i] == 2) {
+            swap(arr[i], arr[nt]);
+            nt--;
+            i--; // We will check again for new replaced value of i (i  - unchanged because value got exchanged)
+        }
+    }
+    PrintArray(arr, n);
 }
 
-int main(){
-	int arr[] = {0,1,2,0,1,2,0,1,2};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	sort012(arr, n);
+int main() {
+    int arr[] = {0, 1, 2, 0, 1, 2, 0, 1, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    sort012(arr, n);
 }
 
 /*

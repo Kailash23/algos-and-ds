@@ -9,22 +9,22 @@
 #include <iostream>
 using namespace std;
 
-bool checkNumber(int input[], int size, int x){
-	if(size == 0) {		// If array size is 0 ie element not found.
-		return false;
-	}
-	if(input[0] == x) {
-		return true;
-	}
-	return checkNumber(input + 1, size - 1, x);
+bool checkNumber(int input[], int size, int x) {
+    if (size == 0) { // If array size is 0 ie element not found.
+        return false;
+    }
+    if (input[0] == x) {
+        return true;
+    }
+    return checkNumber(input + 1, size - 1, x);
 }
 
-int main(){
-	int arr[] = {2,3,4,5};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	int x = 5;
-	bool ans = checkNumber(arr, n, x);
-	ans ? cout << "Preset.." : cout << "Not present.." << endl;
+int main() {
+    int arr[] = {2, 3, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 5;
+    bool ans = checkNumber(arr, n, x);
+    ans ? cout << "Preset.." : cout << "Not present.." << endl;
 }
 
 /*

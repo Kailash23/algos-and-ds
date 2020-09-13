@@ -7,24 +7,24 @@
    return the answer.
  */
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
 
-int stringToNumberHelper(char input[], int len){
-	if(len == 0){
-		return 0;
-	}
-	int smallNum = input[len - 1]  - '0';
-	int ans = stringToNumberHelper(input, len - 1);
-	return ans * 10 + smallNum;
+int stringToNumberHelper(char input[], int len) {
+    if (len == 0) {
+        return 0;
+    }
+    int smallNum = input[len - 1] - '0';
+    int ans = stringToNumberHelper(input, len - 1);
+    return ans * 10 + smallNum;
 }
 
 int stringToNumber(char input[]) {
-	return stringToNumberHelper(input, strlen(input));
+    return stringToNumberHelper(input, strlen(input));
 }
 
-int main(){
-	char input[] = "1234";
-	cout << stringToNumber(input);
+int main() {
+    char input[] = "1234";
+    cout << stringToNumber(input);
 }

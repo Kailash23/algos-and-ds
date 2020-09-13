@@ -2,7 +2,7 @@
 using namespace std;
 
 class Student {
-    int rollNumber;     // No access modifier means private - scope within class
+    int rollNumber; // No access modifier means private - scope within class
 };
 
 int main() {

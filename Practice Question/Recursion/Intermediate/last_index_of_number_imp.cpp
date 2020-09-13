@@ -14,20 +14,20 @@
 using namespace std;
 
 int lastIndex(int input[], int size, int x) {
-	if(size == 0) {
-		return -1;
-	}
-	if(input[size - 1] == x) {
-		return size - 1;
-	}
-	 return lastIndex(input, size - 1, x);
+    if (size == 0) {
+        return -1;
+    }
+    if (input[size - 1] == x) {
+        return size - 1;
+    }
+    return lastIndex(input, size - 1, x);
 }
 
-int main(){
-	int arr[] = {1,2,3,2,5,7};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	int x = 2;
-	cout << lastIndex(arr, n, x);
+int main() {
+    int arr[] = {1, 2, 3, 2, 5, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 2;
+    cout << lastIndex(arr, n, x);
 }
 
 /*

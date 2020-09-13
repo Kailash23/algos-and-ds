@@ -1,27 +1,25 @@
 #include <iostream>
 #include <string>
 
-int main()
-{
-	std::string str1 ("have apple");
-	std::string str2 ("zhave app");
-	std::cout << str1.compare(str2) << std::endl;       //-1
+int main() {
+    std::string str1("have apple");
+    std::string str2("zhave app");
+    std::cout << str1.compare(str2) << std::endl; //-1
 
-	std::string str3 ("have apple");
-	std::string str4 ("have app");
-	std::cout << str3.compare(str4) << std::endl;       //2
+    std::string str3("have apple");
+    std::string str4("have app");
+    std::cout << str3.compare(str4) << std::endl; //2
 
-	std::string str5 ("have gpple");
-	std::string str6 ("have apple");
-	std::cout << str5.compare(str6) << std::endl;       //1
+    std::string str5("have gpple");
+    std::string str6("have apple");
+    std::cout << str5.compare(str6) << std::endl; //1
 
-	std::string str7 ("have app");
-	std::string str8 ("have apple");
-	std::cout << str7.compare(str8) << std::endl;       //-2
+    std::string str7("have app");
+    std::string str8("have apple");
+    std::cout << str7.compare(str8) << std::endl; //-2
 
-	return 0;
+    return 0;
 }
-
 
 /*
    compare() function compares the value of a string ( str1 ) with another string ( str2 ).

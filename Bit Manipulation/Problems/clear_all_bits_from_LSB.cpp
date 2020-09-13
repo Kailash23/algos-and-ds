@@ -9,13 +9,13 @@
 #include <iostream>
 using namespace std;
 
-int clearAllBits(int n, int i){
-	int m = ~((1 << (i + 1)) - 1);
-	return m & n;
+int clearAllBits(int n, int i) {
+    int m = ~((1 << (i + 1)) - 1);
+    return m & n;
 }
 
-int main(){
-	int n, i;
-	cin >> n >> i;
-	cout << clearAllBits(n, i);
+int main() {
+    int n, i;
+    cin >> n >> i;
+    cout << clearAllBits(n, i);
 }

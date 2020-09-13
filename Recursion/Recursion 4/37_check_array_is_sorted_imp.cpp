@@ -5,21 +5,21 @@
 #include <iostream>
 using namespace std;
 
-bool is_sorted(int a[], int size){
-	if(size == 0 || size == 1) {
-		return true;
-	}
-	if(a[0] > a[1]) {
-		return false;
-	}
-	return is_sorted(a + 1, size - 1);
+bool is_sorted(int a[], int size) {
+    if (size == 0 || size == 1) {
+        return true;
+    }
+    if (a[0] > a[1]) {
+        return false;
+    }
+    return is_sorted(a + 1, size - 1);
 }
 
-int main(){
-	int arr[] = {2,5,6,8,9,10,1};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	bool is = is_sorted(arr, n);
-	is ? cout << "Array is sorted! " : cout << "Array is not sorted" << endl;
+int main() {
+    int arr[] = {2, 5, 6, 8, 9, 10, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    bool is = is_sorted(arr, n);
+    is ? cout << "Array is sorted! " : cout << "Array is not sorted" << endl;
 }
 
 /*

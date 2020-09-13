@@ -7,19 +7,19 @@ using namespace std;
    Copy Assignment Operator
  */
 
-int main(){
-	Student t1(10, 505);
-	Student t2;
+int main() {
+    Student t1(10, 505);
+    Student t2;
 
-	Student *t3 = new Student(30);
-	t2 = t1;
-	*t3 = t1;
-	t2 = *t3;
+    Student *t3 = new Student(30);
+    t2 = t1;
+    *t3 = t1;
+    t2 = *t3;
 
-	t1.display();
-	t2.display();
-	t3->display();
-	delete t3;
+    t1.display();
+    t2.display();
+    t3->display();
+    delete t3;
 }
 
 /*

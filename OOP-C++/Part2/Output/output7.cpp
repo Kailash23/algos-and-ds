@@ -2,7 +2,7 @@
 using namespace std;
 
 class Box {
-public :
+  public:
     int width;
     int height;
     int length;

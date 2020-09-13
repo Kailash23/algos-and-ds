@@ -34,13 +34,13 @@ void allCodesHelper(string input, string output){
 }
 */
 int getCodes(string input) {
-	string output = "";
-	allCodesHelper(input, output);
+    string output = "";
+    allCodesHelper(input, output);
 }
 
-int main(){
-	string str = "1123";
-	getCodes(str);
+int main() {
+    string str = "1123";
+    getCodes(str);
 }
 
 /*

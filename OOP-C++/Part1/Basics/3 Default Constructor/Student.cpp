@@ -1,35 +1,36 @@
 class Student {
 
-	public:
-		int rollNumber;
+  public:
+    int rollNumber;
 
-	private:
-		int age;
+  private:
+    int age;
 
-	public:
-		// Default constructor
-		Student() {
-			cout << "Constructor called ! "<< endl;
-		}
+  public:
+    // Default constructor
+    Student() {
+        cout << "Constructor called ! " << endl;
+    }
 
-		void display() {
-			cout << "Age of student: " << age << endl <<"Roll no: " << rollNumber << endl;
-			// cout << this.age << " " << this.rollNumber << endl;
-		}
+    void display() {
+        cout << "Age of student: " << age << endl
+             << "Roll no: " << rollNumber << endl;
+        // cout << this.age << " " << this.rollNumber << endl;
+    }
 
-		int getAge() {
-			return age;
-		}
+    int getAge() {
+        return age;
+    }
 
-		void setAge(int a, int password) {
-			if(password != 123) {
-				return;
-			}
-			if(a < 0) {
-				return;
-			}
-			age = a;
-		}
+    void setAge(int a, int password) {
+        if (password != 123) {
+            return;
+        }
+        if (a < 0) {
+            return;
+        }
+        age = a;
+    }
 };
 
 /*

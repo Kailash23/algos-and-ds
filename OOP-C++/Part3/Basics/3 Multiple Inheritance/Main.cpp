@@ -2,21 +2,21 @@
 using namespace std;
 
 #include "Student.cpp"
-#include "Teacher.cpp"
 #include "TA.cpp"
+#include "Teacher.cpp"
 
 /*
    Multiple Inheritance
  */
 
 int main() {
-	TA a;
-	a.Student :: print();
-	a.Teacher :: print();
-	a.print();
+    TA a;
+    a.Student ::print();
+    a.Teacher ::print();
+    a.print();
 
-	a.Teacher :: name = "abcd";
-	//a.name = "abcd";  // Will cause ambiguity.
+    a.Teacher ::name = "abcd";
+    //a.name = "abcd";  // Will cause ambiguity.
 }
 
 /*

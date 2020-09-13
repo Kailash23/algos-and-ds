@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
 
-#include "Vehicle.cpp"
 #include "Car.cpp"
+#include "Vehicle.cpp"
 
-int main(){
-	Car c;
+int main() {
+    Car c;
 }
 
 /*

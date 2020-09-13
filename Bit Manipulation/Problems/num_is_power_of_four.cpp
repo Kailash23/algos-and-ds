@@ -8,23 +8,23 @@
 #include <iostream>
 using namespace std;
 
-bool isPowerOf4(int n){
-	bool isPowerOfTwo = n && !(n & (n - 1));
-	if(!isPowerOfTwo) {
-		return false;
-	}
-	bool ans = !(n & 0xAAAAAAAA);       //  Get all even bits of n
-	return ans;
+bool isPowerOf4(int n) {
+    bool isPowerOfTwo = n && !(n & (n - 1));
+    if (!isPowerOfTwo) {
+        return false;
+    }
+    bool ans = !(n & 0xAAAAAAAA); //  Get all even bits of n
+    return ans;
 }
 
-int main(){
-	int n;
-	cin >> n;
-	if(isPowerOf4(n)) {
-		cout << "Yes" << endl;
-	} else {
-		cout << "No" << endl;
-	}
+int main() {
+    int n;
+    cin >> n;
+    if (isPowerOf4(n)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
 }
 
 /*

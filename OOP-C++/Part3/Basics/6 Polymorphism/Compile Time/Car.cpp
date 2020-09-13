@@ -1,9 +1,9 @@
 class Car : public Vehicle {
 
-	public:
-		int numGears;
+  public:
+    int numGears;
 
-		void print() {
-			cout << "Car" << endl;
-		}
+    void print() {
+        cout << "Car" << endl;
+    }
 };

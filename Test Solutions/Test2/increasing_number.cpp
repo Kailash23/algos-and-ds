@@ -2,28 +2,26 @@
 #include <string>
 using namespace std;
 
-void printIncreasingNumbersHelper(int n, string output, int start){
+void printIncreasingNumbersHelper(int n, string output, int start) {
 
-	if(n == 0) {
-		cout<<output<<" ";
-		return;
-	}
+    if (n == 0) {
+        cout << output << " ";
+        return;
+    }
 
-	for(int i = start; i < 10; i++) {
-		string a = to_string(i);
-		printIncreasingNumbersHelper(n-1,output+a,i+1);
-	}
-
+    for (int i = start; i < 10; i++) {
+        string a = to_string(i);
+        printIncreasingNumbersHelper(n - 1, output + a, i + 1);
+    }
 }
 
 void printIncreasingNumbers(int n) {
-	string output;
-	int start = 1;
-	printIncreasingNumbersHelper(n, output, start);
+    string output;
+    int start = 1;
+    printIncreasingNumbersHelper(n, output, start);
 }
 
-
-int main(){
-	int n = 3;
-	printIncreasingNumbers(n);
+int main() {
+    int n = 3;
+    printIncreasingNumbers(n);
 }

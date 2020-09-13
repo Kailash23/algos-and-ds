@@ -1,25 +1,25 @@
 class Student {
 
-		static int totalStudents;
+    static int totalStudents;
 
-	public:
-		int rollNumber;
-		int age;
+  public:
+    int rollNumber;
+    int age;
 
-		Student(){
-			totalStudents++;
-		}
+    Student() {
+        totalStudents++;
+    }
 
-		int getRollNumber(){
-			return rollNumber;
-		}
+    int getRollNumber() {
+        return rollNumber;
+    }
 
-		static int getTotalStudent(){
-			return totalStudents;		// we can't use non static data member or non static function.
-		}
+    static int getTotalStudent() {
+        return totalStudents; // we can't use non static data member or non static function.
+    }
 };
 
-int Student :: totalStudents = 0;	//Initialize static data memeber
+int Student ::totalStudents = 0; //Initialize static data memeber
 
 /*
    Static funtion doesn't have this pointer.

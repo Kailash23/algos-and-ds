@@ -10,26 +10,26 @@ using namespace std;
 
 #include <cstring>
 
-int getAsciiSum(char str[]){
-	int sum = 0;
-	for(int i = 0; i < strlen(str); i++) {
-		sum += (int)str[i];
-	}
-	return sum;
+int getAsciiSum(char str[]) {
+    int sum = 0;
+    for (int i = 0; i < strlen(str); i++) {
+        sum += (int)str[i];
+    }
+    return sum;
 }
 
-bool isPermutation(char input1[], char input2[]){
-	if((getAsciiSum(input1) == getAsciiSum(input2)) && (strlen(input1) == strlen(input2))) {
-		return true;
-	} else {
-		return false;
-	}
+bool isPermutation(char input1[], char input2[]) {
+    if ((getAsciiSum(input1) == getAsciiSum(input2)) && (strlen(input1) == strlen(input2))) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-int main(){
-	char input1[100] = {"aabb"};
-	char input2[100] = {"baab"};
-	cout << isPermutation(input1,input2);
+int main() {
+    char input1[100] = {"aabb"};
+    char input2[100] = {"baab"};
+    cout << isPermutation(input1, input2);
 }
 
 /*

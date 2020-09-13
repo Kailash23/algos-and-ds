@@ -38,63 +38,63 @@
 #include <iostream>
 using namespace std;
 
-#include <cstring>		// for memset
+#include <cstring> // for memset
 
 int cycleFound = 0;
 int dx[] = {1, -1, 0, 0};
 int dy[] = {0, 0, 1, -1};
 int visited[50][50];
 
-void DFS(char** board, int x, int y, int fromX, int fromY, char color, int n, int m){
-	if(x < 0 || x >= n || y < 0 || y >= m) {
-		return;
-	}
-	if(board[x][y] != color) {
-		return;
-	}
-	if(visited[x][y]) {
-		cycleFound = 1;
-		return;
-	}
-	visited[x][y] = 1;
-	for(int i = 0; i < 4; i++) {
-		int nextX = x + dx[i];
-		int nextY = y + dy[i];
-		if(nextX == fromX && nextY == fromY) {
-			continue;
-		}
-		DFS(board, nextX, nextY, x, y, color, n, m);
-	}
+void DFS(char **board, int x, int y, int fromX, int fromY, char color, int n, int m) {
+    if (x < 0 || x >= n || y < 0 || y >= m) {
+        return;
+    }
+    if (board[x][y] != color) {
+        return;
+    }
+    if (visited[x][y]) {
+        cycleFound = 1;
+        return;
+    }
+    visited[x][y] = 1;
+    for (int i = 0; i < 4; i++) {
+        int nextX = x + dx[i];
+        int nextY = y + dy[i];
+        if (nextX == fromX && nextY == fromY) {
+            continue;
+        }
+        DFS(board, nextX, nextY, x, y, color, n, m);
+    }
 }
 
 int solve(char **board, int n, int m) {
-	int i, j;
-	memset(visited, 0, sizeof(visited));
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < m; j++) {
-			if(!visited[i][j]) {
-				DFS(board, i, j, -1, -1, board[i][j], n, m);
-			}
-		}
-	}
-	return cycleFound;
+    int i, j;
+    memset(visited, 0, sizeof(visited));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (!visited[i][j]) {
+                DFS(board, i, j, -1, -1, board[i][j], n, m);
+            }
+        }
+    }
+    return cycleFound;
 }
 
-int main(){
-	int n, m;
-	cin >> n >> m;
+int main() {
+    int n, m;
+    cin >> n >> m;
 
-	char** board = new char*[n];
-	for(int i = 0; i < n; i++) {
-		board[i] = new char[m];
-	}
+    char **board = new char *[n];
+    for (int i = 0; i < n; i++) {
+        board[i] = new char[m];
+    }
 
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < m; j++) {
-			cin >> board[i][j];
-		}
-	}
-	cout << solve(board, n, m);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> board[i][j];
+        }
+    }
+    cout << solve(board, n, m);
 }
 
 /*

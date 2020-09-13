@@ -23,13 +23,13 @@
 using namespace std;
 
 class node {
-	public:
-	int data;
-	node *next;
-	node(int data){
-		this->data = data;
-		this->next = NULL;
-	}
+  public:
+    int data;
+    node *next;
+    node(int data) {
+        this->data = data;
+        this->next = NULL;
+    }
 };
 
 /*
@@ -41,75 +41,75 @@ class node {
    This will bring down our time complexity to O(1).
  */
 
-node* takeInput_Better(){
-	int data;
-	cin>>data;
-	node *head = NULL;              // Head will point to first node
-	node *tail = NULL;              // Tail will point to last node
-	while(data != -1) {
-		node *newNode = new node(data);         // Dynamically allocating newNode
-		if(head == NULL) {               // If linked list is empty initially
-			head = newNode;
-			tail = newNode;
-		} else {
-			tail->next = newNode;           // Pointing tail node (currently last node) to the newly formed node.
-			tail = tail->next;
-			// OR
-			// tail = newNode;
-		}
-		cin>>data;
-	}
-	return head;
+node *takeInput_Better() {
+    int data;
+    cin >> data;
+    node *head = NULL; // Head will point to first node
+    node *tail = NULL; // Tail will point to last node
+    while (data != -1) {
+        node *newNode = new node(data); // Dynamically allocating newNode
+        if (head == NULL) {             // If linked list is empty initially
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail->next = newNode; // Pointing tail node (currently last node) to the newly formed node.
+            tail = tail->next;
+            // OR
+            // tail = newNode;
+        }
+        cin >> data;
+    }
+    return head;
 }
 
 /*
    Function to print linked list.
  */
 
-void printLL(node* head){
-	while (head != NULL) {            // This will traverse to the last node
-		cout<<head->data<<" ";
-		head = head->next;
-	}
+void printLL(node *head) {
+    while (head != NULL) { // This will traverse to the last node
+        cout << head->data << " ";
+        head = head->next;
+    }
 }
 
-node* skipMdeleteN(node *head, int M, int N) {
-	if(M == 0){			// If M is 0 there will be only deletion. Whole LL is deleted
-		return NULL;
-	}
-	node* curr = head, *t;
-	int count;
+node *skipMdeleteN(node *head, int M, int N) {
+    if (M == 0) { // If M is 0 there will be only deletion. Whole LL is deleted
+        return NULL;
+    }
+    node *curr = head, *t;
+    int count;
 
-	while(curr){
-		for(count = 1; count < M && curr != NULL; count++){		// basically skipping first M nodes if its not NULL and count < M. (Will run M-1 times)
-			curr = curr->next;
-		}
+    while (curr) {
+        for (count = 1; count < M && curr != NULL; count++) { // basically skipping first M nodes if its not NULL and count < M. (Will run M-1 times)
+            curr = curr->next;
+        }
 
-		if(curr == NULL){		// If we reached the node after last node while skipping return head of LL. As nothing to delete anymore.
-			return head;
-		}
+        if (curr == NULL) { // If we reached the node after last node while skipping return head of LL. As nothing to delete anymore.
+            return head;
+        }
 
-		t = curr->next;		// t points to node after current node. which is used for deleting next N nodes.
+        t = curr->next; // t points to node after current node. which is used for deleting next N nodes.
 
-		for(count = 1; count <= N && t != NULL; count++){		// Will run N times
-			node* temp = t;		// Making temp to point to t
-			t = t->next;		// Incrementing t to next node.
-			delete(temp);		// deleting temp
-		}
-		curr->next = t;		// linking curr and t as N nodes deleted between them
-		curr = t;		// Moving curr to t
-	}
-	return head;
+        for (count = 1; count <= N && t != NULL; count++) { // Will run N times
+            node *temp = t;                                 // Making temp to point to t
+            t = t->next;                                    // Incrementing t to next node.
+            delete (temp);                                  // deleting temp
+        }
+        curr->next = t; // linking curr and t as N nodes deleted between them
+        curr = t;       // Moving curr to t
+    }
+    return head;
 }
 
-int main(){
-	node* head = takeInput_Better();
-	printLL(head);
-	cout<<endl;
-	int m, n;
-	cin>>m>>n;
-	head = skipMdeleteN(head, m, n);
-	printLL(head);
+int main() {
+    node *head = takeInput_Better();
+    printLL(head);
+    cout << endl;
+    int m, n;
+    cin >> m >> n;
+    head = skipMdeleteN(head, m, n);
+    printLL(head);
 }
 
 /*

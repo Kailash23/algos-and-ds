@@ -25,94 +25,93 @@
 #include <iostream>
 using namespace std;
 
-#include <vector>
 #include <queue>
 #include <unordered_map>
+#include <vector>
 
+vector<int> *getPath(int **edges, int V, int sv, int ev) {
+    bool *visited = new bool[V];
+    for (int i = 0; i < V; i++) {
+        visited[i] = false;
+    }
 
-vector<int>* getPath(int** edges, int V, int sv, int ev){
-	bool* visited = new bool[V];
-	for(int i = 0; i < V; i++) {
-		visited[i] = false;
-	}
+    unordered_map<int, int> parent;
+    queue<int> bfsQ;
+    bfsQ.push(sv);
+    visited[sv] = true;
+    vector<int> *output = new vector<int>();
+    bool done = false;
 
-	unordered_map<int, int> parent;
-	queue<int> bfsQ;
-	bfsQ.push(sv);
-	visited[sv] = true;
-	vector<int>* output = new vector<int>();
-	bool done = false;
-
-	while(bfsQ.size() != 0 && !done) {
-		int front = bfsQ.front();
-		bfsQ.pop();
-		for(int i = 0; i < V; i++) {
-			if(i == front) {
-				continue;
-			}
-			if(edges[front][i] == 1 && !visited[i]) {
-				bfsQ.push(i);
-				parent[i] = front;      // front is reponsible for inserting this i into queue
-				visited[i] = true;
-				if(ev == i) {
-					done = true;
-					break;
-				}
-			}
-		}
-	}
-	delete [] visited;
-	if(!done) {      // Means never went to end vertex
-		return NULL;
-	} else {
-		int current = ev;
-		output->push_back(ev);
-		while(current != sv) {
-			current = parent[current];      // next current is the parent of current
-			output->push_back(current);
-		}
-		return output;
-	}
-	delete output;
+    while (bfsQ.size() != 0 && !done) {
+        int front = bfsQ.front();
+        bfsQ.pop();
+        for (int i = 0; i < V; i++) {
+            if (i == front) {
+                continue;
+            }
+            if (edges[front][i] == 1 && !visited[i]) {
+                bfsQ.push(i);
+                parent[i] = front; // front is reponsible for inserting this i into queue
+                visited[i] = true;
+                if (ev == i) {
+                    done = true;
+                    break;
+                }
+            }
+        }
+    }
+    delete[] visited;
+    if (!done) { // Means never went to end vertex
+        return NULL;
+    } else {
+        int current = ev;
+        output->push_back(ev);
+        while (current != sv) {
+            current = parent[current]; // next current is the parent of current
+            output->push_back(current);
+        }
+        return output;
+    }
+    delete output;
 }
 
-int main(){
-	int V, E;
-	cin >> V >> E;
+int main() {
+    int V, E;
+    cin >> V >> E;
 
-	int** edges = new int*[V];
-	for(int i = 0; i < V; i++) {
-		edges[i] = new int[V];
-		for(int j = 0; j < V; j++) {
-			edges[i][j] = 0;
-		}
-	}
+    int **edges = new int *[V];
+    for (int i = 0; i < V; i++) {
+        edges[i] = new int[V];
+        for (int j = 0; j < V; j++) {
+            edges[i][j] = 0;
+        }
+    }
 
-	for(int i = 0; i < E; i++) {
-		int f, s;
-		cin >> f >> s;
-		edges[f][s] = 1;
-		edges[s][f] = 1;
-	}
+    for (int i = 0; i < E; i++) {
+        int f, s;
+        cin >> f >> s;
+        edges[f][s] = 1;
+        edges[s][f] = 1;
+    }
 
-	int sv, ev;
-	cin >> sv >> ev;
+    int sv, ev;
+    cin >> sv >> ev;
 
-	vector<int>* output = getPath(edges, V, sv, ev);
-	if(output != NULL) {
-		cout << "Path (bfs) :" << endl;
-		for(int i = 0; i < output->size(); i++) {
-			cout << output->at(i) << " ";
-		}
-		delete output;
-	} else {
-		cout << "No path found !" << endl;
-	}
+    vector<int> *output = getPath(edges, V, sv, ev);
+    if (output != NULL) {
+        cout << "Path (bfs) :" << endl;
+        for (int i = 0; i < output->size(); i++) {
+            cout << output->at(i) << " ";
+        }
+        delete output;
+    } else {
+        cout << "No path found !" << endl;
+    }
 
-	for(int i = 0; i < V; i++) {
-		delete [] edges[i];
-	}
-	delete [] edges;
+    for (int i = 0; i < V; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
 
 /*

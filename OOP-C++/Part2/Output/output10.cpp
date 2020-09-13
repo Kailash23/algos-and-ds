@@ -2,19 +2,18 @@
 using namespace std;
 
 class Student {
-public:
-	int rollNumber;
+  public:
+    int rollNumber;
 
-	static int getRollNumber() {		// error
-		return rollNumber;
-	}
+    static int getRollNumber() { // error
+        return rollNumber;
+    }
 };
 
-
 int main() {
-	Student s;
-	s.rollNumber = 101;
-	cout << s.getRollNumber() << endl;
+    Student s;
+    s.rollNumber = 101;
+    cout << s.getRollNumber() << endl;
 }
 
 /*

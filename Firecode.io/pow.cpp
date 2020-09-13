@@ -6,14 +6,13 @@
    power(2,3) ==> 8.0
  */
 
-double power(double x, int n){
-	if(n >= 0) {
-		if(n == 0) {
-			return 1;
-		}
-		return x * power(x, n - 1);
-	} else {
-		return 1/x * power(x, n + 1);
-	}
+double power(double x, int n) {
+    if (n >= 0) {
+        if (n == 0) {
+            return 1;
+        }
+        return x * power(x, n - 1);
+    } else {
+        return 1 / x * power(x, n + 1);
+    }
 }
- 

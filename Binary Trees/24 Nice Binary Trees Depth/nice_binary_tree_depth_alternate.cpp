@@ -30,30 +30,29 @@ using namespace std;
 int height;
 int pos;
 
-void depthHelper(int depth, char str[]){
-	pos++;
-	height = max(depth, height);
-	if(str[pos] == '\0') {
-		return;
-	}
-	if(str[pos] == 'l') {
-		return;
-	}
-	if(str[pos] == 'n') {
-		depthHelper(depth+1,str);
-		depthHelper(depth+1,str);
-	}
+void depthHelper(int depth, char str[]) {
+    pos++;
+    height = max(depth, height);
+    if (str[pos] == '\0') {
+        return;
+    }
+    if (str[pos] == 'l') {
+        return;
+    }
+    if (str[pos] == 'n') {
+        depthHelper(depth + 1, str);
+        depthHelper(depth + 1, str);
+    }
 }
 
 int depth(char str[]) {
-	depthHelper(0,str);
-	return height;
+    depthHelper(0, str);
+    return height;
 }
 
-
-int main(){
-	height = 0;
-	pos = -1;
-	char str[] = "nnllnll";
-	cout<< depth(str);
+int main() {
+    height = 0;
+    pos = -1;
+    char str[] = "nnllnll";
+    cout << depth(str);
 }

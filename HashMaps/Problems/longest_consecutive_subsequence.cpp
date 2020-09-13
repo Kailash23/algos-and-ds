@@ -29,43 +29,42 @@
 #include <vector>
 using namespace std;
 
-vector<int> longestSubsequence(int *arr, int n){
-	vector<int> temp;
-	vector<int> max;
-	unordered_map<int,bool> map;
+vector<int> longestSubsequence(int *arr, int n) {
+    vector<int> temp;
+    vector<int> max;
+    unordered_map<int, bool> map;
 
-	for(int i = 0; i < n; i++) {        //Adding elements to hash map
-		map[arr[i]] = true;
-	}
+    for (int i = 0; i < n; i++) { //Adding elements to hash map
+        map[arr[i]] = true;
+    }
 
-	for(int i = 0; i < n; i++) {
-		int k = arr[i];     // Taking element from array and cheking all consecutive value in hashmap by inc it.
-		while(map.count(k)) {
-			temp.push_back(k);
-			k++;
-		}
-		if(temp.size() > max.size()) {
-			max = temp;
-		}
-		temp.clear();
-	}
-	return max;
+    for (int i = 0; i < n; i++) {
+        int k = arr[i]; // Taking element from array and cheking all consecutive value in hashmap by inc it.
+        while (map.count(k)) {
+            temp.push_back(k);
+            k++;
+        }
+        if (temp.size() > max.size()) {
+            max = temp;
+        }
+        temp.clear();
+    }
+    return max;
 }
 
-int main(){
-	int arr[] = {2,12,9,16,10,5,3,20,25,11,1,8,6};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	vector<int> res;
-	res = longestSubsequence(arr, n);
-	for(auto it = res.begin(); it != res.end(); it++) {
-		cout << *it << " ";
-	}
+int main() {
+    int arr[] = {2, 12, 9, 16, 10, 5, 3, 20, 25, 11, 1, 8, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    vector<int> res;
+    res = longestSubsequence(arr, n);
+    for (auto it = res.begin(); it != res.end(); it++) {
+        cout << *it << " ";
+    }
 }
 
 /*
    8 9 10 11 12
  */
-
 
 /*
 Alternate solution

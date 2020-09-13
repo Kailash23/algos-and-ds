@@ -1,9 +1,9 @@
 class Vehicle {
 
-	public:
-		string color;
+  public:
+    string color;
 
-	void print() {
-		cout << "Vehicle" << endl;
-	}
+    void print() {
+        cout << "Vehicle" << endl;
+    }
 };

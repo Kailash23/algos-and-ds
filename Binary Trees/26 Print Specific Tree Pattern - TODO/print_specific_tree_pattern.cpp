@@ -44,8 +44,7 @@
    1 2 3 4 7 5 6 8 15 9 14 10 13 11 12
  */
 
-
- /*
+/*
  template<typename T>
 
  class BinaryTreeNode {
@@ -66,71 +65,71 @@
    Code works only for complete binary tree as is required by the question
  */
 
- #include <queue>
+#include <queue>
 
-void printSpecificPattern(BinaryTreeNode<int> * root){
+void printSpecificPattern(BinaryTreeNode<int> *root) {
 
-	if(root == NULL) {
-		return;
-	}
-	cout << root->data << " ";
+    if (root == NULL) {
+        return;
+    }
+    cout << root->data << " ";
 
-	//Create an two empty queues and enqueue root's left and right child respectively
-	queue<BinaryTreeNode<int>*> Q1,Q2;
+    //Create an two empty queues and enqueue root's left and right child respectively
+    queue<BinaryTreeNode<int> *> Q1, Q2;
 
-	if(root->left != NULL) {
-		Q1.push(root->left);
-	}
+    if (root->left != NULL) {
+        Q1.push(root->left);
+    }
 
-	if(root->right != NULL) {
-		Q2.push(root->right);
-	}
+    if (root->right != NULL) {
+        Q2.push(root->right);
+    }
 
-	// Run till queue is not empty
+    // Run till queue is not empty
 
-	while(!Q1.empty() || !Q2.empty()) {
+    while (!Q1.empty() || !Q2.empty()) {
 
-		//Calc no of nodes in current level
-		int n1 = Q1.size();
-		int n2 = Q2.size();
+        //Calc no of nodes in current level
+        int n1 = Q1.size();
+        int n2 = Q2.size();
 
-		// process every nodes in current level
-		while(n1 > 0 || n2 > 0) {
-			if(n1 > 0) {
+        // process every nodes in current level
+        while (n1 > 0 || n2 > 0) {
+            if (n1 > 0) {
 
-				// pop front node from first queue and print it
-				BinaryTreeNode<int>* x = Q1.front();
-				Q1.pop();
+                // pop front node from first queue and print it
+                BinaryTreeNode<int> *x = Q1.front();
+                Q1.pop();
 
-				cout << x->data << " ";
+                cout << x->data << " ";
 
-				//push left and right child of x to first queue
-				if(x->left != NULL) {
-					Q1.push(x->left);
-				}
+                //push left and right child of x to first queue
+                if (x->left != NULL) {
+                    Q1.push(x->left);
+                }
 
-				if(x->right != NULL) {
-					Q1.push(x->right);
-				}
-				n1--;
-			}
-			if(n2 > 0) {
-				//pop front node from second queue and print it
-				BinaryTreeNode<int>* y = Q2.front();
-				Q2.pop();
+                if (x->right != NULL) {
+                    Q1.push(x->right);
+                }
+                n1--;
+            }
+            if (n2 > 0) {
+                //pop front node from second queue and print it
+                BinaryTreeNode<int> *y = Q2.front();
+                Q2.pop();
 
-				cout << y->data << " ";
+                cout << y->data << " ";
 
-				//push right and left child of y to second queue
-				if(y->right != NULL) {
-					Q2.push(y->right);
-				}
+                //push right and left child of y to second queue
+                if (y->right != NULL) {
+                    Q2.push(y->right);
+                }
 
-				if(y->left != NULL) {
-					Q2.push(y->left);
-				}
-				n2--;
-			}
-		}
-	}
+                if (y->left != NULL) {
+                    Q2.push(y->left);
+                }
+                n2--;
+            }
+        }
+    }
 }

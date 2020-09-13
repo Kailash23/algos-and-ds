@@ -17,31 +17,31 @@
 using namespace std;
 
 int allIndexes(int input[], int size, int x, int output[]) {
-	if(size == 0) {
-		return 0;
-	}
-	int ans = allIndexes(input, size - 1, x, output);   // removing element from back
-	if(input[size - 1] == x) {
-		output[ans++] = size - 1;
-	}
-	return ans;
+    if (size == 0) {
+        return 0;
+    }
+    int ans = allIndexes(input, size - 1, x, output); // removing element from back
+    if (input[size - 1] == x) {
+        output[ans++] = size - 1;
+    }
+    return ans;
 }
 
-int main(){
-	int input[] = {1, 2, 3, 2, 5, 2, 7};
-	int n = sizeof(input) / sizeof(input[0]);
-	int *output = new int[n];
-	int x = 2;
-	int size = allIndexes(input, n, x, output);
-	for(int i = 0; i < size; i++) {
-		cout << output[i] << " ";
-	}
+int main() {
+    int input[] = {1, 2, 3, 2, 5, 2, 7};
+    int n = sizeof(input) / sizeof(input[0]);
+    int *output = new int[n];
+    int x = 2;
+    int size = allIndexes(input, n, x, output);
+    for (int i = 0; i < size; i++) {
+        cout << output[i] << " ";
+    }
 }
 
 /*
    1 3 5
  */
- 
+
 /*
  #include <bits/stdc++.h>
     using namespace std;

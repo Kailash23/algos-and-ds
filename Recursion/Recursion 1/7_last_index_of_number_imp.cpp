@@ -13,22 +13,22 @@
 #include <iostream>
 using namespace std;
 
-int lastIndex(int input[], int size, int x){
-	if(size == 0){
-		return -1;
-	}
-	if(input[size - 1] == x){
-		return size - 1;
-	}
-	return lastIndex(input, size - 1, x);	// Removing element from back
+int lastIndex(int input[], int size, int x) {
+    if (size == 0) {
+        return -1;
+    }
+    if (input[size - 1] == x) {
+        return size - 1;
+    }
+    return lastIndex(input, size - 1, x); // Removing element from back
 }
 
-int main(){
-	int arr[] = {1, 5, 4, 3, 5, 5, 5, 6, 6, 6, 6};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	int x = 6;
-	int ans = lastIndex(arr, n, x);
-	cout << ans;
+int main() {
+    int arr[] = {1, 5, 4, 3, 5, 5, 5, 6, 6, 6, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 6;
+    int ans = lastIndex(arr, n, x);
+    cout << ans;
 }
 
 /*

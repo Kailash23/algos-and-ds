@@ -18,8 +18,8 @@
    14 1
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 
 using namespace std;
 
@@ -27,80 +27,80 @@ using namespace std;
 #include <queue>
 
 class PairAns {
-	public:
-		int min;
-		int max;
+  public:
+    int min;
+    int max;
 };
 
-BinaryTreeNode<int>* takeInputLevelWise() {
-	int rootData;
-	cout << "Enter root data" << endl;
-	cin >> rootData;
-	if(rootData == -1) {             // if data is -1 consider it as no child node.
-		return NULL;
-	}
+BinaryTreeNode<int> *takeInputLevelWise() {
+    int rootData;
+    cout << "Enter root data" << endl;
+    cin >> rootData;
+    if (rootData == -1) { // if data is -1 consider it as no child node.
+        return NULL;
+    }
 
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
-	pendingNodes.push(root);
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rootData);
+    queue<BinaryTreeNode<int> *> pendingNodes; // queue used to input levelwise
+    pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
+    while (pendingNodes.size() != 0) {
+        BinaryTreeNode<int> *front = pendingNodes.front();
+        pendingNodes.pop();
 
-		cout << "Enter left child of " << front->data << endl;
-		int leftChildData;
-		cin >> leftChildData;
-		if(leftChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
-			front->left = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
+        cout << "Enter left child of " << front->data << endl;
+        int leftChildData;
+        cin >> leftChildData;
+        if (leftChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(leftChildData);
+            front->left = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
 
-		cout << "Enter right child of " << front->data << endl;
-		int rightChildData;
-		cin >> rightChildData;
-		if(rightChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
-			front->right = child;
-			pendingNodes.push(child);            // Push child node for inputing there child nodes.
-		}
-	}
-	return root;
+        cout << "Enter right child of " << front->data << endl;
+        int rightChildData;
+        cin >> rightChildData;
+        if (rightChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(rightChildData);
+            front->right = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
+    }
+    return root;
 }
 
-PairAns minMax(BinaryTreeNode<int>* root) {
-	if(root == NULL) {
-		PairAns pair;
-		pair.min = INT_MAX;
-		pair.max = INT_MIN;
-		return pair;
-	}
+PairAns minMax(BinaryTreeNode<int> *root) {
+    if (root == NULL) {
+        PairAns pair;
+        pair.min = INT_MAX;
+        pair.max = INT_MIN;
+        return pair;
+    }
 
-	PairAns leftAns = minMax(root->left);
-	PairAns rightAns = minMax(root->right);
+    PairAns leftAns = minMax(root->left);
+    PairAns rightAns = minMax(root->right);
 
-	int lm = leftAns.min;
-	int rm = rightAns.min;
-	int lM = leftAns.max;
-	int rM = rightAns.max;
+    int lm = leftAns.min;
+    int rm = rightAns.min;
+    int lM = leftAns.max;
+    int rM = rightAns.max;
 
-	int minimum = min(min(lm, rm), root->data);
-	int maximum = max(max(lM, rM), root->data);
+    int minimum = min(min(lm, rm), root->data);
+    int maximum = max(max(lM, rM), root->data);
 
-	PairAns ans;
-	ans.min = minimum;
-	ans.max = maximum;
-	return ans;
+    PairAns ans;
+    ans.min = minimum;
+    ans.max = maximum;
+    return ans;
 }
 
-int main(){
-	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	PairAns p = minMax(root);
-	cout << "Min: "<< p.min << endl;
-	cout << "Max: "<< p.max << endl;
-	delete root;
+int main() {
+    BinaryTreeNode<int> *root = takeInputLevelWise();
+    cout << endl;
+    PairAns p = minMax(root);
+    cout << "Min: " << p.min << endl;
+    cout << "Max: " << p.max << endl;
+    delete root;
 }
 
 /*

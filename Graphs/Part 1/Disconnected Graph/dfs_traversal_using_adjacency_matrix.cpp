@@ -18,59 +18,59 @@
 #include <iostream>
 using namespace std;
 
-void print(int** edges, int n, int sv, bool* visited){
-	cout << sv << " ";
-	visited[sv] = true;
-	for(int i = 0; i < n; i++) {
-		if(i == sv) {
-			continue;
-		}
-		if(edges[sv][i] == 1) {
-			if(visited[i]) {
-				continue;
-			}
-			print(edges, n, i, visited);
-		}
-	}
+void print(int **edges, int n, int sv, bool *visited) {
+    cout << sv << " ";
+    visited[sv] = true;
+    for (int i = 0; i < n; i++) {
+        if (i == sv) {
+            continue;
+        }
+        if (edges[sv][i] == 1) {
+            if (visited[i]) {
+                continue;
+            }
+            print(edges, n, i, visited);
+        }
+    }
 }
 
-void BFS(int** edges, int n){
-	bool* visited = new bool[n];
-	for(int i = 0; i < n; i++) {
-		visited[i] = false;
-	}
-	for(int i = 0; i < n; i++){
-		if(!visited[i]){
-			print(edges, n, i, visited);
-		}
-	}
-	delete [] visited;
+void BFS(int **edges, int n) {
+    bool *visited = new bool[n];
+    for (int i = 0; i < n; i++) {
+        visited[i] = false;
+    }
+    for (int i = 0; i < n; i++) {
+        if (!visited[i]) {
+            print(edges, n, i, visited);
+        }
+    }
+    delete[] visited;
 }
 
-int main(){
-	int n;      // Vertices
-	int e;      // Edges
-	cin >> n >> e;
-	int **edges = new int*[n];  // Adjacency matrix of n X n (where n is the no of vertices)
-	for(int i = 0; i < n; i++) {
-		edges[i] = new int[n];
-		for(int j = 0; j < n; j++) {
-			edges[i][j] = 0;        // Initially all set to 0
-		}
-	}
-	for(int i = 0; i < e; i++) {
-		int f, s;
-		cin >> f >> s;
-		edges[f][s] = 1;
-		edges[s][f] = 1;
-	}
-	cout << endl;
+int main() {
+    int n; // Vertices
+    int e; // Edges
+    cin >> n >> e;
+    int **edges = new int *[n]; // Adjacency matrix of n X n (where n is the no of vertices)
+    for (int i = 0; i < n; i++) {
+        edges[i] = new int[n];
+        for (int j = 0; j < n; j++) {
+            edges[i][j] = 0; // Initially all set to 0
+        }
+    }
+    for (int i = 0; i < e; i++) {
+        int f, s;
+        cin >> f >> s;
+        edges[f][s] = 1;
+        edges[s][f] = 1;
+    }
+    cout << endl;
 
-	BFS(edges, n);        // Initially taking starting vertex as 0
-	for(int i = 0; i < n; i++){
-	    delete [] edges[i];
-	}
-	delete [] edges;
+    BFS(edges, n); // Initially taking starting vertex as 0
+    for (int i = 0; i < n; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
 
 /*
@@ -94,7 +94,6 @@ int main(){
 	  										   \	 /
 											   	  8
 */
-
 
 /*
    BFS and DFS - O(E) - O(n^2)

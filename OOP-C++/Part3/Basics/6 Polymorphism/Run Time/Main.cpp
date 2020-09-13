@@ -1,23 +1,23 @@
 #include <iostream>
 using namespace std;
-#include "vehicle_class.cpp"
 #include "car_class.cpp"
+#include "vehicle_class.cpp"
 
 int main() {
-	Vehicle v;
+    Vehicle v;
 
-	Car c;
+    Car c;
 
-	v.print();
-	c.print();
+    v.print();
+    c.print();
 
-	Vehicle *v1 = new Vehicle;
-	Vehicle *v2;
+    Vehicle *v1 = new Vehicle;
+    Vehicle *v2;
 
-	v2 = &c;
+    v2 = &c;
 
-	v1->print();
-	v2->print();    // Polymorphism - Runtime
+    v1->print();
+    v2->print(); // Polymorphism - Runtime
 }
 
 /*

@@ -7,45 +7,45 @@
    Duplicate elements should be in right subtree.
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 using namespace std;
 
-#include <queue>
 #include <climits>
+#include <queue>
 
-BinaryTreeNode<int>* takeInputLevelWise() {
-	int rootData;
-	cout << "Enter root data" << endl;
-	cin >> rootData;
-	if(rootData == -1) {             // if data is -1 consider it as no child node.
-		return NULL;
-	}
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
-	pendingNodes.push(root);
+BinaryTreeNode<int> *takeInputLevelWise() {
+    int rootData;
+    cout << "Enter root data" << endl;
+    cin >> rootData;
+    if (rootData == -1) { // if data is -1 consider it as no child node.
+        return NULL;
+    }
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rootData);
+    queue<BinaryTreeNode<int> *> pendingNodes; // queue used to input levelwise
+    pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
-		cout << "Enter left child of " << front->data << endl;
-		int leftChildData;
-		cin >> leftChildData;
-		if(leftChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
-			front->left = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
-		cout << "Enter right child of " << front->data << endl;
-		int rightChildData;
-		cin >> rightChildData;
-		if(rightChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
-			front->right = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
-	}
-	return root;
+    while (pendingNodes.size() != 0) {
+        BinaryTreeNode<int> *front = pendingNodes.front();
+        pendingNodes.pop();
+        cout << "Enter left child of " << front->data << endl;
+        int leftChildData;
+        cin >> leftChildData;
+        if (leftChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(leftChildData);
+            front->left = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
+        cout << "Enter right child of " << front->data << endl;
+        int rightChildData;
+        cin >> rightChildData;
+        if (rightChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(rightChildData);
+            front->right = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
+    }
+    return root;
 }
 
 /*
@@ -60,38 +60,38 @@ BinaryTreeNode<int>* takeInputLevelWise() {
 
 class IsBSTReturn {
   public:
-	bool isBST;
-	int maximum;
-	int minimum;
+    bool isBST;
+    int maximum;
+    int minimum;
 };
 
-IsBSTReturn isBST(BinaryTreeNode<int>* root) {
-	if(root == NULL) {     // Constant Work
-		IsBSTReturn output;
-		output.isBST = true;
-		output.minimum = INT_MAX;
-		output.maximum = INT_MIN;
-		return output;
-	}
-	IsBSTReturn leftOutput = isBST(root->left);       // T(n/2)
-	IsBSTReturn rightOutput = isBST(root->right);     // T(n/2)
+IsBSTReturn isBST(BinaryTreeNode<int> *root) {
+    if (root == NULL) { // Constant Work
+        IsBSTReturn output;
+        output.isBST = true;
+        output.minimum = INT_MAX;
+        output.maximum = INT_MIN;
+        return output;
+    }
+    IsBSTReturn leftOutput = isBST(root->left);   // T(n/2)
+    IsBSTReturn rightOutput = isBST(root->right); // T(n/2)
 
-	int minimum = min(root->data, min(leftOutput.minimum, rightOutput.minimum));       // These 3 lines were doing constant work
-	int maximum = max(root->data, max(leftOutput.maximum, rightOutput.maximum));
-	bool isBSTFinal = (root->data > leftOutput.maximum) && (root->data <= rightOutput.minimum) && leftOutput.isBST && rightOutput.isBST;
+    int minimum = min(root->data, min(leftOutput.minimum, rightOutput.minimum)); // These 3 lines were doing constant work
+    int maximum = max(root->data, max(leftOutput.maximum, rightOutput.maximum));
+    bool isBSTFinal = (root->data > leftOutput.maximum) && (root->data <= rightOutput.minimum) && leftOutput.isBST && rightOutput.isBST;
 
-	IsBSTReturn output;        // Constant Work - all lines below
-	output.minimum = minimum;
-	output.maximum = maximum;
-	output.isBST = isBSTFinal;
-	return output;
+    IsBSTReturn output; // Constant Work - all lines below
+    output.minimum = minimum;
+    output.maximum = maximum;
+    output.isBST = isBSTFinal;
+    return output;
 }
 
-int main(){
-	BinaryTreeNode<int>* root = takeInputLevelWise();
-	IsBSTReturn output;
-	output = isBST(root);
-	cout << output.isBST;
+int main() {
+    BinaryTreeNode<int> *root = takeInputLevelWise();
+    IsBSTReturn output;
+    output = isBST(root);
+    cout << output.isBST;
 }
 
 /*

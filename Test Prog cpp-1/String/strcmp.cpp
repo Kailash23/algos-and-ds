@@ -1,17 +1,17 @@
-#include <iostream>
 #include <cstring>
+#include <iostream>
 
 using namespace std;
 
-int main(){
-	char s1[] = "Hello";    //500
-	char s2[] = "World";
-	int i, j;
-	i = strcmp(s1, "Hello");
-	j = strcmp(s1, s2);
-	cout << i << endl;      //0
-	cout << j << endl;      //-15
-	return 0;
+int main() {
+    char s1[] = "Hello"; //500
+    char s2[] = "World";
+    int i, j;
+    i = strcmp(s1, "Hello");
+    j = strcmp(s1, s2);
+    cout << i << endl; //0
+    cout << j << endl; //-15
+    return 0;
 }
 
 /*

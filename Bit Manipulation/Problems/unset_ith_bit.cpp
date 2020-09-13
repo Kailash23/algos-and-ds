@@ -9,15 +9,15 @@
 #include <iostream>
 using namespace std;
 
-int turnOffIthBit(int n, int i){
-	n = n & ~(1 << i);
-	return n;
+int turnOffIthBit(int n, int i) {
+    n = n & ~(1 << i);
+    return n;
 }
 
-int main(){
-	int n, i;
-	cin >> n >> i;
-	cout << turnOffIthBit(n, i);
+int main() {
+    int n, i;
+    cin >> n >> i;
+    cout << turnOffIthBit(n, i);
 }
 
 /*

@@ -12,30 +12,30 @@
 #include <math.h>
 using namespace std;
 
-int minCount(int n){
-	if(n <= 1) {
-		return n;
-	}
-	int ans = n;
-	for(int i = 1; i <= n; i++) {
-		int square = i * i;
-		if(square > n) {
-			break;
-		}
-		ans = min(ans, minCount(n - square) + 1);
-	}
-	return ans;
+int minCount(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    int ans = n;
+    for (int i = 1; i <= n; i++) {
+        int square = i * i;
+        if (square > n) {
+            break;
+        }
+        ans = min(ans, minCount(n - square) + 1);
+    }
+    return ans;
 }
 
-
-int main(){
-	int n;
-	cin >> n;
-	while(n != -1) {
-		cout << minCount(n) << endl << endl;
-		cin >> n;
-	}
-	cout << "exit!";
+int main() {
+    int n;
+    cin >> n;
+    while (n != -1) {
+        cout << minCount(n) << endl
+             << endl;
+        cin >> n;
+    }
+    cout << "exit!";
 }
 
 /*

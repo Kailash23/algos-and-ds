@@ -26,7 +26,6 @@
    For each input set, output the number of possible decodings for the input string
  */
 
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -60,59 +59,58 @@ using namespace std;
 
 int num_codes_dp(int *input, int size, int *arr) {
 
-	if(size == 1) {     // Size is one, which means only one code is possible (a-i
-		return 1;
-	}
+    if (size == 1) { // Size is one, which means only one code is possible (a-i
+        return 1;
+    }
 
-	if(size == 0) {     // Size is zero, which means only one code is possible ie empty string
-		return 1;
-	}
+    if (size == 0) { // Size is zero, which means only one code is possible ie empty string
+        return 1;
+    }
 
-	if(arr[size] > 0) {     // If work is done already with this size return precomputed value.
-		return arr[size];
-	}
+    if (arr[size] > 0) { // If work is done already with this size return precomputed value.
+        return arr[size];
+    }
 
-	int count = 0;
+    int count = 0;
 
-	if(input[size-1] > 0) {     // Element at input[size-1] should be greater than zero
-		count = num_codes_dp(input, size-1, arr);      // Array reduced from back
-	}
-	// If we reach here this means we are sure that size is greater than or equal to 2.
+    if (input[size - 1] > 0) {                      // Element at input[size-1] should be greater than zero
+        count = num_codes_dp(input, size - 1, arr); // Array reduced from back
+    }
+    // If we reach here this means we are sure that size is greater than or equal to 2.
 
-	if(input[size - 2] == 1 || (input[size-2] == 2 && input[size-1] < 7)) {      // arr[size-2] :- second last digit arr[size-1] :- last digit
-		count += num_codes_dp(input, size-2, arr);        // Do this if the number formed from second last and last digit of array is greater than 26.
-	}
+    if (input[size - 2] == 1 || (input[size - 2] == 2 && input[size - 1] < 7)) { // arr[size-2] :- second last digit arr[size-1] :- last digit
+        count += num_codes_dp(input, size - 2, arr);                             // Do this if the number formed from second last and last digit of array is greater than 26.
+    }
 
-	arr[size] = count;     //Whatever count we get we will store it for further need.
-	return count;
+    arr[size] = count; //Whatever count we get we will store it for further need.
+    return count;
 }
 
-int main(){
-	vector<string> lines;
-	string str;
-	cin>>str;
-	lines.push_back(str);
+int main() {
+    vector<string> lines;
+    string str;
+    cin >> str;
+    lines.push_back(str);
 
+    while (str != "" && str.length() != 1 && str[0] != 0) {
+        cin >> str;
+        lines.push_back(str);
+    }
+    vector<string>::iterator it = lines.end();
+    lines.erase(it);
 
-	while(str != "" && str.length() != 1 && str[0] != 0) {
-		cin>>str;
-		lines.push_back(str);
-	}
-	vector<string> :: iterator it = lines.end();
-	lines.erase(it);
-
-	for(int i = 0; i < lines.size(); i++) {
-		string l = lines[i];
-		int size = l.length();
-		int temp[size+1];
-		for(int t = 0; t < size+1; t++) {
-			temp[t] = 0;
-		}
-		int input[size];
-		for(int j = 0; j < size; j++) {
-			input[j] = l[j]-'0';
-		}
-		cout<<num_codes_dp(input, size, temp)<<endl;
-		//cout<<num_codes_itr(input, size)<<endl;
-	}
+    for (int i = 0; i < lines.size(); i++) {
+        string l = lines[i];
+        int size = l.length();
+        int temp[size + 1];
+        for (int t = 0; t < size + 1; t++) {
+            temp[t] = 0;
+        }
+        int input[size];
+        for (int j = 0; j < size; j++) {
+            input[j] = l[j] - '0';
+        }
+        cout << num_codes_dp(input, size, temp) << endl;
+        //cout<<num_codes_itr(input, size)<<endl;
+    }
 }

@@ -1,24 +1,24 @@
 #include <iostream>
 using namespace std;
 
-#include "Vehicle.cpp"
 #include "Car.cpp"
+#include "Vehicle.cpp"
 
 int main() {
-	Vehicle v;
-	Car c;
+    Vehicle v;
+    Car c;
 
-	v.print();
-	c.print();
+    v.print();
+    c.print();
 
-	Vehicle *v1 = new Vehicle;		// Dynamically
-	Vehicle *v2;		// Using v2 we can only access those property that are in Vehicle.
-						// Because v2 pointer is of Vehicle type.
+    Vehicle *v1 = new Vehicle; // Dynamically
+    Vehicle *v2;               // Using v2 we can only access those property that are in Vehicle.
+                               // Because v2 pointer is of Vehicle type.
 
-	v2 = &c;		// v2 should be base class object and c should be from derived class.
-					// Base class pointer pointing to child class object.
-	v1->print();
-	v2->print();	// Compile time polymorphism - Vehicle's print function will call.
+    v2 = &c; // v2 should be base class object and c should be from derived class.
+        // Base class pointer pointing to child class object.
+    v1->print();
+    v2->print(); // Compile time polymorphism - Vehicle's print function will call.
 }
 
 /*

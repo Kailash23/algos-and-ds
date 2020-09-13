@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-#include "Vehicle.cpp"
+#include "Bus.cpp"
 #include "Car.cpp"
 #include "Truck.cpp"
-#include "Bus.cpp"
+#include "Vehicle.cpp"
 
 int main() {
-	Bus b;
-	b.Truck :: print();
-	b.Car :: print();
+    Bus b;
+    b.Truck ::print();
+    b.Car ::print();
 }
 
 /*

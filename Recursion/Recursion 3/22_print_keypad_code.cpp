@@ -26,55 +26,55 @@
 #include <string>
 using namespace std;
 
-string getString(int d){
-	if(d == 2) {
-		return "abc";
-	}
-	if(d == 3) {
-		return "def";
-	}
-	if(d == 4) {
-		return "ghi";
-	}
-	if(d == 5) {
-		return "jkl";
-	}
-	if(d == 6) {
-		return "mno";
-	}
-	if(d == 7) {
-		return "pqrs";
-	}
-	if(d == 8) {
-		return "tuv";
-	}
-	if(d == 9) {
-		return "wxyz";
-	}
-	return " ";
+string getString(int d) {
+    if (d == 2) {
+        return "abc";
+    }
+    if (d == 3) {
+        return "def";
+    }
+    if (d == 4) {
+        return "ghi";
+    }
+    if (d == 5) {
+        return "jkl";
+    }
+    if (d == 6) {
+        return "mno";
+    }
+    if (d == 7) {
+        return "pqrs";
+    }
+    if (d == 8) {
+        return "tuv";
+    }
+    if (d == 9) {
+        return "wxyz";
+    }
+    return " ";
 }
 
-void keypad(int num, string output){
-	if(num == 0) {
-		cout << output << endl;
-		return;
-	}
+void keypad(int num, string output) {
+    if (num == 0) {
+        cout << output << endl;
+        return;
+    }
 
-	int lastDigit = num % 10;
-	int smallOutput = num / 10;
-	string option = getString(lastDigit);
+    int lastDigit = num % 10;
+    int smallOutput = num / 10;
+    string option = getString(lastDigit);
 
-	for(int i = 0; i < option.size(); i++) {
-		keypad(smallOutput, option[i] + output);
-	}
+    for (int i = 0; i < option.size(); i++) {
+        keypad(smallOutput, option[i] + output);
+    }
 }
 
-void printKeypad(int num){
-	string output = "";
-	keypad(num, output);
+void printKeypad(int num) {
+    string output = "";
+    keypad(num, output);
 }
 
-int main(){
-	int number = 234;
-	printKeypad(number);
+int main() {
+    int number = 234;
+    printKeypad(number);
 }

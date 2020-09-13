@@ -7,15 +7,15 @@
    character - i.e. "race car" should return false as read backward it is "rac ecar".
  */
 
-bool is_string_palindrome(string str){
-	if(str.size() <= 1) {
-		return true;
-	}
-	bool smallAns;
-	if(str[0] == str[str.size() - 1]) {
-		smallAns = true;
-	} else {
-		smallAns = false;
-	}
-	return smallAns && is_string_palindrome(str.substr(1, str.size() - 2));
+bool is_string_palindrome(string str) {
+    if (str.size() <= 1) {
+        return true;
+    }
+    bool smallAns;
+    if (str[0] == str[str.size() - 1]) {
+        smallAns = true;
+    } else {
+        smallAns = false;
+    }
+    return smallAns && is_string_palindrome(str.substr(1, str.size() - 2));
 }

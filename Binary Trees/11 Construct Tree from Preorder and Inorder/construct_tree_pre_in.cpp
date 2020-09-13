@@ -27,69 +27,69 @@
    15 10 12
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 using namespace std;
 
 #include <queue>
 
-void printLevelWise(BinaryTreeNode<int>* root) {
-	if(root == NULL) {
-		return;
-	}
+void printLevelWise(BinaryTreeNode<int> *root) {
+    if (root == NULL) {
+        return;
+    }
 
-	queue<BinaryTreeNode<int>*> pendingNodes;
-	pendingNodes.push(root);
+    queue<BinaryTreeNode<int> *> pendingNodes;
+    pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
+    while (pendingNodes.size() != 0) {
+        BinaryTreeNode<int> *front = pendingNodes.front();
+        pendingNodes.pop();
 
-		cout << front->data << ":";
+        cout << front->data << ":";
 
-		if(front->left != NULL) {
-			cout << "L:" << front->left->data;
-			pendingNodes.push(front->left);
-		} else {
-			cout << "L:-1";
-		}
-		if(front->right != NULL) {
-			cout << ",R:" << front->right->data;
-			pendingNodes.push(front->right);
-		} else {
-			cout << ",R:-1";
-		}
-		cout << endl;
-	}
+        if (front->left != NULL) {
+            cout << "L:" << front->left->data;
+            pendingNodes.push(front->left);
+        } else {
+            cout << "L:-1";
+        }
+        if (front->right != NULL) {
+            cout << ",R:" << front->right->data;
+            pendingNodes.push(front->right);
+        } else {
+            cout << ",R:-1";
+        }
+        cout << endl;
+    }
 }
 
-BinaryTreeNode<int>* buildTreeHelper(int* in, int* pre, int inS, int inE, int preS, int preE){
-	if(inS > inE) {      // Means array is empty.
-		return NULL;
-	}
+BinaryTreeNode<int> *buildTreeHelper(int *in, int *pre, int inS, int inE, int preS, int preE) {
+    if (inS > inE) { // Means array is empty.
+        return NULL;
+    }
 
-	int rootData = pre[preS];       // Root of the tree is the first element of preorder traversal array.(don't use 0 (index))
-	int rootIndex = -1;
-	for(int i = inS; i <= inE; i++) {
-		if(in[i] == rootData) {
-			rootIndex = i;
-			break;
-		}
-	}
-	// If rootData is -1 at this point then invalid inputs in array, we are not handling that case here.
-	int LinS = inS;
-	int LinE = rootIndex - 1;
-	int RinS = rootIndex + 1;
-	int RinE = inE;
-	int LpreS = preS + 1;
-	int LpreE = LpreS + (LinE - LinS);
-	int RpreS = LpreE + 1;
-	int RpreE = preE;
+    int rootData = pre[preS]; // Root of the tree is the first element of preorder traversal array.(don't use 0 (index))
+    int rootIndex = -1;
+    for (int i = inS; i <= inE; i++) {
+        if (in[i] == rootData) {
+            rootIndex = i;
+            break;
+        }
+    }
+    // If rootData is -1 at this point then invalid inputs in array, we are not handling that case here.
+    int LinS = inS;
+    int LinE = rootIndex - 1;
+    int RinS = rootIndex + 1;
+    int RinE = inE;
+    int LpreS = preS + 1;
+    int LpreE = LpreS + (LinE - LinS);
+    int RpreS = LpreE + 1;
+    int RpreE = preE;
 
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	root->left = buildTreeHelper(in, pre, LinS, LinE, LpreS, LpreE);
-	root->right = buildTreeHelper(in, pre, RinS, RinE, RpreS, RpreE);
-	return root;
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rootData);
+    root->left = buildTreeHelper(in, pre, LinS, LinE, LpreS, LpreE);
+    root->right = buildTreeHelper(in, pre, RinS, RinE, RpreS, RpreE);
+    return root;
 }
 
 /*
@@ -103,17 +103,17 @@ BinaryTreeNode<int>* buildTreeHelper(int* in, int* pre, int inS, int inE, int pr
 
  */
 
-BinaryTreeNode<int>* buildTree(int *preorder, int preLenght, int *inorder, int inLength) {
-	return buildTreeHelper(inorder, preorder, 0, inLength - 1, 0, preLenght - 1);	// Sending start and end index of preorder and inorder array.
+BinaryTreeNode<int> *buildTree(int *preorder, int preLenght, int *inorder, int inLength) {
+    return buildTreeHelper(inorder, preorder, 0, inLength - 1, 0, preLenght - 1); // Sending start and end index of preorder and inorder array.
 }
 
-int main(){
-	int in[] = {4,2,5,1,8,6,9,3,7};
-	int pre[] = {1,2,4,5,3,6,8,9,7};
-	int size = sizeof(pre) / sizeof(pre[0]);
-	BinaryTreeNode<int>* root = buildTree(pre, size, in, size);
-	printLevelWise(root);
-	delete root;
+int main() {
+    int in[] = {4, 2, 5, 1, 8, 6, 9, 3, 7};
+    int pre[] = {1, 2, 4, 5, 3, 6, 8, 9, 7};
+    int size = sizeof(pre) / sizeof(pre[0]);
+    BinaryTreeNode<int> *root = buildTree(pre, size, in, size);
+    printLevelWise(root);
+    delete root;
 }
 
 /*

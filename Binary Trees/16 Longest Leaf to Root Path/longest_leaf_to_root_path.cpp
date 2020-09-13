@@ -20,106 +20,106 @@
    5
  */
 
-#include <iostream>
 #include "BinaryTreeNode.h"
+#include <iostream>
 using namespace std;
 
-#include <queue>
 #include <algorithm>
+#include <queue>
 
-vector<vector<int>> ans;	// vector
+vector<vector<int>> ans; // vector
 
-BinaryTreeNode<int>* takeInputLevelWise() {
-	int rootData;
-	cout << "Enter root data" << endl;
-	cin >> rootData;
-	if(rootData == -1) {             // if data is -1 consider it as no child node.
-		return NULL;
-	}
+BinaryTreeNode<int> *takeInputLevelWise() {
+    int rootData;
+    cout << "Enter root data" << endl;
+    cin >> rootData;
+    if (rootData == -1) { // if data is -1 consider it as no child node.
+        return NULL;
+    }
 
-	BinaryTreeNode<int>* root = new BinaryTreeNode<int>(rootData);
-	queue<BinaryTreeNode<int>*> pendingNodes;               // queue used to input levelwise
-	pendingNodes.push(root);
+    BinaryTreeNode<int> *root = new BinaryTreeNode<int>(rootData);
+    queue<BinaryTreeNode<int> *> pendingNodes; // queue used to input levelwise
+    pendingNodes.push(root);
 
-	while(pendingNodes.size() != 0) {
-		BinaryTreeNode<int>* front = pendingNodes.front();
-		pendingNodes.pop();
+    while (pendingNodes.size() != 0) {
+        BinaryTreeNode<int> *front = pendingNodes.front();
+        pendingNodes.pop();
 
-		cout << "Enter left child of " << front->data << endl;
-		int leftChildData;
-		cin >> leftChildData;
-		if(leftChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(leftChildData);
-			front->left = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
+        cout << "Enter left child of " << front->data << endl;
+        int leftChildData;
+        cin >> leftChildData;
+        if (leftChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(leftChildData);
+            front->left = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
 
-		cout << "Enter right child of " << front->data << endl;
-		int rightChildData;
-		cin >> rightChildData;
-		if(rightChildData != -1) {
-			BinaryTreeNode<int>* child = new BinaryTreeNode<int>(rightChildData);
-			front->right = child;
-			pendingNodes.push(child);               // Push child node for inputing there child nodes.
-		}
-	}
-	return root;
+        cout << "Enter right child of " << front->data << endl;
+        int rightChildData;
+        cin >> rightChildData;
+        if (rightChildData != -1) {
+            BinaryTreeNode<int> *child = new BinaryTreeNode<int>(rightChildData);
+            front->right = child;
+            pendingNodes.push(child); // Push child node for inputing there child nodes.
+        }
+    }
+    return root;
 }
 
-void printPath(vector<int> vec){
-	for(int i = 0; i < vec.size(); i++) {
-		cout << vec[i] << endl;
-	}
+void printPath(vector<int> vec) {
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << endl;
+    }
 }
 
 /*
    This function finds the max length vector in ans and return the location
    of that vector.
  */
-vector<int>* findMaxPathVector(){
-	int maxSize = -1;
-	vector<int>* maxVec;
-	for(int i = 0; i < ans.size(); i++) {
-		int size = ans[i].size();
-		if(maxSize < size) {
-			maxSize = ans[i].size();
-			maxVec = &ans[i];		// Storing address of ans[i] to maxVec
-		}
-	}
-	reverse(maxVec->begin(), maxVec->end());
-	return maxVec;
+vector<int> *findMaxPathVector() {
+    int maxSize = -1;
+    vector<int> *maxVec;
+    for (int i = 0; i < ans.size(); i++) {
+        int size = ans[i].size();
+        if (maxSize < size) {
+            maxSize = ans[i].size();
+            maxVec = &ans[i]; // Storing address of ans[i] to maxVec
+        }
+    }
+    reverse(maxVec->begin(), maxVec->end());
+    return maxVec;
 }
 
 /*
    This function traverse all the nodes of vector and maintain path vector
    and then when it reaches leaf node it adds the path to ans vector.
  */
-void longestPathHelper(BinaryTreeNode<int>* root, vector<int> path){
-	if(root == NULL) {
-		return;
-	}
-	path.push_back(root->data);
-	if(root->left == NULL && root->right == NULL) {		// We reached leaf node, we will add the path vector to ans vector.
-		ans.push_back(path);
-	} else {
-		longestPathHelper(root->left, path);		// Traverse all the node of the vector
-		longestPathHelper(root->right, path);
-	}
+void longestPathHelper(BinaryTreeNode<int> *root, vector<int> path) {
+    if (root == NULL) {
+        return;
+    }
+    path.push_back(root->data);
+    if (root->left == NULL && root->right == NULL) { // We reached leaf node, we will add the path vector to ans vector.
+        ans.push_back(path);
+    } else {
+        longestPathHelper(root->left, path); // Traverse all the node of the vector
+        longestPathHelper(root->right, path);
+    }
 }
 
-vector<int>* longestPath(BinaryTreeNode<int>* root) {
-	vector<int> path;
-	longestPathHelper(root, path);
-	return findMaxPathVector();
+vector<int> *longestPath(BinaryTreeNode<int> *root) {
+    vector<int> path;
+    longestPathHelper(root, path);
+    return findMaxPathVector();
 }
 
-int main(){
-	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << endl;
-	vector<int>* result;
-	result = longestPath(root);
-	printPath(*result);
-	delete root;
+int main() {
+    BinaryTreeNode<int> *root = takeInputLevelWise();
+    cout << endl;
+    vector<int> *result;
+    result = longestPath(root);
+    printPath(*result);
+    delete root;
 }
 
 /*

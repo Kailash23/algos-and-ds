@@ -39,75 +39,75 @@ using namespace std;
 
 #include <climits>
 
-int findMinVertex(int* distance, bool* visited, int v){
-	int minVertex = -1;
-	for(int i = 0; i < v; i++){
-	    if(!visited[i] && ( minVertex == -1 || distance[i] < distance[minVertex])){
-			minVertex = i;
-		}
-	}
-	return minVertex;
+int findMinVertex(int *distance, bool *visited, int v) {
+    int minVertex = -1;
+    for (int i = 0; i < v; i++) {
+        if (!visited[i] && (minVertex == -1 || distance[i] < distance[minVertex])) {
+            minVertex = i;
+        }
+    }
+    return minVertex;
 }
 
-void dijkstra(int** edges, int v){
-	int* distance = new int[v];
-	bool* visited = new bool[v];
+void dijkstra(int **edges, int v) {
+    int *distance = new int[v];
+    bool *visited = new bool[v];
 
-	for(int i = 0; i < v; i++) {
-		distance[i] = INT_MAX;
-		visited[i] = false;
-	}
+    for (int i = 0; i < v; i++) {
+        distance[i] = INT_MAX;
+        visited[i] = false;
+    }
 
-	distance[0] = 0;
-	/*
+    distance[0] = 0;
+    /*
 		Time Complexity :
 		(v - 1) * 2v = O(v^2) // of this algorithm
 		But we can achieve : (v + e) log v
 	*/
-	for(int i = 0; i < v - 1; i++) {			// v - 1
-		int minVertexIndex = findMinVertex(distance, visited, v);		// v
-		visited[minVertexIndex] = true;
-		for(int j = 0; j < v; j++){			// v
-		    if(edges[minVertexIndex][j] != 0 && !visited[j]){
-				int dist = distance[minVertexIndex] + edges[minVertexIndex][j];
-				if(dist < distance[j]){
-					distance[j] = dist;
-				}
-			}
-		}
-	}
+    for (int i = 0; i < v - 1; i++) {                             // v - 1
+        int minVertexIndex = findMinVertex(distance, visited, v); // v
+        visited[minVertexIndex] = true;
+        for (int j = 0; j < v; j++) { // v
+            if (edges[minVertexIndex][j] != 0 && !visited[j]) {
+                int dist = distance[minVertexIndex] + edges[minVertexIndex][j];
+                if (dist < distance[j]) {
+                    distance[j] = dist;
+                }
+            }
+        }
+    }
 
-	for(int i = 0; i < v; i++){
-	    cout << i << " " << distance[i] << endl;
-	}
-	delete [] visited;
-	delete [] distance;
+    for (int i = 0; i < v; i++) {
+        cout << i << " " << distance[i] << endl;
+    }
+    delete[] visited;
+    delete[] distance;
 }
 
-int main(){
-	int v, e;
-	cin >> v >> e;
-	int** edges = new int*[v];
-	for(int i = 0; i < v; i++) {
-		edges[i] = new int[v];
-		for(int j = 0; j < v; j++) {
-			edges[i][j] = 0;
-		}
-	}
+int main() {
+    int v, e;
+    cin >> v >> e;
+    int **edges = new int *[v];
+    for (int i = 0; i < v; i++) {
+        edges[i] = new int[v];
+        for (int j = 0; j < v; j++) {
+            edges[i][j] = 0;
+        }
+    }
 
-	for(int i = 0; i < e; i++) {
-		int f, s, weight;
-		cin >> f >> s >> weight;
-		edges[f][s] = weight;
-		edges[s][f] = weight;
-	}
-	cout << endl;
-	dijkstra(edges, v);
+    for (int i = 0; i < e; i++) {
+        int f, s, weight;
+        cin >> f >> s >> weight;
+        edges[f][s] = weight;
+        edges[s][f] = weight;
+    }
+    cout << endl;
+    dijkstra(edges, v);
 
-	for(int i = 0; i < v; i++) {
-		delete [] edges[i];
-	}
-	delete [] edges;
+    for (int i = 0; i < v; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
 }
 
 /*

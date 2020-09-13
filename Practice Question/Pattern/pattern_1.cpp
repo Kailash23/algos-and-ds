@@ -1,25 +1,25 @@
 #include <iostream>
 using namespace std;
 
-void printPattern(int n){
-	int count = 1;
-	for(int i = n - 1 ; i >= 0; i--){
-	    int space = i;
-		while(space > 0){
-			cout << " ";
-			space--;
-		}
-		for(int j = n; j > i; j--){
-		    cout << count++ << " ";
-		}
-		cout << endl;
-	}
+void printPattern(int n) {
+    int count = 1;
+    for (int i = n - 1; i >= 0; i--) {
+        int space = i;
+        while (space > 0) {
+            cout << " ";
+            space--;
+        }
+        for (int j = n; j > i; j--) {
+            cout << count++ << " ";
+        }
+        cout << endl;
+    }
 }
 
-int main(){
-	int n;
-	cin >> n;
-	printPattern(n);
+int main() {
+    int n;
+    cin >> n;
+    printPattern(n);
 }
 
 /*

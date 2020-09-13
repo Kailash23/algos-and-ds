@@ -24,32 +24,31 @@
 	Sample Output 2:  1
  */
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
 
 int i = 0;
 
-int depthHelper(char str[]){
-	if(strlen(str) <= i) {
-		return 0;
-	}
-	if(str[i] == 'l') {
-		return 1;
-	}
-	i++;
-	int dep1 = 1 + depthHelper(str);
-	i++;
-	int dep2 = 1 + depthHelper(str);
-	return max(dep1, dep2);
+int depthHelper(char str[]) {
+    if (strlen(str) <= i) {
+        return 0;
+    }
+    if (str[i] == 'l') {
+        return 1;
+    }
+    i++;
+    int dep1 = 1 + depthHelper(str);
+    i++;
+    int dep2 = 1 + depthHelper(str);
+    return max(dep1, dep2);
 }
 
 int depth(char str[]) {
-	return depthHelper(str)-1;
+    return depthHelper(str) - 1;
 }
 
-
-int main(){
-	char str[] = "nnllnll";
-	cout<< depth(str);
+int main() {
+    char str[] = "nnllnll";
+    cout << depth(str);
 }

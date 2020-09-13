@@ -34,78 +34,78 @@ using namespace std;
 
 #include <vector>
 
-void DFS(int** edges, int n, int sv, bool* visited){
-	visited[sv] = true;
-	for(int i = 0; i < n; i++) {
-		if(i == sv) {
-			continue;
-		}
-		if(edges[sv][i] == 1 && !visited[i]) {
-			DFS(edges, n, i, visited);
-		}
-	}
+void DFS(int **edges, int n, int sv, bool *visited) {
+    visited[sv] = true;
+    for (int i = 0; i < n; i++) {
+        if (i == sv) {
+            continue;
+        }
+        if (edges[sv][i] == 1 && !visited[i]) {
+            DFS(edges, n, i, visited);
+        }
+    }
 }
 
-int solve(int n, int m, vector<int> u, vector<int> v){
-	int** edges = new int*[n];
-	for(int i = 0; i < n; i++) {
-		edges[i] = new int[n];
-		for(int j = 0; j < n; j++) {
-			edges[i][j] = 0;
-		}
-	}
+int solve(int n, int m, vector<int> u, vector<int> v) {
+    int **edges = new int *[n];
+    for (int i = 0; i < n; i++) {
+        edges[i] = new int[n];
+        for (int j = 0; j < n; j++) {
+            edges[i][j] = 0;
+        }
+    }
 
-	for(int i = 0; i < m; i++) {
-		int f = v[i] - 1;
-		int s = u[i] - 1;
-		edges[s][f] = 1;
-		edges[f][s] = 1;
-	}
+    for (int i = 0; i < m; i++) {
+        int f = v[i] - 1;
+        int s = u[i] - 1;
+        edges[s][f] = 1;
+        edges[f][s] = 1;
+    }
 
-	bool* visited = new bool[n];
-	for(int i = 0; i < n; i++) {
-		visited[i] = false;
-	}
+    bool *visited = new bool[n];
+    for (int i = 0; i < n; i++) {
+        visited[i] = false;
+    }
 
-	int count = 0;
-	for(int i = 0; i < n; i++) {
-		if(!visited[i]) {
-			count++;
-			DFS(edges, n, i, visited);
-		}
-		bool check = visited[0];
-		for(int i = 1; i < n; i++) {
-			check = check && visited[i];
-		}
-		if(check) {
-			return count;
-		}
-	}
-	for(int i = 0; i < n; i++) {
-		delete [] edges[i];
-	}
-	delete [] edges;
-	delete [] visited;
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (!visited[i]) {
+            count++;
+            DFS(edges, n, i, visited);
+        }
+        bool check = visited[0];
+        for (int i = 1; i < n; i++) {
+            check = check && visited[i];
+        }
+        if (check) {
+            return count;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        delete[] edges[i];
+    }
+    delete[] edges;
+    delete[] visited;
 }
 
-int main(){
-	int N, M;
-	cin >> N >> M;
+int main() {
+    int N, M;
+    cin >> N >> M;
 
-	vector<int> u;
-	for(int i = 0; i < M; i++) {
-		int n;
-		cin >> n;
-		u.push_back(n);
-	}
+    vector<int> u;
+    for (int i = 0; i < M; i++) {
+        int n;
+        cin >> n;
+        u.push_back(n);
+    }
 
-	vector<int> v;
-	for(int i = 0; i < M; i++) {
-		int n;
-		cin >> n;
-		v.push_back(n);
-	}
-	cout << solve(N, M, u, v);
+    vector<int> v;
+    for (int i = 0; i < M; i++) {
+        int n;
+        cin >> n;
+        v.push_back(n);
+    }
+    cout << solve(N, M, u, v);
 }
 
 /*

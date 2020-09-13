@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-#include "Vehicle.cpp"
+#include "Bus.cpp"
 #include "Car.cpp"
 #include "Truck.cpp"
-#include "Bus.cpp"
+#include "Vehicle.cpp"
 
 int main() {
-	Bus b;
-	b.print();
-	b.Car :: print();
-	b.Truck :: print();
-	//b.Vehicle :: print();		// This will give error: 'Vehicle' is an ambiguous base of 'Bus'
+    Bus b;
+    b.print();
+    b.Car ::print();
+    b.Truck ::print();
+    //b.Vehicle :: print();		// This will give error: 'Vehicle' is an ambiguous base of 'Bus'
 }
 
 /*
