@@ -7,25 +7,26 @@
 #include <iostream>
 using namespace std;
 
-int FindNum(int arr[], int n) {
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += arr[i];
+int findDuplicate(int numbers[], int size) {
+    int actualSum = 0;
+    for (int i = 0; i < size; i++) {
+        actualSum += numbers[i];
     }
-    int nsum = ((n - 1) * (n - 2)) / 2;
-    return sum - nsum;
+    int expectedSum = ((size - 1) * (size - 2)) / 2;
+    return actualSum - expectedSum;
 }
 
 int main() {
-    int arr[] = {0, 7, 2, 5, 4, 7, 1, 3, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    cout << FindNum(arr, n);
+    int numbers[] = {0, 7, 2, 5, 4, 7, 1, 3, 6};
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+    cout << "The duplicate number is: " << findDuplicate(numbers, size) << endl;
 }
 
 /*
-   7
+  Output: The duplicate number is: 7
  */
 
+// Note
 /*
    1 + 2 + ... + n = n(n + 1) / 2, for n a natural number.
 */

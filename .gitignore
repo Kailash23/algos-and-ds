@@ -36,4 +36,6 @@
 
 # ignore a file type
 *.out
+.DS_Store
+
 
