@@ -4,6 +4,7 @@
    is present in the given array at least once and one number is present twice.
    You need to find and return that duplicate number present in the array.
  */
+
 #include <iostream>
 using namespace std;
 
@@ -26,7 +27,14 @@ int main() {
   Output: The duplicate number is: 7
  */
 
-// Note
 /*
    1 + 2 + ... + n = n(n + 1) / 2, for n a natural number.
 */
+
+/**
+ * Time Complexity : O(n) - where n is the size of the array
+ * The function iterates once over the array of size elements to compute the sum of its elements. This operation has a time complexity of O(n)
+ * The expected sum calculation ((size - 1) * (size - 2)) / 2 is a constant time operation, O(1)
+ *
+ * Space Complexity : O(1) -  Uses a fixed number of integer variables.
+ */

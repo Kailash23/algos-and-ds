@@ -4,14 +4,9 @@
    So no need to return or print anything.
  */
 
+#include "../../include/utils.hpp"
 #include <iostream>
 using namespace std;
-
-void PrintArray(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-}
 
 void sort012(int arr[], int n) { // 1 scan
     int nz = 0;
@@ -28,7 +23,7 @@ void sort012(int arr[], int n) { // 1 scan
             i--; // We will check again for new replaced value of i (i  - unchanged because value got exchanged)
         }
     }
-    PrintArray(arr, n);
+    util::printArray(arr, n);
 }
 
 int main() {

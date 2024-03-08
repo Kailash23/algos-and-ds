@@ -2,10 +2,10 @@
    Given an N * N integer square matrix, rotate it by 90 degrees in anti-clockwise direction.
  */
 
+#include "../../include/utils.hpp"
 #include <cstdlib>
 #include <iostream>
 using namespace std;
-#include "../include/utils.hpp"
 
 void rotateAntiClockwise(int **matrix, int size) {
     for (int row = 0; row < size; row++) {

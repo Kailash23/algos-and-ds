@@ -3,7 +3,7 @@
    array such that the third array is also sorted.
  */
 
-#include "../include/utils.hpp"
+#include "../../include/utils.hpp"
 #include <iostream>
 using namespace std;
 
