@@ -17,6 +17,11 @@ You just have recover original array.
 using namespace std;
 
 void recoverArray(int source[], int rearranged[], int length) {
+    // Edge case: empty or invalid length
+    if (length <= 0) {
+        return;
+    }
+
     int leftIndex, rightIndex;
     int middleIndex = length / 2;
     int i = 0;

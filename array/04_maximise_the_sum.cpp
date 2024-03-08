@@ -20,6 +20,7 @@
 using namespace std;
 
 long maxPathSum(int array1[], int array2[], int len1, int len2) {
+
     int sumArray1 = 0, sumArray2 = 0, totalMaxSum = 0;
     int index1 = 0, index2 = 0;
 
@@ -50,13 +51,13 @@ long maxPathSum(int array1[], int array2[], int len1, int len2) {
 }
 
 int main() {
-    int array1[] = {1, 5, 10, 15, 20, 25};
+    int array1[] = {};
     int len1 = sizeof(array1) / sizeof(array1[0]);
 
-    int array2[] = {2, 4, 5, 9, 15};
+    int array2[] = {};
     int len2 = sizeof(array2) / sizeof(array2[0]);
 
-    cout << maxPathSum(array1, array2, len1, len2);
+    cout << maxPathSum(array1, array2, len1, len2) << endl;
 }
 
 // Dry Run

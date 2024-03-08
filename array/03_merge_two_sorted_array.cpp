@@ -8,6 +8,11 @@
 using namespace std;
 
 int *merge(int sortedArray1[], int sizeArray1, int sortedArray2[], int sizeArray2) {
+    // Edge cases: one or both input arrays are empty
+    if (sizeArray1 == 0 && sizeArray2 == 0) {
+        return nullptr;
+    }
+
     int *mergedArray = new int[sizeArray1 + sizeArray2];
 
     int indexArray1 = 0, indexArray2 = 0;
