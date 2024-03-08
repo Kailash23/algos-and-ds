@@ -79,3 +79,10 @@ int main() {
 
    Found at location: (4, 2)
  */
+
+/**
+ * Time Complexity : O(rows + columns)
+ * The search process involves moving left or down based on the comparison, ensuring that each step eliminates either one row or one column from the search space.
+ *
+ * Space Complexity : O(1)
+ */

@@ -17,8 +17,8 @@ You just have recover original array.
 using namespace std;
 
 void recoverArray(int source[], int rearranged[], int length) {
-    // Edge case: empty or invalid length
     if (length <= 0) {
+        cout << "Array is empty.";
         return;
     }
 
@@ -96,7 +96,8 @@ int main() {
 // 0 -1, +1, -2, +2 -> Can be solved by maintaining 2 pointer
 
 /**
- * Time Complexity :
+ * Time Complexity : O (n) - n is the length of the input array.
+ * This linear time complexity arises because each element is visited and processed exactly once to construct the rearranged array.
  *
- * Space Complexity :
+ * Space Complexity : O(n)
  */

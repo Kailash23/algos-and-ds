@@ -8,8 +8,8 @@
 using namespace std;
 
 int *merge(int sortedArray1[], int sizeArray1, int sortedArray2[], int sizeArray2) {
-    // Edge cases: one or both input arrays are empty
     if (sizeArray1 == 0 && sizeArray2 == 0) {
+        cout << "Both arrays are empty. Nothing to merge.";
         return nullptr;
     }
 
@@ -56,4 +56,10 @@ int main() {
 
 /*
    0 1 2 2 3 4 5 6 7 8 9 10 11 14 22 123 200
+ */
+
+/**
+ * Time Complexity : O(m + n) -> m - size of array 1, n - size of array 2
+ *
+ * Space Complexity :O(m + n) -> m - size of array 1, n - size of array 2
  */

@@ -99,3 +99,9 @@ Keep doing this until you have collected all the treasures from the best path.
 What's the maximum treasure you can collect? For the example above, you would collect treasures worth a total of 81.
 
 */
+
+/**
+ * Time Complexity: O(len1 + len2) :  The solution iterates through each element of both arrays at most once.
+ *
+ * Space Complexity: O(1)
+ */

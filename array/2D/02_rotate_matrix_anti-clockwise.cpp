@@ -72,3 +72,18 @@ int main() {
         }
         delete [] arr;		// Array deletion 2D
 */
+
+/**
+ * The code dynamically allocates memory for a 2D array and correctly deallocates it after use,
+ * which is good practice to avoid memory leaks. However, in modern C++, it's recommended to use
+ * std::vector or other RAII (Resource Acquisition Is Initialization) containers that automatically
+ * manage memory, simplifying code and reducing the risk of errors.
+ */
+
+/**
+ * Time Complexity: O(N^2)
+ * - The first loop goes through the matrix to transpose it. It iterates through each element above the diagonal once. For a square matrix of size N, this involves roughly N^2 / 2 operations
+ * - The second loop loop iteration over the rows (row < size / 2) effectively swaps the top row with the bottom row, moving towards the center.
+ *
+ * Space Complexity: O(1)
+ */
