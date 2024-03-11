@@ -7,29 +7,21 @@
 #include <iostream>
 using namespace std;
 
-void pushZerosToEnd(int array[], int length) {
-    int nonZeroIndex = 0;
-    int zeroCount = 0;
-
-    for (int i = 0; i < length; i++) {
-        if (array[i] != 0) {
-            array[nonZeroIndex++] = array[i];
-        } else {
-            zeroCount++;
+void pushZerosToEnd(int array[], int size) {
+    int nextNonZeroIndex = 0;
+    for (int currentIndex = 0; currentIndex < size; currentIndex++) {
+        if (array[currentIndex] != 0) {
+            swap(array[nextNonZeroIndex], array[currentIndex]);
+            nextNonZeroIndex++;
         }
     }
-
-    for (int i = 0; i < zeroCount; i++) {
-        array[nonZeroIndex++] = 0;
-    }
-
-    util::printArray(array, length);
+    util::printArray(array, size);
 }
 
 int main() {
     int array[] = {1, 2, 0, 0, 2, 0, 3, 4, 0};
-    int length = sizeof(array) / sizeof(array[0]);
-    pushZerosToEnd(array, length);
+    int size = sizeof(array) / sizeof(array[0]);
+    pushZerosToEnd(array, size);
 }
 
 /**
