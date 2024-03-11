@@ -8,52 +8,33 @@
 #include <iostream>
 using namespace std;
 
-void sort012(int arr[], int n) { // 1 scan
-    int nz = 0;
-    int nt = n - 1;
-    int i = 0;
+void sortZeroesOnesTwos(int array[], int length) {
+    int zeroIndex = 0;
+    int twoIndex = length - 1;
+    int currentIndex = 0;
 
-    for (i = 0; i <= nt; i++) {
-        if (arr[i] == 0) {
-            swap(arr[i], arr[nz]);
-            nz++;
-        } else if (arr[i] == 2) {
-            swap(arr[i], arr[nt]);
-            nt--;
-            i--; // We will check again for new replaced value of i (i  - unchanged because value got exchanged)
+    while (currentIndex <= twoIndex) {
+        if (array[currentIndex] == 0) {
+            swap(array[currentIndex], array[zeroIndex]);
+            zeroIndex++;
+            currentIndex++;
+        } else if (array[currentIndex] == 2) {
+            swap(array[currentIndex], array[twoIndex]);
+            twoIndex--;
+            // No increment for currentIndex here because we need to check the element swapped from twoIndex
+        } else {            // Case for 1
+            currentIndex++; // Move to the next element if it's 1
         }
     }
-    util::printArray(arr, n);
+    util::printArray(array, length);
 }
 
 int main() {
-    int arr[] = {0, 1, 2, 0, 1, 2, 0, 1, 2};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    sort012(arr, n);
+    int array[] = {0, 1, 2, 0, 1, 2, 0, 1, 2};
+    int length = sizeof(array) / sizeof(array[0]);
+    sortZeroesOnesTwos(array, length);
 }
 
 /*
    0 0 0 1 1 1 2 2 2
- */
-
-/*
-    void sort012(int arr[], int n)  {		// 2 scan
-        int pivot = 1;
-        int pIndex = 0;
-        int i;
-        int pIndex2 = 0;
-        for( i = 0; i < n; i++) {
-            if(arr[i] <= pivot) {
-                swap(arr[i], arr[pIndex]);
-                pIndex++;
-            }
-        }
-        for( i = 0; i < pIndex; i++) {
-            if(arr[i] < pivot) {
-                swap(arr[i], arr[pIndex2]);
-                pIndex2++;
-            }
-        }
-        PrintArray(arr, n);
-    }
  */
