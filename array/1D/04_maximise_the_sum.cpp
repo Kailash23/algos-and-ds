@@ -46,6 +46,7 @@ long maxPathSum(int array1[], int array2[], int len1, int len2) {
         sumArray2 += array2[index2];
         index2++;
     }
+
     totalMaxSum += max(sumArray1, sumArray2);
     return totalMaxSum;
 }
