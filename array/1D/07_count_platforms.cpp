@@ -42,3 +42,9 @@ int main() {
 /**
  * Minimum number of platforms needed: 3
  */
+
+/**
+ * Time complexity:
+ * Sorting - 2 * O (n log n)
+ *
+ */
