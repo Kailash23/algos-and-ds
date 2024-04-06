@@ -11,32 +11,29 @@
 
 using namespace std;
 
-void reverse(char arr[], int start, int end) {
-    while (start < end) {
-        swap(arr[start], arr[end]);
-        start++;
-        end--;
+void reverseWord(int startInd, int endInd, char input[]) {
+    while (startInd < endInd) {
+        swap(input[startInd], input[endInd]);
+        startInd++;
+        endInd--;
     }
 }
 
 void reverseStringWordWise(char input[]) {
     int len = strlen(input);
-    reverse(input, 0, len - 1); // reversing the whole string
+    reverseWord(0, len - 1, input);
+    int wordStartIndex = 0;
 
-    int start = 0;
-    int end = 0;
-
-    for (int i = 0; i <= len; i++) { // Now reversing each word
-        if (input[i] == ' ' || input[i] == '\0') {
-            end = i - 1; // end will be alphabet before space or \0
-            reverse(input, start, end);
-            start = i + 1; // start for the next word will be next char after space
+    for (int charIndex = 0; charIndex < len + 1; charIndex++) {
+        if (input[charIndex] == ' ' || input[charIndex] == '\0') {
+            reverseWord(wordStartIndex, charIndex - 1, input);
+            wordStartIndex = charIndex + 1;
         }
-    }
-    cout << input << endl;
+    };
 }
 
 int main() {
     char arr[] = {"Reverse String Word Wise!"};
     reverseStringWordWise(arr);
-}
+    cout << arr << endl;
+};
