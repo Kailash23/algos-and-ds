@@ -75,7 +75,7 @@ int main() {
                memset(visited, 0, sizeof(visited));
                cur_len = 0;
            }
- 	   	++i;
+                ++i;
        }
 
        int s = 0;
