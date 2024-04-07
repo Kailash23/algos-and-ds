@@ -33,7 +33,7 @@ void reverseStringWordWise(char input[]) {
 }
 
 int main() {
-    char sentence[] = {"Reverse String Word Wise!"};
+    char sentence[] = "Reverse String Word Wise!";
     reverseStringWordWise(sentence);
     cout << sentence << endl;
 };
